@@ -97,11 +97,11 @@ def kpi_card(label, valor, diff_abs, diff_pct, prefijo="", sufijo="", decimales=
         flecha = "▲" if diff_abs >= 0 else "▼"
         clase = "kpi-delta-pos" if diff_abs >= 0 else "kpi-delta-neg"
         if modo == "abs":
-            fmt_delta = prefijo + "{:+,.{dec}f}".format(diff_abs, dec=decimales) + " vs dato anterior"
+            fmt_delta = prefijo + "{:+,.{dec}f}".format(diff_abs, dec=decimales) + " vs día anterior"
         elif modo == "pp":
-            fmt_delta = "{:+.1f} p.p. vs dato anterior".format(diff_abs)
+            fmt_delta = "{:+.2f} p.p. vs día anterior".format(diff_abs)
         else:  # pct
-            fmt_delta = "{} {:.1f}% vs día anterior".format(flecha, abs(diff_pct))
+            fmt_delta = "{} {:.2f}% vs día anterior".format(flecha, abs(diff_pct))
         html = f"<div class='kpi-card'><div class='kpi-label'>{label}</div><div class='kpi-value'>{fmt_valor}</div><div class='{clase}'>{fmt_delta}</div></div>"
     st.markdown(html, unsafe_allow_html=True)
 
@@ -115,10 +115,10 @@ with k2:
     v, da, dp = get_kpi(df, "base_monetaria")
     kpi_card("Base Monetaria ($ MM)", v, da, dp, prefijo="$ ", decimales=0, modo="pct")
 with k3:
-    v, da, dp = get_kpi(df, "tc_minorista")
+    v, da, dp = get_kpi(df, "tc_mayorista")
     kpi_card("TC Minorista", v, da, dp, prefijo="$ ", decimales=2, modo="pct")
 with k4:
-    v, da, dp = get_kpi(df, "tc_mayorista")
+    v, da, dp = get_kpi(df, "tc_minorista")
     kpi_card("TC Mayorista A3500", v, da, dp, prefijo="$ ", decimales=2, modo="pct")
 with k5:
     v, da, dp = get_kpi(df, "inflacion_mensual")
@@ -262,7 +262,7 @@ with tabs[0]:
                  sufijo=" USD MM", key="t0_compras")
     a, b = st.columns(2)
     with a:
-        g2(df_f, "tc_minorista", "Minorista", "tc_mayorista", "Mayorista A3500",
+        g2(df_f, "tc_mayorista", "Minorista", "tc_minorista", "Mayorista A3500",
            "Tipo de Cambio Oficial ($)", sufijo=" $", key="t0_tc")
     with b:
         g1(df_f, "depositos_usd",
