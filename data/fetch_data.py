@@ -14,35 +14,41 @@ HACE_1_ANO = (datetime.today() - timedelta(days=365)).strftime("%Y-%m-%d")
 
 os.makedirs("data", exist_ok=True)
 
-# ── Variables con IDs conocidos y confirmados ────────────────────────────────
-# ID 1  = Reservas internacionales (USD MM)
-# ID 4  = TC Oficial Mayorista COM A3500
-# ID 5  = TC Oficial Minorista BNA
-# ID 15 = Base Monetaria ($ MM)
-# ID 17 = Depositos totales ($ MM)
-# ID 18 = Creditos totales ($ MM)
-# ID 25 = M2 privado - PM 30 dias - var interanual (%)
-# ID 27 = BADLAR bancos privados (% TNA)
-# ID 28 = TAMAR (% TNA)
-# ID 30 = Depositos en dolares sector privado (USD MM)
-# ID 31 = Inflacion mensual IPC (%)
-# ID 32 = Inflacion interanual IPC (%)
-# ID 45 = REM - Inflacion esperada proximos 12 meses mediana (% i.a.)
+# ── Variables confirmadas en API v4.0 ────────────────────────────────────────
+# ID 1   = Reservas internacionales (USD MM)
+# ID 4   = TC Oficial Mayorista COM A3500
+# ID 5   = TC Oficial Minorista BNA
+# ID 7   = BADLAR bancos privados (% TNA)
+# ID 15  = Base Monetaria ($ MM)
+# ID 17  = Depositos totales ($ MM)
+# ID 18  = Creditos totales ($ MM)
+# ID 25  = M2 privado - PM 30 dias - var interanual (%)
+# ID 26  = Prestamos al sector privado ($ MM)
+# ID 27  = Inflacion mensual IPC (%) — dato mensual
+# ID 28  = Inflacion interanual IPC (%) — dato mensual
+# ID 29  = REM inflacion esperada 12m mediana (% i.a.) — dato mensual
+# ID 44  = TAMAR bancos privados (% TNA)
+# ID 78  = Compras netas de divisas BCRA (USD MM)
+# ID 108 = Depositos en dolares sector privado (USD MM)
+# ID 197 = M2 transaccional sector privado ($ MM)
 
 VARIABLES = {
-    1:  "reservas",
-    4:  "tc_mayorista",
-    5:  "tc_minorista",
-    15: "base_monetaria",
-    17: "depositos",
-    18: "creditos",
-    25: "m2_privado",
-    7: "badlar",
-    44: "tamar",
-    30: "depositos_usd",
-    27: "inflacion_mensual",
-    28: "inflacion_interanual",
-    29: "rem_inflacion",
+    1:   "reservas",
+    4:   "tc_mayorista",
+    5:   "tc_minorista",
+    7:   "badlar",
+    15:  "base_monetaria",
+    17:  "depositos",
+    18:  "creditos",
+    25:  "m2_privado",
+    26:  "prestamos_priv",
+    27:  "inflacion_mensual",
+    28:  "inflacion_interanual",
+    29:  "rem_inflacion",
+    44:  "tamar",
+    78:  "compras_usd_bcra",
+    108: "depositos_usd",
+    197: "m2_transaccional",
 }
 
 def fetch_variable(id_var, nombre):
@@ -57,7 +63,6 @@ def fetch_variable(id_var, nombre):
         if not resultados:
             print(f"  Sin resultados — {nombre}")
             return None
-        # La v4.0 devuelve results como lista con un objeto que tiene "detalle"
         if isinstance(resultados[0], dict) and "detalle" in resultados[0]:
             detalle = resultados[0]["detalle"]
         else:
@@ -89,9 +94,10 @@ if df_final is not None:
     df_final.sort_values("fecha", inplace=True)
     df_final.reset_index(drop=True, inplace=True)
     df_final.to_csv("data/bcra_data.csv", index=False)
-    print(f"\n OK CSV guardado: {len(df_final)} filas hasta {HOY}")
+    print(f"\n  OK CSV guardado: {len(df_final)} filas hasta {HOY}")
     print(df_final.tail(3).to_string())
 else:
     print("ERROR: No se pudieron obtener datos de ninguna variable")
 
 print("=== FIN fetch_data.py ===")
+
