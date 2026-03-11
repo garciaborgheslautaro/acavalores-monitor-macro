@@ -72,44 +72,57 @@ df_f = df[(df["fecha"].dt.date >= desde) & (df["fecha"].dt.date <= hasta)].copy(
 
 # ── KPI helpers ────────────────────────────────────────────────────────────────
 def get_kpi(df, col):
+    """Retorna (valor_actual, diferencia_absoluta, diferencia_pct)"""
     if col not in df.columns:
-        return None, None
+        return None, None, None
     serie = df[["fecha", col]].dropna()
     if len(serie) < 2:
-        return None, None
+        return None, None, None
     valor = float(serie.iloc[-1][col])
     anterior = float(serie.iloc[-2][col])
-    pct = ((valor - anterior) / anterior * 100) if anterior != 0 else 0
-    return valor, pct
+    diff_abs = valor - anterior
+    diff_pct = ((valor - anterior) / anterior * 100) if anterior != 0 else 0
+    return valor, diff_abs, diff_pct
 
-def kpi_card(label, valor, pct, prefijo="", sufijo="", decimales=0):
+def kpi_card(label, valor, diff_abs, diff_pct, prefijo="", sufijo="", decimales=0, modo="pct"):
+    """
+    modo='pct'  → muestra variación en %
+    modo='abs'  → muestra variación en valor absoluto (con prefijo/sufijo)
+    modo='pp'   → muestra variación en puntos porcentuales
+    """
     if valor is None:
         html = f"<div class='kpi-card'><div class='kpi-label'>{label}</div><div class='kpi-value'>-</div><div class='kpi-delta-neu'>Sin datos</div></div>"
     else:
-        fmt = prefijo + "{:,.{dec}f}".format(valor, dec=decimales) + sufijo
-        flecha = "▲" if pct >= 0 else "▼"
-        clase = "kpi-delta-pos" if pct >= 0 else "kpi-delta-neg"
-        html = f"<div class='kpi-card'><div class='kpi-label'>{label}</div><div class='kpi-value'>{fmt}</div><div class='{clase}'>{flecha} {abs(pct):.2f}% vs día anterior</div></div>"
+        fmt_valor = prefijo + "{:,.{dec}f}".format(valor, dec=decimales) + sufijo
+        flecha = "▲" if diff_abs >= 0 else "▼"
+        clase = "kpi-delta-pos" if diff_abs >= 0 else "kpi-delta-neg"
+        if modo == "abs":
+            fmt_delta = prefijo + "{:+,.{dec}f}".format(diff_abs, dec=decimales) + " vs día anterior"
+        elif modo == "pp":
+            fmt_delta = "{:+.2f} p.p. vs día anterior".format(diff_abs)
+        else:  # pct
+            fmt_delta = "{} {:.2f}% vs día anterior".format(flecha, abs(diff_pct))
+        html = f"<div class='kpi-card'><div class='kpi-label'>{label}</div><div class='kpi-value'>{fmt_valor}</div><div class='{clase}'>{fmt_delta}</div></div>"
     st.markdown(html, unsafe_allow_html=True)
 
 # ── KPI Cards ──────────────────────────────────────────────────────────────────
 st.markdown("### Indicadores del día")
 k1, k2, k3, k4, k5 = st.columns(5)
 with k1:
-    v, p = get_kpi(df, "reservas")
-    kpi_card("Reservas (USD MM)", v, p, prefijo="USD ", decimales=0)
+    v, da, dp = get_kpi(df, "reservas")
+    kpi_card("Reservas (USD MM)", v, da, dp, prefijo="USD ", decimales=0, modo="abs")
 with k2:
-    v, p = get_kpi(df, "base_monetaria")
-    kpi_card("Base Monetaria ($ MM)", v, p, prefijo="$ ", decimales=0)
+    v, da, dp = get_kpi(df, "base_monetaria")
+    kpi_card("Base Monetaria ($ MM)", v, da, dp, prefijo="$ ", decimales=0, modo="pct")
 with k3:
-    v, p = get_kpi(df, "tc_mayorista")
-    kpi_card("TC Mayorista A3500", v, p, prefijo="$ ", decimales=2)
+    v, da, dp = get_kpi(df, "tc_minorista")
+    kpi_card("TC Minorista", v, da, dp, prefijo="$ ", decimales=2, modo="pct")
 with k4:
-    v, p = get_kpi(df, "tc_minorista")
-    kpi_card("TC Minorista BNA", v, p, prefijo="$ ", decimales=2)
+    v, da, dp = get_kpi(df, "tc_mayorista")
+    kpi_card("TC Mayorista A3500", v, da, dp, prefijo="$ ", decimales=2, modo="pct")
 with k5:
-    v, p = get_kpi(df, "inflacion_mensual")
-    kpi_card("Inflación Mensual", v, p, sufijo="%", decimales=1)
+    v, da, dp = get_kpi(df, "inflacion_mensual")
+    kpi_card("Inflación Mensual", v, da, dp, sufijo="%", decimales=1, modo="pp")
 
 st.divider()
 
@@ -125,7 +138,7 @@ COLORES = {
     "m2_privado":             "#00BFFF",
     "m2_transaccional":       "#63B3ED",
     "depositos_usd":          "#68D391",
-    "compras_usd_bcra":       "#F6AD55",
+    "compras_usd_bcra":       "#48BB78",
     "badlar":                 "#F687B3",
     "tamar":                  "#B794F4",
     "inflacion_mensual":      "#FC8181",
@@ -164,14 +177,13 @@ def g1(df, col, titulo, sufijo="", color=None, key=None):
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key or col)
 
-def g_barras(df, col, titulo, sufijo="", color=None, key=None):
-    """Gráfico de barras — ideal para compras diarias de USD."""
+def g_barras(df, col, titulo, sufijo="", key=None):
+    """Barras verde/rojo según signo."""
     if col not in df.columns:
         st.caption(f"Variable '{col}' no disponible aún.")
         return
-    color = color or COLORES.get(col, "#00BFFF")
     dp = df[["fecha", col]].dropna(subset=[col])
-    colores_barras = [color if v >= 0 else "#FC8181" for v in dp[col]]
+    colores_barras = ["#48BB78" if v >= 0 else "#FC8181" for v in dp[col]]
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=dp["fecha"], y=dp[col], name=titulo,
@@ -181,7 +193,6 @@ def g_barras(df, col, titulo, sufijo="", color=None, key=None):
     layout = dict(LAYOUT_BASE)
     layout["title"] = dict(text=titulo, font=dict(size=13, color="white"))
     layout["showlegend"] = False
-    layout["height"] = 320
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key or col)
 
@@ -241,7 +252,6 @@ tabs = st.tabs([
     "Tabla de datos"
 ])
 
-# ── Tab 0: Sector Externo ──────────────────────────────────────────────────────
 with tabs[0]:
     a, b = st.columns(2)
     with a:
@@ -252,13 +262,12 @@ with tabs[0]:
                  sufijo=" USD MM", key="t0_compras")
     a, b = st.columns(2)
     with a:
-        g2(df_f, "tc_mayorista", "Mayorista A3500", "tc_minorista", "Minorista BNA",
+        g2(df_f, "tc_minorista", "Minorista", "tc_mayorista", "Mayorista A3500",
            "Tipo de Cambio Oficial ($)", sufijo=" $", key="t0_tc")
     with b:
         g1(df_f, "depositos_usd",
            "Depósitos en Dólares - Sector Privado (USD MM)", key="t0_depusd")
 
-# ── Tab 1: Política Monetaria ──────────────────────────────────────────────────
 with tabs[1]:
     a, b = st.columns(2)
     with a:
@@ -275,7 +284,6 @@ with tabs[1]:
         g1(df_f, "m2_transaccional",
            "M2 Transaccional Sector Privado ($ MM)", key="t1_m2trans")
 
-# ── Tab 2: Sistema Financiero ──────────────────────────────────────────────────
 with tabs[2]:
     a, b = st.columns(2)
     with a:
@@ -290,7 +298,6 @@ with tabs[2]:
     with b:
         g1(df_f, "base_monetaria", "Base Monetaria ($ MM)", key="t2_bm")
 
-# ── Tab 3: Precios ─────────────────────────────────────────────────────────────
 with tabs[3]:
     g2eje(df_f,
           "inflacion_mensual", "Inflación mensual (%)",
@@ -303,12 +310,11 @@ with tabs[3]:
            "Inflación Esperada REM - Próximos 12 meses - Mediana (% i.a.)",
            sufijo="%", color="#48BB78", key="t3_rem")
 
-# ── Tab 4: Tabla ───────────────────────────────────────────────────────────────
 with tabs[4]:
     cols_orden = [
         "fecha", "reservas", "compras_usd_bcra",
         "base_monetaria", "m2_transaccional",
-        "tc_mayorista", "tc_minorista",
+        "tc_minorista", "tc_mayorista",
         "depositos", "depositos_usd", "prestamos_priv",
         "m2_privado", "tamar", "badlar",
         "inflacion_mensual", "inflacion_interanual", "rem_inflacion"
@@ -322,7 +328,6 @@ with tabs[4]:
 
 st.divider()
 st.caption("ACA Valores · Monitor Macroeconómico · Fuente: BCRA API v4.0 · Actualización diaria automática")
-
 
 
 
