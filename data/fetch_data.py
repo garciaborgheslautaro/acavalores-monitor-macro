@@ -3,51 +3,75 @@ import pandas as pd
 import os
 import warnings
 warnings.filterwarnings("ignore")
+from datetime import datetime, timedelta
 
-from datetime import datetime
 HOY = datetime.today().strftime("%Y-%m-%d")
+HACE_2_ANOS = (datetime.today() - timedelta(days=730)).strftime("%Y-%m-%d")
 
-# API alternativa — sin autenticación, sin límites de fecha
-BASE = "https://api.estadisticasbcra.com"
+# API oficial BCRA v4.0 — sin token, sin registro
+BASE = "https://api.bcra.gob.ar/estadisticas/v4.0"
+HEADERS = {"Accept": "application/json"}
 
-ENDPOINTS = {
-    "reservas":              "/reservas",
-    "base_monetaria":        "/base",
-    "tc_oficial":            "/usd_of",
-    "tc_minorista":          "/usd_of_minorista",
-    "depositos":             "/depositos",
-    "prestamos":             "/prestamos",
-    "plazo_fijo":            "/plazo_fijo",
-    "cuentas_corrientes":    "/cuentas_corrientes",
-    "cajas_ahorro":          "/cajas_ahorro",
-    "tasa_depositos_30d":    "/tasa_depositos_30_dias",
-    "tasa_prestamos_pers":   "/tasa_prestamos_personales",
-    "tasa_adelantos_cc":     "/tasa_adelantos_cuenta_corriente",
+VARIABLES = {
+    "reservas":       1,
+    "base_monetaria": 15,
+    "tc_oficial":     4,
+    "depositos":      17,
+    "creditos":       18,
+    "tasa_politica":  6,
+    "m2_privado":     25,
 }
 
 os.makedirs("data", exist_ok=True)
 
-def fetch_serie(nombre, endpoint):
-    url = BASE + endpoint
-    try:
-        r = requests.get(url, timeout=20)
-        r.raise_for_status()
-        data = r.json()
-        df = pd.DataFrame(data)
-        df.columns = ["fecha", nombre]
-        df["fecha"] = pd.to_datetime(df["fecha"])
-        df = df.drop_duplicates(subset="fecha").sort_values("fecha")
-        print(f"✅ {nombre} — {len(df)} registros")
-        return df
-    except Exception as e:
-        print(f"❌ {nombre} — Error: {e}")
+def fetch_variable(nombre, id_var):
+    todos = []
+    offset = 0
+    limit = 3000
+    while True:
+        url = f"{BASE}/datosvariable/{id_var}/{HACE_2_ANOS}/{HOY}?limit={limit}&offset={offset}"
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=20, verify=False)
+            if r.status_code != 200:
+                print(f"  HTTP {r.status_code} — {nombre}")
+                break
+            results = r.json().get("results", [])
+            if not results:
+                break
+            todos.extend(results)
+            if len(results) < limit:
+                break
+            offset += limit
+        except Exception as e:
+            print(f"  Error {nombre}: {e}")
+            break
+
+    if not todos:
         return None
 
+    df = pd.DataFrame(todos)
+    # Normalizar nombres de columnas según versión de la API
+    if "fecha" in df.columns:
+        df = df.rename(columns={"valor": nombre})
+        df = df[["fecha", nombre]]
+    elif "d" in df.columns:
+        df = df.rename(columns={"d": "fecha", "v": nombre})
+        df = df[["fecha", nombre]]
+    else:
+        print(f"  Columnas inesperadas: {df.columns.tolist()}")
+        return None
+
+    df["fecha"] = pd.to_datetime(df["fecha"])
+    return df.drop_duplicates("fecha").sort_values("fecha")
+
 df_final = None
-for nombre, endpoint in ENDPOINTS.items():
-    df = fetch_serie(nombre, endpoint)
+for nombre, id_var in VARIABLES.items():
+    df = fetch_variable(nombre, id_var)
     if df is not None:
         df_final = df if df_final is None else pd.merge(df_final, df, on="fecha", how="outer")
+        print(f"✅ {nombre} — {len(df)} registros")
+    else:
+        print(f"❌ {nombre} — sin datos")
 
 if df_final is not None:
     df_final.sort_values("fecha", inplace=True)
