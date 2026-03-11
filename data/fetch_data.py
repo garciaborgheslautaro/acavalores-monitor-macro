@@ -8,8 +8,8 @@ from datetime import datetime, timedelta
 HOY = datetime.today().strftime("%Y-%m-%d")
 HACE_2_ANOS = (datetime.today() - timedelta(days=730)).strftime("%Y-%m-%d")
 
-# API oficial BCRA v4.0 — sin token, sin registro
-BASE = "https://api.bcra.gob.ar/estadisticas/v4.0"
+# API oficial BCRA v4.0 — sin token, pública y gratuita
+BASE = "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias"
 HEADERS = {"Accept": "application/json"}
 
 VARIABLES = {
@@ -29,11 +29,11 @@ def fetch_variable(nombre, id_var):
     offset = 0
     limit = 3000
     while True:
-        url = f"{BASE}/datosvariable/{id_var}/{HACE_2_ANOS}/{HOY}?limit={limit}&offset={offset}"
+        url = f"{BASE}/{id_var}?desde={HACE_2_ANOS}&hasta={HOY}&limit={limit}&offset={offset}"
         try:
             r = requests.get(url, headers=HEADERS, timeout=20, verify=False)
+            print(f"  [{nombre}] HTTP {r.status_code} — {url}")
             if r.status_code != 200:
-                print(f"  HTTP {r.status_code} — {nombre}")
                 break
             results = r.json().get("results", [])
             if not results:
@@ -50,17 +50,18 @@ def fetch_variable(nombre, id_var):
         return None
 
     df = pd.DataFrame(todos)
-    # Normalizar nombres de columnas según versión de la API
-    if "fecha" in df.columns:
-        df = df.rename(columns={"valor": nombre})
-        df = df[["fecha", nombre]]
-    elif "d" in df.columns:
-        df = df.rename(columns={"d": "fecha", "v": nombre})
-        df = df[["fecha", nombre]]
-    else:
-        print(f"  Columnas inesperadas: {df.columns.tolist()}")
+    print(f"  Columnas: {df.columns.tolist()} | Primeras filas: {df.head(2).to_dict()}")
+
+    # Normalizar columnas según lo que devuelva la API
+    col_fecha = next((c for c in df.columns if "fecha" in c.lower() or c == "d"), None)
+    col_valor = next((c for c in df.columns if "valor" in c.lower() or c == "v"), None)
+
+    if not col_fecha or not col_valor:
+        print(f"  No se encontraron columnas fecha/valor en {nombre}")
         return None
 
+    df = df[[col_fecha, col_valor]].copy()
+    df.columns = ["fecha", nombre]
     df["fecha"] = pd.to_datetime(df["fecha"])
     return df.drop_duplicates("fecha").sort_values("fecha")
 
