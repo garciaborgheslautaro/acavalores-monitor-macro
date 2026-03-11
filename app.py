@@ -204,3 +204,19 @@ with tabs[3]:
     )
 
 st.caption("ACA Valores · Monitor Macroeconomico · Fuente: BCRA · Actualizacion diaria automatica")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
