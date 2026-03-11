@@ -27,11 +27,10 @@ html, body, [class*="css"] { font-family: 'Montserrat', sans-serif; }
 .kpi-delta-pos { font-size: 12px; color: #48BB78; }
 .kpi-delta-neg { font-size: 12px; color: #FC8181; }
 .kpi-delta-neu { font-size: 12px; color: #A0AEC0; }
-.section-title { font-size: 16px; font-weight: 600; color: #FFFFFF; margin: 16px 0 8px 0; }
 </style>
 """, unsafe_allow_html=True)
 
-# ── Header ─────────────────────────────────────────────────
+# ── Header ──────────────────────────────────────────────────────────────────
 col_logo, col_titulo, col_fecha = st.columns([1, 4, 2])
 with col_logo:
     if os.path.exists("assets/logo.png"):
@@ -39,11 +38,15 @@ with col_logo:
 with col_titulo:
     st.markdown("## Monitor Macroeconómico Argentina")
 with col_fecha:
-    st.markdown(f"<div style='text-align:right; color:#A0AEC0; padding-top:20px'>Actualización: {datetime.today().strftime('%d/%m/%Y')}</div>", unsafe_allow_html=True)
+    st.markdown(
+        f"<div style='text-align:right; color:#A0AEC0; padding-top:20px'>"
+        f"Actualización: {datetime.today().strftime('%d/%m/%Y')}</div>",
+        unsafe_allow_html=True
+    )
 
 st.divider()
 
-# ── Carga de datos ─────────────────────────────────────────
+# ── Carga de datos ───────────────────────────────────────────────────────────
 @st.cache_data(ttl=3600)
 def cargar_datos():
     path = "data/bcra_data.csv"
@@ -55,21 +58,10 @@ def cargar_datos():
 df = cargar_datos()
 
 if df is None:
-    st.warning("⚠️ Los datos aún no fueron generados.")
+    st.warning("Los datos aun no fueron generados.")
     st.stop()
 
-# ── Selector de rango de fechas ────────────────────────────
-col_r1, col_r2, col_r3, col_r4 = st.columns([1,1,1,3])
-with col_r1:
-    if st.button("1M"):  rango = 30
-    else: rango = None
-with col_r2:
-    if st.button("3M"):  rango = 90
-    else: rango = None
-with col_r3:
-    if st.button("1A"):  rango = 365
-    else: rango = None
-
+# ── Selector de rango ────────────────────────────────────────────────────────
 fecha_min = df["fecha"].min().date()
 fecha_max = df["fecha"].max().date()
 
@@ -79,57 +71,61 @@ with c1:
 with c2:
     hasta = st.date_input("Hasta", value=fecha_max, min_value=fecha_min, max_value=fecha_max)
 
-df_filtrado = df[(df["fecha"].dt.date >= desde) & (df["fecha"].dt.date <= hasta)].copy()
+df_f = df[(df["fecha"].dt.date >= desde) & (df["fecha"].dt.date <= hasta)].copy()
 
-# ── KPI Cards ─────────────────────────────────────────────
+# ── KPI Cards ────────────────────────────────────────────────────────────────
 def get_kpi(df, col):
+    if col not in df.columns:
+        return None, None
     serie = df[["fecha", col]].dropna()
     if len(serie) < 2:
-        return None, None, None
-    ultimo = serie.iloc[-1]
-    anterior = serie.iloc[-2]
-    valor = ultimo[col]
-    delta = valor - anterior[col]
-    pct = (delta / anterior[col]) * 100 if anterior[col] != 0 else 0
-    return valor, delta, pct
+        return None, None
+    valor = serie.iloc[-1][col]
+    anterior = serie.iloc[-2][col]
+    pct = ((valor - anterior) / anterior * 100) if anterior != 0 else 0
+    return valor, pct
 
 def kpi_card(label, valor, pct, prefijo="", sufijo="", decimales=0):
     if valor is None:
-        html = f"""<div class='kpi-card'>
-            <div class='kpi-label'>{label}</div>
-            <div class='kpi-value'>—</div>
-            <div class='kpi-delta-neu'>Sin datos</div>
-        </div>"""
+        st.markdown(
+            f"<div class='kpi-card'>"
+            f"<div class='kpi-label'>{label}</div>"
+            f"<div class='kpi-value'>—</div>"
+            f"<div class='kpi-delta-neu'>Sin datos</div>"
+            f"</div>",
+            unsafe_allow_html=True
+        )
     else:
         fmt = f"{prefijo}{valor:,.{decimales}f}{sufijo}"
         signo = "▲" if pct >= 0 else "▼"
         clase = "kpi-delta-pos" if pct >= 0 else "kpi-delta-neg"
-        html = f"""<div class='kpi-card'>
-            <div class='kpi-label'>{label}</div>
-            <div class='kpi-value'>{fmt}</div>
-            <div class='{clase}'>{signo} {abs(pct):.2f}% vs día anterior</div>
-        </div>"""
-    st.markdown(html, unsafe_allow_html=True)
+        st.markdown(
+            f"<div class='kpi-card'>"
+            f"<div class='kpi-label'>{label}</div>"
+            f"<div class='kpi-value'>{fmt}</div>"
+            f"<div class='{clase}'>{signo} {abs(pct):.2f}% vs dia anterior</div>"
+            f"</div>",
+            unsafe_allow_html=True
+        )
 
-st.markdown("### Indicadores del día")
+st.markdown("### Indicadores del dia")
 k1, k2, k3, k4 = st.columns(4)
-
 with k1:
-    v, d, p = get_kpi(df, "reservas")
+    v, p = get_kpi(df, "reservas")
     kpi_card("Reservas Internacionales", v, p, prefijo="USD ", sufijo=" MM", decimales=0)
 with k2:
-    v, d, p = get_kpi(df, "base_monetaria")
+    v, p = get_kpi(df, "base_monetaria")
     kpi_card("Base Monetaria", v, p, prefijo="$ ", sufijo=" MM", decimales=0)
 with k3:
-    v, d, p = get_kpi(df, "tc_oficial")
+    v, p = get_kpi(df, "tc_oficial")
     kpi_card("TC Oficial Mayorista", v, p, prefijo="$ ", decimales=2)
 with k4:
-    v, d, p = get_kpi(df, "tc_minorista") if "tc_minorista" in df.columns else (None, None, None)
-    kpi_card("TC Oficial Minorista", v, p, prefijo="$ ", decimales=2)
+    v, p = get_kpi(df, "m2_privado")
+    kpi_card("M2 Privado ($ MM)", v, p, prefijo="$ ", decimales=0)
 
 st.divider()
 
-# ── Función gráfico ────────────────────────────────────────
+# ── Funcion grafico ──────────────────────────────────────────────────────────
 COLORES = {
     "reservas":       "#00BFFF",
     "base_monetaria": "#48BB78",
@@ -144,10 +140,10 @@ COLORES = {
 
 def grafico(df, col, titulo, sufijo="", color=None):
     if col not in df.columns:
-        return None
+        st.caption(f"Variable '{col}' no disponible aun.")
+        return
     color = color or COLORES.get(col, "#00BFFF")
     df_plot = df[["fecha", col]].copy()
-    # Línea continua: interpolamos valores faltantes
     df_plot[col] = df_plot[col].interpolate(method="linear")
     fig = go.Figure()
     fig.add_trace(go.Scatter(
@@ -155,9 +151,7 @@ def grafico(df, col, titulo, sufijo="", color=None):
         y=df_plot[col],
         mode="lines",
         line=dict(color=color, width=2),
-        fill="tozeroy",
-        fillcolor=color.replace(")", ", 0.08)").replace("rgb", "rgba") if "rgb" in color else color + "15",
-        hovertemplate=f"%{{x|%d/%m/%Y}}<br>{titulo}: %{{y:,.2f}}{sufijo}<extra></extra>"
+        hovertemplate="%{x|%d/%m/%Y}<br>" + titulo + ": %{y:,.2f}" + sufijo + "<extra></extra>"
     ))
     fig.update_layout(
         paper_bgcolor="#0D1B2A",
@@ -166,15 +160,47 @@ def grafico(df, col, titulo, sufijo="", color=None):
         xaxis=dict(showgrid=False, color="#A0AEC0", tickformat="%b %Y"),
         yaxis=dict(showgrid=True, gridcolor="#1E2D3D", color="#A0AEC0"),
         margin=dict(l=10, r=10, t=40, b=10),
-            fig.update_layout(
-        paper_bgcolor="#0D1B2A",
-        plot_bgcolor="#0D1B2A",
-        font=dict(family="Montserrat", color="white", size=11),
-        xaxis=dict(showgrid=False, color="#A0AEC0", tickformat="%b %Y"),
-        yaxis=dict(showgrid=True, gridcolor="#1E2D3D", color="#A0AEC0"),
-        margin=dict(l=10, r=10, t=40, b=10),
         title=dict(text=titulo, font=dict(size=13, color="white")),
         hovermode="x unified",
-        height=320,
+        height=320
     )
-    return figr
+    st.plotly_chart(fig, use_container_width=True)
+
+def par(df, col1, tit1, col2, tit2, suf1="", suf2=""):
+    c1, c2 = st.columns(2)
+    with c1:
+        grafico(df, col1, tit1, sufijo=suf1)
+    with c2:
+        grafico(df, col2, tit2, sufijo=suf2)
+
+# ── Pestanas ─────────────────────────────────────────────────────────────────
+tabs = st.tabs(["Sector Externo", "Politica Monetaria", "Sistema Financiero", "Tabla de datos"])
+
+with tabs[0]:
+    par(df_f, "reservas", "Reservas Internacionales (USD MM)",
+        "tc_oficial", "TC Oficial Mayorista ($)", suf2=" $")
+    par(df_f, "tc_minorista", "TC Oficial Minorista ($)",
+        "depositos_usd", "Depositos en Dolares (USD MM)", suf1=" $")
+
+with tabs[1]:
+    par(df_f, "base_monetaria", "Base Monetaria ($ MM)",
+        "m2_privado", "M2 Privado ($ MM)")
+
+with tabs[2]:
+    par(df_f, "depositos", "Depositos Totales ($ MM)",
+        "creditos", "Creditos Totales ($ MM)")
+    par(df_f, "prestamos_priv", "Prestamos Sector Privado ($ MM)",
+        "depositos_usd", "Depositos en Dolares (USD MM)")
+
+with tabs[3]:
+    cols_ok = [c for c in ["fecha", "reservas", "base_monetaria", "tc_oficial",
+                            "tc_minorista", "depositos", "creditos",
+                            "m2_privado", "depositos_usd", "prestamos_priv"]
+               if c in df_f.columns]
+    st.dataframe(
+        df_f[cols_ok].sort_values("fecha", ascending=False).head(60),
+        use_container_width=True,
+        hide_index=True
+    )
+
+st.caption("ACA Valores · Monitor Macroeconomico · Fuente: BCRA · Actualizacion diaria automatica")
