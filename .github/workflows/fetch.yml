@@ -1,6 +1,8 @@
 name: Fetch BCRA Data
 
 on:
+  schedule:
+    - cron: '0 12 * * 1-5'  # Lunes a viernes a las 09:00 ART (UTC-3)
   workflow_dispatch:
 
 jobs:
@@ -15,13 +17,16 @@ jobs:
         with:
           python-version: '3.11'
 
-      - run: pip install requests pandas
+      - name: Instalar dependencias
+        run: pip install requests pandas
 
-      - run: python data/fetch_data.py
+      - name: Ejecutar fetch
+        run: python data/fetch_data.py
 
-      - run: |
+      - name: Commit y push
+        run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add -A
+          git add data/bcra_data.csv
           git commit -m "datos $(date +'%Y-%m-%d')" || echo "sin cambios"
           git push
