@@ -72,26 +72,32 @@ df_f = df[(df["fecha"].dt.date >= desde) & (df["fecha"].dt.date <= hasta)].copy(
 
 # ── KPI helpers ────────────────────────────────────────────────────────────────
 def get_kpi(df, col):
-    """Retorna (valor_actual, diferencia_absoluta, diferencia_pct)"""
+    """Retorna (valor_actual, diferencia_absoluta, diferencia_pct, fecha_ultimo)"""
     if col not in df.columns:
-        return None, None, None
+        return None, None, None, None
     serie = df[["fecha", col]].dropna()
     if len(serie) < 2:
-        return None, None, None
+        return None, None, None, None
     valor = float(serie.iloc[-1][col])
     anterior = float(serie.iloc[-2][col])
     diff_abs = valor - anterior
     diff_pct = ((valor - anterior) / anterior * 100) if anterior != 0 else 0
-    return valor, diff_abs, diff_pct
+    fecha_ult = serie.iloc[-1]["fecha"]
+    if hasattr(fecha_ult, "strftime"):
+        fecha_str = fecha_ult.strftime("%d/%m/%y")
+    else:
+        fecha_str = str(fecha_ult)[:10]
+    return valor, diff_abs, diff_pct, fecha_str
 
-def kpi_card(label, valor, diff_abs, diff_pct, prefijo="", sufijo="", decimales=0, modo="pct"):
+def kpi_card(label, valor, diff_abs, diff_pct, fecha_ult=None, prefijo="", sufijo="", decimales=0, modo="pct"):
     """
     modo='pct'  → muestra variación en %
     modo='abs'  → muestra variación en valor absoluto (con prefijo/sufijo)
     modo='pp'   → muestra variación en puntos porcentuales
     """
+    fecha_tag = f" <span style='font-size:10px;color:#718096;font-weight:400'>({fecha_ult})</span>" if fecha_ult else ""
     if valor is None:
-        html = f"<div class='kpi-card'><div class='kpi-label'>{label}</div><div class='kpi-value'>-</div><div class='kpi-delta-neu'>Sin datos</div></div>"
+        html = f"<div class='kpi-card'><div class='kpi-label'>{label}{fecha_tag}</div><div class='kpi-value'>-</div><div class='kpi-delta-neu'>Sin datos</div></div>"
     else:
         fmt_valor = prefijo + "{:,.{dec}f}".format(valor, dec=decimales) + sufijo
         flecha = "▲" if diff_abs >= 0 else "▼"
@@ -102,27 +108,27 @@ def kpi_card(label, valor, diff_abs, diff_pct, prefijo="", sufijo="", decimales=
             fmt_delta = "{:+.2f} p.p. vs día anterior".format(diff_abs)
         else:  # pct
             fmt_delta = "{} {:.2f}% vs día anterior".format(flecha, abs(diff_pct))
-        html = f"<div class='kpi-card'><div class='kpi-label'>{label}</div><div class='kpi-value'>{fmt_valor}</div><div class='{clase}'>{fmt_delta}</div></div>"
+        html = f"<div class='kpi-card'><div class='kpi-label'>{label}{fecha_tag}</div><div class='kpi-value'>{fmt_valor}</div><div class='{clase}'>{fmt_delta}</div></div>"
     st.markdown(html, unsafe_allow_html=True)
 
 # ── KPI Cards ──────────────────────────────────────────────────────────────────
 st.markdown("### Indicadores del día")
 k1, k2, k3, k4, k5 = st.columns(5)
 with k1:
-    v, da, dp = get_kpi(df, "reservas")
-    kpi_card("Reservas (USD MM)", v, da, dp, prefijo="USD ", decimales=0, modo="abs")
+    v, da, dp, fu = get_kpi(df, "reservas")
+    kpi_card("Reservas (USD MM)", v, da, dp, fu, prefijo="USD ", decimales=0, modo="abs")
 with k2:
-    v, da, dp = get_kpi(df, "base_monetaria")
-    kpi_card("Base Monetaria ($ MM)", v, da, dp, prefijo="$ ", decimales=0, modo="pct")
+    v, da, dp, fu = get_kpi(df, "base_monetaria")
+    kpi_card("Base Monetaria ($ MM)", v, da, dp, fu, prefijo="$ ", decimales=0, modo="pct")
 with k3:
-    v, da, dp = get_kpi(df, "tc_mayorista")
-    kpi_card("TC Minorista", v, da, dp, prefijo="$ ", decimales=2, modo="pct")
+    v, da, dp, fu = get_kpi(df, "tc_mayorista")
+    kpi_card("TC Minorista", v, da, dp, fu, prefijo="$ ", decimales=2, modo="pct")
 with k4:
-    v, da, dp = get_kpi(df, "tc_minorista")
-    kpi_card("TC Mayorista A3500", v, da, dp, prefijo="$ ", decimales=2, modo="pct")
+    v, da, dp, fu = get_kpi(df, "tc_minorista")
+    kpi_card("TC Mayorista A3500", v, da, dp, fu, prefijo="$ ", decimales=2, modo="pct")
 with k5:
-    v, da, dp = get_kpi(df, "inflacion_mensual")
-    kpi_card("Inflación Mensual", v, da, dp, sufijo="%", decimales=1, modo="pp")
+    v, da, dp, fu = get_kpi(df, "inflacion_mensual")
+    kpi_card("Inflación Mensual", v, da, dp, fu, sufijo="%", decimales=1, modo="pp")
 
 st.divider()
 
@@ -165,6 +171,8 @@ def g1(df, col, titulo, sufijo="", color=None, key=None):
     color = color or COLORES.get(col, "#00BFFF")
     dp = df[["fecha", col]].copy()
     dp[col] = dp[col].interpolate(method="linear")
+    ult = df[["fecha", col]].dropna()
+    fecha_tag = "  <span style='font-size:11px;opacity:0.5'>(" + ult.iloc[-1]["fecha"].strftime("%d/%m/%y") + ")</span>" if len(ult) > 0 else ""
     fig = go.Figure()
     fig.add_trace(go.Scatter(
         x=dp["fecha"], y=dp[col], mode="lines", name=titulo,
@@ -172,7 +180,7 @@ def g1(df, col, titulo, sufijo="", color=None, key=None):
         hovertemplate="%{x|%d/%m/%Y}<br>" + titulo + ": %{y:,.2f}" + sufijo + "<extra></extra>"
     ))
     layout = dict(LAYOUT_BASE)
-    layout["title"] = dict(text=titulo, font=dict(size=13, color="white"))
+    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=13, color="white"))
     layout["showlegend"] = False
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key or col)
@@ -328,7 +336,6 @@ with tabs[4]:
 
 st.divider()
 st.caption("ACA Valores · Monitor Macroeconómico · Fuente: BCRA API v4.0 · Actualización diaria automática")
-
 
 
 
