@@ -40,9 +40,9 @@ VARIABLES = {
     7: "badlar",
     44: "tamar",
     30: "depositos_usd",
-    31: "inflacion_mensual",
-    32: "inflacion_interanual",
-    45: "rem_inflacion",
+    27: "inflacion_mensual",
+    28: "inflacion_interanual",
+    29: "rem_inflacion",
 }
 
 def fetch_variable(id_var, nombre):
