@@ -97,11 +97,11 @@ def kpi_card(label, valor, diff_abs, diff_pct, prefijo="", sufijo="", decimales=
         flecha = "▲" if diff_abs >= 0 else "▼"
         clase = "kpi-delta-pos" if diff_abs >= 0 else "kpi-delta-neg"
         if modo == "abs":
-            fmt_delta = prefijo + "{:+,.{dec}f}".format(diff_abs, dec=decimales) + " vs día anterior"
+            fmt_delta = prefijo + "{:+,.{dec}f}".format(diff_abs, dec=decimales) + " vs dato anterior"
         elif modo == "pp":
-            fmt_delta = "{:+.2f} p.p. vs día anterior".format(diff_abs)
+            fmt_delta = "{:+.1f} p.p. vs dato anterior".format(diff_abs)
         else:  # pct
-            fmt_delta = "{} {:.2f}% vs día anterior".format(flecha, abs(diff_pct))
+            fmt_delta = "{} {:.1f}% vs día anterior".format(flecha, abs(diff_pct))
         html = f"<div class='kpi-card'><div class='kpi-label'>{label}</div><div class='kpi-value'>{fmt_valor}</div><div class='{clase}'>{fmt_delta}</div></div>"
     st.markdown(html, unsafe_allow_html=True)
 
