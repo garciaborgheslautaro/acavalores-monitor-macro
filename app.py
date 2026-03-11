@@ -95,7 +95,7 @@ def kpi_card(label, valor, diff_abs, diff_pct, fecha_ult=None, prefijo="", sufij
     modo='abs'  → muestra variación en valor absoluto (con prefijo/sufijo)
     modo='pp'   → muestra variación en puntos porcentuales
     """
-    fecha_tag = f" <span style='font-size:10px;color:#718096;font-weight:400'>({fecha_ult})</span>" if fecha_ult else ""
+    fecha_tag = f" <span style='font-size:10px;color:#718096;font-weight:400'>(últ. dato: {fecha_ult})</span>" if fecha_ult else ""
     if valor is None:
         html = f"<div class='kpi-card'><div class='kpi-label'>{label}{fecha_tag}</div><div class='kpi-value'>-</div><div class='kpi-delta-neu'>Sin datos</div></div>"
     else:
@@ -164,6 +164,16 @@ LAYOUT_BASE = dict(
 )
 
 # ── Funciones de gráficos ──────────────────────────────────────────────────────
+def ultima_fecha(df, col):
+    if col not in df.columns:
+        return ""
+    ult = df[["fecha", col]].dropna()
+    if len(ult) == 0:
+        return ""
+    f = ult.iloc[-1]["fecha"]
+    fecha_str = f.strftime("%d/%m/%y") if hasattr(f, "strftime") else str(f)[:10]
+    return f"  <span style='font-size:11px;opacity:0.5'>(últ. dato: {fecha_str})</span>"
+
 def g1(df, col, titulo, sufijo="", color=None, key=None):
     if col not in df.columns:
         st.caption(f"Variable '{col}' no disponible aún.")
@@ -171,8 +181,7 @@ def g1(df, col, titulo, sufijo="", color=None, key=None):
     color = color or COLORES.get(col, "#00BFFF")
     dp = df[["fecha", col]].copy()
     dp[col] = dp[col].interpolate(method="linear")
-    ult = df[["fecha", col]].dropna()
-    fecha_tag = "  <span style='font-size:11px;opacity:0.5'>(" + ult.iloc[-1]["fecha"].strftime("%d/%m/%y") + ")</span>" if len(ult) > 0 else ""
+    fecha_tag = ultima_fecha(df, col)
     fig = go.Figure()
     fig.add_trace(go.Scatter(
         x=dp["fecha"], y=dp[col], mode="lines", name=titulo,
@@ -192,6 +201,7 @@ def g_barras(df, col, titulo, sufijo="", key=None):
         return
     dp = df[["fecha", col]].dropna(subset=[col])
     colores_barras = ["#48BB78" if v >= 0 else "#FC8181" for v in dp[col]]
+    fecha_tag = ultima_fecha(df, col)
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=dp["fecha"], y=dp[col], name=titulo,
@@ -199,7 +209,7 @@ def g_barras(df, col, titulo, sufijo="", key=None):
         hovertemplate="%{x|%d/%m/%Y}<br>" + titulo + ": %{y:,.1f}" + sufijo + "<extra></extra>"
     ))
     layout = dict(LAYOUT_BASE)
-    layout["title"] = dict(text=titulo, font=dict(size=13, color="white"))
+    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=13, color="white"))
     layout["showlegend"] = False
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key or col)
@@ -215,8 +225,9 @@ def g2(df, col1, lab1, col2, lab2, titulo, sufijo="", key=None):
                 line=dict(color=COLORES.get(col, "#00BFFF"), width=2),
                 hovertemplate="%{x|%d/%m/%Y}<br>" + lab + ": %{y:,.2f}" + sufijo + "<extra></extra>"
             ))
+    fecha_tag = ultima_fecha(df, col1)
     layout = dict(LAYOUT_BASE)
-    layout["title"] = dict(text=titulo, font=dict(size=13, color="white"))
+    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=13, color="white"))
     layout["height"] = 340
     layout["legend"] = dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(color="white", size=10))
     fig.update_layout(**layout)
@@ -245,7 +256,7 @@ def g2eje(df, col1, lab1, col2, lab2, titulo, suf1="%", suf2="%", key=None):
         yaxis=dict(title=lab1, showgrid=True, gridcolor="#1E2D3D", color="#FC8181", title_font=dict(color="#FC8181")),
         yaxis2=dict(title=lab2, overlaying="y", side="right", showgrid=False, color="#F6AD55", title_font=dict(color="#F6AD55")),
         margin=dict(l=10, r=60, t=40, b=10),
-        title=dict(text=titulo, font=dict(size=13, color="white")),
+        title=dict(text=titulo + ultima_fecha(df, col1), font=dict(size=13, color="white")),
         hovermode="x unified", height=360,
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(color="white", size=10))
     )
