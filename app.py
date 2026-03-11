@@ -166,4 +166,15 @@ def grafico(df, col, titulo, sufijo="", color=None):
         xaxis=dict(showgrid=False, color="#A0AEC0", tickformat="%b %Y"),
         yaxis=dict(showgrid=True, gridcolor="#1E2D3D", color="#A0AEC0"),
         margin=dict(l=10, r=10, t=40, b=10),
-        title=dict(text=titulo, font=dict(size=13, color
+            fig.update_layout(
+        paper_bgcolor="#0D1B2A",
+        plot_bgcolor="#0D1B2A",
+        font=dict(family="Montserrat", color="white", size=11),
+        xaxis=dict(showgrid=False, color="#A0AEC0", tickformat="%b %Y"),
+        yaxis=dict(showgrid=True, gridcolor="#1E2D3D", color="#A0AEC0"),
+        margin=dict(l=10, r=10, t=40, b=10),
+        title=dict(text=titulo, font=dict(size=13, color="white")),
+        hovermode="x unified",
+        height=320,
+    )
+    return figr
