@@ -227,8 +227,14 @@ def get_variaciones(serie_df, col, serie_full=None):
     var_30 = ((val - float(s30.iloc[-1][col])) / float(s30.iloc[-1][col]) * 100) if len(s30) > 0 and float(s30.iloc[-1][col]) != 0 else None
 
     fecha_365 = fecha - timedelta(days=365)
-    s365 = s_hist[s_hist["fecha"] <= fecha_365]
-    var_365 = ((val - float(s365.iloc[-1][col])) / float(s365.iloc[-1][col]) * 100) if len(s365) > 0 and float(s365.iloc[-1][col]) != 0 else None
+    # Buscar dato exacto o más cercano dentro de ±30 días de tolerancia
+    ventana = s_hist[(s_hist["fecha"] >= fecha_365 - timedelta(days=30)) & (s_hist["fecha"] <= fecha_365 + timedelta(days=30))]
+    if len(ventana) > 0:
+        idx_cercano = (ventana["fecha"] - fecha_365).abs().idxmin()
+        val_365 = float(ventana.loc[idx_cercano, col])
+        var_365 = ((val - val_365) / val_365 * 100) if val_365 != 0 else None
+    else:
+        var_365 = None
 
     return val, fecha_str, var_ult, var_30, var_365
 
@@ -274,7 +280,7 @@ def mini_chart_barras(df_plot, col, key, label="", fecha_str=""):
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key)
 
-def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key=None, invertir_colores=False, df_full=None):
+def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key=None, invertir_colores=False, df_full=None, es_porcentaje=False):
     """Card a la izquierda + mini gráfico de barras a la derecha"""
     val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col, serie_full=df_full)
     col_esp_l, col_card, col_chart, col_esp_r = st.columns([1, 2, 4, 3])
@@ -292,7 +298,8 @@ def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key
                 if v is None: return '<span class="neu">-</span>'
                 clase = ("neg" if v >= 0 else "pos") if invertir_colores else ("pos" if v >= 0 else "neg")
                 flecha = "▲" if v >= 0 else "▼"
-                return f'<span class="{clase}">{flecha} {abs(v):.2f}%</span>'
+                unidad = " p.p." if es_porcentaje else "%"
+                return f'<span class="{clase}">{flecha} {abs(v):.2f}{unidad}</span>'
             st.markdown(f"""
             <div class="row-card">
                 <div class="var-label">{label}</div>
@@ -496,7 +503,7 @@ with tabs[1]:
         if v is None: return '<span class="neu">-</span>'
         clase = "pos" if v >= 0 else "neg"
         flecha = "▲" if v >= 0 else "▼"
-        return f'<span class="{clase}">{flecha} {abs(v):.2f}%</span>'
+        return f'<span class="{clase}">{flecha} {abs(v):.2f} p.p.</span>'
 
     fmt_tamar = f"{val_tamar:,.2f}" if val_tamar is not None else "-"
     fmt_badlar = f"{val_badlar:,.2f}" if val_badlar is not None else "-"
@@ -565,7 +572,7 @@ with tabs[3]:
     with _st_c:
         st.markdown('<div class="section-title">IPC & Expectativas</div>', unsafe_allow_html=True)
     row_card_barras(df_f, "inflacion_mensual", "Inflación Mensual IPC (%)", sufijo="%", decimales=1,
-             key="t3_inf_men", invertir_colores=True, df_full=df)
+             key="t3_inf_men", invertir_colores=True, df_full=df, es_porcentaje=True)
     row_card(df_f, "inflacion_interanual", "Inflación Interanual IPC (%)", sufijo="%", decimales=1,
              color=COLORES["inflacion_interanual"], key="t3_inf_ia", invertir_colores=True, df_full=df, es_porcentaje=True)
     row_card(df_f, "rem_inflacion", "Inflación Esperada REM - Próximos 12 meses - Mediana (% i.a.)",
@@ -667,7 +674,15 @@ with tabs[4]:
             fig_pet.update_layout(**layout_pet)
             st.plotly_chart(fig_pet, use_container_width=True, key="t4_petroleo")
 
-        # Granos en USD/ton
+        # Granos en USD/ton — df completo para 365d
+        dfm_granos_full = dfm.copy() if dfm is not None else dfm_f.copy()
+        if "soja" in dfm_granos_full.columns:
+            dfm_granos_full["soja_ton"] = (dfm_granos_full["soja"] / 100) * 36.744
+        if "maiz" in dfm_granos_full.columns:
+            dfm_granos_full["maiz_ton"] = (dfm_granos_full["maiz"] / 100) * 39.368
+        if "trigo" in dfm_granos_full.columns:
+            dfm_granos_full["trigo_ton"] = (dfm_granos_full["trigo"] / 100) * 36.744
+
         dfm_granos = dfm_f.copy()
         if "soja" in dfm_granos.columns:
             dfm_granos["soja_ton"] = (dfm_granos["soja"] / 100) * 36.744
@@ -677,11 +692,11 @@ with tabs[4]:
             dfm_granos["trigo_ton"] = (dfm_granos["trigo"] / 100) * 36.744
 
         row_card(dfm_granos, "soja_ton", "Soja CBOT (USD/ton)", prefijo="USD ", decimales=2,
-                 color=COLORES["soja"], key="t4_soja")
+                 color=COLORES["soja"], key="t4_soja", df_full=dfm_granos_full)
         row_card(dfm_granos, "maiz_ton", "Maíz CBOT (USD/ton)", prefijo="USD ", decimales=2,
-                 color=COLORES["maiz"], key="t4_maiz")
+                 color=COLORES["maiz"], key="t4_maiz", df_full=dfm_granos_full)
         row_card(dfm_granos, "trigo_ton", "Trigo CBOT (USD/ton)", prefijo="USD ", decimales=2,
-                 color=COLORES["trigo"], key="t4_trigo")
+                 color=COLORES["trigo"], key="t4_trigo", df_full=dfm_granos_full)
 
 # ════════════════════════════════════════════════════════════════════════════════
 # TAB 5 — TABLA DE DATOS
