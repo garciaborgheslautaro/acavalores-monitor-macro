@@ -245,12 +245,60 @@ def mini_chart(df_plot, col, color, key):
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key)
 
+def mini_chart_barras(df_plot, col, key):
+    if col not in df_plot.columns or df_plot[col].dropna().empty:
+        return
+    dp = df_plot[["fecha", col]].dropna(subset=[col])
+    colores = ["#48BB78" if v >= 0 else "#FC8181" for v in dp[col]]
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=dp["fecha"], y=dp[col],
+        marker_color=colores, opacity=0.85,
+        hovertemplate="%{x|%d/%m/%Y}<br>%{y:,.2f}<extra></extra>"
+    ))
+    layout = dict(LAYOUT_BASE)
+    fig.update_layout(**layout)
+    st.plotly_chart(fig, use_container_width=True, key=key)
+
+def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key=None, invertir_colores=False):
+    """Card a la izquierda + mini gráfico de barras a la derecha"""
+    val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col)
+    col_card, col_chart = st.columns([4, 6])
+    with col_card:
+        if val is None:
+            st.markdown(f"""
+            <div class="row-card">
+                <div class="var-label">{label}</div>
+                <div class="var-value">-</div>
+                <div class="var-fecha">Sin datos</div>
+            </div>""", unsafe_allow_html=True)
+        else:
+            fmt_val = prefijo + "{:,.{dec}f}".format(val, dec=decimales) + sufijo
+            def _d(v):
+                if v is None: return '<span class="neu">-</span>'
+                clase = ("neg" if v >= 0 else "pos") if invertir_colores else ("pos" if v >= 0 else "neg")
+                flecha = "▲" if v >= 0 else "▼"
+                return f'<span class="{clase}">{flecha} {abs(v):.2f}%</span>'
+            st.markdown(f"""
+            <div class="row-card">
+                <div class="var-label">{label}</div>
+                <div class="var-value">{fmt_val}</div>
+                <div class="var-fecha">últ. dato: {fecha_str}</div>
+                <div class="var-delta-row">
+                    <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d(var_ult)}</div>
+                    <div class="delta-item"><span class="delta-label">vs 30d</span>{_d(var_30)}</div>
+                    <div class="delta-item"><span class="delta-label">vs 365d</span>{_d(var_365)}</div>
+                </div>
+            </div>""", unsafe_allow_html=True)
+    with col_chart:
+        mini_chart_barras(df_plot, col, key=key or col)
+
 def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None, key=None, invertir_colores=False):
     """Card a la izquierda + mini gráfico a la derecha en una fila"""
     color = color or COLORES.get(col, "#1B2A6B")
     val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col)
 
-    col_card, col_chart = st.columns([3, 7])
+    col_card, col_chart = st.columns([4, 6])
     with col_card:
         if val is None:
             st.markdown(f"""
@@ -305,7 +353,7 @@ tabs = st.tabs([
 with tabs[0]:
     st.markdown('<div class="section-title">Reservas & Divisas</div>', unsafe_allow_html=True)
     row_card(df_f, "reservas", "Reservas Internacionales (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t0_reservas")
-    row_card(df_f, "compras_usd_bcra", "Compras Netas de Divisas BCRA (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t0_compras")
+    row_card_barras(df_f, "compras_usd_bcra", "Compras Netas de Divisas BCRA (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t0_compras")
     row_card(df_f, "depositos_usd", "Depósitos en Dólares - Sector Privado (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t0_depusd")
 
     st.markdown('<div class="section-title">Tipo de Cambio</div>', unsafe_allow_html=True)
@@ -322,7 +370,7 @@ with tabs[0]:
 
     fmt_val_min = f"{val_min:,.2f}" if val_min is not None else "-"
     fmt_val_may = f"{val_may:,.2f}" if val_may is not None else "-"
-    col_card_tc, col_chart_tc = st.columns([3, 7])
+    col_card_tc, col_chart_tc = st.columns([4, 6])
     with col_card_tc:
         st.markdown(f"""
         <div class="row-card">
@@ -421,8 +469,8 @@ with tabs[2]:
 # ════════════════════════════════════════════════════════════════════════════════
 with tabs[3]:
     st.markdown('<div class="section-title">IPC & Expectativas</div>', unsafe_allow_html=True)
-    row_card(df_f, "inflacion_mensual", "Inflación Mensual IPC (%)", sufijo="%", decimales=1,
-             color=COLORES["inflacion_mensual"], key="t3_inf_men", invertir_colores=True)
+    row_card_barras(df_f, "inflacion_mensual", "Inflación Mensual IPC (%)", sufijo="%", decimales=1,
+             key="t3_inf_men", invertir_colores=True)
     row_card(df_f, "inflacion_interanual", "Inflación Interanual IPC (%)", sufijo="%", decimales=1,
              color=COLORES["inflacion_interanual"], key="t3_inf_ia", invertir_colores=True)
     row_card(df_f, "rem_inflacion", "Inflación Esperada REM - Próximos 12 meses - Mediana (% i.a.)",
@@ -479,7 +527,7 @@ with tabs[4]:
 
         fmt_val_brent = f"{val_brent:,.2f}" if val_brent is not None else "-"
         fmt_val_wti = f"{val_wti:,.2f}" if val_wti is not None else "-"
-        col_card_pet, col_chart_pet = st.columns([3, 7])
+        col_card_pet, col_chart_pet = st.columns([4, 6])
         with col_card_pet:
             st.markdown(f"""
             <div class="row-card">
