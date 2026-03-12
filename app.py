@@ -73,6 +73,14 @@ def cargar_dolar():
     df = pd.read_csv(path, parse_dates=["fecha"])
     return df.sort_values("fecha").reset_index(drop=True)
 
+@st.cache_data(ttl=3600)
+def cargar_itcrm():
+    path = "data/itcrm_data.csv"
+    if not os.path.exists(path):
+        return None
+    df = pd.read_csv(path, parse_dates=["fecha"])
+    return df.sort_values("fecha").reset_index(drop=True)
+
 df = cargar_datos()
 if df is None:
     st.warning("Los datos aún no fueron generados.")
@@ -80,6 +88,7 @@ if df is None:
 
 dfm = cargar_mercados()
 dfd = cargar_dolar()
+dfi = cargar_itcrm()
 
 # ── Selector de fechas ─────────────────────────────────────────────────────────
 fecha_min = df["fecha"].min().date()
@@ -370,6 +379,11 @@ with tabs[0]:
     with b:
         g1(df_f, "depositos_usd",
            "Depósitos en Dólares - Sector Privado (USD MM)", key="t0_depusd")
+    if dfi is not None:
+        dfi_f = dfi[(dfi["fecha"].dt.date >= desde) & (dfi["fecha"].dt.date <= hasta)]
+        a, b = st.columns(2)
+        with a:
+            g1(dfi_f, "itcrm", "ITCRM — Índice de Tipo de Cambio Real Multilateral (base 17-12-15=100)", key="t0_itcrm")
 
 with tabs[1]:
     a, b = st.columns(2)
