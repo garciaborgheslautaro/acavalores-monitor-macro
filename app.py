@@ -390,11 +390,13 @@ with tabs[4]:
         a, b = st.columns(2)
         with a:
             g1(dfm_f, "merval", "Merval (pesos)", key="t4_merval")
-        with b:
-            g1(dfm_f, "eem", "EEM - iShares MSCI Emerging Markets ETF", key="t4_eem")
+
+
         a, b = st.columns(2)
         with a:
             g1(dfm_f, "emb", "EMB - iShares JP Morgan EM Bond ETF", key="t4_emb")
+        with b:
+            g1(dfm_f, "eem", "EEM - iShares MSCI Emerging Markets ETF", key="t4_eem")
 
         st.markdown("#### Commodities")
         a, b = st.columns(2)
@@ -422,12 +424,7 @@ with tabs[4]:
         with a:
             g1(dfm_granos, "trigo_ton", "Trigo CBOT (USD/ton)", sufijo=" USD", color=COLORES["trigo"], key="t4_trigo")
 
-        st.markdown("#### Renta Fija & Dólar")
-        a, b = st.columns(2)
-        with a:
-            g1(dfm_f, "us10y", "US Treasury 10Y (% yield)", sufijo="%", key="t4_us10y")
-        with b:
-            g1(dfm_f, "dxy", "DXY - Índice Dólar", key="t4_dxy")
+
 
 with tabs[5]:
     cols_orden = [
@@ -447,7 +444,6 @@ with tabs[5]:
 
 st.divider()
 st.caption("ACA Valores · Monitor Macroeconómico · Fuente: BCRA API v4.0 · Actualización diaria automática")
-
 
 
 
