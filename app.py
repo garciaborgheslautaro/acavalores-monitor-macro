@@ -65,12 +65,21 @@ def cargar_mercados():
     df = pd.read_csv(path, parse_dates=["fecha"])
     return df.sort_values("fecha").reset_index(drop=True)
 
+@st.cache_data(ttl=3600)
+def cargar_dolar():
+    path = "data/dolar_data.csv"
+    if not os.path.exists(path):
+        return None
+    df = pd.read_csv(path, parse_dates=["fecha"])
+    return df.sort_values("fecha").reset_index(drop=True)
+
 df = cargar_datos()
 if df is None:
     st.warning("Los datos aún no fueron generados.")
     st.stop()
 
 dfm = cargar_mercados()
+dfd = cargar_dolar()
 
 # ── Selector de fechas ─────────────────────────────────────────────────────────
 fecha_min = df["fecha"].min().date()
@@ -175,6 +184,9 @@ COLORES = {
     "maiz":                   "#F6AD55",
     "trigo":                  "#FBD38D",
     "merval":                 "#00BFFF",
+    "mep":                    "#E53E3E",
+    "ccl":                    "#805AD5",
+    "blue":                   "#2B6CB0",
 }
 
 # Watermark como imagen de fondo
