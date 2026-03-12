@@ -359,7 +359,7 @@ with tabs[0]:
                 if col in dfd_f.columns:
                     dp = dfd_f[["fecha", col]].dropna(subset=[col])
                     fig_tc.add_trace(go.Scatter(x=dp["fecha"], y=dp[col], mode="lines",
-                        name=lab, line=dict(color=color, width=2, dash="dash"),
+                        name=lab, line=dict(color=color, width=2),
                         hovertemplate="%{x|%d/%m/%Y}<br>" + lab + ": $%{y:,.2f}<extra></extra>"))
         layout_tc = dict(LAYOUT_BASE)
         layout_tc["title"] = dict(text="Tipos de Cambio ($)", font=dict(size=14, color="#1B2A6B"))
@@ -489,5 +489,3 @@ with tabs[5]:
 
 st.divider()
 st.caption("ACA Valores · Monitor Macroeconómico · Fuente: BCRA API v4.0 · Actualización diaria automática")
-
-
