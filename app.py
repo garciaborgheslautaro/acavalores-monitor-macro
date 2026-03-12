@@ -13,20 +13,22 @@ st.set_page_config(
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-html, body, [class*="css"] { font-family: 'Montserrat', sans-serif; }
+html, body, [class*="css"] { font-family: 'Montserrat', sans-serif; background-color: #F7F9FC; color: #1A202C; }
+.stApp { background-color: #F7F9FC; }
 .kpi-card {
-    background: linear-gradient(135deg, #1B2A6B 0%, #0D1B3E 100%);
-    border: 1px solid #2A3F8F;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
     border-radius: 12px;
     padding: 20px 16px;
     text-align: center;
     margin-bottom: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
 }
-.kpi-label { font-size: 11px; color: #A0AEC0; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-.kpi-value { font-size: 22px; font-weight: 700; color: #FFFFFF; margin-bottom: 6px; }
-.kpi-delta-pos { font-size: 12px; color: #48BB78; }
-.kpi-delta-neg { font-size: 12px; color: #FC8181; }
-.kpi-delta-neu { font-size: 12px; color: #A0AEC0; }
+.kpi-label { font-size: 11px; color: #718096; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.kpi-value { font-size: 22px; font-weight: 700; color: #1B2A6B; margin-bottom: 6px; }
+.kpi-delta-pos { font-size: 12px; color: #276749; }
+.kpi-delta-neg { font-size: 12px; color: #C53030; }
+.kpi-delta-neu { font-size: 12px; color: #718096; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -152,15 +154,33 @@ COLORES = {
     "rem_inflacion":          "#48BB78",
 }
 
+# Watermark como imagen de fondo
+import base64, os as _os
+def _wm_image():
+    path = "assets/watermark.jpg"
+    if not _os.path.exists(path):
+        return []
+    with open(path, "rb") as f:
+        b64 = base64.b64encode(f.read()).decode()
+    return [dict(
+        source=f"data:image/jpeg;base64,{b64}",
+        xref="paper", yref="paper",
+        x=0.5, y=0.5,
+        sizex=0.45, sizey=0.45,
+        xanchor="center", yanchor="middle",
+        opacity=0.07, layer="below"
+    )]
+
 LAYOUT_BASE = dict(
-    paper_bgcolor="#0D1B2A",
-    plot_bgcolor="#0D1B2A",
-    font=dict(family="Montserrat", color="white", size=11),
-    xaxis=dict(showgrid=False, color="#A0AEC0", tickformat="%b %Y"),
-    yaxis=dict(showgrid=True, gridcolor="#1E2D3D", color="#A0AEC0"),
+    paper_bgcolor="#FFFFFF",
+    plot_bgcolor="#FFFFFF",
+    font=dict(family="Montserrat", color="#2D3748", size=11),
+    xaxis=dict(showgrid=False, color="#718096", tickformat="%b %Y"),
+    yaxis=dict(showgrid=True, gridcolor="#EDF2F7", color="#718096"),
     margin=dict(l=10, r=10, t=40, b=10),
     hovermode="x unified",
-    height=320,
+    height=300,
+    images=_wm_image(),
 )
 
 # ── Funciones de gráficos ──────────────────────────────────────────────────────
@@ -189,7 +209,7 @@ def g1(df, col, titulo, sufijo="", color=None, key=None):
         hovertemplate="%{x|%d/%m/%Y}<br>" + titulo + ": %{y:,.2f}" + sufijo + "<extra></extra>"
     ))
     layout = dict(LAYOUT_BASE)
-    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=13, color="white"))
+    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=13, color="#1B2A6B"))
     layout["showlegend"] = False
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key or col)
@@ -209,7 +229,7 @@ def g_barras(df, col, titulo, sufijo="", key=None):
         hovertemplate="%{x|%d/%m/%Y}<br>" + titulo + ": %{y:,.1f}" + sufijo + "<extra></extra>"
     ))
     layout = dict(LAYOUT_BASE)
-    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=13, color="white"))
+    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=13, color="#1B2A6B"))
     layout["showlegend"] = False
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key or col)
@@ -227,9 +247,9 @@ def g2(df, col1, lab1, col2, lab2, titulo, sufijo="", key=None):
             ))
     fecha_tag = ultima_fecha(df, col1)
     layout = dict(LAYOUT_BASE)
-    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=13, color="white"))
-    layout["height"] = 340
-    layout["legend"] = dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(color="white", size=10))
+    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=13, color="#1B2A6B"))
+    layout["height"] = 320
+    layout["legend"] = dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(color="#2D3748", size=10))
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key or (col1 + "_" + col2))
 
@@ -250,15 +270,16 @@ def g2eje(df, col1, lab1, col2, lab2, titulo, suf1="%", suf2="%", key=None):
             hovertemplate="%{x|%d/%m/%Y}<br>" + lab2 + ": %{y:.1f}" + suf2 + "<extra></extra>"
         ))
     fig.update_layout(
-        paper_bgcolor="#0D1B2A", plot_bgcolor="#0D1B2A",
-        font=dict(family="Montserrat", color="white", size=11),
-        xaxis=dict(showgrid=False, color="#A0AEC0", tickformat="%b %Y"),
-        yaxis=dict(title=lab1, showgrid=True, gridcolor="#1E2D3D", color="#FC8181", title_font=dict(color="#FC8181")),
-        yaxis2=dict(title=lab2, overlaying="y", side="right", showgrid=False, color="#F6AD55", title_font=dict(color="#F6AD55")),
+        paper_bgcolor="#FFFFFF", plot_bgcolor="#FFFFFF",
+        font=dict(family="Montserrat", color="#2D3748", size=11),
+        xaxis=dict(showgrid=False, color="#718096", tickformat="%b %Y"),
+        yaxis=dict(title=lab1, showgrid=True, gridcolor="#EDF2F7", color="#C53030", title_font=dict(color="#C53030")),
+        yaxis2=dict(title=lab2, overlaying="y", side="right", showgrid=False, color="#C05621", title_font=dict(color="#C05621")),
         margin=dict(l=10, r=60, t=40, b=10),
-        title=dict(text=titulo + ultima_fecha(df, col1), font=dict(size=13, color="white")),
+        title=dict(text=titulo + ultima_fecha(df, col1), font=dict(size=13, color="#1B2A6B")),
         hovermode="x unified", height=360,
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(color="white", size=10))
+        images=_wm_image(),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(color="#2D3748", size=10))
     )
     st.plotly_chart(fig, use_container_width=True, key=key or (col1 + "_" + col2 + "_eje"))
 
@@ -347,7 +368,6 @@ with tabs[4]:
 
 st.divider()
 st.caption("ACA Valores · Monitor Macroeconómico · Fuente: BCRA API v4.0 · Actualización diaria automática")
-
 
 
 
