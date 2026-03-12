@@ -379,15 +379,27 @@ with tabs[0]:
     with _st_c:
         st.markdown('<div class="section-title">Reservas & Divisas</div>', unsafe_allow_html=True)
     row_card(df_f, "reservas", "Reservas Internacionales (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t0_reservas", df_full=df)
-    # Compras BCRA — card sin variaciones + barras
+    # Compras BCRA — card sin variaciones + acumulado 2026 + barras
     _val_c, _fecha_c, _, _, _ = get_variaciones(df_f, "compras_usd_bcra", df)
     _fmt_c = f"USD {_val_c:,.0f} MM" if _val_c is not None else "-"
+    # Acumulado 2026
+    _acum_2026 = None
+    if "compras_usd_bcra" in df.columns:
+        _df_2026 = df[df["fecha"].dt.year == 2026][["fecha","compras_usd_bcra"]].dropna()
+        if len(_df_2026) > 0:
+            _acum_2026 = _df_2026["compras_usd_bcra"].sum()
+    _fmt_acum = f"USD {_acum_2026:+,.0f} MM" if _acum_2026 is not None else "-"
+    _color_acum = "#276749" if (_acum_2026 is not None and _acum_2026 >= 0) else "#C53030"
     _c_esp_l, _c_card, _c_chart, _c_esp_r = st.columns([1, 2, 4, 3])
     with _c_card:
         st.markdown(f"""<div class="row-card">
             <div class="var-label">Compras Netas de Divisas BCRA (USD MM)</div>
             <div class="var-value">{_fmt_c}</div>
             <div class="var-fecha">últ. dato: {_fecha_c or '-'}</div>
+            <div style="margin-top:10px;padding-top:10px;border-top:1px solid #EDF2F7">
+                <div style="font-size:12px;color:#718096;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Acumulado 2026</div>
+                <div style="font-size:20px;font-weight:700;color:{_color_acum}">{_fmt_acum}</div>
+            </div>
         </div>""", unsafe_allow_html=True)
     with _c_chart:
         mini_chart_barras(df_f, "compras_usd_bcra", key="t0_compras", label="Compras Netas de Divisas BCRA (USD MM)", fecha_str=_fecha_c or "")
@@ -594,26 +606,28 @@ with tabs[4]:
         dfm_f = dfm[(dfm["fecha"].dt.date >= desde) & (dfm["fecha"].dt.date <= hasta)].copy()
 
         _st_l, _st_c = st.columns([1, 9])
-    with _st_c:
-        st.markdown('<div class="section-title">Índices & Renta Variable</div>', unsafe_allow_html=True)
+        with _st_c:
+            st.markdown('<div class="section-title">Índices & Renta Variable</div>', unsafe_allow_html=True)
         row_card(dfm_f, "sp500", "S&P 500", decimales=2, color=COLORES["sp500"], key="t4_sp500", df_full=dfm)
         row_card(dfm_f, "nasdaq", "Nasdaq Composite", decimales=2, color=COLORES["nasdaq"], key="t4_nasdaq", df_full=dfm)
 
-        # Merval CCL
         if dfd is not None:
             dfd_m = dfd[(dfd["fecha"].dt.date >= desde) & (dfd["fecha"].dt.date <= hasta)]
+            dfd_m_full = dfd.copy()
             df_mccl = pd.merge(dfm_f[["fecha","merval"]], dfd_m[["fecha","ccl"]], on="fecha", how="inner").dropna()
             if len(df_mccl) > 0:
                 df_mccl["merval_ccl"] = df_mccl["merval"] / df_mccl["ccl"]
+                df_mccl_full = pd.merge(dfm[["fecha","merval"]], dfd_m_full[["fecha","ccl"]], on="fecha", how="inner").dropna()
+                df_mccl_full["merval_ccl"] = df_mccl_full["merval"] / df_mccl_full["ccl"]
                 row_card(df_mccl, "merval_ccl", "Merval en USD (CCL)", prefijo="USD ", decimales=2,
-                         color=COLORES["merval_ccl"], key="t4_merval_ccl")
+                         color=COLORES["merval_ccl"], key="t4_merval_ccl", df_full=df_mccl_full)
 
         row_card(dfm_f, "eem", "EEM - iShares MSCI Emerging Markets ETF", prefijo="USD ", decimales=2,
                  color=COLORES["eem"], key="t4_eem", df_full=dfm)
 
         _st_l, _st_c = st.columns([1, 9])
-    with _st_c:
-        st.markdown('<div class="section-title">Renta Fija & Moneda</div>', unsafe_allow_html=True)
+        with _st_c:
+            st.markdown('<div class="section-title">Renta Fija & Moneda</div>', unsafe_allow_html=True)
         row_card(dfm_f, "us10y", "US Treasury 10Y (% yield)", sufijo="%", decimales=2,
                  color=COLORES["us10y"], key="t4_us10y", invertir_colores=True, es_porcentaje=True, df_full=dfm)
         row_card(dfm_f, "emb", "EMB - iShares JP Morgan EM Bond ETF", prefijo="USD ", decimales=2,
@@ -621,11 +635,11 @@ with tabs[4]:
         row_card(dfm_f, "dxy", "DXY - Índice Dólar", decimales=2, color=COLORES["dxy"], key="t4_dxy", df_full=dfm)
 
         _st_l, _st_c = st.columns([1, 9])
-    with _st_c:
-        st.markdown('<div class="section-title">Commodities</div>', unsafe_allow_html=True)
+        with _st_c:
+            st.markdown('<div class="section-title">Commodities</div>', unsafe_allow_html=True)
         row_card(dfm_f, "oro", "Oro (USD/oz)", prefijo="USD ", decimales=2, color=COLORES["oro"], key="t4_oro", df_full=dfm)
 
-        # Petróleo — gráfico especial con Brent y WTI
+        # Petróleo — gráfico especial Brent + WTI
         val_brent, fecha_brent, var_ult_brent, var_30_brent, var_365_brent = get_variaciones(dfm_f, "brent", dfm)
         val_wti, _, var_ult_wti, var_30_wti, var_365_wti = get_variaciones(dfm_f, "wti", dfm)
 
@@ -636,7 +650,7 @@ with tabs[4]:
             return f'<span class="{clase}">{flecha} {abs(v):.2f}%</span>'
 
         fmt_val_brent = f"{val_brent:,.2f}" if val_brent is not None else "-"
-        fmt_val_wti = f"{val_wti:,.2f}" if val_wti is not None else "-"
+        fmt_val_wti   = f"{val_wti:,.2f}"   if val_wti   is not None else "-"
         col_esp_l_pet, col_card_pet, col_chart_pet, col_esp_r_pet = st.columns([1, 2, 4, 3])
         with col_card_pet:
             st.markdown(f"""
@@ -668,35 +682,27 @@ with tabs[4]:
                         name=lab_p, line=dict(color=color_p, width=2),
                         hovertemplate="%{x|%d/%m/%Y}<br>" + lab_p + ": USD %{y:,.2f}<extra></extra>"))
             layout_pet = dict(LAYOUT_BASE)
-            layout_pet["height"] = 200
+            layout_pet["height"] = 340
             layout_pet["showlegend"] = True
             layout_pet["legend"] = dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=9))
+            layout_pet["title"] = dict(text="<b>Petróleo (USD/bbl)</b>", font=dict(size=14, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
+            layout_pet["margin"] = dict(l=10, r=10, t=50, b=10)
             fig_pet.update_layout(**layout_pet)
             st.plotly_chart(fig_pet, use_container_width=True, key="t4_petroleo")
 
-        # Granos en USD/ton — df completo para 365d
-        dfm_granos_full = dfm.copy() if dfm is not None else dfm_f.copy()
-        if "soja" in dfm_granos_full.columns:
-            dfm_granos_full["soja_ton"] = (dfm_granos_full["soja"] / 100) * 36.744
-        if "maiz" in dfm_granos_full.columns:
-            dfm_granos_full["maiz_ton"] = (dfm_granos_full["maiz"] / 100) * 39.368
-        if "trigo" in dfm_granos_full.columns:
-            dfm_granos_full["trigo_ton"] = (dfm_granos_full["trigo"] / 100) * 36.744
-
+        # Granos en USD/ton
+        dfm_granos_full = dfm.copy()
+        for g, factor in [("soja", 36.744), ("maiz", 39.368), ("trigo", 36.744)]:
+            if g in dfm_granos_full.columns:
+                dfm_granos_full[f"{g}_ton"] = (dfm_granos_full[g] / 100) * factor
         dfm_granos = dfm_f.copy()
-        if "soja" in dfm_granos.columns:
-            dfm_granos["soja_ton"] = (dfm_granos["soja"] / 100) * 36.744
-        if "maiz" in dfm_granos.columns:
-            dfm_granos["maiz_ton"] = (dfm_granos["maiz"] / 100) * 39.368
-        if "trigo" in dfm_granos.columns:
-            dfm_granos["trigo_ton"] = (dfm_granos["trigo"] / 100) * 36.744
+        for g, factor in [("soja", 36.744), ("maiz", 39.368), ("trigo", 36.744)]:
+            if g in dfm_granos.columns:
+                dfm_granos[f"{g}_ton"] = (dfm_granos[g] / 100) * factor
 
-        row_card(dfm_granos, "soja_ton", "Soja CBOT (USD/ton)", prefijo="USD ", decimales=2,
-                 color=COLORES["soja"], key="t4_soja", df_full=dfm_granos_full)
-        row_card(dfm_granos, "maiz_ton", "Maíz CBOT (USD/ton)", prefijo="USD ", decimales=2,
-                 color=COLORES["maiz"], key="t4_maiz", df_full=dfm_granos_full)
-        row_card(dfm_granos, "trigo_ton", "Trigo CBOT (USD/ton)", prefijo="USD ", decimales=2,
-                 color=COLORES["trigo"], key="t4_trigo", df_full=dfm_granos_full)
+        row_card(dfm_granos, "soja_ton",  "Soja CBOT (USD/ton)",  prefijo="USD ", decimales=2, color=COLORES["soja"],  key="t4_soja",  df_full=dfm_granos_full)
+        row_card(dfm_granos, "maiz_ton",  "Maíz CBOT (USD/ton)",  prefijo="USD ", decimales=2, color=COLORES["maiz"],  key="t4_maiz",  df_full=dfm_granos_full)
+        row_card(dfm_granos, "trigo_ton", "Trigo CBOT (USD/ton)", prefijo="USD ", decimales=2, color=COLORES["trigo"], key="t4_trigo", df_full=dfm_granos_full)
 
 # ════════════════════════════════════════════════════════════════════════════════
 # TAB 5 — TABLA DE DATOS
