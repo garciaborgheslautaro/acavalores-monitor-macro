@@ -78,7 +78,15 @@ def cargar_itcrm():
     path = "data/itcrm_data.csv"
     if not os.path.exists(path):
         return None
-    df = pd.read_csv(path, parse_dates=["fecha"])
+    df = pd.read_csv(path, parse_dates=["fecha"], encoding="utf-8", encoding_errors="replace")
+    return df.sort_values("fecha").reset_index(drop=True)
+
+@st.cache_data(ttl=3600)
+def cargar_riesgo_pais():
+    path = "data/riesgo_pais_data.csv"
+    if not os.path.exists(path):
+        return None
+    df = pd.read_csv(path, parse_dates=["fecha"], encoding="utf-8", encoding_errors="replace")
     return df.sort_values("fecha").reset_index(drop=True)
 
 df = cargar_datos()
@@ -89,6 +97,7 @@ if df is None:
 dfm = cargar_mercados()
 dfd = cargar_dolar()
 dfi = cargar_itcrm()
+dfr = cargar_riesgo_pais()
 
 # ── Selector de fechas ─────────────────────────────────────────────────────────
 fecha_min = df["fecha"].min().date()
@@ -379,11 +388,16 @@ with tabs[0]:
     with b:
         g1(df_f, "depositos_usd",
            "Depósitos en Dólares - Sector Privado (USD MM)", key="t0_depusd")
-    if dfi is not None:
-        dfi_f = dfi[(dfi["fecha"].dt.date >= desde) & (dfi["fecha"].dt.date <= hasta)]
+    if dfi is not None or dfr is not None:
         a, b = st.columns(2)
-        with a:
-            g1(dfi_f, "itcrm", "ITCRM — Índice de Tipo de Cambio Real Multilateral (base 17-12-15=100)", key="t0_itcrm")
+        if dfi is not None:
+            dfi_f = dfi[(dfi["fecha"].dt.date >= desde) & (dfi["fecha"].dt.date <= hasta)]
+            with a:
+                g1(dfi_f, "itcrm", "ITCRM (base 17-12-15=100)", key="t0_itcrm")
+        if dfr is not None:
+            dfr_f = dfr[(dfr["fecha"].dt.date >= desde) & (dfr["fecha"].dt.date <= hasta)]
+            with b:
+                g1(dfr_f, "riesgo_pais", "Riesgo País EMBI (puntos básicos)", sufijo=" pb", key="t0_riesgo")
 
 with tabs[1]:
     a, b = st.columns(2)
