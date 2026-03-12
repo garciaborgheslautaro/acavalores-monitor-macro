@@ -24,7 +24,7 @@ html, body, [class*="css"] { font-family: 'Montserrat', sans-serif; background-c
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 .var-label {
-    font-size: 11px;
+    font-size: 13px;
     color: #718096;
     text-transform: uppercase;
     letter-spacing: 0.8px;
@@ -193,7 +193,7 @@ LAYOUT_BASE = dict(
     paper_bgcolor="#FFFFFF", plot_bgcolor="#FFFFFF",
     font=dict(family="Montserrat", size=11, color="#2D3748"),
     margin=dict(l=10, r=10, t=30, b=10),
-    hovermode="x unified", height=160,
+    hovermode="x unified", height=240,
     xaxis=dict(showgrid=False, zeroline=False, tickfont=dict(size=9)),
     yaxis=dict(showgrid=True, gridcolor="#EDF2F7", zeroline=False, tickfont=dict(size=9)),
     images=_wm_image(),
@@ -201,8 +201,9 @@ LAYOUT_BASE = dict(
 )
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
-def get_variaciones(serie_df, col):
-    """Retorna (valor, fecha, var_ult, var_30d, var_365d) todos como floats o None"""
+def get_variaciones(serie_df, col, serie_full=None):
+    """Retorna (valor, fecha, var_ult, var_30d, var_365d) todos como floats o None
+    serie_full: dataframe completo sin filtro para calcular variaciones históricas"""
     if col not in serie_df.columns:
         return None, None, None, None, None
     s = serie_df[["fecha", col]].dropna(subset=[col]).sort_values("fecha")
@@ -214,12 +215,14 @@ def get_variaciones(serie_df, col):
     ant = float(s.iloc[-2][col])
     var_ult = ((val - ant) / ant * 100) if ant != 0 else 0
 
+    s_hist = serie_full[["fecha", col]].dropna(subset=[col]).sort_values("fecha") if (serie_full is not None and col in serie_full.columns) else s
+
     fecha_30 = fecha - timedelta(days=30)
-    s30 = s[s["fecha"] <= fecha_30]
+    s30 = s_hist[s_hist["fecha"] <= fecha_30]
     var_30 = ((val - float(s30.iloc[-1][col])) / float(s30.iloc[-1][col]) * 100) if len(s30) > 0 and float(s30.iloc[-1][col]) != 0 else None
 
     fecha_365 = fecha - timedelta(days=365)
-    s365 = s[s["fecha"] <= fecha_365]
+    s365 = s_hist[s_hist["fecha"] <= fecha_365]
     var_365 = ((val - float(s365.iloc[-1][col])) / float(s365.iloc[-1][col]) * 100) if len(s365) > 0 and float(s365.iloc[-1][col]) != 0 else None
 
     return val, fecha_str, var_ult, var_30, var_365
@@ -297,10 +300,10 @@ def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key
     with col_chart:
         mini_chart_barras(df_plot, col, key=key or col)
 
-def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None, key=None, invertir_colores=False):
+def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None, key=None, invertir_colores=False, df_full=None):
     """Card a la izquierda + mini gráfico a la derecha en una fila"""
     color = color or COLORES.get(col, "#1B2A6B")
-    val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col)
+    val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col, serie_full=df_full)
 
     col_card, col_chart = st.columns([3, 7])
     with col_card:
@@ -435,10 +438,10 @@ with tabs[0]:
     st.markdown('<div class="section-title">Competitividad & Riesgo</div>', unsafe_allow_html=True)
     if dfi is not None:
         dfi_f = dfi[(dfi["fecha"].dt.date >= desde) & (dfi["fecha"].dt.date <= hasta)]
-        row_card(dfi_f, "itcrm", "ITCRM (base 17-12-15=100)", decimales=2, color=COLORES["itcrm"], key="t0_itcrm")
+        row_card(dfi_f, "itcrm", "ITCRM (base 17-12-15=100)", decimales=2, color=COLORES["itcrm"], key="t0_itcrm", df_full=dfi)
     if dfr is not None:
         dfr_f = dfr[(dfr["fecha"].dt.date >= desde) & (dfr["fecha"].dt.date <= hasta)]
-        row_card(dfr_f, "riesgo_pais", "Riesgo País EMBI (puntos básicos)", sufijo=" pb", decimales=0, color=COLORES["riesgo_pais"], key="t0_riesgo", invertir_colores=True)
+        row_card(dfr_f, "riesgo_pais", "Riesgo País EMBI (puntos básicos)", sufijo=" pb", decimales=0, color=COLORES["riesgo_pais"], key="t0_riesgo", invertir_colores=True, df_full=dfr)
 
 # ════════════════════════════════════════════════════════════════════════════════
 # TAB 1 — POLÍTICA MONETARIA
