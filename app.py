@@ -251,8 +251,8 @@ def mini_chart(df_plot, col, color, key, label="", fecha_str=""):
         hovertemplate="%{x|%d/%m/%Y}<br>%{y:,.2f}<extra></extra>"
     ))
     layout = dict(LAYOUT_BASE)
-    layout["title"] = dict(text=titulo, font=dict(size=11, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
-    layout["margin"] = dict(l=10, r=10, t=40, b=10)
+    layout["title"] = dict(text=titulo, font=dict(size=14, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
+    layout["margin"] = dict(l=10, r=10, t=50, b=10)
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key)
 
@@ -269,8 +269,8 @@ def mini_chart_barras(df_plot, col, key, label="", fecha_str=""):
         hovertemplate="%{x|%d/%m/%Y}<br>%{y:,.2f}<extra></extra>"
     ))
     layout = dict(LAYOUT_BASE)
-    layout["title"] = dict(text=titulo, font=dict(size=11, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
-    layout["margin"] = dict(l=10, r=10, t=40, b=10)
+    layout["title"] = dict(text=titulo, font=dict(size=14, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
+    layout["margin"] = dict(l=10, r=10, t=50, b=10)
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key)
 
@@ -368,7 +368,9 @@ tabs = st.tabs([
 # TAB 0 — SECTOR EXTERNO
 # ════════════════════════════════════════════════════════════════════════════════
 with tabs[0]:
-    st.markdown('<div class="section-title">Reservas & Divisas</div>', unsafe_allow_html=True)
+    _st_l, _st_c = st.columns([1, 9])
+    with _st_c:
+        st.markdown('<div class="section-title">Reservas & Divisas</div>', unsafe_allow_html=True)
     row_card(df_f, "reservas", "Reservas Internacionales (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t0_reservas", df_full=df)
     # Compras BCRA — card sin variaciones + barras
     _val_c, _fecha_c, _, _, _ = get_variaciones(df_f, "compras_usd_bcra", df)
@@ -384,7 +386,9 @@ with tabs[0]:
         mini_chart_barras(df_f, "compras_usd_bcra", key="t0_compras", label="Compras Netas de Divisas BCRA (USD MM)", fecha_str=_fecha_c or "")
     row_card(df_f, "depositos_usd", "Depósitos en Dólares - Sector Privado (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t0_depusd", df_full=df)
 
-    st.markdown('<div class="section-title">Tipo de Cambio</div>', unsafe_allow_html=True)
+    _st_l, _st_c = st.columns([1, 9])
+    with _st_c:
+        st.markdown('<div class="section-title">Tipo de Cambio</div>', unsafe_allow_html=True)
 
     # TC: gráfico especial con 4 series
     val_min, fecha_str_min, var_ult_min, var_30_min, var_365_min = get_variaciones(df_f, "tc_mayorista", df)
@@ -447,12 +451,14 @@ with tabs[0]:
         layout_tc["height"] = 340
         layout_tc["showlegend"] = True
         layout_tc["legend"] = dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=9))
-        layout_tc["title"] = dict(text=f"<b>Tipo de Cambio ($)</b>  <span style='font-size:10px;color:#718096'>últ. dato: {fecha_str_min or '-'}</span>", font=dict(size=11, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
+        layout_tc["title"] = dict(text=f"<b>Tipo de Cambio ($)</b>  <span style='font-size:10px;color:#718096'>últ. dato: {fecha_str_min or '-'}</span>", font=dict(size=14, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
         layout_tc["margin"] = dict(l=10, r=10, t=40, b=10)
         fig_tc.update_layout(**layout_tc)
         st.plotly_chart(fig_tc, use_container_width=True, key="t0_tc")
 
-    st.markdown('<div class="section-title">Competitividad & Riesgo</div>', unsafe_allow_html=True)
+    _st_l, _st_c = st.columns([1, 9])
+    with _st_c:
+        st.markdown('<div class="section-title">Competitividad & Riesgo</div>', unsafe_allow_html=True)
     if dfi is not None:
         dfi_f = dfi[(dfi["fecha"].dt.date >= desde) & (dfi["fecha"].dt.date <= hasta)]
         row_card(dfi_f, "itcrm", "ITCRM (base 17-12-15=100)", decimales=2, color=COLORES["itcrm"], key="t0_itcrm", df_full=dfi)
@@ -464,7 +470,9 @@ with tabs[0]:
 # TAB 1 — POLÍTICA MONETARIA
 # ════════════════════════════════════════════════════════════════════════════════
 with tabs[1]:
-    st.markdown('<div class="section-title">Agregados Monetarios</div>', unsafe_allow_html=True)
+    _st_l, _st_c = st.columns([1, 9])
+    with _st_c:
+        st.markdown('<div class="section-title">Agregados Monetarios</div>', unsafe_allow_html=True)
     row_card(df_f, "base_monetaria", "Base Monetaria ($ MM)", prefijo="$ ", sufijo=" MM", decimales=0, key="t1_bm", df_full=df)
     # M2 Transaccional — promedio móvil 30d
     if "m2_transaccional" in df.columns:
@@ -476,7 +484,9 @@ with tabs[1]:
         row_card(df_m2t_f, "m2t_ma30", "M2 Transaccional Sector Privado - Prom. 30d ($ MM)", prefijo="$ ", sufijo=" MM", decimales=0, key="t1_m2trans", df_full=df_m2t_full)
     row_card(df_f, "m2_privado", "M2 Privado - Var. interanual (%)", sufijo="%", decimales=2, color=COLORES["m2_privado"], key="t1_m2", df_full=df, es_porcentaje=True)
 
-    st.markdown('<div class="section-title">Tasas de Interés</div>', unsafe_allow_html=True)
+    _st_l, _st_c = st.columns([1, 9])
+    with _st_c:
+        st.markdown('<div class="section-title">Tasas de Interés</div>', unsafe_allow_html=True)
 
     # Card TAMAR con gráfico TAMAR+BADLAR juntos
     val_tamar, fecha_tamar, var_ult_tamar, var_30_tamar, var_365_tamar = get_variaciones(df_f, "tamar", df)
@@ -525,7 +535,7 @@ with tabs[1]:
         layout_t["height"] = 340
         layout_t["showlegend"] = True
         layout_t["legend"] = dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=9))
-        layout_t["title"] = dict(text=f"<b>TAMAR y BADLAR (% TNA)</b>  <span style='font-size:10px;color:#718096'>últ. dato: {fecha_tamar or '-'}</span>", font=dict(size=11, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
+        layout_t["title"] = dict(text=f"<b>TAMAR y BADLAR (% TNA)</b>  <span style='font-size:10px;color:#718096'>últ. dato: {fecha_tamar or '-'}</span>", font=dict(size=14, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
         layout_t["margin"] = dict(l=10, r=10, t=40, b=10)
         fig_tasas.update_layout(**layout_t)
         st.plotly_chart(fig_tasas, use_container_width=True, key="t1_tasas")
@@ -534,7 +544,9 @@ with tabs[1]:
 # TAB 2 — SISTEMA FINANCIERO
 # ════════════════════════════════════════════════════════════════════════════════
 with tabs[2]:
-    st.markdown('<div class="section-title">Crédito & Depósitos</div>', unsafe_allow_html=True)
+    _st_l, _st_c = st.columns([1, 9])
+    with _st_c:
+        st.markdown('<div class="section-title">Crédito & Depósitos</div>', unsafe_allow_html=True)
     row_card(df_f, "depositos_usd", "Depósitos en Dólares - Sector Privado (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t2_depusd", df_full=df)
     row_card(df_f, "prestamos_usd", "Préstamos en Dólares - Sector Privado (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t2_prestusd", df_full=df)
 
@@ -549,7 +561,9 @@ with tabs[2]:
 # TAB 3 — INFLACIÓN
 # ════════════════════════════════════════════════════════════════════════════════
 with tabs[3]:
-    st.markdown('<div class="section-title">IPC & Expectativas</div>', unsafe_allow_html=True)
+    _st_l, _st_c = st.columns([1, 9])
+    with _st_c:
+        st.markdown('<div class="section-title">IPC & Expectativas</div>', unsafe_allow_html=True)
     row_card_barras(df_f, "inflacion_mensual", "Inflación Mensual IPC (%)", sufijo="%", decimales=1,
              key="t3_inf_men", invertir_colores=True, df_full=df)
     row_card(df_f, "inflacion_interanual", "Inflación Interanual IPC (%)", sufijo="%", decimales=1,
@@ -557,7 +571,9 @@ with tabs[3]:
     row_card(df_f, "rem_inflacion", "Inflación Esperada REM - Próximos 12 meses - Mediana (% i.a.)",
              sufijo="%", decimales=1, color=COLORES["rem_inflacion"], key="t3_rem", invertir_colores=True, df_full=df, es_porcentaje=True)
 
-    st.markdown('<div class="section-title">Indexación</div>', unsafe_allow_html=True)
+    _st_l, _st_c = st.columns([1, 9])
+    with _st_c:
+        st.markdown('<div class="section-title">Indexación</div>', unsafe_allow_html=True)
     row_card(df_f, "cer", "CER - Coeficiente de Estabilización de Referencia (base 2-feb-02=1)",
              decimales=2, color=COLORES["cer"], key="t3_cer", df_full=df)
 
@@ -570,6 +586,8 @@ with tabs[4]:
     else:
         dfm_f = dfm[(dfm["fecha"].dt.date >= desde) & (dfm["fecha"].dt.date <= hasta)].copy()
 
+        _st_l, _st_c = st.columns([1, 9])
+    with _st_c:
         st.markdown('<div class="section-title">Índices & Renta Variable</div>', unsafe_allow_html=True)
         row_card(dfm_f, "sp500", "S&P 500", decimales=2, color=COLORES["sp500"], key="t4_sp500", df_full=dfm)
         row_card(dfm_f, "nasdaq", "Nasdaq Composite", decimales=2, color=COLORES["nasdaq"], key="t4_nasdaq", df_full=dfm)
@@ -586,6 +604,8 @@ with tabs[4]:
         row_card(dfm_f, "eem", "EEM - iShares MSCI Emerging Markets ETF", prefijo="USD ", decimales=2,
                  color=COLORES["eem"], key="t4_eem", df_full=dfm)
 
+        _st_l, _st_c = st.columns([1, 9])
+    with _st_c:
         st.markdown('<div class="section-title">Renta Fija & Moneda</div>', unsafe_allow_html=True)
         row_card(dfm_f, "us10y", "US Treasury 10Y (% yield)", sufijo="%", decimales=2,
                  color=COLORES["us10y"], key="t4_us10y", invertir_colores=True, es_porcentaje=True, df_full=dfm)
@@ -593,6 +613,8 @@ with tabs[4]:
                  color=COLORES["emb"], key="t4_emb", df_full=dfm)
         row_card(dfm_f, "dxy", "DXY - Índice Dólar", decimales=2, color=COLORES["dxy"], key="t4_dxy", df_full=dfm)
 
+        _st_l, _st_c = st.columns([1, 9])
+    with _st_c:
         st.markdown('<div class="section-title">Commodities</div>', unsafe_allow_html=True)
         row_card(dfm_f, "oro", "Oro (USD/oz)", prefijo="USD ", decimales=2, color=COLORES["oro"], key="t4_oro", df_full=dfm)
 
