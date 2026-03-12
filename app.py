@@ -202,26 +202,31 @@ LAYOUT_BASE = dict(
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
 def get_variaciones(serie_df, col, serie_full=None):
-    """Retorna (valor, fecha, var_ult, var_30d, var_365d) todos como floats o None
-    serie_full: dataframe completo sin filtro para calcular variaciones históricas"""
     if col not in serie_df.columns:
         return None, None, None, None, None
-    s = serie_df[["fecha", col]].dropna(subset=[col]).sort_values("fecha")
+    s = serie_df[["fecha", col]].dropna(subset=[col]).copy()
+    s["fecha"] = pd.to_datetime(s["fecha"])
+    s = s.sort_values("fecha")
     if len(s) < 2:
         return None, None, None, None, None
     val = float(s.iloc[-1][col])
     fecha = s.iloc[-1]["fecha"]
-    fecha_str = fecha.strftime("%d/%m/%y") if hasattr(fecha, "strftime") else str(fecha)[:10]
+    fecha_str = fecha.strftime("%d/%m/%y")
     ant = float(s.iloc[-2][col])
     var_ult = ((val - ant) / ant * 100) if ant != 0 else 0
 
-    s_hist = serie_full[["fecha", col]].dropna(subset=[col]).sort_values("fecha") if (serie_full is not None and col in serie_full.columns) else s
+    if serie_full is not None and col in serie_full.columns:
+        s_hist = serie_full[["fecha", col]].dropna(subset=[col]).copy()
+        s_hist["fecha"] = pd.to_datetime(s_hist["fecha"])
+        s_hist = s_hist.sort_values("fecha")
+    else:
+        s_hist = s
 
     fecha_30 = fecha - timedelta(days=30)
     s30 = s_hist[s_hist["fecha"] <= fecha_30]
     var_30 = ((val - float(s30.iloc[-1][col])) / float(s30.iloc[-1][col]) * 100) if len(s30) > 0 and float(s30.iloc[-1][col]) != 0 else None
 
-    fecha_365 = fecha - timedelta(days=364)
+    fecha_365 = fecha - timedelta(days=365)
     s365 = s_hist[s_hist["fecha"] <= fecha_365]
     var_365 = ((val - float(s365.iloc[-1][col])) / float(s365.iloc[-1][col]) * 100) if len(s365) > 0 and float(s365.iloc[-1][col]) != 0 else None
 
@@ -234,10 +239,11 @@ def fmt_delta(val, sufijo="%"):
     flecha = "▲" if val >= 0 else "▼"
     return f'<span class="{clase}">{flecha} {abs(val):.2f}{sufijo}</span>'
 
-def mini_chart(df_plot, col, color, key):
+def mini_chart(df_plot, col, color, key, label="", fecha_str=""):
     if col not in df_plot.columns or df_plot[col].dropna().empty:
         return
     dp = df_plot[["fecha", col]].dropna(subset=[col])
+    titulo = f"<b>{label}</b>  <span style='font-size:10px;color:#718096'>últ. dato: {fecha_str}</span>" if label else ""
     fig = go.Figure()
     fig.add_trace(go.Scatter(
         x=dp["fecha"], y=dp[col], mode="lines",
@@ -245,14 +251,17 @@ def mini_chart(df_plot, col, color, key):
         hovertemplate="%{x|%d/%m/%Y}<br>%{y:,.2f}<extra></extra>"
     ))
     layout = dict(LAYOUT_BASE)
+    layout["title"] = dict(text=titulo, font=dict(size=11, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
+    layout["margin"] = dict(l=10, r=10, t=40, b=10)
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key)
 
-def mini_chart_barras(df_plot, col, key):
+def mini_chart_barras(df_plot, col, key, label="", fecha_str=""):
     if col not in df_plot.columns or df_plot[col].dropna().empty:
         return
     dp = df_plot[["fecha", col]].dropna(subset=[col])
     colores = ["#48BB78" if v >= 0 else "#FC8181" for v in dp[col]]
+    titulo = f"<b>{label}</b>  <span style='font-size:10px;color:#718096'>últ. dato: {fecha_str}</span>" if label else ""
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=dp["fecha"], y=dp[col],
@@ -260,6 +269,8 @@ def mini_chart_barras(df_plot, col, key):
         hovertemplate="%{x|%d/%m/%Y}<br>%{y:,.2f}<extra></extra>"
     ))
     layout = dict(LAYOUT_BASE)
+    layout["title"] = dict(text=titulo, font=dict(size=11, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
+    layout["margin"] = dict(l=10, r=10, t=40, b=10)
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key)
 
@@ -294,7 +305,7 @@ def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key
                 </div>
             </div>""", unsafe_allow_html=True)
     with col_chart:
-        mini_chart_barras(df_plot, col, key=key or col)
+        mini_chart_barras(df_plot, col, key=key or col, label=label, fecha_str=fecha_str or "")
 
 def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None, key=None, invertir_colores=False, df_full=None):
     """Card a la izquierda + mini gráfico a la derecha en una fila"""
@@ -334,7 +345,7 @@ def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None
                 </div>
             </div>""", unsafe_allow_html=True)
     with col_chart:
-        mini_chart(df_plot, col, color, key=key or col)
+        mini_chart(df_plot, col, color, key=key or col, label=label, fecha_str=fecha_str or "")
 
 def row_card_ext(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None, key=None, invertir_colores=False):
     """Igual que row_card pero acepta df ya calculado con columna col"""
@@ -419,17 +430,13 @@ with tabs[0]:
                         name=lab_tc, line=dict(color=color_tc, width=2),
                         hovertemplate="%{x|%d/%m/%Y}<br>" + lab_tc + ": $%{y:,.2f}<extra></extra>"))
         layout_tc = dict(LAYOUT_BASE)
-        layout_tc["height"] = 240
+        layout_tc["height"] = 280
         layout_tc["showlegend"] = True
         layout_tc["legend"] = dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=9))
+        layout_tc["title"] = dict(text=f"<b>Tipo de Cambio ($)</b>  <span style='font-size:10px;color:#718096'>últ. dato: {fecha_str_min or '-'}</span>", font=dict(size=11, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
+        layout_tc["margin"] = dict(l=10, r=10, t=40, b=10)
         fig_tc.update_layout(**layout_tc)
         st.plotly_chart(fig_tc, use_container_width=True, key="t0_tc")
-
-    # MEP y CCL cards individuales
-    if dfd is not None:
-        dfd_f2 = dfd[(dfd["fecha"].dt.date >= desde) & (dfd["fecha"].dt.date <= hasta)]
-        row_card(dfd_f2, "mep", "Dólar MEP ($)", prefijo="$ ", decimales=2, color=COLORES["mep"], key="t0_mep")
-        row_card(dfd_f2, "ccl", "Dólar CCL ($)", prefijo="$ ", decimales=2, color=COLORES["ccl"], key="t0_ccl")
 
     st.markdown('<div class="section-title">Competitividad & Riesgo</div>', unsafe_allow_html=True)
     if dfi is not None:
@@ -494,9 +501,11 @@ with tabs[1]:
                     name=lab_t, line=dict(color=color_t, width=2),
                     hovertemplate="%{x|%d/%m/%Y}<br>" + lab_t + ": %{y:,.2f}%<extra></extra>"))
         layout_t = dict(LAYOUT_BASE)
-        layout_t["height"] = 240
+        layout_t["height"] = 280
         layout_t["showlegend"] = True
         layout_t["legend"] = dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=9))
+        layout_t["title"] = dict(text=f"<b>TAMAR y BADLAR (% TNA)</b>  <span style='font-size:10px;color:#718096'>últ. dato: {fecha_tamar or '-'}</span>", font=dict(size=11, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
+        layout_t["margin"] = dict(l=10, r=10, t=40, b=10)
         fig_tasas.update_layout(**layout_t)
         st.plotly_chart(fig_tasas, use_container_width=True, key="t1_tasas")
 
