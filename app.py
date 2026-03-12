@@ -342,7 +342,7 @@ tabs = st.tabs([
     "Sector Externo",
     "Política Monetaria",
     "Sistema Financiero",
-    "Precios",
+    "Inflación",
     "Mercados",
     "Tabla de datos"
 ])
@@ -418,15 +418,20 @@ with tabs[1]:
 with tabs[2]:
     a, b = st.columns(2)
     with a:
-        g1(df_f, "depositos", "Depósitos Totales ($ MM)", key="t2_dep")
-    with b:
-        g1(df_f, "prestamos_priv",
-           "Préstamos al Sector Privado ($ MM)", key="t2_prest")
-    a, b = st.columns(2)
-    with a:
         g1(df_f, "depositos_usd",
            "Depósitos en Dólares - Sector Privado (USD MM)", key="t2_depusd")
     with b:
+        # Préstamos ajustados por CER (pesos constantes de hoy)
+        if "prestamos_priv" in df_f.columns and "cer" in df_f.columns:
+            df_prest = df_f[["fecha", "prestamos_priv", "cer"]].dropna()
+            cer_hoy = df_prest["cer"].iloc[-1]
+            df_prest["prestamos_constantes"] = df_prest["prestamos_priv"] * cer_hoy / df_prest["cer"]
+            g1(df_prest, "prestamos_constantes",
+               "Préstamos al Sector Privado ($ MM constantes de hoy)", key="t2_prest_const")
+        else:
+            g1(df_f, "prestamos_priv", "Préstamos al Sector Privado ($ MM)", key="t2_prest")
+    a, b = st.columns(2)
+    with a:
         g1(df_f, "base_monetaria", "Base Monetaria ($ MM)", key="t2_bm")
 
 with tabs[3]:
@@ -440,6 +445,9 @@ with tabs[3]:
         g1(df_f, "rem_inflacion",
            "Inflación Esperada REM - Próximos 12 meses - Mediana (% i.a.)",
            sufijo="%", color="#48BB78", key="t3_rem")
+    with b:
+        g1(df_f, "cer", "CER - Coeficiente de Estabilización de Referencia (base 2-feb-02=1)",
+           key="t3_cer")
 
 with tabs[4]:
     if dfm is None:
@@ -458,7 +466,18 @@ with tabs[4]:
         with a:
             g1(dfm_f, "merval", "Merval (pesos)", key="t4_merval")
         with b:
-            g1(dfm_f, "eem", "EEM - iShares MSCI Emerging Markets ETF", key="t4_eem")
+            # Merval en CCL
+            if dfd is not None and "merval" in dfm_f.columns:
+                dfd_f2 = dfd[(dfd["fecha"].dt.date >= desde) & (dfd["fecha"].dt.date <= hasta)]
+                df_mccl = pd.merge(
+                    dfm_f[["fecha","merval"]],
+                    dfd_f2[["fecha","ccl"]],
+                    on="fecha", how="inner"
+                ).dropna()
+                df_mccl["merval_ccl"] = df_mccl["merval"] / df_mccl["ccl"]
+                g1(df_mccl, "merval_ccl", "Merval en USD (CCL)", sufijo=" USD", key="t4_merval_ccl")
+            else:
+                g1(dfm_f, "eem", "EEM - iShares MSCI Emerging Markets ETF", key="t4_eem2")
 
         # ── Renta Fija & Moneda ───────────────────────────────────────────
         st.markdown("#### Renta Fija & Moneda")
