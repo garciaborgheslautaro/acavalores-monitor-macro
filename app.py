@@ -320,6 +320,8 @@ with tabs[0]:
         flecha = "▲" if v >= 0 else "▼"
         return f'<span class="{clase}">{flecha} {abs(v):.2f}%</span>'
 
+    fmt_val_min = f"{val_min:,.2f}" if val_min is not None else "-"
+    fmt_val_may = f"{val_may:,.2f}" if val_may is not None else "-"
     col_card_tc, col_chart_tc = st.columns([3, 7])
     with col_card_tc:
         st.markdown(f"""
@@ -475,13 +477,15 @@ with tabs[4]:
             flecha = "▲" if v >= 0 else "▼"
             return f'<span class="{clase}">{flecha} {abs(v):.2f}%</span>'
 
+        fmt_val_brent = f"{val_brent:,.2f}" if val_brent is not None else "-"
+        fmt_val_wti = f"{val_wti:,.2f}" if val_wti is not None else "-"
         col_card_pet, col_chart_pet = st.columns([3, 7])
         with col_card_pet:
             st.markdown(f"""
             <div class="row-card">
                 <div class="var-label">Petróleo (USD/bbl)</div>
                 <div style="margin-bottom:8px">
-                    <div style="font-size:13px;font-weight:700;color:#1B2A6B">Brent: USD {val_brent:,.2f if val_brent else '-'}</div>
+                    <div style="font-size:13px;font-weight:700;color:#1B2A6B">Brent: USD {fmt_val_brent}</div>
                     <div class="var-delta-row">
                         <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d_pet(var_ult_brent)}</div>
                         <div class="delta-item"><span class="delta-label">vs 30d</span>{_d_pet(var_30_brent)}</div>
@@ -489,7 +493,7 @@ with tabs[4]:
                     </div>
                 </div>
                 <div>
-                    <div style="font-size:13px;font-weight:700;color:#1B2A6B">WTI: USD {val_wti:,.2f if val_wti else '-'}</div>
+                    <div style="font-size:13px;font-weight:700;color:#1B2A6B">WTI: USD {fmt_val_wti}</div>
                     <div class="var-delta-row">
                         <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d_pet(var_ult_wti)}</div>
                         <div class="delta-item"><span class="delta-label">vs 30d</span>{_d_pet(var_30_wti)}</div>
