@@ -50,6 +50,7 @@ VARIABLES = {
     108: "depositos_usd",
     197: "m2_transaccional",
     30:  "cer",
+    125: "prestamos_usd",
 }
 
 def fetch_variable(id_var, nombre):
