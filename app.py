@@ -105,11 +105,11 @@ def kpi_card(label, valor, diff_abs, diff_pct, fecha_ult=None, prefijo="", sufij
         flecha = "▲" if diff_abs >= 0 else "▼"
         clase = "kpi-delta-pos" if diff_abs >= 0 else "kpi-delta-neg"
         if modo == "abs":
-            fmt_delta = prefijo + "{:+,.{dec}f}".format(diff_abs, dec=decimales) + " vs día anterior"
+            fmt_delta = prefijo + "{:+,.{dec}f}".format(diff_abs, dec=decimales) + " vs dato anterior"
         elif modo == "pp":
-            fmt_delta = "{:+.2f} p.p. vs día anterior".format(diff_abs)
+            fmt_delta = "{:+.2f} p.p. vs dato anterior".format(diff_abs)
         else:  # pct
-            fmt_delta = "{} {:.2f}% vs día anterior".format(flecha, abs(diff_pct))
+            fmt_delta = "{} {:.2f}% vs dato anterior".format(flecha, abs(diff_pct))
         html = f"<div class='kpi-card'><div class='kpi-label'>{label}{fecha_tag}</div><div class='kpi-value'>{fmt_valor}</div><div class='{clase}'>{fmt_delta}</div></div>"
     st.markdown(html, unsafe_allow_html=True)
 
@@ -157,29 +157,30 @@ COLORES = {
 # Watermark como imagen de fondo
 import base64, os as _os
 def _wm_image():
-    path = "assets/watermark.jpg"
-    if not _os.path.exists(path):
-        return []
-    with open(path, "rb") as f:
-        b64 = base64.b64encode(f.read()).decode()
-    return [dict(
-        source=f"data:image/jpeg;base64,{b64}",
-        xref="paper", yref="paper",
-        x=0.5, y=0.5,
-        sizex=0.45, sizey=0.45,
-        xanchor="center", yanchor="middle",
-        opacity=0.07, layer="below"
-    )]
+    # Buscar watermark en múltiples paths posibles
+    for path in ["assets/watermark.jpg", "watermark.jpg", "/mount/src/acavalores-monitor-macro/assets/watermark.jpg"]:
+        if _os.path.exists(path):
+            with open(path, "rb") as f:
+                b64 = base64.b64encode(f.read()).decode()
+            return [dict(
+                source=f"data:image/jpeg;base64,{b64}",
+                xref="paper", yref="paper",
+                x=0.5, y=0.5,
+                sizex=0.85, sizey=0.85,
+                xanchor="center", yanchor="middle",
+                opacity=0.15, layer="below"
+            )]
+    return []
 
 LAYOUT_BASE = dict(
     paper_bgcolor="#FFFFFF",
     plot_bgcolor="#FFFFFF",
-    font=dict(family="Montserrat", color="#2D3748", size=11),
-    xaxis=dict(showgrid=False, color="#718096", tickformat="%b %Y"),
-    yaxis=dict(showgrid=True, gridcolor="#EDF2F7", color="#718096"),
-    margin=dict(l=10, r=10, t=40, b=10),
+    font=dict(family="Montserrat", color="#2D3748", size=13),
+    xaxis=dict(showgrid=False, color="#718096", tickformat="%b %Y", tickfont=dict(size=12)),
+    yaxis=dict(showgrid=True, gridcolor="#EDF2F7", color="#718096", tickfont=dict(size=12)),
+    margin=dict(l=10, r=10, t=45, b=10),
     hovermode="x unified",
-    height=300,
+    height=380,
     images=_wm_image(),
 )
 
@@ -209,7 +210,7 @@ def g1(df, col, titulo, sufijo="", color=None, key=None):
         hovertemplate="%{x|%d/%m/%Y}<br>" + titulo + ": %{y:,.2f}" + sufijo + "<extra></extra>"
     ))
     layout = dict(LAYOUT_BASE)
-    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=13, color="#1B2A6B"))
+    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=14, color="#1B2A6B"))
     layout["showlegend"] = False
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key or col)
@@ -229,7 +230,7 @@ def g_barras(df, col, titulo, sufijo="", key=None):
         hovertemplate="%{x|%d/%m/%Y}<br>" + titulo + ": %{y:,.1f}" + sufijo + "<extra></extra>"
     ))
     layout = dict(LAYOUT_BASE)
-    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=13, color="#1B2A6B"))
+    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=14, color="#1B2A6B"))
     layout["showlegend"] = False
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key or col)
@@ -247,8 +248,8 @@ def g2(df, col1, lab1, col2, lab2, titulo, sufijo="", key=None):
             ))
     fecha_tag = ultima_fecha(df, col1)
     layout = dict(LAYOUT_BASE)
-    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=13, color="#1B2A6B"))
-    layout["height"] = 320
+    layout["title"] = dict(text=titulo + fecha_tag, font=dict(size=14, color="#1B2A6B"))
+    layout["height"] = 380
     layout["legend"] = dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(color="#2D3748", size=10))
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key or (col1 + "_" + col2))
@@ -271,13 +272,13 @@ def g2eje(df, col1, lab1, col2, lab2, titulo, suf1="%", suf2="%", key=None):
         ))
     fig.update_layout(
         paper_bgcolor="#FFFFFF", plot_bgcolor="#FFFFFF",
-        font=dict(family="Montserrat", color="#2D3748", size=11),
-        xaxis=dict(showgrid=False, color="#718096", tickformat="%b %Y"),
+        font=dict(family="Montserrat", color="#2D3748", size=13),
+        xaxis=dict(showgrid=False, color="#718096", tickformat="%b %Y", tickfont=dict(size=12)),
         yaxis=dict(title=lab1, showgrid=True, gridcolor="#EDF2F7", color="#C53030", title_font=dict(color="#C53030")),
         yaxis2=dict(title=lab2, overlaying="y", side="right", showgrid=False, color="#C05621", title_font=dict(color="#C05621")),
         margin=dict(l=10, r=60, t=40, b=10),
-        title=dict(text=titulo + ultima_fecha(df, col1), font=dict(size=13, color="#1B2A6B")),
-        hovermode="x unified", height=360,
+        title=dict(text=titulo + ultima_fecha(df, col1), font=dict(size=14, color="#1B2A6B")),
+        hovermode="x unified", height=400,
         images=_wm_image(),
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(color="#2D3748", size=10))
     )
@@ -368,7 +369,6 @@ with tabs[4]:
 
 st.divider()
 st.caption("ACA Valores · Monitor Macroeconómico · Fuente: BCRA API v4.0 · Actualización diaria automática")
-
 
 
 
