@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 
 st.set_page_config(
-    page_title="Monitor Macroeconómico | ACA Valores",
+    page_title="Monitor Macro | ACA Valores",
     page_icon="📊",
     layout="wide"
 )
@@ -339,8 +339,34 @@ with tabs[0]:
                  sufijo=" USD MM", key="t0_compras")
     a, b = st.columns(2)
     with a:
-        g2(df_f, "tc_mayorista", "Minorista", "tc_minorista", "Mayorista A3500",
-           "Tipo de Cambio Oficial ($)", sufijo=" $", key="t0_tc")
+        fig_tc = go.Figure()
+        for col, lab, color in [
+            ("tc_mayorista", "Minorista", COLORES["tc_mayorista"]),
+            ("tc_minorista", "Mayorista A3500", COLORES["tc_minorista"]),
+        ]:
+            if col in df_f.columns:
+                dp = df_f[["fecha", col]].copy()
+                dp[col] = dp[col].interpolate(method="linear")
+                fig_tc.add_trace(go.Scatter(x=dp["fecha"], y=dp[col], mode="lines",
+                    name=lab, line=dict(color=color, width=2),
+                    hovertemplate="%{x|%d/%m/%Y}<br>" + lab + ": $%{y:,.2f}<extra></extra>"))
+        if dfd is not None:
+            dfd_f = dfd[(dfd["fecha"].dt.date >= desde) & (dfd["fecha"].dt.date <= hasta)]
+            for col, lab, color in [
+                ("mep", "MEP", COLORES["mep"]),
+                ("ccl", "CCL", COLORES["ccl"]),
+            ]:
+                if col in dfd_f.columns:
+                    dp = dfd_f[["fecha", col]].dropna(subset=[col])
+                    fig_tc.add_trace(go.Scatter(x=dp["fecha"], y=dp[col], mode="lines",
+                        name=lab, line=dict(color=color, width=2, dash="dash"),
+                        hovertemplate="%{x|%d/%m/%Y}<br>" + lab + ": $%{y:,.2f}<extra></extra>"))
+        layout_tc = dict(LAYOUT_BASE)
+        layout_tc["title"] = dict(text="Tipos de Cambio ($)", font=dict(size=14, color="#1B2A6B"))
+        layout_tc["height"] = 380
+        layout_tc["legend"] = dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(color="#2D3748", size=10))
+        fig_tc.update_layout(**layout_tc)
+        st.plotly_chart(fig_tc, use_container_width=True, key="t0_tc")
     with b:
         g1(df_f, "depositos_usd",
            "Depósitos en Dólares - Sector Privado (USD MM)", key="t0_depusd")
