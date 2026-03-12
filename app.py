@@ -263,10 +263,10 @@ def mini_chart_barras(df_plot, col, key):
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key)
 
-def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key=None, invertir_colores=False):
+def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key=None, invertir_colores=False, df_full=None):
     """Card a la izquierda + mini gráfico de barras a la derecha"""
-    val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col)
-    col_card, col_chart = st.columns([3, 7])
+    val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col, serie_full=df_full)
+    col_card, col_chart, _ = st.columns([3, 3, 4])
     with col_card:
         if val is None:
             st.markdown(f"""
@@ -301,7 +301,7 @@ def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None
     color = color or COLORES.get(col, "#1B2A6B")
     val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col, serie_full=df_full)
 
-    col_card, col_chart = st.columns([3, 7])
+    col_card, col_chart, _ = st.columns([3, 3, 4])
     with col_card:
         if val is None:
             st.markdown(f"""
@@ -355,9 +355,9 @@ tabs = st.tabs([
 # ════════════════════════════════════════════════════════════════════════════════
 with tabs[0]:
     st.markdown('<div class="section-title">Reservas & Divisas</div>', unsafe_allow_html=True)
-    row_card(df_f, "reservas", "Reservas Internacionales (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t0_reservas")
-    row_card_barras(df_f, "compras_usd_bcra", "Compras Netas de Divisas BCRA (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t0_compras")
-    row_card(df_f, "depositos_usd", "Depósitos en Dólares - Sector Privado (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t0_depusd")
+    row_card(df_f, "reservas", "Reservas Internacionales (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t0_reservas", df_full=df)
+    row_card_barras(df_f, "compras_usd_bcra", "Compras Netas de Divisas BCRA (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t0_compras", df_full=df)
+    row_card(df_f, "depositos_usd", "Depósitos en Dólares - Sector Privado (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t0_depusd", df_full=df)
 
     st.markdown('<div class="section-title">Tipo de Cambio</div>', unsafe_allow_html=True)
 
@@ -373,7 +373,7 @@ with tabs[0]:
 
     fmt_val_min = f"{val_min:,.2f}" if val_min is not None else "-"
     fmt_val_may = f"{val_may:,.2f}" if val_may is not None else "-"
-    col_card_tc, col_chart_tc = st.columns([3, 7])
+    col_card_tc, col_chart_tc, _ = st.columns([3, 3, 4])
     with col_card_tc:
         st.markdown(f"""
         <div class="row-card">
@@ -444,9 +444,9 @@ with tabs[0]:
 # ════════════════════════════════════════════════════════════════════════════════
 with tabs[1]:
     st.markdown('<div class="section-title">Agregados Monetarios</div>', unsafe_allow_html=True)
-    row_card(df_f, "base_monetaria", "Base Monetaria ($ MM)", prefijo="$ ", sufijo=" MM", decimales=0, key="t1_bm")
-    row_card(df_f, "m2_transaccional", "M2 Transaccional Sector Privado ($ MM)", prefijo="$ ", sufijo=" MM", decimales=0, key="t1_m2trans")
-    row_card(df_f, "m2_privado", "M2 Privado - Var. interanual (%)", sufijo="%", decimales=2, color=COLORES["m2_privado"], key="t1_m2")
+    row_card(df_f, "base_monetaria", "Base Monetaria ($ MM)", prefijo="$ ", sufijo=" MM", decimales=0, key="t1_bm", df_full=df)
+    row_card(df_f, "m2_transaccional", "M2 Transaccional Sector Privado ($ MM)", prefijo="$ ", sufijo=" MM", decimales=0, key="t1_m2trans", df_full=df)
+    row_card(df_f, "m2_privado", "M2 Privado - Var. interanual (%)", sufijo="%", decimales=2, color=COLORES["m2_privado"], key="t1_m2", df_full=df)
 
     st.markdown('<div class="section-title">Tasas de Interés</div>', unsafe_allow_html=True)
 
@@ -463,7 +463,7 @@ with tabs[1]:
     fmt_tamar = f"{val_tamar:,.2f}" if val_tamar is not None else "-"
     fmt_badlar = f"{val_badlar:,.2f}" if val_badlar is not None else "-"
 
-    col_card_t, col_chart_t = st.columns([3, 7])
+    col_card_t, col_chart_t, _ = st.columns([3, 3, 4])
     with col_card_t:
         st.markdown(f"""
         <div class="row-card">
@@ -505,8 +505,8 @@ with tabs[1]:
 # ════════════════════════════════════════════════════════════════════════════════
 with tabs[2]:
     st.markdown('<div class="section-title">Crédito & Depósitos</div>', unsafe_allow_html=True)
-    row_card(df_f, "depositos_usd", "Depósitos en Dólares - Sector Privado (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t2_depusd")
-    row_card(df_f, "prestamos_usd", "Préstamos en Dólares - Sector Privado (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t2_prestusd")
+    row_card(df_f, "depositos_usd", "Depósitos en Dólares - Sector Privado (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t2_depusd", df_full=df)
+    row_card(df_f, "prestamos_usd", "Préstamos en Dólares - Sector Privado (USD MM)", prefijo="USD ", sufijo=" MM", decimales=0, key="t2_prestusd", df_full=df)
 
     if "prestamos_priv" in df_f.columns and "cer" in df_f.columns:
         df_prest = df_f[["fecha", "prestamos_priv", "cer"]].dropna().copy()
@@ -521,15 +521,15 @@ with tabs[2]:
 with tabs[3]:
     st.markdown('<div class="section-title">IPC & Expectativas</div>', unsafe_allow_html=True)
     row_card_barras(df_f, "inflacion_mensual", "Inflación Mensual IPC (%)", sufijo="%", decimales=1,
-             key="t3_inf_men", invertir_colores=True)
+             key="t3_inf_men", invertir_colores=True, df_full=df)
     row_card(df_f, "inflacion_interanual", "Inflación Interanual IPC (%)", sufijo="%", decimales=1,
-             color=COLORES["inflacion_interanual"], key="t3_inf_ia", invertir_colores=True)
+             color=COLORES["inflacion_interanual"], key="t3_inf_ia", invertir_colores=True, df_full=df)
     row_card(df_f, "rem_inflacion", "Inflación Esperada REM - Próximos 12 meses - Mediana (% i.a.)",
-             sufijo="%", decimales=1, color=COLORES["rem_inflacion"], key="t3_rem", invertir_colores=True)
+             sufijo="%", decimales=1, color=COLORES["rem_inflacion"], key="t3_rem", invertir_colores=True, df_full=df)
 
     st.markdown('<div class="section-title">Indexación</div>', unsafe_allow_html=True)
     row_card(df_f, "cer", "CER - Coeficiente de Estabilización de Referencia (base 2-feb-02=1)",
-             decimales=2, color=COLORES["cer"], key="t3_cer")
+             decimales=2, color=COLORES["cer"], key="t3_cer", df_full=df)
 
 # ════════════════════════════════════════════════════════════════════════════════
 # TAB 4 — MERCADOS
@@ -578,7 +578,7 @@ with tabs[4]:
 
         fmt_val_brent = f"{val_brent:,.2f}" if val_brent is not None else "-"
         fmt_val_wti = f"{val_wti:,.2f}" if val_wti is not None else "-"
-        col_card_pet, col_chart_pet = st.columns([3, 7])
+        col_card_pet, col_chart_pet, _ = st.columns([3, 3, 4])
         with col_card_pet:
             st.markdown(f"""
             <div class="row-card">
