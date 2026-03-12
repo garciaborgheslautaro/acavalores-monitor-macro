@@ -409,11 +409,11 @@ with tabs[4]:
         # Convertir granos de USc/bu a USD/tonelada
         dfm_granos = dfm_f.copy()
         if "soja" in dfm_granos.columns:
-            dfm_granos["soja_ton"] = dfm_granos["soja"] * 10 / 2.7216
+            dfm_granos["soja_ton"] = (dfm_granos["soja"] / 100) * 36.744
         if "maiz" in dfm_granos.columns:
-            dfm_granos["maiz_ton"] = dfm_granos["maiz"] * 10 / 2.5401
+            dfm_granos["maiz_ton"] = (dfm_granos["maiz"] / 100) * 39.368
         if "trigo" in dfm_granos.columns:
-            dfm_granos["trigo_ton"] = dfm_granos["trigo"] * 10 / 2.7216
+            dfm_granos["trigo_ton"] = (dfm_granos["trigo"] / 100) * 36.744
 
         a, b = st.columns(2)
         with a:
@@ -444,8 +444,6 @@ with tabs[5]:
 
 st.divider()
 st.caption("ACA Valores · Monitor Macroeconómico · Fuente: BCRA API v4.0 · Actualización diaria automática")
-
-
 
 
 
