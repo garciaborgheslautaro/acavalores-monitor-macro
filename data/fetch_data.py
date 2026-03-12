@@ -4,16 +4,16 @@ import os
 import warnings
 warnings.filterwarnings("ignore")
 from datetime import datetime, timedelta
-
+ 
 print("=== INICIO fetch_data.py ===")
-
+ 
 BASE = "https://api.bcra.gob.ar/estadisticas/v4.0"
 HEADERS = {"Accept": "application/json"}
 HOY = datetime.today().strftime("%Y-%m-%d")
 HACE_1_ANO = (datetime.today() - timedelta(days=365)).strftime("%Y-%m-%d")
-
+ 
 os.makedirs("data", exist_ok=True)
-
+ 
 # ── Variables confirmadas en API v4.0 ────────────────────────────────────────
 # ID 1   = Reservas internacionales (USD MM)
 # ID 4   = TC Oficial Mayorista COM A3500
@@ -31,7 +31,7 @@ os.makedirs("data", exist_ok=True)
 # ID 78  = Compras netas de divisas BCRA (USD MM)
 # ID 108 = Depositos en dolares sector privado (USD MM)
 # ID 197 = M2 transaccional sector privado ($ MM)
-
+ 
 VARIABLES = {
     1:   "reservas",
     4:   "tc_mayorista",
@@ -50,7 +50,7 @@ VARIABLES = {
     108: "depositos_usd",
     197: "m2_transaccional",
 }
-
+ 
 def fetch_variable(id_var, nombre):
     url = f"{BASE}/Monetarias/{id_var}?desde={HACE_1_ANO}&hasta={HOY}"
     try:
@@ -80,7 +80,7 @@ def fetch_variable(id_var, nombre):
     except Exception as e:
         print(f"  Excepcion en {nombre}: {e}")
         return None
-
+ 
 df_final = None
 for id_var, nombre in VARIABLES.items():
     df = fetch_variable(id_var, nombre)
@@ -89,7 +89,7 @@ for id_var, nombre in VARIABLES.items():
             df_final = df
         else:
             df_final = pd.merge(df_final, df, on="fecha", how="outer")
-
+ 
 if df_final is not None:
     df_final.sort_values("fecha", inplace=True)
     df_final.reset_index(drop=True, inplace=True)
@@ -98,7 +98,25 @@ if df_final is not None:
     print(df_final.tail(3).to_string())
 else:
     print("ERROR: No se pudieron obtener datos de ninguna variable")
-
+ 
+# ── Riesgo País — Ámbito ─────────────────────────────────────────────────────
+print("\n  Descargando Riesgo País...")
+try:
+    HACE_5_ANOS = (datetime.today() - timedelta(days=365*5)).strftime("%Y-%m-%d")
+    r_rp = requests.get(
+        f"https://mercados.ambito.com/riesgopais/historico-general/{HACE_5_ANOS}/{HOY}",
+        headers={"User-Agent": "Mozilla/5.0"}, timeout=20
+    )
+    data_rp = r_rp.json()
+    df_rp = pd.DataFrame(data_rp[1:], columns=["fecha", "riesgo_pais"])
+    df_rp["fecha"] = pd.to_datetime(df_rp["fecha"], format="%d-%m-%Y")
+    df_rp["riesgo_pais"] = df_rp["riesgo_pais"].str.replace(",", ".").astype(float)
+    df_rp = df_rp.drop_duplicates("fecha").sort_values("fecha").reset_index(drop=True)
+    df_rp.to_csv("data/riesgo_pais_data.csv", index=False, encoding="utf-8")
+    print(f"  OK Riesgo País — {len(df_rp)} registros hasta {df_rp['fecha'].max().strftime('%d/%m/%Y')}")
+except Exception as e:
+    print(f"  Error Riesgo País: {e}")
+ 
 # ── ITCRM — descarga directa del Excel del BCRA ──────────────────────────────
 print("\n  Descargando ITCRM...")
 try:
@@ -119,5 +137,5 @@ try:
     import os; os.remove("data/itcrm_temp.xlsx")
 except Exception as e:
     print(f"  Error ITCRM: {e}")
-
+ 
 print("=== FIN fetch_data.py ===")
