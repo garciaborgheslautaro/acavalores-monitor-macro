@@ -201,7 +201,7 @@ LAYOUT_BASE = dict(
 )
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
-def get_variaciones(serie_df, col, serie_full=None):
+def get_variaciones(serie_df, col, serie_full=None, pp_absoluto=False):
     if col not in serie_df.columns:
         return None, None, None, None, None
     s = serie_df[["fecha", col]].dropna(subset=[col]).copy()
@@ -213,6 +213,11 @@ def get_variaciones(serie_df, col, serie_full=None):
     fecha = s.iloc[-1]["fecha"]
     fecha_str = fecha.strftime("%d/%m/%y")
     ant = float(s.iloc[-2][col])
+
+    if pp_absoluto:
+        # Diferencia absoluta en p.p., solo vs último dato
+        return val, fecha_str, val - ant, None, None
+
     var_ult = ((val - ant) / ant * 100) if ant != 0 else 0
 
     if serie_full is not None and col in serie_full.columns:
@@ -227,7 +232,6 @@ def get_variaciones(serie_df, col, serie_full=None):
     var_30 = ((val - float(s30.iloc[-1][col])) / float(s30.iloc[-1][col]) * 100) if len(s30) > 0 and float(s30.iloc[-1][col]) != 0 else None
 
     fecha_365 = fecha - timedelta(days=365)
-    # Buscar dato exacto o más cercano dentro de ±30 días de tolerancia
     ventana = s_hist[(s_hist["fecha"] >= fecha_365 - timedelta(days=30)) & (s_hist["fecha"] <= fecha_365 + timedelta(days=30))]
     if len(ventana) > 0:
         idx_cercano = (ventana["fecha"] - fecha_365).abs().idxmin()
@@ -280,9 +284,13 @@ def mini_chart_barras(df_plot, col, key, label="", fecha_str=""):
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key)
 
-def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key=None, invertir_colores=False, df_full=None, es_porcentaje=False):
+def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key=None, invertir_colores=False, df_full=None, es_porcentaje=False, solo_ult_dato=False):
     """Card a la izquierda + mini gráfico de barras a la derecha"""
-    val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col, serie_full=df_full)
+    if solo_ult_dato:
+        val, fecha_str, var_ult, _, _ = get_variaciones(df_plot, col, serie_full=df_full, pp_absoluto=True)
+        var_30, var_365 = None, None
+    else:
+        val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col, serie_full=df_full)
     col_esp_l, col_card, col_chart, col_esp_r = st.columns([1, 2, 4, 3])
     with col_card:
         if val is None:
@@ -298,8 +306,23 @@ def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key
                 if v is None: return '<span class="neu">-</span>'
                 clase = ("neg" if v >= 0 else "pos") if invertir_colores else ("pos" if v >= 0 else "neg")
                 flecha = "▲" if v >= 0 else "▼"
-                unidad = " p.p." if es_porcentaje else "%"
+                unidad = " p.p." if (es_porcentaje or solo_ult_dato) else "%"
                 return f'<span class="{clase}">{flecha} {abs(v):.2f}{unidad}</span>'
+            if solo_ult_dato:
+                delta_html = f'<div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d(var_ult)}</div>'
+            else:
+                delta_html = f"""
+                    <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d(var_ult)}</div>
+                    <div class="delta-item"><span class="delta-label">vs 30d</span>{_d(var_30)}</div>
+                    <div class="delta-item"><span class="delta-label">vs 365d</span>{_d(var_365)}</div>"""
+            st.markdown(f"""
+            <div class="row-card">
+                <div class="var-label">{label}</div>
+                <div class="var-value">{fmt_val}</div>
+                <div class="var-fecha">últ. dato: {fecha_str}</div>
+                <div class="var-delta-row">{delta_html}
+                </div>
+            </div>""", unsafe_allow_html=True)
             st.markdown(f"""
             <div class="row-card">
                 <div class="var-label">{label}</div>
@@ -314,11 +337,15 @@ def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key
     with col_chart:
         mini_chart_barras(df_plot, col, key=key or col, label=label, fecha_str=fecha_str or "")
 
-def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None, key=None, invertir_colores=False, df_full=None, es_porcentaje=False):
-    """Card a la izquierda + mini gráfico a la derecha en una fila
-    es_porcentaje=True: variaciones en p.p. en lugar de %"""
+def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None, key=None, invertir_colores=False, df_full=None, es_porcentaje=False, solo_ult_dato=False):
+    """Card a la izquierda + mini gráfico a la derecha en una fila.
+    solo_ult_dato=True: muestra solo variación vs último dato en p.p. absolutos (para inflación, tasas mensuales)"""
     color = color or COLORES.get(col, "#1B2A6B")
-    val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col, serie_full=df_full)
+    if solo_ult_dato:
+        val, fecha_str, var_ult, _, _ = get_variaciones(df_plot, col, serie_full=df_full, pp_absoluto=True)
+        var_30, var_365 = None, None
+    else:
+        val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col, serie_full=df_full)
 
     col_esp_l, col_card, col_chart, col_esp_r = st.columns([1, 2, 4, 3])
     with col_card:
@@ -339,19 +366,25 @@ def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None
                 else:
                     clase = "pos" if v >= 0 else "neg"
                 flecha = "▲" if v >= 0 else "▼"
-                if es_porcentaje:
+                if solo_ult_dato or es_porcentaje:
                     return f'<span class="{clase}">{flecha} {abs(v):.2f} p.p.</span>'
                 return f'<span class="{clase}">{flecha} {abs(v):.2f}%</span>'
+
+            if solo_ult_dato:
+                delta_html = f"""
+                    <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d(var_ult)}</div>"""
+            else:
+                delta_html = f"""
+                    <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d(var_ult)}</div>
+                    <div class="delta-item"><span class="delta-label">vs 30d</span>{_d(var_30)}</div>
+                    <div class="delta-item"><span class="delta-label">vs 365d</span>{_d(var_365)}</div>"""
 
             st.markdown(f"""
             <div class="row-card">
                 <div class="var-label">{label}</div>
                 <div class="var-value">{fmt_val}</div>
                 <div class="var-fecha">últ. dato: {fecha_str}</div>
-                <div class="var-delta-row">
-                    <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d(var_ult)}</div>
-                    <div class="delta-item"><span class="delta-label">vs 30d</span>{_d(var_30)}</div>
-                    <div class="delta-item"><span class="delta-label">vs 365d</span>{_d(var_365)}</div>
+                <div class="var-delta-row">{delta_html}
                 </div>
             </div>""", unsafe_allow_html=True)
     with col_chart:
@@ -584,11 +617,11 @@ with tabs[3]:
     with _st_c:
         st.markdown('<div class="section-title">IPC & Expectativas</div>', unsafe_allow_html=True)
     row_card_barras(df_f, "inflacion_mensual", "Inflación Mensual IPC (%)", sufijo="%", decimales=1,
-             key="t3_inf_men", invertir_colores=True, df_full=df, es_porcentaje=True)
+             key="t3_inf_men", invertir_colores=True, df_full=df, solo_ult_dato=True)
     row_card(df_f, "inflacion_interanual", "Inflación Interanual IPC (%)", sufijo="%", decimales=1,
-             color=COLORES["inflacion_interanual"], key="t3_inf_ia", invertir_colores=True, df_full=df, es_porcentaje=True)
+             color=COLORES["inflacion_interanual"], key="t3_inf_ia", invertir_colores=True, df_full=df, solo_ult_dato=True)
     row_card(df_f, "rem_inflacion", "Inflación Esperada REM - Próximos 12 meses - Mediana (% i.a.)",
-             sufijo="%", decimales=1, color=COLORES["rem_inflacion"], key="t3_rem", invertir_colores=True, df_full=df, es_porcentaje=True)
+             sufijo="%", decimales=1, color=COLORES["rem_inflacion"], key="t3_rem", invertir_colores=True, df_full=df, solo_ult_dato=True)
 
     _st_l, _st_c = st.columns([1, 9])
     with _st_c:
@@ -609,7 +642,7 @@ with tabs[4]:
         with _st_c:
             st.markdown('<div class="section-title">Índices & Renta Variable</div>', unsafe_allow_html=True)
         row_card(dfm_f, "sp500", "S&P 500", decimales=2, color=COLORES["sp500"], key="t4_sp500", df_full=dfm)
-        row_card(dfm_f, "nasdaq", "Nasdaq Composite", decimales=2, color=COLORES["nasdaq"], key="t4_nasdaq", df_full=dfm)
+        row_card(dfm_f, "nasdaq", "Nasdaq 100 (NDX)", decimales=2, color=COLORES["nasdaq"], key="t4_nasdaq", df_full=dfm)
 
         if dfd is not None:
             dfd_m = dfd[(dfd["fecha"].dt.date >= desde) & (dfd["fecha"].dt.date <= hasta)]
