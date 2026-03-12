@@ -10,7 +10,7 @@ print("=== INICIO fetch_data.py ===")
 BASE = "https://api.bcra.gob.ar/estadisticas/v4.0"
 HEADERS = {"Accept": "application/json"}
 HOY = datetime.today().strftime("%Y-%m-%d")
-HACE_1_ANO = (datetime.today() - timedelta(days=365)).strftime("%Y-%m-%d")
+HACE_2_ANOS = (datetime.today() - timedelta(days=730)).strftime("%Y-%m-%d")
 
 os.makedirs("data", exist_ok=True)
 
@@ -54,7 +54,7 @@ VARIABLES = {
 }
 
 def fetch_variable(id_var, nombre):
-    url = f"{BASE}/Monetarias/{id_var}?desde={HACE_1_ANO}&hasta={HOY}"
+    url = f"{BASE}/Monetarias/{id_var}?desde={HACE_2_ANOS}&hasta={HOY}"
     try:
         r = requests.get(url, headers=HEADERS, timeout=20, verify=False)
         if r.status_code != 200:
