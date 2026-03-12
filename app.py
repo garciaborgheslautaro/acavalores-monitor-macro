@@ -381,6 +381,7 @@ with tabs[4]:
     else:
         dfm_f = dfm[(dfm["fecha"].dt.date >= desde) & (dfm["fecha"].dt.date <= hasta)].copy()
 
+        # ── Índices & Renta Variable ──────────────────────────────────────
         st.markdown("#### Índices & Renta Variable")
         a, b = st.columns(2)
         with a:
@@ -390,23 +391,29 @@ with tabs[4]:
         a, b = st.columns(2)
         with a:
             g1(dfm_f, "merval", "Merval (pesos)", key="t4_merval")
-
-
-        a, b = st.columns(2)
-        with a:
-            g1(dfm_f, "emb", "EMB - iShares JP Morgan EM Bond ETF", key="t4_emb")
         with b:
             g1(dfm_f, "eem", "EEM - iShares MSCI Emerging Markets ETF", key="t4_eem")
 
+        # ── Renta Fija & Moneda ───────────────────────────────────────────
+        st.markdown("#### Renta Fija & Moneda")
+        a, b = st.columns(2)
+        with a:
+            g1(dfm_f, "us10y", "US Treasury 10Y (% yield)", sufijo="%", key="t4_us10y")
+        with b:
+            g1(dfm_f, "emb", "EMB - iShares JP Morgan EM Bond ETF", key="t4_emb")
+        a, b = st.columns(2)
+        with a:
+            g1(dfm_f, "dxy", "DXY - Índice Dólar", key="t4_dxy")
+
+        # ── Commodities ───────────────────────────────────────────────────
         st.markdown("#### Commodities")
         a, b = st.columns(2)
         with a:
+            g1(dfm_f, "oro", "Oro (USD/oz)", sufijo=" USD", key="t4_oro")
+        with b:
             g2(dfm_f, "brent", "Brent", "wti", "WTI",
                "Petróleo - Brent vs WTI (USD/bbl)", sufijo=" USD", key="t4_petroleo")
-        with b:
-            g1(dfm_f, "oro", "Oro (USD/oz)", sufijo=" USD", key="t4_oro")
 
-        # Convertir granos de USc/bu a USD/tonelada
         dfm_granos = dfm_f.copy()
         if "soja" in dfm_granos.columns:
             dfm_granos["soja_ton"] = (dfm_granos["soja"] / 100) * 36.744
@@ -444,6 +451,5 @@ with tabs[5]:
 
 st.divider()
 st.caption("ACA Valores · Monitor Macroeconómico · Fuente: BCRA API v4.0 · Actualización diaria automática")
-
 
 
