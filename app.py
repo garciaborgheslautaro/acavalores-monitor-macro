@@ -57,10 +57,20 @@ def cargar_datos():
     df = pd.read_csv(path, parse_dates=["fecha"])
     return df.sort_values("fecha").reset_index(drop=True)
 
+@st.cache_data(ttl=3600)
+def cargar_mercados():
+    path = "data/mercados_data.csv"
+    if not os.path.exists(path):
+        return None
+    df = pd.read_csv(path, parse_dates=["fecha"])
+    return df.sort_values("fecha").reset_index(drop=True)
+
 df = cargar_datos()
 if df is None:
     st.warning("Los datos aún no fueron generados.")
     st.stop()
+
+dfm = cargar_mercados()
 
 # ── Selector de fechas ─────────────────────────────────────────────────────────
 fecha_min = df["fecha"].min().date()
@@ -152,6 +162,19 @@ COLORES = {
     "inflacion_mensual":      "#FC8181",
     "inflacion_interanual":   "#F6AD55",
     "rem_inflacion":          "#48BB78",
+    "sp500":                  "#1B2A6B",
+    "nasdaq":                 "#2B4FBF",
+    "brent":                  "#C05621",
+    "wti":                    "#DD6B20",
+    "oro":                    "#D4A017",
+    "dxy":                    "#2D3748",
+    "us10y":                  "#C53030",
+    "eem":                    "#276749",
+    "emb":                    "#285E61",
+    "soja":                   "#68D391",
+    "maiz":                   "#F6AD55",
+    "trigo":                  "#FBD38D",
+    "merval":                 "#00BFFF",
 }
 
 # Watermark como imagen de fondo
@@ -290,6 +313,7 @@ tabs = st.tabs([
     "Política Monetaria",
     "Sistema Financiero",
     "Precios",
+    "Mercados",
     "Tabla de datos"
 ])
 
@@ -352,6 +376,46 @@ with tabs[3]:
            sufijo="%", color="#48BB78", key="t3_rem")
 
 with tabs[4]:
+    if dfm is None:
+        st.warning("Datos de mercados no disponibles aún. Corré fetch_mercados.py y subí mercados_data.csv.")
+    else:
+        dfm_f = dfm[(dfm["fecha"].dt.date >= desde) & (dfm["fecha"].dt.date <= hasta)].copy()
+
+        st.markdown("#### Índices & Renta Variable")
+        a, b = st.columns(2)
+        with a:
+            g1(dfm_f, "sp500", "S&P 500", key="t4_sp500")
+        with b:
+            g1(dfm_f, "nasdaq", "Nasdaq Composite", key="t4_nasdaq")
+        a, b = st.columns(2)
+        with a:
+            g1(dfm_f, "merval", "Merval (pesos)", key="t4_merval")
+        with b:
+            g2(dfm_f, "eem", "EEM", "emb", "EMB",
+               "EEM vs EMB", key="t4_eem_emb")
+
+        st.markdown("#### Commodities")
+        a, b = st.columns(2)
+        with a:
+            g2(dfm_f, "brent", "Brent", "wti", "WTI",
+               "Petróleo - Brent vs WTI (USD/bbl)", sufijo=" USD", key="t4_petroleo")
+        with b:
+            g1(dfm_f, "oro", "Oro (USD/oz)", sufijo=" USD", key="t4_oro")
+        a, b = st.columns(2)
+        with a:
+            g2(dfm_f, "soja", "Soja", "maiz", "Maíz",
+               "Granos - Soja y Maíz CBOT (USc/bu)", key="t4_granos")
+        with b:
+            g1(dfm_f, "trigo", "Trigo CBOT (USc/bu)", key="t4_trigo")
+
+        st.markdown("#### Renta Fija & Dólar")
+        a, b = st.columns(2)
+        with a:
+            g1(dfm_f, "us10y", "US Treasury 10Y (% yield)", sufijo="%", key="t4_us10y")
+        with b:
+            g1(dfm_f, "dxy", "DXY - Índice Dólar", key="t4_dxy")
+
+with tabs[5]:
     cols_orden = [
         "fecha", "reservas", "compras_usd_bcra",
         "base_monetaria", "m2_transaccional",
@@ -369,7 +433,6 @@ with tabs[4]:
 
 st.divider()
 st.caption("ACA Valores · Monitor Macroeconómico · Fuente: BCRA API v4.0 · Actualización diaria automática")
-
 
 
 
