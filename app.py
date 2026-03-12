@@ -323,17 +323,6 @@ def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key
                 <div class="var-delta-row">{delta_html}
                 </div>
             </div>""", unsafe_allow_html=True)
-            st.markdown(f"""
-            <div class="row-card">
-                <div class="var-label">{label}</div>
-                <div class="var-value">{fmt_val}</div>
-                <div class="var-fecha">últ. dato: {fecha_str}</div>
-                <div class="var-delta-row">
-                    <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d(var_ult)}</div>
-                    <div class="delta-item"><span class="delta-label">vs 30d</span>{_d(var_30)}</div>
-                    <div class="delta-item"><span class="delta-label">vs 365d</span>{_d(var_365)}</div>
-                </div>
-            </div>""", unsafe_allow_html=True)
     with col_chart:
         mini_chart_barras(df_plot, col, key=key or col, label=label, fecha_str=fecha_str or "")
 
@@ -401,7 +390,6 @@ tabs = st.tabs([
     "Sistema Financiero",
     "Inflación",
     "Mercados",
-    "Tabla de datos"
 ])
 
 # ════════════════════════════════════════════════════════════════════════════════
@@ -540,15 +528,33 @@ with tabs[1]:
     with _st_c:
         st.markdown('<div class="section-title">Tasas de Interés</div>', unsafe_allow_html=True)
 
-    # Card TAMAR con gráfico TAMAR+BADLAR juntos
-    val_tamar, fecha_tamar, var_ult_tamar, var_30_tamar, var_365_tamar = get_variaciones(df_f, "tamar", df)
-    val_badlar, fecha_badlar, var_ult_badlar, var_30_badlar, var_365_badlar = get_variaciones(df_f, "badlar", df)
+    # Card TAMAR con gráfico TAMAR+BADLAR juntos — variaciones en p.p. absolutos
+    def _get_pp(col_name, s_f, s_full):
+        """Retorna (val, fecha_str, pp_ult, pp_30, pp_365) como diferencia absoluta en p.p."""
+        val, fecha_str, pp_ult, _, _ = get_variaciones(s_f, col_name, s_full, pp_absoluto=True)
+        if val is None:
+            return val, fecha_str, None, None, None
+        s = s_full[["fecha", col_name]].dropna(subset=[col_name]).copy()
+        s["fecha"] = pd.to_datetime(s["fecha"])
+        s = s.sort_values("fecha")
+        fecha = s.iloc[-1]["fecha"]
+        def _pp_vs(dias):
+            objetivo = fecha - timedelta(days=dias)
+            ventana = s[(s["fecha"] >= objetivo - timedelta(days=30)) & (s["fecha"] <= objetivo + timedelta(days=30))]
+            if len(ventana) == 0: return None
+            idx = (ventana["fecha"] - objetivo).abs().idxmin()
+            return val - float(ventana.loc[idx, col_name])
+        return val, fecha_str, pp_ult, _pp_vs(30), _pp_vs(365)
 
-    def _d_tasa(v):
+    val_tamar, fecha_tamar, var_ult_tamar, var_30_tamar, var_365_tamar = _get_pp("tamar", df_f, df)
+    val_badlar, fecha_badlar, var_ult_badlar, var_30_badlar, var_365_badlar = _get_pp("badlar", df_f, df)
+
+    def _d_tasa(v, pp=False):
         if v is None: return '<span class="neu">-</span>'
         clase = "pos" if v >= 0 else "neg"
         flecha = "▲" if v >= 0 else "▼"
-        return f'<span class="{clase}">{flecha} {abs(v):.2f} p.p.</span>'
+        unidad = " p.p." if pp else "%"
+        return f'<span class="{clase}">{flecha} {abs(v):.2f}{unidad}</span>'
 
     fmt_tamar = f"{val_tamar:,.2f}" if val_tamar is not None else "-"
     fmt_badlar = f"{val_badlar:,.2f}" if val_badlar is not None else "-"
@@ -561,17 +567,17 @@ with tabs[1]:
             <div style="margin-bottom:10px">
                 <div style="font-size:13px;font-weight:700;color:#1B2A6B">TAMAR: {fmt_tamar}%</div>
                 <div class="var-delta-row">
-                    <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d_tasa(var_ult_tamar)}</div>
-                    <div class="delta-item"><span class="delta-label">vs 30d</span>{_d_tasa(var_30_tamar)}</div>
-                    <div class="delta-item"><span class="delta-label">vs 365d</span>{_d_tasa(var_365_tamar)}</div>
+                    <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d_tasa(var_ult_tamar, pp=True)}</div>
+                    <div class="delta-item"><span class="delta-label">vs 30d</span>{_d_tasa(var_30_tamar, pp=True)}</div>
+                    <div class="delta-item"><span class="delta-label">vs 365d</span>{_d_tasa(var_365_tamar, pp=True)}</div>
                 </div>
             </div>
             <div>
                 <div style="font-size:13px;font-weight:700;color:#1B2A6B">BADLAR: {fmt_badlar}%</div>
                 <div class="var-delta-row">
-                    <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d_tasa(var_ult_badlar)}</div>
-                    <div class="delta-item"><span class="delta-label">vs 30d</span>{_d_tasa(var_30_badlar)}</div>
-                    <div class="delta-item"><span class="delta-label">vs 365d</span>{_d_tasa(var_365_badlar)}</div>
+                    <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d_tasa(var_ult_badlar, pp=True)}</div>
+                    <div class="delta-item"><span class="delta-label">vs 30d</span>{_d_tasa(var_30_badlar, pp=True)}</div>
+                    <div class="delta-item"><span class="delta-label">vs 365d</span>{_d_tasa(var_365_badlar, pp=True)}</div>
                 </div>
             </div>
         </div>""", unsafe_allow_html=True)
@@ -738,23 +744,6 @@ with tabs[4]:
         row_card(dfm_granos, "trigo_ton", "Trigo CBOT (USD/ton)", prefijo="USD ", decimales=2, color=COLORES["trigo"], key="t4_trigo", df_full=dfm_granos_full)
 
 # ════════════════════════════════════════════════════════════════════════════════
-# TAB 5 — TABLA DE DATOS
-# ════════════════════════════════════════════════════════════════════════════════
-with tabs[5]:
-    cols_orden = [
-        "fecha", "reservas", "compras_usd_bcra",
-        "base_monetaria", "m2_transaccional",
-        "tc_minorista", "tc_mayorista",
-        "depositos_usd", "prestamos_usd", "prestamos_priv",
-        "m2_privado", "tamar", "badlar",
-        "inflacion_mensual", "inflacion_interanual", "rem_inflacion", "cer"
-    ]
-    cols_ok = [c for c in cols_orden if c in df_f.columns]
-    st.dataframe(
-        df_f[cols_ok].sort_values("fecha", ascending=False).head(90),
-        use_container_width=True, hide_index=True
-    )
-
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.divider()
 st.markdown(
