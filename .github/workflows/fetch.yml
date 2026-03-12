@@ -26,10 +26,13 @@ jobs:
       - name: Ejecutar fetch Mercados
         run: python data/fetch_mercados.py
 
+      - name: Ejecutar fetch Dolar
+        run: python data/fetch_dolar.py
+
       - name: Commit y push
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add data/bcra_data.csv data/mercados_data.csv
+          git add data/bcra_data.csv data/mercados_data.csv data/dolar_data.csv
           git commit -m "datos $(date +'%Y-%m-%d')" || echo "sin cambios"
           git push
