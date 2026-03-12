@@ -391,8 +391,10 @@ with tabs[4]:
         with a:
             g1(dfm_f, "merval", "Merval (pesos)", key="t4_merval")
         with b:
-            g2(dfm_f, "eem", "EEM", "emb", "EMB",
-               "EEM vs EMB", key="t4_eem_emb")
+            g1(dfm_f, "eem", "EEM - iShares MSCI Emerging Markets ETF", key="t4_eem")
+        a, b = st.columns(2)
+        with a:
+            g1(dfm_f, "emb", "EMB - iShares JP Morgan EM Bond ETF", key="t4_emb")
 
         st.markdown("#### Commodities")
         a, b = st.columns(2)
@@ -401,12 +403,24 @@ with tabs[4]:
                "Petróleo - Brent vs WTI (USD/bbl)", sufijo=" USD", key="t4_petroleo")
         with b:
             g1(dfm_f, "oro", "Oro (USD/oz)", sufijo=" USD", key="t4_oro")
+
+        # Convertir granos de USc/bu a USD/tonelada
+        dfm_granos = dfm_f.copy()
+        if "soja" in dfm_granos.columns:
+            dfm_granos["soja_ton"] = dfm_granos["soja"] * 10 / 2.7216
+        if "maiz" in dfm_granos.columns:
+            dfm_granos["maiz_ton"] = dfm_granos["maiz"] * 10 / 2.5401
+        if "trigo" in dfm_granos.columns:
+            dfm_granos["trigo_ton"] = dfm_granos["trigo"] * 10 / 2.7216
+
         a, b = st.columns(2)
         with a:
-            g2(dfm_f, "soja", "Soja", "maiz", "Maíz",
-               "Granos - Soja y Maíz CBOT (USc/bu)", key="t4_granos")
+            g1(dfm_granos, "soja_ton", "Soja CBOT (USD/ton)", sufijo=" USD", color=COLORES["soja"], key="t4_soja")
         with b:
-            g1(dfm_f, "trigo", "Trigo CBOT (USc/bu)", key="t4_trigo")
+            g1(dfm_granos, "maiz_ton", "Maíz CBOT (USD/ton)", sufijo=" USD", color=COLORES["maiz"], key="t4_maiz")
+        a, b = st.columns(2)
+        with a:
+            g1(dfm_granos, "trigo_ton", "Trigo CBOT (USD/ton)", sufijo=" USD", color=COLORES["trigo"], key="t4_trigo")
 
         st.markdown("#### Renta Fija & Dólar")
         a, b = st.columns(2)
@@ -433,8 +447,6 @@ with tabs[5]:
 
 st.divider()
 st.caption("ACA Valores · Monitor Macroeconómico · Fuente: BCRA API v4.0 · Actualización diaria automática")
-
-
 
 
 
