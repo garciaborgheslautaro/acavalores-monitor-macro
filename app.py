@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 
 st.set_page_config(
-    page_title="Monitor Macro | ACA Valores",
+    page_title="Monitor Macroeconómico | ACA Valores",
     page_icon="📊",
     layout="wide"
 )
