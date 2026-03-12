@@ -328,7 +328,7 @@ with tabs[0]:
         <div class="row-card">
             <div class="var-label">Tipo de Cambio ($)</div>
             <div style="margin-bottom:8px">
-                <div style="font-size:13px;font-weight:700;color:#1B2A6B">Minorista: $ {val_min:,.2f if val_min else '-'}</div>
+                <div style="font-size:13px;font-weight:700;color:#1B2A6B">Minorista: $ {fmt_val_min}</div>
                 <div style="font-size:10px;color:#A0AEC0;margin-bottom:4px">últ. dato: {fecha_str_min or '-'}</div>
                 <div class="var-delta-row">
                     <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d_tc(var_ult_min)}</div>
@@ -337,7 +337,7 @@ with tabs[0]:
                 </div>
             </div>
             <div style="margin-bottom:8px">
-                <div style="font-size:13px;font-weight:700;color:#1B2A6B">Mayorista: $ {val_may:,.2f if val_may else '-'}</div>
+                <div style="font-size:13px;font-weight:700;color:#1B2A6B">Mayorista: $ {fmt_val_may}</div>
                 <div class="var-delta-row">
                     <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d_tc(var_ult_may)}</div>
                     <div class="delta-item"><span class="delta-label">vs 30d</span>{_d_tc(var_30_may)}</div>
