@@ -19,7 +19,7 @@ html, body, [class*="css"] { font-family: 'Montserrat', sans-serif; background-c
     background: #FFFFFF;
     border: 1px solid #E2E8F0;
     border-radius: 12px;
-    padding: 18px 20px;
+    padding: 24px 20px;
     margin-bottom: 14px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
@@ -48,11 +48,11 @@ html, body, [class*="css"] { font-family: 'Montserrat', sans-serif; background-c
     margin-top: 6px;
 }
 .delta-item {
-    font-size: 11px;
+    font-size: 13px;
     display: flex;
     justify-content: space-between;
 }
-.delta-label { color: #718096; }
+.delta-label { color: #718096; font-size: 13px; }
 .pos { color: #276749; font-weight: 600; }
 .neg { color: #C53030; font-weight: 600; }
 .neu { color: #718096; font-weight: 600; }
@@ -243,7 +243,9 @@ def mini_chart(df_plot, col, color, key):
     ))
     layout = dict(LAYOUT_BASE)
     fig.update_layout(**layout)
-    st.plotly_chart(fig, use_container_width=True, key=key)
+    _, c_chart, _ = st.columns([1, 8, 1])
+    with c_chart:
+        st.plotly_chart(fig, use_container_width=True, key=key)
 
 def mini_chart_barras(df_plot, col, key):
     if col not in df_plot.columns or df_plot[col].dropna().empty:
@@ -258,12 +260,14 @@ def mini_chart_barras(df_plot, col, key):
     ))
     layout = dict(LAYOUT_BASE)
     fig.update_layout(**layout)
-    st.plotly_chart(fig, use_container_width=True, key=key)
+    _, c_chart, _ = st.columns([1, 8, 1])
+    with c_chart:
+        st.plotly_chart(fig, use_container_width=True, key=key)
 
 def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key=None, invertir_colores=False):
     """Card a la izquierda + mini gráfico de barras a la derecha"""
     val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col)
-    col_card, col_chart = st.columns([4, 6])
+    col_card, col_chart = st.columns([3, 7])
     with col_card:
         if val is None:
             st.markdown(f"""
@@ -298,7 +302,7 @@ def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None
     color = color or COLORES.get(col, "#1B2A6B")
     val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col)
 
-    col_card, col_chart = st.columns([4, 6])
+    col_card, col_chart = st.columns([3, 7])
     with col_card:
         if val is None:
             st.markdown(f"""
@@ -370,7 +374,7 @@ with tabs[0]:
 
     fmt_val_min = f"{val_min:,.2f}" if val_min is not None else "-"
     fmt_val_may = f"{val_may:,.2f}" if val_may is not None else "-"
-    col_card_tc, col_chart_tc = st.columns([4, 6])
+    col_card_tc, col_chart_tc = st.columns([3, 7])
     with col_card_tc:
         st.markdown(f"""
         <div class="row-card">
@@ -527,7 +531,7 @@ with tabs[4]:
 
         fmt_val_brent = f"{val_brent:,.2f}" if val_brent is not None else "-"
         fmt_val_wti = f"{val_wti:,.2f}" if val_wti is not None else "-"
-        col_card_pet, col_chart_pet = st.columns([4, 6])
+        col_card_pet, col_chart_pet = st.columns([3, 7])
         with col_card_pet:
             st.markdown(f"""
             <div class="row-card">
