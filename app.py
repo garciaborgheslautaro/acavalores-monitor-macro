@@ -177,7 +177,6 @@ COLORES = {
     "merval":               "#00BFFF",
     "vix":                  "#E53E3E",
     "plata":                "#A0AEC0",
-    "tasa_plazo_fijo_ph":   "#9F7AEA",
     "tasa_adelanto_cc":     "#F6AD55",
     "tasa_pases_terceros":  "#68D391",
     "merval_ccl":           "#1B2A6B",
@@ -576,7 +575,6 @@ with tabs[1]:
 
     val_tamar,     fecha_tamar,     var_ult_tamar,     var_30_tamar,     var_365_tamar     = _get_pp("tamar",              df_f, df)
     val_badlar,    fecha_badlar,    var_ult_badlar,    var_30_badlar,    var_365_badlar    = _get_pp("badlar",             df_f, df)
-    val_pfph,      fecha_pfph,      var_ult_pfph,      var_30_pfph,      var_365_pfph      = _get_pp("tasa_plazo_fijo_ph", df_f, df)
     val_adelanto,  fecha_adelanto,  var_ult_adelanto,  var_30_adelanto,  var_365_adelanto  = _get_pp("tasa_adelanto_cc",   df_f, df)
     val_pases,     fecha_pases,     var_ult_pases,     var_30_pases,     var_365_pases     = _get_pp("tasa_pases_terceros",df_f, df)
 
@@ -608,7 +606,6 @@ with tabs[1]:
             <div class="var-label">Tasas de Interés (% TNA)</div>
             {_tasa_bloque("TAMAR",      val_tamar,    var_ult_tamar,    var_30_tamar,    var_365_tamar,    COLORES["tamar"])}
             {_tasa_bloque("BADLAR",     val_badlar,   var_ult_badlar,   var_30_badlar,   var_365_badlar,   COLORES["badlar"])}
-            {_tasa_bloque("PF Pers.",   val_pfph,     var_ult_pfph,     var_30_pfph,     var_365_pfph,     COLORES["tasa_plazo_fijo_ph"])}
             {_tasa_bloque("Adelanto CC",val_adelanto, var_ult_adelanto, var_30_adelanto, var_365_adelanto, COLORES["tasa_adelanto_cc"])}
             {_tasa_bloque("Pases 3ros", val_pases,    var_ult_pases,    var_30_pases,    var_365_pases,    COLORES["tasa_pases_terceros"])}
         </div>""", unsafe_allow_html=True)
@@ -617,7 +614,6 @@ with tabs[1]:
         series_tasas = [
             ("tamar",               "TAMAR",            COLORES["tamar"]),
             ("badlar",              "BADLAR",            COLORES["badlar"]),
-            ("tasa_plazo_fijo_ph",  "PF Pers. Humanas", COLORES["tasa_plazo_fijo_ph"]),
             ("tasa_adelanto_cc",    "Adelanto CC",       COLORES["tasa_adelanto_cc"]),
             ("tasa_pases_terceros", "Pases 3ros",        COLORES["tasa_pases_terceros"]),
         ]
