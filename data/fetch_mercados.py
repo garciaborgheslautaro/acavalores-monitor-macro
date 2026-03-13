@@ -10,14 +10,16 @@ print("=== INICIO fetch_mercados.py ===")
 os.makedirs("data", exist_ok=True)
 
 HOY = datetime.today().strftime("%Y-%m-%d")
-HACE_1_ANO = (datetime.today() - timedelta(days=365)).strftime("%Y-%m-%d")
+HACE_2_ANOS = (datetime.today() - timedelta(days=730)).strftime("%Y-%m-%d")
 
 TICKERS = {
     "^GSPC":    "sp500",
-    "^IXIC":    "nasdaq",
+    "^NDX":     "nasdaq",
     "BZ=F":     "brent",
     "CL=F":     "wti",
     "GC=F":     "oro",
+    "SI=F":     "plata",
+    "^VIX":     "vix",
     "DX-Y.NYB": "dxy",
     "^TNX":     "us10y",
     "EEM":      "eem",
@@ -30,7 +32,7 @@ TICKERS = {
 
 def fetch_ticker(ticker, nombre):
     try:
-        df = yf.download(ticker, start=HACE_1_ANO, end=HOY, progress=False, auto_adjust=True)
+        df = yf.download(ticker, start=HACE_2_ANOS, end=HOY, progress=False, auto_adjust=True)
         if df.empty:
             print(f"  Sin datos — {nombre} ({ticker})")
             return None
