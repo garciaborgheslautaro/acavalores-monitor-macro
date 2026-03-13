@@ -345,7 +345,7 @@ def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key
     with col_chart:
         mini_chart_barras(df_plot, col, key=key or col, label=label, fecha_str=fecha_str or "")
 
-def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None, key=None, invertir_colores=False, df_full=None, es_porcentaje=False, solo_ult_dato=False, pp_todos=False):
+def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None, key=None, invertir_colores=False, df_full=None, es_porcentaje=False, solo_ult_dato=False, pp_todos=False, decimales_delta=None):
     """Card a la izquierda + mini gráfico a la derecha en una fila.
     solo_ult_dato=True: muestra solo variación vs último dato en p.p. absolutos (para inflación, tasas mensuales)"""
     color = color or COLORES.get(col, "#1B2A6B")
@@ -376,9 +376,12 @@ def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None
                 else:
                     clase = "pos" if v >= 0 else "neg"
                 flecha = "▲" if v >= 0 else "▼"
+                dec = decimales_delta if decimales_delta is not None else (decimales if pp_todos else 2)
+                fmt = f"{abs(v):,.{dec}f}"
                 if solo_ult_dato or es_porcentaje or pp_todos:
-                    return f'<span class="{clase}">{flecha} {abs(v):.2f} p.p.</span>'
-                return f'<span class="{clase}">{flecha} {abs(v):.2f}%</span>'
+                    unidad = " pb" if (pp_todos and sufijo.strip() == "pb") else " p.p."
+                    return f'<span class="{clase}">{flecha} {fmt}{unidad}</span>'
+                return f'<span class="{clase}">{flecha} {fmt}%</span>'
 
             if solo_ult_dato:
                 delta_html = f"""
