@@ -129,9 +129,10 @@ dfr = cargar_riesgo_pais()
 # ── Selector de fechas ─────────────────────────────────────────────────────────
 fecha_min = df["fecha"].min().date()
 fecha_max = df["fecha"].max().date()
+fecha_default_desde = max(fecha_min, fecha_max - timedelta(days=365))
 c1, c2 = st.columns(2)
 with c1:
-    desde = st.date_input("Desde", value=fecha_min, min_value=fecha_min, max_value=fecha_max)
+    desde = st.date_input("Desde", value=fecha_default_desde, min_value=fecha_min, max_value=fecha_max)
 with c2:
     hasta = st.date_input("Hasta", value=fecha_max, min_value=fecha_min, max_value=fecha_max)
 
@@ -176,6 +177,9 @@ COLORES = {
     "merval":               "#00BFFF",
     "vix":                  "#E53E3E",
     "plata":                "#A0AEC0",
+    "tasa_plazo_fijo_ph":   "#9F7AEA",
+    "tasa_adelanto_cc":     "#F6AD55",
+    "tasa_pases_terceros":  "#68D391",
     "merval_ccl":           "#1B2A6B",
 }
 
@@ -570,8 +574,11 @@ with tabs[1]:
             return val - float(ventana.loc[idx, col_name])
         return val, fecha_str, pp_ult, _pp_vs(30), _pp_vs(365)
 
-    val_tamar, fecha_tamar, var_ult_tamar, var_30_tamar, var_365_tamar = _get_pp("tamar", df_f, df)
-    val_badlar, fecha_badlar, var_ult_badlar, var_30_badlar, var_365_badlar = _get_pp("badlar", df_f, df)
+    val_tamar,     fecha_tamar,     var_ult_tamar,     var_30_tamar,     var_365_tamar     = _get_pp("tamar",              df_f, df)
+    val_badlar,    fecha_badlar,    var_ult_badlar,    var_30_badlar,    var_365_badlar    = _get_pp("badlar",             df_f, df)
+    val_pfph,      fecha_pfph,      var_ult_pfph,      var_30_pfph,      var_365_pfph      = _get_pp("tasa_plazo_fijo_ph", df_f, df)
+    val_adelanto,  fecha_adelanto,  var_ult_adelanto,  var_30_adelanto,  var_365_adelanto  = _get_pp("tasa_adelanto_cc",   df_f, df)
+    val_pases,     fecha_pases,     var_ult_pases,     var_30_pases,     var_365_pases     = _get_pp("tasa_pases_terceros",df_f, df)
 
     def _d_tasa(v, pp=False):
         if v is None: return '<span class="neu">-</span>'
@@ -580,44 +587,52 @@ with tabs[1]:
         unidad = " p.p." if pp else "%"
         return f'<span class="{clase}">{flecha} {abs(v):.2f}{unidad}</span>'
 
-    fmt_tamar = f"{val_tamar:,.2f}" if val_tamar is not None else "-"
-    fmt_badlar = f"{val_badlar:,.2f}" if val_badlar is not None else "-"
+    def _tasa_bloque(label, val, var_ult, var_30, var_365, color):
+        if val is None:
+            return f'<div style="margin-bottom:8px"><div style="font-size:12px;font-weight:700;color:{color}">{label}: -</div></div>'
+        fmt = f"{val:,.2f}%"
+        return f"""
+        <div style="margin-bottom:8px">
+            <div style="font-size:12px;font-weight:700;color:{color}">{label}: {fmt}</div>
+            <div class="var-delta-row">
+                <div class="delta-item"><span class="delta-label">vs últ.</span>{_d_tasa(var_ult, pp=True)}</div>
+                <div class="delta-item"><span class="delta-label">vs 30d</span>{_d_tasa(var_30, pp=True)}</div>
+                <div class="delta-item"><span class="delta-label">vs 365d</span>{_d_tasa(var_365, pp=True)}</div>
+            </div>
+        </div>"""
 
     col_esp_l_t, col_card_t, col_chart_t, col_esp_r_t = st.columns([1, 2, 4, 3])
     with col_card_t:
         st.markdown(f"""
         <div class="row-card">
             <div class="var-label">Tasas de Interés (% TNA)</div>
-            <div style="margin-bottom:10px">
-                <div style="font-size:13px;font-weight:700;color:#1B2A6B">TAMAR: {fmt_tamar}%</div>
-                <div class="var-delta-row">
-                    <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d_tasa(var_ult_tamar, pp=True)}</div>
-                    <div class="delta-item"><span class="delta-label">vs 30d</span>{_d_tasa(var_30_tamar, pp=True)}</div>
-                    <div class="delta-item"><span class="delta-label">vs 365d</span>{_d_tasa(var_365_tamar, pp=True)}</div>
-                </div>
-            </div>
-            <div>
-                <div style="font-size:13px;font-weight:700;color:#1B2A6B">BADLAR: {fmt_badlar}%</div>
-                <div class="var-delta-row">
-                    <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_d_tasa(var_ult_badlar, pp=True)}</div>
-                    <div class="delta-item"><span class="delta-label">vs 30d</span>{_d_tasa(var_30_badlar, pp=True)}</div>
-                    <div class="delta-item"><span class="delta-label">vs 365d</span>{_d_tasa(var_365_badlar, pp=True)}</div>
-                </div>
-            </div>
+            {_tasa_bloque("TAMAR",      val_tamar,    var_ult_tamar,    var_30_tamar,    var_365_tamar,    COLORES["tamar"])}
+            {_tasa_bloque("BADLAR",     val_badlar,   var_ult_badlar,   var_30_badlar,   var_365_badlar,   COLORES["badlar"])}
+            {_tasa_bloque("PF Pers.",   val_pfph,     var_ult_pfph,     var_30_pfph,     var_365_pfph,     COLORES["tasa_plazo_fijo_ph"])}
+            {_tasa_bloque("Adelanto CC",val_adelanto, var_ult_adelanto, var_30_adelanto, var_365_adelanto, COLORES["tasa_adelanto_cc"])}
+            {_tasa_bloque("Pases 3ros", val_pases,    var_ult_pases,    var_30_pases,    var_365_pases,    COLORES["tasa_pases_terceros"])}
         </div>""", unsafe_allow_html=True)
     with col_chart_t:
         fig_tasas = go.Figure()
-        for col_t, lab_t, color_t in [("tamar", "TAMAR", COLORES["tamar"]), ("badlar", "BADLAR", COLORES["badlar"])]:
+        series_tasas = [
+            ("tamar",               "TAMAR",            COLORES["tamar"]),
+            ("badlar",              "BADLAR",            COLORES["badlar"]),
+            ("tasa_plazo_fijo_ph",  "PF Pers. Humanas", COLORES["tasa_plazo_fijo_ph"]),
+            ("tasa_adelanto_cc",    "Adelanto CC",       COLORES["tasa_adelanto_cc"]),
+            ("tasa_pases_terceros", "Pases 3ros",        COLORES["tasa_pases_terceros"]),
+        ]
+        for col_t, lab_t, color_t in series_tasas:
             if col_t in df_f.columns:
                 dp = df_f[["fecha", col_t]].dropna()
-                fig_tasas.add_trace(go.Scatter(x=dp["fecha"], y=dp[col_t], mode="lines",
-                    name=lab_t, line=dict(color=color_t, width=2),
-                    hovertemplate="%{x|%d/%m/%Y}<br>" + lab_t + ": %{y:,.2f}%<extra></extra>"))
+                if not dp.empty:
+                    fig_tasas.add_trace(go.Scatter(x=dp["fecha"], y=dp[col_t], mode="lines",
+                        name=lab_t, line=dict(color=color_t, width=2),
+                        hovertemplate="%{x|%d/%m/%Y}<br>" + lab_t + ": %{y:,.2f}%<extra></extra>"))
         layout_t = dict(LAYOUT_BASE)
         layout_t["height"] = 340
         layout_t["showlegend"] = True
         layout_t["legend"] = dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=9))
-        layout_t["title"] = dict(text=f"<b>TAMAR y BADLAR (% TNA)</b>  <span style='font-size:10px;color:#718096'>últ. dato: {fecha_tamar or '-'}</span>", font=dict(size=14, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
+        layout_t["title"] = dict(text=f"<b>Tasas de Interés (% TNA)</b>  <span style='font-size:10px;color:#718096'>últ. dato: {fecha_tamar or '-'}</span>", font=dict(size=14, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5))
         layout_t["margin"] = dict(l=10, r=10, t=40, b=10)
         fig_tasas.update_layout(**layout_t)
         st.plotly_chart(fig_tasas, use_container_width=True, key="t1_tasas")
@@ -672,7 +687,7 @@ with tabs[4]:
         with _st_c:
             st.markdown('<div class="section-title">Índices & Renta Variable</div>', unsafe_allow_html=True)
         row_card(dfm_f, "sp500", "S&P 500", decimales=2, color=COLORES["sp500"], key="t4_sp500", df_full=dfm)
-        row_card(dfm_f, "nasdaq", "Nasdaq 100 (NDX)", decimales=2, color=COLORES["nasdaq"], key="t4_nasdaq", df_full=dfm)
+        row_card(dfm_f, "nasdaq", "Nasdaq Composite", decimales=2, color=COLORES["nasdaq"], key="t4_nasdaq", df_full=dfm)
 
         if dfd is not None:
             dfd_m = dfd[(dfd["fecha"].dt.date >= desde) & (dfd["fecha"].dt.date <= hasta)]
