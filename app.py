@@ -271,7 +271,7 @@ def fmt_delta(val, sufijo="%"):
     flecha = "▲" if val >= 0 else "▼"
     return f'<span class="{clase}">{flecha} {abs(val):.2f}{sufijo}</span>'
 
-def mini_chart(df_plot, col, color, key, label="", fecha_str=""):
+def mini_chart(df_plot, col, color, key, label="", fecha_str="", df_full=None):
     if col not in df_plot.columns or df_plot[col].dropna().empty:
         return
     dp = df_plot[["fecha", col]].dropna(subset=[col])
@@ -287,8 +287,19 @@ def mini_chart(df_plot, col, color, key, label="", fecha_str=""):
     layout["margin"] = dict(l=10, r=10, t=50, b=10)
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key)
+    # Botón descarga — usa df_full si existe, sino df_plot
+    src = df_full if (df_full is not None and col in df_full.columns) else df_plot
+    csv = src[["fecha", col]].dropna(subset=[col]).sort_values("fecha").to_csv(index=False).encode("utf-8")
+    st.download_button(
+        label="⬇ Descargar datos",
+        data=csv,
+        file_name=f"{col}.csv",
+        mime="text/csv",
+        key=f"dl_{key}",
+        use_container_width=False,
+    )
 
-def mini_chart_barras(df_plot, col, key, label="", fecha_str=""):
+def mini_chart_barras(df_plot, col, key, label="", fecha_str="", df_full=None):
     if col not in df_plot.columns or df_plot[col].dropna().empty:
         return
     dp = df_plot[["fecha", col]].dropna(subset=[col])
@@ -305,6 +316,16 @@ def mini_chart_barras(df_plot, col, key, label="", fecha_str=""):
     layout["margin"] = dict(l=10, r=10, t=50, b=10)
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True, key=key)
+    src = df_full if (df_full is not None and col in df_full.columns) else df_plot
+    csv = src[["fecha", col]].dropna(subset=[col]).sort_values("fecha").to_csv(index=False).encode("utf-8")
+    st.download_button(
+        label="⬇ Descargar datos",
+        data=csv,
+        file_name=f"{col}.csv",
+        mime="text/csv",
+        key=f"dl_{key}",
+        use_container_width=False,
+    )
 
 def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key=None, invertir_colores=False, df_full=None, es_porcentaje=False, solo_ult_dato=False):
     """Card a la izquierda + mini gráfico de barras a la derecha"""
@@ -346,7 +367,7 @@ def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key
                 </div>
             </div>""", unsafe_allow_html=True)
     with col_chart:
-        mini_chart_barras(df_plot, col, key=key or col, label=label, fecha_str=fecha_str or "")
+        mini_chart_barras(df_plot, col, key=key or col, label=label, fecha_str=fecha_str or "", df_full=df_full)
 
 def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None, key=None, invertir_colores=False, df_full=None, es_porcentaje=False, solo_ult_dato=False, pp_todos=False, decimales_delta=None):
     """Card a la izquierda + mini gráfico a la derecha en una fila.
@@ -404,7 +425,7 @@ def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None
                 </div>
             </div>""", unsafe_allow_html=True)
     with col_chart:
-        mini_chart(df_plot, col, color, key=key or col, label=label, fecha_str=fecha_str or "")
+        mini_chart(df_plot, col, color, key=key or col, label=label, fecha_str=fecha_str or "", df_full=df_full)
 
 def row_card_ext(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None, key=None, invertir_colores=False):
     """Igual que row_card pero acepta df ya calculado con columna col"""
@@ -522,6 +543,12 @@ with tabs[0]:
         layout_tc["margin"] = dict(l=10, r=10, t=40, b=10)
         fig_tc.update_layout(**layout_tc)
         st.plotly_chart(fig_tc, use_container_width=True, key="t0_tc")
+        cols_tc = [c for c in ["tc_minorista","tc_mayorista","mep","ccl"] if c in df_f.columns or (dfd is not None and c in dfd.columns)]
+        df_tc_dl = df_f[["fecha"] + [c for c in ["tc_minorista","tc_mayorista"] if c in df_f.columns]].copy()
+        if dfd is not None:
+            df_tc_dl = pd.merge(df_tc_dl, dfd[["fecha","mep","ccl"]].dropna(), on="fecha", how="outer")
+        csv_tc = df_tc_dl.sort_values("fecha").to_csv(index=False).encode("utf-8")
+        st.download_button("⬇ Descargar datos", data=csv_tc, file_name="tipo_de_cambio.csv", mime="text/csv", key="dl_t0_tc")
 
     _st_l, _st_c = st.columns([1, 9])
     with _st_c:
@@ -632,6 +659,9 @@ with tabs[1]:
         layout_t["margin"] = dict(l=10, r=10, t=40, b=10)
         fig_tasas.update_layout(**layout_t)
         st.plotly_chart(fig_tasas, use_container_width=True, key="t1_tasas")
+        cols_tasas = [c for c in ["tamar","badlar","tasa_adelanto_cc","tasa_pases_terceros"] if c in df.columns]
+        csv_tasas = df[["fecha"] + cols_tasas].dropna(subset=cols_tasas, how="all").sort_values("fecha").to_csv(index=False).encode("utf-8")
+        st.download_button("⬇ Descargar datos", data=csv_tasas, file_name="tasas_interes.csv", mime="text/csv", key="dl_t1_tasas")
 
 # ════════════════════════════════════════════════════════════════════════════════
 # TAB 2 — SISTEMA FINANCIERO
@@ -645,10 +675,12 @@ with tabs[2]:
 
     if "prestamos_priv" in df_f.columns and "cer" in df_f.columns:
         df_prest = df_f[["fecha", "prestamos_priv", "cer"]].dropna().copy()
+        # Traer a pesos constantes de hoy usando CER como deflactor
+        # prestamos_priv viene en $ MM; resultado también en $ MM constantes
         cer_hoy = df_prest["cer"].iloc[-1]
-        df_prest["prestamos_constantes"] = df_prest["prestamos_priv"] * cer_hoy / df_prest["cer"]
-        row_card(df_prest, "prestamos_constantes", "Préstamos al Sector Privado ($ MM constantes de hoy)",
-                 prefijo="$ ", sufijo=" MM", decimales=0, key="t2_prest_const")
+        df_prest["prestamos_constantes"] = (df_prest["prestamos_priv"] * cer_hoy / df_prest["cer"]) / 1000
+        row_card(df_prest, "prestamos_constantes", "Préstamos al Sector Privado ($ miles de MM constantes de hoy)",
+                 prefijo="$ ", sufijo=" miles MM", decimales=0, key="t2_prest_const")
 
 # ════════════════════════════════════════════════════════════════════════════════
 # TAB 3 — INFLACIÓN
@@ -765,6 +797,9 @@ with tabs[4]:
             layout_pet["margin"] = dict(l=10, r=10, t=50, b=10)
             fig_pet.update_layout(**layout_pet)
             st.plotly_chart(fig_pet, use_container_width=True, key="t4_petroleo")
+            cols_pet = [c for c in ["brent","wti"] if c in dfm.columns]
+            csv_pet = dfm[["fecha"] + cols_pet].dropna(subset=cols_pet, how="all").sort_values("fecha").to_csv(index=False).encode("utf-8")
+            st.download_button("⬇ Descargar datos", data=csv_pet, file_name="petroleo.csv", mime="text/csv", key="dl_t4_petroleo")
 
         # Granos en USD/ton
         dfm_granos_full = dfm.copy()
