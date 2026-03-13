@@ -47,7 +47,6 @@ VARIABLES = {
     28:  "inflacion_interanual",
     29:  "rem_inflacion",
     150: "tasa_pases_terceros",
-    43:  "tasa_plazo_fijo_ph",
     44:  "tamar",
     78:  "compras_usd_bcra",
     108: "depositos_usd",
