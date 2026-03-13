@@ -42,7 +42,7 @@ VARIABLES = {
     17:  "depositos",
     18:  "creditos",
     25:  "m2_privado",
-    26:  "prestamos_priv",
+    117: "prestamos_priv",
     27:  "inflacion_mensual",
     28:  "inflacion_interanual",
     29:  "rem_inflacion",
