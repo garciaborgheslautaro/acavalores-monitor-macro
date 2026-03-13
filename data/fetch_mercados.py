@@ -10,6 +10,7 @@ print("=== INICIO fetch_mercados.py ===")
 os.makedirs("data", exist_ok=True)
 
 HOY = datetime.today().strftime("%Y-%m-%d")
+MANANA = (datetime.today() + timedelta(days=1)).strftime("%Y-%m-%d")
 HACE_2_ANOS = (datetime.today() - timedelta(days=730)).strftime("%Y-%m-%d")
 
 TICKERS = {
@@ -32,7 +33,7 @@ TICKERS = {
 
 def fetch_ticker(ticker, nombre):
     try:
-        df = yf.download(ticker, start=HACE_2_ANOS, end=HOY, progress=False, auto_adjust=True)
+        df = yf.download(ticker, start=HACE_2_ANOS, end=MANANA, progress=False, auto_adjust=True)
         if df.empty:
             print(f"  Sin datos — {nombre} ({ticker})")
             return None
