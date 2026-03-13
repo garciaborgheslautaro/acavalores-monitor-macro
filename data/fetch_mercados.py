@@ -15,13 +15,13 @@ HACE_2_ANOS = (datetime.today() - timedelta(days=730)).strftime("%Y-%m-%d")
 
 TICKERS = {
     "^GSPC":    "sp500",
-    "^NDX":     "nasdaq",
+    "^IXIC":    "nasdaq",
     "BZ=F":     "brent",
     "CL=F":     "wti",
     "GC=F":     "oro",
     "SI=F":     "plata",
     "^VIX":     "vix",
-    "DX-Y.NYB": "dxy",
+    "DX=F":      "dxy",
     "^TNX":     "us10y",
     "EEM":      "eem",
     "EMB":      "emb",
