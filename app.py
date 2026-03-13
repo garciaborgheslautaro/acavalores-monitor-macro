@@ -174,6 +174,8 @@ COLORES = {
     "maiz":                 "#F6AD55",
     "trigo":                "#FBD38D",
     "merval":               "#00BFFF",
+    "vix":                  "#E53E3E",
+    "plata":                "#A0AEC0",
     "merval_ccl":           "#1B2A6B",
 }
 
@@ -215,7 +217,6 @@ def get_variaciones(serie_df, col, serie_full=None, pp_absoluto=False):
     ant = float(s.iloc[-2][col])
 
     if pp_absoluto:
-        # Diferencia absoluta en p.p., solo vs último dato
         return val, fecha_str, val - ant, None, None
 
     var_ult = ((val - ant) / ant * 100) if ant != 0 else 0
@@ -241,6 +242,24 @@ def get_variaciones(serie_df, col, serie_full=None, pp_absoluto=False):
         var_365 = None
 
     return val, fecha_str, var_ult, var_30, var_365
+
+def get_var_pp(col, s_f, s_full):
+    """Todas las variaciones como diferencia absoluta en p.p."""
+    val, fecha_str, pp_ult, _, _ = get_variaciones(s_f, col, s_full, pp_absoluto=True)
+    if val is None:
+        return None, None, None, None, None
+    src = s_full if (s_full is not None and col in s_full.columns) else s_f
+    s = src[["fecha", col]].dropna(subset=[col]).copy()
+    s["fecha"] = pd.to_datetime(s["fecha"])
+    s = s.sort_values("fecha")
+    fecha = s.iloc[-1]["fecha"]
+    def _pp(dias):
+        obj = fecha - timedelta(days=dias)
+        v = s[(s["fecha"] >= obj - timedelta(days=30)) & (s["fecha"] <= obj + timedelta(days=30))]
+        if len(v) == 0:
+            return None
+        return val - float(v.loc[(v["fecha"] - obj).abs().idxmin(), col])
+    return val, fecha_str, pp_ult, _pp(30), _pp(365)
 
 def fmt_delta(val, sufijo="%"):
     if val is None:
@@ -326,13 +345,15 @@ def row_card_barras(df_plot, col, label, prefijo="", sufijo="", decimales=2, key
     with col_chart:
         mini_chart_barras(df_plot, col, key=key or col, label=label, fecha_str=fecha_str or "")
 
-def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None, key=None, invertir_colores=False, df_full=None, es_porcentaje=False, solo_ult_dato=False):
+def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None, key=None, invertir_colores=False, df_full=None, es_porcentaje=False, solo_ult_dato=False, pp_todos=False):
     """Card a la izquierda + mini gráfico a la derecha en una fila.
     solo_ult_dato=True: muestra solo variación vs último dato en p.p. absolutos (para inflación, tasas mensuales)"""
     color = color or COLORES.get(col, "#1B2A6B")
     if solo_ult_dato:
         val, fecha_str, var_ult, _, _ = get_variaciones(df_plot, col, serie_full=df_full, pp_absoluto=True)
         var_30, var_365 = None, None
+    elif pp_todos:
+        val, fecha_str, var_ult, var_30, var_365 = get_var_pp(col, df_plot, df_full)
     else:
         val, fecha_str, var_ult, var_30, var_365 = get_variaciones(df_plot, col, serie_full=df_full)
 
@@ -355,7 +376,7 @@ def row_card(df_plot, col, label, prefijo="", sufijo="", decimales=2, color=None
                 else:
                     clase = "pos" if v >= 0 else "neg"
                 flecha = "▲" if v >= 0 else "▼"
-                if solo_ult_dato or es_porcentaje:
+                if solo_ult_dato or es_porcentaje or pp_todos:
                     return f'<span class="{clase}">{flecha} {abs(v):.2f} p.p.</span>'
                 return f'<span class="{clase}">{flecha} {abs(v):.2f}%</span>'
 
@@ -504,7 +525,7 @@ with tabs[0]:
         row_card(dfi_f, "itcrm", "ITCRM (base 17-12-15=100)", decimales=2, color=COLORES["itcrm"], key="t0_itcrm", df_full=dfi)
     if dfr is not None:
         dfr_f = dfr[(dfr["fecha"].dt.date >= desde) & (dfr["fecha"].dt.date <= hasta)]
-        row_card(dfr_f, "riesgo_pais", "Riesgo País EMBI (puntos básicos)", sufijo=" pb", decimales=0, color=COLORES["riesgo_pais"], key="t0_riesgo", invertir_colores=True, df_full=dfr)
+        row_card(dfr_f, "riesgo_pais", "Riesgo País EMBI", sufijo=" pb", decimales=0, color=COLORES["riesgo_pais"], key="t0_riesgo", invertir_colores=True, df_full=dfr, pp_todos=True)
 
 # ════════════════════════════════════════════════════════════════════════════════
 # TAB 1 — POLÍTICA MONETARIA
@@ -668,15 +689,17 @@ with tabs[4]:
         with _st_c:
             st.markdown('<div class="section-title">Renta Fija & Moneda</div>', unsafe_allow_html=True)
         row_card(dfm_f, "us10y", "US Treasury 10Y (% yield)", sufijo="%", decimales=2,
-                 color=COLORES["us10y"], key="t4_us10y", invertir_colores=True, es_porcentaje=True, df_full=dfm)
+                 color=COLORES["us10y"], key="t4_us10y", invertir_colores=True, pp_todos=True, df_full=dfm)
         row_card(dfm_f, "emb", "EMB - iShares JP Morgan EM Bond ETF", prefijo="USD ", decimales=2,
                  color=COLORES["emb"], key="t4_emb", df_full=dfm)
         row_card(dfm_f, "dxy", "DXY - Índice Dólar", decimales=2, color=COLORES["dxy"], key="t4_dxy", df_full=dfm)
+        row_card(dfm_f, "vix", "VIX - Índice de Volatilidad (CBOE)", decimales=2, color=COLORES["vix"], key="t4_vix", invertir_colores=True, df_full=dfm)
 
         _st_l, _st_c = st.columns([1, 9])
         with _st_c:
             st.markdown('<div class="section-title">Commodities</div>', unsafe_allow_html=True)
         row_card(dfm_f, "oro", "Oro (USD/oz)", prefijo="USD ", decimales=2, color=COLORES["oro"], key="t4_oro", df_full=dfm)
+        row_card(dfm_f, "plata", "Plata (USD/oz)", prefijo="USD ", decimales=2, color=COLORES["plata"], key="t4_plata", df_full=dfm)
 
         # Petróleo — gráfico especial Brent + WTI
         val_brent, fecha_brent, var_ult_brent, var_30_brent, var_365_brent = get_variaciones(dfm_f, "brent", dfm)
