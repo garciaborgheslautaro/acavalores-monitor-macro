@@ -116,6 +116,12 @@ def cargar_riesgo_pais():
     if not os.path.exists(path): return None
     return pd.read_csv(path, parse_dates=["fecha"], encoding="utf-8", encoding_errors="replace").sort_values("fecha").reset_index(drop=True)
 
+@st.cache_data(ttl=3600)
+def cargar_actividad():
+    path = "data/actividad_data.csv"
+    if not os.path.exists(path): return None
+    return pd.read_csv(path, parse_dates=["fecha"]).sort_values("fecha").reset_index(drop=True)
+
 df  = cargar_datos()
 if df is None:
     st.warning("Los datos aún no fueron generados.")
@@ -125,6 +131,7 @@ dfm = cargar_mercados()
 dfd = cargar_dolar()
 dfi = cargar_itcrm()
 dfr = cargar_riesgo_pais()
+dfa = cargar_actividad()
 
 # ── Selector de fechas ─────────────────────────────────────────────────────────
 fecha_min = df["fecha"].min().date()
@@ -438,6 +445,7 @@ tabs = st.tabs([
     "Sistema Financiero",
     "Inflación",
     "Mercados",
+    "Actividad & Fiscal",
 ])
 
 # ════════════════════════════════════════════════════════════════════════════════
@@ -816,12 +824,143 @@ with tabs[4]:
         row_card(dfm_granos, "trigo_ton", "Trigo CBOT (USD/ton)", prefijo="USD ", decimales=2, color=COLORES["trigo"], key="t4_trigo", df_full=dfm_granos_full)
 
 # ════════════════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════════════════
+# TAB 5 — ACTIVIDAD & FISCAL
+# ════════════════════════════════════════════════════════════════════════════════
+with tabs[5]:
+    if dfa is None:
+        st.info("Los datos de Actividad & Fiscal aún no fueron generados. Ejecutá el Action manualmente.")
+    else:
+        dfa_f = dfa[(dfa["fecha"].dt.date >= desde) & (dfa["fecha"].dt.date <= hasta)].copy()
+
+        # ── Actividad Económica ───────────────────────────────────────────────
+        _st_l, _st_c = st.columns([1, 9])
+        with _st_c:
+            st.markdown('<div class="section-title">Actividad Económica</div>', unsafe_allow_html=True)
+
+        row_card(dfa_f, "emae", "EMAE — Nivel General (Base 2004)", decimales=1,
+                 color="#1B2A6B", key="t5_emae", df_full=dfa)
+        row_card(dfa_f, "emae_desest", "EMAE — Serie Desestacionalizada (Base 2004)", decimales=1,
+                 color="#2B4FBF", key="t5_emae_d", df_full=dfa)
+        row_card(dfa_f, "ipi", "IPI — Industria Manufacturera (Base 2012)", decimales=1,
+                 color="#48BB78", key="t5_ipi", df_full=dfa)
+
+        # ── Comercio Exterior ─────────────────────────────────────────────────
+        _st_l, _st_c = st.columns([1, 9])
+        with _st_c:
+            st.markdown('<div class="section-title">Comercio Exterior</div>', unsafe_allow_html=True)
+
+        row_card(dfa_f, "exportaciones", "Exportaciones FOB (USD MM)", prefijo="USD ",
+                 sufijo=" MM", decimales=0, color="#F6AD55", key="t5_expo", df_full=dfa)
+        row_card(dfa_f, "importaciones", "Importaciones CIF (USD MM)", prefijo="USD ",
+                 sufijo=" MM", decimales=0, color="#FC8181", key="t5_impo", df_full=dfa,
+                 invertir_colores=True)
+
+        # Gráfico balanza comercial — barras verde/rojo
+        if "balanza_comercial" in dfa_f.columns:
+            col_esp_l, col_card, col_chart, col_esp_r = st.columns([1, 2, 4, 3])
+            with col_card:
+                val_bc, fecha_bc, var_bc, _, _ = get_variaciones(dfa_f, "balanza_comercial",
+                                                                   pp_absoluto=True)
+                if val_bc is not None:
+                    color_bc = "pos" if val_bc >= 0 else "neg"
+                    fmt_bc = f"USD {val_bc:,.0f} MM"
+                    st.markdown(f"""
+                    <div class="row-card">
+                        <div class="var-label">Balanza Comercial (USD MM)</div>
+                        <div class="var-value"><span class="{color_bc}">{fmt_bc}</span></div>
+                        <div class="var-fecha">últ. dato: {fecha_bc}</div>
+                        <div class="var-delta-row">
+                            <div class="delta-item"><span class="delta-label">vs últ. dato</span>
+                            <span class="{'pos' if var_bc>=0 else 'neg'}">{'▲' if var_bc>=0 else '▼'} USD {abs(var_bc):,.0f} MM</span>
+                            </div>
+                        </div>
+                    </div>""", unsafe_allow_html=True)
+            with col_chart:
+                mini_chart_barras(dfa_f, "balanza_comercial", key="t5_balanza",
+                                  label="Balanza Comercial (USD MM)",
+                                  fecha_str=fecha_bc or "", df_full=dfa)
+
+        # ── Sector Fiscal ─────────────────────────────────────────────────────
+        _st_l, _st_c = st.columns([1, 9])
+        with _st_c:
+            st.markdown('<div class="section-title">Sector Fiscal</div>', unsafe_allow_html=True)
+
+        row_card(dfa_f, "recaudacion", "Recaudación Total AFIP/ARCA ($ miles de MM)",
+                 prefijo="$ ", sufijo=" miles MM", decimales=0, color="#9F7AEA",
+                 key="t5_recaud", df_full=dfa)
+
+        # Resultado primario y financiero — barras (pueden ser negativos)
+        if "resultado_primario" in dfa_f.columns:
+            col_esp_l, col_card, col_chart, col_esp_r = st.columns([1, 2, 4, 3])
+            with col_card:
+                val_rp, fecha_rp, var_rp, _, _ = get_variaciones(dfa_f, "resultado_primario",
+                                                                   pp_absoluto=True)
+                if val_rp is not None:
+                    color_rp = "pos" if val_rp >= 0 else "neg"
+                    signo = "+" if val_rp >= 0 else ""
+                    st.markdown(f"""
+                    <div class="row-card">
+                        <div class="var-label">Resultado Fiscal Primario ($ miles de MM)</div>
+                        <div class="var-value"><span class="{color_rp}">{signo}$ {val_rp:,.0f} miles MM</span></div>
+                        <div class="var-fecha">últ. dato: {fecha_rp}</div>
+                        <div class="var-delta-row">
+                            <div class="delta-item"><span class="delta-label">vs últ. dato</span>
+                            <span class="{'pos' if var_rp>=0 else 'neg'}">{'▲' if var_rp>=0 else '▼'} $ {abs(var_rp):,.0f} miles MM</span>
+                            </div>
+                        </div>
+                    </div>""", unsafe_allow_html=True)
+            with col_chart:
+                mini_chart_barras(dfa_f, "resultado_primario", key="t5_rprim",
+                                  label="Resultado Fiscal Primario ($ miles de MM)",
+                                  fecha_str=fecha_rp or "", df_full=dfa)
+
+        if "resultado_financiero" in dfa_f.columns:
+            col_esp_l, col_card, col_chart, col_esp_r = st.columns([1, 2, 4, 3])
+            with col_card:
+                val_rf, fecha_rf, var_rf, _, _ = get_variaciones(dfa_f, "resultado_financiero",
+                                                                   pp_absoluto=True)
+                if val_rf is not None:
+                    color_rf = "pos" if val_rf >= 0 else "neg"
+                    signo = "+" if val_rf >= 0 else ""
+                    st.markdown(f"""
+                    <div class="row-card">
+                        <div class="var-label">Resultado Fiscal Financiero ($ miles de MM)</div>
+                        <div class="var-value"><span class="{color_rf}">{signo}$ {val_rf:,.0f} miles MM</span></div>
+                        <div class="var-fecha">últ. dato: {fecha_rf}</div>
+                        <div class="var-delta-row">
+                            <div class="delta-item"><span class="delta-label">vs últ. dato</span>
+                            <span class="{'pos' if var_rf>=0 else 'neg'}">{'▲' if var_rf>=0 else '▼'} $ {abs(var_rf):,.0f} miles MM</span>
+                            </div>
+                        </div>
+                    </div>""", unsafe_allow_html=True)
+            with col_chart:
+                mini_chart_barras(dfa_f, "resultado_financiero", key="t5_rfin",
+                                  label="Resultado Fiscal Financiero ($ miles de MM)",
+                                  fecha_str=fecha_rf or "", df_full=dfa)
+
+        # ── Consumo & Mercado Laboral ──────────────────────────────────────────
+        _st_l, _st_c = st.columns([1, 9])
+        with _st_c:
+            st.markdown('<div class="section-title">Consumo & Mercado Laboral</div>', unsafe_allow_html=True)
+
+        row_card(dfa_f, "ventas_supermercados", "Ventas Supermercados ($ miles de MM)",
+                 prefijo="$ ", sufijo=" miles MM", decimales=0, color="#F6AD55",
+                 key="t5_super", df_full=dfa)
+        row_card(dfa_f, "patentamiento", "Patentamiento Automotores (unidades)",
+                 sufijo=" u", decimales=0, color="#00BFFF", key="t5_patent", df_full=dfa)
+        row_card(dfa_f, "ripte", "RIPTE — Remuneración Imponible Promedio ($ por trabajador)",
+                 prefijo="$ ", decimales=0, color="#48BB78", key="t5_ripte", df_full=dfa)
+        row_card(dfa_f, "salario_real", "Remuneración Media Real — Ocupados (índice)",
+                 decimales=1, color="#9F7AEA", key="t5_salreal", df_full=dfa)
+
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.divider()
 st.markdown(
     "<div style='text-align:center; color:#A0AEC0; font-size:11px'>"
     "Fuentes: BCRA (API v4.0 & Excel ITCRM) · Ámbito Financiero (Riesgo País, MEP, CCL) · "
-    "Bluelytics (Dólar Blue) · Yahoo Finance (Mercados Internacionales) · INDEC"
+    "datos.gob.ar (EMAE, Fiscal, Comercio Exterior, Laborales) · "
+    "Yahoo Finance (Mercados Internacionales) · INDEC"
     "</div>",
     unsafe_allow_html=True
 )
