@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 import os, base64
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 
 st.set_page_config(
     page_title="Monitor Macroeconómico | ACA Valores",
@@ -122,6 +122,12 @@ def cargar_actividad():
     if not os.path.exists(path): return None
     return pd.read_csv(path, parse_dates=["fecha"]).sort_values("fecha").reset_index(drop=True)
 
+@st.cache_data(ttl=1800)
+def cargar_bonos():
+    path = "data/bonos_data.csv"
+    if not os.path.exists(path): return None
+    return pd.read_csv(path).sort_values(["ticker", "fecha"]).reset_index(drop=True)
+
 df  = cargar_datos()
 if df is None:
     st.warning("Los datos aún no fueron generados.")
@@ -132,6 +138,7 @@ dfd = cargar_dolar()
 dfi = cargar_itcrm()
 dfr = cargar_riesgo_pais()
 dfa = cargar_actividad()
+dfb = cargar_bonos()
 
 # ── Selector de fechas ─────────────────────────────────────────────────────────
 fecha_min = df["fecha"].min().date()
@@ -446,6 +453,7 @@ tabs = st.tabs([
     "Inflación",
     "Mercados",
     "Actividad & Fiscal",
+    "Bonos Soberanos",
 ])
 
 # ════════════════════════════════════════════════════════════════════════════════
@@ -938,6 +946,225 @@ with tabs[5]:
                 with col_chart:
                     mini_chart_barras(dfa_f, col_res, key=key_res, label=label_res,
                                       fecha_str=fecha_r or "", df_full=dfa)
+
+
+# ════════════════════════════════════════════════════════════════════════════════
+# TAB 6 — BONOS SOBERANOS
+# ════════════════════════════════════════════════════════════════════════════════
+with tabs[6]:
+
+    # ── Definición de bonos (parámetros simplificados — bullet + cupón corriente) ──
+    _BONOS = {
+        "GD29": {"nombre": "Global 2029 (Ley NY)", "cupon": 1.000, "vto": "2029-07-09"},
+        "GD30": {"nombre": "Global 2030 (Ley NY)", "cupon": 5.000, "vto": "2030-07-09"},
+        "GD35": {"nombre": "Global 2035 (Ley NY)", "cupon": 3.625, "vto": "2035-07-09"},
+        "GD38": {"nombre": "Global 2038 (Ley NY)", "cupon": 3.875, "vto": "2038-01-09"},
+        "GD41": {"nombre": "Global 2041 (Ley NY)", "cupon": 4.125, "vto": "2041-07-09"},
+        "GD46": {"nombre": "Global 2046 (Ley NY)", "cupon": 5.000, "vto": "2046-07-09"},
+        "AL29": {"nombre": "Bonar 2029 (Ley AR)",  "cupon": 1.000, "vto": "2029-07-09"},
+        "AL30": {"nombre": "Bonar 2030 (Ley AR)",  "cupon": 5.000, "vto": "2030-07-09"},
+        "AL35": {"nombre": "Bonar 2035 (Ley AR)",  "cupon": 3.625, "vto": "2035-07-09"},
+        "AL41": {"nombre": "Bonar 2041 (Ley AR)",  "cupon": 4.125, "vto": "2041-07-09"},
+    }
+
+    def _flujos_bono(ticker, par=100.0):
+        """Genera flujos de caja semi-anuales de un bono bullet."""
+        info = _BONOS[ticker]
+        hoy = date.today()
+        vto = date.fromisoformat(info["vto"])
+        cupon_sem = info["cupon"] / 2 / 100 * par
+        fechas = []
+        f = vto
+        while f > hoy:
+            fechas.append(f)
+            m, y = f.month - 6, f.year
+            if m <= 0:
+                m += 12
+                y -= 1
+            try:
+                f = date(y, m, f.day)
+            except ValueError:
+                f = date(y, m, 28)
+        fechas.sort()
+        return [
+            (fecha, cupon_sem + (par if i == len(fechas) - 1 else 0))
+            for i, fecha in enumerate(fechas)
+        ]
+
+    def _tir(precio, flujos, iters=300):
+        """TIR por Newton-Raphson, resultado en %."""
+        hoy = date.today()
+        t  = [(f - hoy).days / 365.0 for f, _ in flujos]
+        cf = [c for _, c in flujos]
+        r = 0.05
+        for _ in range(iters):
+            pv  = sum(c / (1 + r) ** ti for ti, c in zip(t, cf))
+            dpv = sum(-ti * c / (1 + r) ** (ti + 1) for ti, c in zip(t, cf))
+            if abs(dpv) < 1e-12:
+                break
+            r_new = max(1e-4, min(r - (pv - precio) / dpv, 3.0))
+            if abs(r_new - r) < 1e-9:
+                r = r_new
+                break
+            r = r_new
+        return r * 100
+
+    def _duration(flujos, tir_pct, precio):
+        """Devuelve (Macaulay Duration, Modified Duration) en años."""
+        hoy = date.today()
+        tir = tir_pct / 100
+        t  = [(f - hoy).days / 365.0 for f, _ in flujos]
+        cf = [c for _, c in flujos]
+        mac = sum(ti * c / (1 + tir) ** ti for ti, c in zip(t, cf)) / precio
+        mod = mac / (1 + tir / 2)
+        return mac, mod
+
+    # ── Precios live (última fila por ticker del CSV) ─────────────────────────
+    precios_live = {}
+    variaciones_live = {}
+    if dfb is not None:
+        for ticker in _BONOS:
+            sub = dfb[dfb["ticker"] == ticker].sort_values("fecha")
+            if not sub.empty:
+                precios_live[ticker] = float(sub.iloc[-1]["precio"])
+                v = sub.iloc[-1].get("variacion_pct")
+                variaciones_live[ticker] = float(v) if v is not None and str(v) != "nan" else None
+
+    # ── Sección 1: Tabla de mercado ───────────────────────────────────────────
+    _st_l, _st_c = st.columns([1, 9])
+    with _st_c:
+        st.markdown('<div class="section-title">Precios de Mercado</div>', unsafe_allow_html=True)
+
+    if precios_live:
+        st.caption("Precios con hasta 20 min de retraso (Open BYMA Data). TIR y Duration calculados asumiendo bono bullet con cupón corriente — valores aproximados.")
+    else:
+        st.info("Precios de mercado no disponibles. Ejecutá el script `data/fetch_bonos.py` o el Action de GitHub para actualizarlos.")
+
+    tabla_rows = []
+    for ticker, info in _BONOS.items():
+        precio = precios_live.get(ticker)
+        variacion = variaciones_live.get(ticker)
+        try:
+            fl = _flujos_bono(ticker)
+            if precio and fl:
+                tir_v  = _tir(precio, fl)
+                mac, mod = _duration(fl, tir_v, precio)
+                dv01 = mod * precio / 10000  # USD por bp por $100 nominal
+                var_str = f"{variacion:+.2f}%" if variacion is not None else "-"
+                tabla_rows.append({
+                    "Bono":           ticker,
+                    "Descripción":    info["nombre"],
+                    "Precio (%)":     round(precio, 2),
+                    "Var. día":       var_str,
+                    "TIR (%)":        round(tir_v, 2),
+                    "Duration":       round(mac, 2),
+                    "Mod. Duration":  round(mod, 2),
+                    "DV01 (x$100)":   round(dv01, 4),
+                })
+            else:
+                tabla_rows.append({
+                    "Bono": ticker, "Descripción": info["nombre"],
+                    "Precio (%)": "-", "Var. día": "-",
+                    "TIR (%)": "-", "Duration": "-", "Mod. Duration": "-", "DV01 (x$100)": "-",
+                })
+        except Exception:
+            tabla_rows.append({
+                "Bono": ticker, "Descripción": info["nombre"],
+                "Precio (%)": "-", "Var. día": "-",
+                "TIR (%)": "-", "Duration": "-", "Mod. Duration": "-", "DV01 (x$100)": "-",
+            })
+
+    _esp_t, _col_t = st.columns([1, 9])
+    with _col_t:
+        st.dataframe(
+            pd.DataFrame(tabla_rows).set_index("Bono"),
+            use_container_width=True,
+            height=390,
+        )
+
+    # ── Sección 2: Calculadora ────────────────────────────────────────────────
+    _st_l, _st_c = st.columns([1, 9])
+    with _st_c:
+        st.markdown('<div class="section-title">Calculadora de TIR</div>', unsafe_allow_html=True)
+
+    col_sel, col_precio, col_esp = st.columns([2, 2, 6])
+    with col_sel:
+        bono_calc = st.selectbox(
+            "Bono",
+            list(_BONOS.keys()),
+            format_func=lambda x: f"{x} — {_BONOS[x]['nombre']}",
+            key="calc_bono",
+        )
+    precio_default = precios_live.get(bono_calc, 70.0)
+    with col_precio:
+        precio_calc = st.number_input(
+            "Precio (% del par)",
+            min_value=1.0, max_value=200.0,
+            value=float(round(precio_default, 2)),
+            step=0.25,
+            key="calc_precio",
+        )
+
+    try:
+        fl_calc = _flujos_bono(bono_calc)
+        if not fl_calc:
+            st.warning("El bono ya venció o no tiene flujos futuros.")
+        else:
+            tir_calc = _tir(precio_calc, fl_calc)
+            mac_calc, mod_calc = _duration(fl_calc, tir_calc, precio_calc)
+            dv01_calc = mod_calc * precio_calc / 10000
+
+            _esp_r, _col_r = st.columns([1, 9])
+            with _col_r:
+                c1, c2, c3, c4 = st.columns(4)
+                for col_res, label_res, value_res, sufijo_res in [
+                    (c1, "TIR",             f"{tir_calc:.2f}",  "%"),
+                    (c2, "Duration (Mac.)", f"{mac_calc:.2f}",  " años"),
+                    (c3, "Duration (Mod.)", f"{mod_calc:.2f}",  " años"),
+                    (c4, "DV01 (x$100 nom.)", f"{dv01_calc:.4f}", " USD"),
+                ]:
+                    with col_res:
+                        st.markdown(f"""
+                        <div class="row-card" style="text-align:center; padding:20px 10px">
+                            <div class="var-label">{label_res}</div>
+                            <div class="var-value" style="font-size:26px">{value_res}<span style="font-size:13px;color:#718096"> {sufijo_res}</span></div>
+                        </div>""", unsafe_allow_html=True)
+
+            # Gráfico de flujo de caja
+            _st_l2, _st_c2 = st.columns([1, 9])
+            with _st_c2:
+                st.markdown('<div class="section-title">Flujo de Caja</div>', unsafe_allow_html=True)
+
+            fechas_fl = [f for f, _ in fl_calc]
+            valores_fl = [c for _, c in fl_calc]
+            colores_fl = ["#4299E1" if v < 50 else "#1B2A6B" for v in valores_fl]
+
+            fig_fl = go.Figure()
+            fig_fl.add_trace(go.Bar(
+                x=fechas_fl, y=valores_fl,
+                marker_color=colores_fl,
+                text=[f"${v:.2f}" for v in valores_fl],
+                textposition="outside",
+                hovertemplate="%{x|%d/%m/%Y}<br>$%{y:.2f}<extra></extra>",
+            ))
+            layout_fl = dict(LAYOUT_BASE)
+            layout_fl["title"] = dict(
+                text=(f"<b>Flujo de Caja — {bono_calc}</b>"
+                      f"  <span style='font-size:10px;color:#718096'>"
+                      f"precio: {precio_calc:.2f}% | TIR: {tir_calc:.2f}%</span>"),
+                font=dict(size=14, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5),
+            )
+            layout_fl["margin"] = dict(l=10, r=10, t=50, b=10)
+            layout_fl["height"] = 320
+            layout_fl["yaxis"] = dict(title="USD por $100 nominal", showgrid=True, gridcolor="#EDF2F7")
+            fig_fl.update_layout(**layout_fl)
+
+            _esp_fl, _col_fl = st.columns([1, 9])
+            with _col_fl:
+                st.plotly_chart(fig_fl, use_container_width=True, key="fl_calc_chart")
+
+    except Exception as e:
+        st.error(f"Error en el cálculo: {e}")
 
 
 # ── Footer ────────────────────────────────────────────────────────────────────
