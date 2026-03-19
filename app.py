@@ -568,6 +568,40 @@ with tabs[0]:
         dfr_f = dfr[(dfr["fecha"].dt.date >= desde) & (dfr["fecha"].dt.date <= hasta)]
         row_card(dfr_f, "riesgo_pais", "Riesgo País EMBI", sufijo=" pb", decimales=0, color=COLORES["riesgo_pais"], key="t0_riesgo", invertir_colores=True, df_full=dfr, pp_todos=True)
 
+    # ── Comercio Exterior ─────────────────────────────────────────────────────
+    if dfa is not None:
+        dfa_f0 = dfa[(dfa["fecha"].dt.date >= desde) & (dfa["fecha"].dt.date <= hasta)].copy()
+        _st_l, _st_c = st.columns([1, 9])
+        with _st_c:
+            st.markdown('<div class="section-title">Comercio Exterior</div>', unsafe_allow_html=True)
+        row_card(dfa_f0, "exportaciones", "Exportaciones FOB (USD MM)", prefijo="USD ",
+                 sufijo=" MM", decimales=0, color=COLORES.get("exportaciones","#F6AD55"),
+                 key="t0_expo", df_full=dfa)
+        row_card(dfa_f0, "importaciones", "Importaciones CIF (USD MM)", prefijo="USD ",
+                 sufijo=" MM", decimales=0, color=COLORES.get("importaciones","#FC8181"),
+                 key="t0_impo", invertir_colores=True, df_full=dfa)
+        if "balanza_comercial" in dfa_f0.columns:
+            col_esp_l, col_card, col_chart, col_esp_r = st.columns([1, 2, 4, 3])
+            with col_card:
+                val_bc, fecha_bc, var_bc, _, _ = get_variaciones(dfa_f0, "balanza_comercial", pp_absoluto=True)
+                if val_bc is not None:
+                    color_bc = "pos" if val_bc >= 0 else "neg"
+                    signo = "+" if val_bc >= 0 else ""
+                    var_html = f'<span class="{"pos" if var_bc>=0 else "neg"}">{"▲" if var_bc>=0 else "▼"} USD {abs(var_bc):,.0f} MM</span>'
+                    st.markdown(f"""
+                    <div class="row-card">
+                        <div class="var-label">Balanza Comercial (USD MM)</div>
+                        <div class="var-value"><span class="{color_bc}">{signo}USD {val_bc:,.0f} MM</span></div>
+                        <div class="var-fecha">últ. dato: {fecha_bc}</div>
+                        <div class="var-delta-row">
+                            <div class="delta-item"><span class="delta-label">vs últ. dato</span>{var_html}</div>
+                        </div>
+                    </div>""", unsafe_allow_html=True)
+            with col_chart:
+                mini_chart_barras(dfa_f0, "balanza_comercial", key="t0_balanza",
+                                  label="Balanza Comercial (USD MM)",
+                                  fecha_str=fecha_bc or "", df_full=dfa)
+
 # ════════════════════════════════════════════════════════════════════════════════
 # TAB 1 — POLÍTICA MONETARIA
 # ════════════════════════════════════════════════════════════════════════════════
@@ -824,7 +858,6 @@ with tabs[4]:
         row_card(dfm_granos, "trigo_ton", "Trigo CBOT (USD/ton)", prefijo="USD ", decimales=2, color=COLORES["trigo"], key="t4_trigo", df_full=dfm_granos_full)
 
 # ════════════════════════════════════════════════════════════════════════════════
-# ════════════════════════════════════════════════════════════════════════════════
 # TAB 5 — ACTIVIDAD & FISCAL
 # ════════════════════════════════════════════════════════════════════════════════
 with tabs[5]:
@@ -838,106 +871,77 @@ with tabs[5]:
         with _st_c:
             st.markdown('<div class="section-title">Actividad Económica</div>', unsafe_allow_html=True)
 
-        row_card(dfa_f, "emae", "EMAE — Nivel General (Base 2004)", decimales=1,
+        row_card(dfa_f, "emae", "EMAE — Serie Original (Base 2004)", decimales=1,
                  color="#1B2A6B", key="t5_emae", df_full=dfa)
         row_card(dfa_f, "emae_desest", "EMAE — Serie Desestacionalizada (Base 2004)", decimales=1,
                  color="#2B4FBF", key="t5_emae_d", df_full=dfa)
         row_card(dfa_f, "ipi", "IPI — Industria Manufacturera (Base 2012)", decimales=1,
                  color="#48BB78", key="t5_ipi", df_full=dfa)
 
-        # ── Comercio Exterior ─────────────────────────────────────────────────
-        _st_l, _st_c = st.columns([1, 9])
-        with _st_c:
-            st.markdown('<div class="section-title">Comercio Exterior</div>', unsafe_allow_html=True)
-
-        row_card(dfa_f, "exportaciones", "Exportaciones FOB (USD MM)", prefijo="USD ",
-                 sufijo=" MM", decimales=0, color="#F6AD55", key="t5_expo", df_full=dfa)
-        row_card(dfa_f, "importaciones", "Importaciones CIF (USD MM)", prefijo="USD ",
-                 sufijo=" MM", decimales=0, color="#FC8181", key="t5_impo", df_full=dfa,
-                 invertir_colores=True)
-
-        # Gráfico balanza comercial — barras verde/rojo
-        if "balanza_comercial" in dfa_f.columns:
-            col_esp_l, col_card, col_chart, col_esp_r = st.columns([1, 2, 4, 3])
-            with col_card:
-                val_bc, fecha_bc, var_bc, _, _ = get_variaciones(dfa_f, "balanza_comercial",
-                                                                   pp_absoluto=True)
-                if val_bc is not None:
-                    color_bc = "pos" if val_bc >= 0 else "neg"
-                    fmt_bc = f"USD {val_bc:,.0f} MM"
-                    st.markdown(f"""
-                    <div class="row-card">
-                        <div class="var-label">Balanza Comercial (USD MM)</div>
-                        <div class="var-value"><span class="{color_bc}">{fmt_bc}</span></div>
-                        <div class="var-fecha">últ. dato: {fecha_bc}</div>
-                        <div class="var-delta-row">
-                            <div class="delta-item"><span class="delta-label">vs últ. dato</span>
-                            <span class="{'pos' if var_bc>=0 else 'neg'}">{'▲' if var_bc>=0 else '▼'} USD {abs(var_bc):,.0f} MM</span>
-                            </div>
-                        </div>
-                    </div>""", unsafe_allow_html=True)
-            with col_chart:
-                mini_chart_barras(dfa_f, "balanza_comercial", key="t5_balanza",
-                                  label="Balanza Comercial (USD MM)",
-                                  fecha_str=fecha_bc or "", df_full=dfa)
-
         # ── Sector Fiscal ─────────────────────────────────────────────────────
         _st_l, _st_c = st.columns([1, 9])
         with _st_c:
             st.markdown('<div class="section-title">Sector Fiscal</div>', unsafe_allow_html=True)
 
-        row_card(dfa_f, "recaudacion", "Recaudación Total AFIP/ARCA ($ miles de MM)",
-                 prefijo="$ ", sufijo=" miles MM", decimales=0, color="#9F7AEA",
-                 key="t5_recaud", df_full=dfa)
+        # Recaudación — mostrar nivel + variación interanual en el gráfico de barras
+        if "recaudacion" in dfa_f.columns and len(dfa_f["recaudacion"].dropna()) > 0:
+            # Calcular variación interanual nosotros
+            dfa_recaud = dfa[["fecha","recaudacion"]].dropna().copy()
+            dfa_recaud["fecha"] = pd.to_datetime(dfa_recaud["fecha"])
+            dfa_recaud = dfa_recaud.sort_values("fecha")
+            dfa_recaud["recaud_ya"] = dfa_recaud["recaudacion"] / dfa_recaud["recaudacion"].shift(12) - 1
+            dfa_recaud["recaud_ya"] = dfa_recaud["recaud_ya"] * 100
+            dfa_recaud_f = dfa_recaud[(dfa_recaud["fecha"].dt.date >= desde) & (dfa_recaud["fecha"].dt.date <= hasta)]
 
-        # Resultado primario y financiero — barras (pueden ser negativos)
-        if "resultado_primario" in dfa_f.columns:
             col_esp_l, col_card, col_chart, col_esp_r = st.columns([1, 2, 4, 3])
             with col_card:
-                val_rp, fecha_rp, var_rp, _, _ = get_variaciones(dfa_f, "resultado_primario",
-                                                                   pp_absoluto=True)
-                if val_rp is not None:
-                    color_rp = "pos" if val_rp >= 0 else "neg"
-                    signo = "+" if val_rp >= 0 else ""
+                val_r = dfa_f["recaudacion"].dropna().iloc[-1] if not dfa_f["recaudacion"].dropna().empty else None
+                fecha_r = dfa_f.loc[dfa_f["recaudacion"].notna(), "fecha"].iloc[-1].strftime("%d/%m/%y") if val_r is not None else "-"
+                val_ya = dfa_recaud_f["recaud_ya"].dropna().iloc[-1] if not dfa_recaud_f["recaud_ya"].dropna().empty else None
+                if val_r is not None:
+                    clase_ya = "pos" if (val_ya or 0) >= 0 else "neg"
+                    flecha_ya = "▲" if (val_ya or 0) >= 0 else "▼"
+                    ya_html = f'<span class="{clase_ya}">{flecha_ya} {abs(val_ya):.1f}%</span>' if val_ya is not None else '<span class="neu">-</span>'
                     st.markdown(f"""
                     <div class="row-card">
-                        <div class="var-label">Resultado Fiscal Primario ($ miles de MM)</div>
-                        <div class="var-value"><span class="{color_rp}">{signo}$ {val_rp:,.0f} miles MM</span></div>
-                        <div class="var-fecha">últ. dato: {fecha_rp}</div>
+                        <div class="var-label">Recaudación Total AFIP/ARCA ($ miles de MM)</div>
+                        <div class="var-value">$ {val_r:,.0f} miles MM</div>
+                        <div class="var-fecha">últ. dato: {fecha_r}</div>
                         <div class="var-delta-row">
-                            <div class="delta-item"><span class="delta-label">vs últ. dato</span>
-                            <span class="{'pos' if var_rp>=0 else 'neg'}">{'▲' if var_rp>=0 else '▼'} $ {abs(var_rp):,.0f} miles MM</span>
-                            </div>
+                            <div class="delta-item"><span class="delta-label">var. i.a.</span>{ya_html}</div>
                         </div>
                     </div>""", unsafe_allow_html=True)
             with col_chart:
-                mini_chart_barras(dfa_f, "resultado_primario", key="t5_rprim",
-                                  label="Resultado Fiscal Primario ($ miles de MM)",
-                                  fecha_str=fecha_rp or "", df_full=dfa)
+                if not dfa_recaud_f["recaud_ya"].dropna().empty:
+                    mini_chart_barras(dfa_recaud_f, "recaud_ya", key="t5_recaud",
+                                      label="Recaudación — Variación interanual (%)",
+                                      fecha_str=fecha_r, df_full=dfa_recaud)
 
-        if "resultado_financiero" in dfa_f.columns:
-            col_esp_l, col_card, col_chart, col_esp_r = st.columns([1, 2, 4, 3])
-            with col_card:
-                val_rf, fecha_rf, var_rf, _, _ = get_variaciones(dfa_f, "resultado_financiero",
-                                                                   pp_absoluto=True)
-                if val_rf is not None:
-                    color_rf = "pos" if val_rf >= 0 else "neg"
-                    signo = "+" if val_rf >= 0 else ""
-                    st.markdown(f"""
-                    <div class="row-card">
-                        <div class="var-label">Resultado Fiscal Financiero ($ miles de MM)</div>
-                        <div class="var-value"><span class="{color_rf}">{signo}$ {val_rf:,.0f} miles MM</span></div>
-                        <div class="var-fecha">últ. dato: {fecha_rf}</div>
-                        <div class="var-delta-row">
-                            <div class="delta-item"><span class="delta-label">vs últ. dato</span>
-                            <span class="{'pos' if var_rf>=0 else 'neg'}">{'▲' if var_rf>=0 else '▼'} $ {abs(var_rf):,.0f} miles MM</span>
+        # Resultado primario y financiero — barras
+        for col_res, label_res, key_res in [
+            ("resultado_primario",   "Resultado Fiscal Primario ($ miles de MM)",   "t5_rprim"),
+            ("resultado_financiero", "Resultado Fiscal Financiero ($ miles de MM)", "t5_rfin"),
+        ]:
+            if col_res in dfa_f.columns and not dfa_f[col_res].dropna().empty:
+                col_esp_l, col_card, col_chart, col_esp_r = st.columns([1, 2, 4, 3])
+                with col_card:
+                    val_r, fecha_r, var_r, _, _ = get_variaciones(dfa_f, col_res, pp_absoluto=True)
+                    if val_r is not None:
+                        color_r = "pos" if val_r >= 0 else "neg"
+                        signo = "+" if val_r >= 0 else ""
+                        var_html = f'<span class="{"pos" if var_r>=0 else "neg"}">{"▲" if var_r>=0 else "▼"} $ {abs(var_r):,.0f} miles MM</span>'
+                        st.markdown(f"""
+                        <div class="row-card">
+                            <div class="var-label">{label_res}</div>
+                            <div class="var-value"><span class="{color_r}">{signo}$ {val_r:,.0f} miles MM</span></div>
+                            <div class="var-fecha">últ. dato: {fecha_r}</div>
+                            <div class="var-delta-row">
+                                <div class="delta-item"><span class="delta-label">vs últ. dato</span>{var_html}</div>
                             </div>
-                        </div>
-                    </div>""", unsafe_allow_html=True)
-            with col_chart:
-                mini_chart_barras(dfa_f, "resultado_financiero", key="t5_rfin",
-                                  label="Resultado Fiscal Financiero ($ miles de MM)",
-                                  fecha_str=fecha_rf or "", df_full=dfa)
+                        </div>""", unsafe_allow_html=True)
+                with col_chart:
+                    mini_chart_barras(dfa_f, col_res, key=key_res, label=label_res,
+                                      fecha_str=fecha_r or "", df_full=dfa)
 
         # ── Consumo & Mercado Laboral ──────────────────────────────────────────
         _st_l, _st_c = st.columns([1, 9])
@@ -947,12 +951,35 @@ with tabs[5]:
         row_card(dfa_f, "ventas_supermercados", "Ventas Supermercados ($ miles de MM)",
                  prefijo="$ ", sufijo=" miles MM", decimales=0, color="#F6AD55",
                  key="t5_super", df_full=dfa)
-        row_card(dfa_f, "patentamiento", "Patentamiento Automotores (unidades)",
+        row_card(dfa_f, "patentamiento", "Patentamiento — Utilitarios (unidades)",
                  sufijo=" u", decimales=0, color="#00BFFF", key="t5_patent", df_full=dfa)
-        row_card(dfa_f, "ripte", "RIPTE — Remuneración Imponible Promedio ($ por trabajador)",
-                 prefijo="$ ", decimales=0, color="#48BB78", key="t5_ripte", df_full=dfa)
-        row_card(dfa_f, "salario_real", "Remuneración Media Real — Ocupados (índice)",
-                 decimales=1, color="#9F7AEA", key="t5_salreal", df_full=dfa)
+
+        # RIPTE deflactado por IPC — poder adquisitivo real
+        if "ripte" in dfa_f.columns and "inflacion_mensual" in df.columns:
+            # Merge RIPTE con IPC para deflactar
+            df_ipc = df[["fecha","inflacion_mensual"]].dropna().copy()
+            df_ipc["fecha"] = pd.to_datetime(df_ipc["fecha"])
+            df_ipc = df_ipc.sort_values("fecha")
+            # Construir índice de precios acumulado (base = primer mes disponible)
+            df_ipc["ipc_acum"] = (1 + df_ipc["inflacion_mensual"] / 100).cumprod()
+            # Factor de deflación: llevar todo a pesos del último mes
+            factor_hoy = df_ipc["ipc_acum"].iloc[-1]
+            df_ipc["deflactor"] = factor_hoy / df_ipc["ipc_acum"]
+            # Merge con RIPTE
+            dfa_ripte = dfa[["fecha","ripte"]].dropna().copy()
+            dfa_ripte["fecha"] = pd.to_datetime(dfa_ripte["fecha"])
+            dfa_ripte = pd.merge_asof(dfa_ripte.sort_values("fecha"),
+                                       df_ipc[["fecha","deflactor"]].sort_values("fecha"),
+                                       on="fecha", direction="nearest", tolerance=pd.Timedelta("35d"))
+            dfa_ripte["ripte_real"] = dfa_ripte["ripte"] * dfa_ripte["deflactor"]
+            dfa_ripte_f = dfa_ripte[(dfa_ripte["fecha"].dt.date >= desde) & (dfa_ripte["fecha"].dt.date <= hasta)]
+            row_card(dfa_ripte_f, "ripte_real",
+                     "RIPTE Real — Poder Adquisitivo ($ constantes de hoy)",
+                     prefijo="$ ", decimales=0, color="#48BB78", key="t5_ripte",
+                     df_full=dfa_ripte)
+        else:
+            row_card(dfa_f, "ripte", "RIPTE — Remuneración Imponible Promedio ($ nominal)",
+                     prefijo="$ ", decimales=0, color="#48BB78", key="t5_ripte", df_full=dfa)
 
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.divider()
