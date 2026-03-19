@@ -32,10 +32,13 @@ jobs:
       - name: Ejecutar fetch Actividad & Fiscal
         run: python data/fetch_actividad.py
 
+      - name: Ejecutar fetch Bonos Soberanos
+        run: python data/fetch_bonos.py
+
       - name: Commit y push
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add data/bcra_data.csv data/mercados_data.csv data/dolar_data.csv data/itcrm_data.csv data/riesgo_pais_data.csv data/actividad_data.csv
+          git add data/bcra_data.csv data/mercados_data.csv data/dolar_data.csv data/itcrm_data.csv data/riesgo_pais_data.csv data/actividad_data.csv data/bonos_data.csv
           git commit -m "datos $(date +'%Y-%m-%d')" || echo "sin cambios"
           git push
