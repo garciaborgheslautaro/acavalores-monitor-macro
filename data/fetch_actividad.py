@@ -16,8 +16,8 @@ HACE_5  = (datetime.today() - timedelta(days=5*365)).strftime("%Y-%m-%d")
 CSV     = "data/actividad_data.csv"
 
 # ── Series confirmadas — datos.gob.ar ────────────────────────────────────────
-# 302.3_S_ORIGINALRAL_0_S_21   = EMAE nivel general (serie original)
-# 302.3_S_DESEST_NRAL_0_S_19   = EMAE desestacionalizado
+# 143.3_NO_PR_2004_A_21         = EMAE serie original (Base 2004)
+# 143.3_NO_PR_2004_A_31         = EMAE desestacionalizado (Base 2004) — ~155 puntos
 # 453.1_SERIE_ORIGNAL_0_0_14_46= IPI industria manufacturera (nivel general)
 # 77.3_IET_0_A_25              = Exportaciones totales FOB (USD MM)
 # 78.3_IIT_0_A_25              = Importaciones totales FOB (USD MM)
@@ -25,13 +25,12 @@ CSV     = "data/actividad_data.csv"
 # 378.9_RESULTADO_017_0_M_18_90= Resultado fiscal financiero ($ MM)
 # 172.3_TL_RECAION_M_0_0_17   = Recaudación total AFIP/ARCA ($ MM)
 # 455.1_SALON_VENTTAS_0_M_12_82= Ventas supermercados — salón ($ MM)
-# 41.3_AA_0_A_23               = Patentamiento automotores (unidades)
+# 38.3_ANIU_1994_M_27           = Patentamiento utilitarios (unidades reales)
 # 158.1_REPTE_0_0_5            = RIPTE nominal ($ por trabajador)
-# 310.1_REMUNERACIDOS_0_M_32   = Remuneración media real ocupados (índice)
 
 SERIES = {
-    "302.3_S_ORIGINALRAL_0_S_21":    "emae",
-    "302.3_S_DESEST_NRAL_0_S_19":    "emae_desest",
+    "143.3_NO_PR_2004_A_21":         "emae",
+    "143.3_NO_PR_2004_A_31":         "emae_desest",
     "453.1_SERIE_ORIGNAL_0_0_14_46": "ipi",
     "77.3_IET_0_A_25":               "exportaciones",
     "78.3_IIT_0_A_25":               "importaciones",
@@ -39,9 +38,8 @@ SERIES = {
     "378.9_RESULTADO_017_0_M_18_90": "resultado_financiero",
     "172.3_TL_RECAION_M_0_0_17":     "recaudacion",
     "455.1_SALON_VENTTAS_0_M_12_82": "ventas_supermercados",
-    "41.3_AA_0_A_23":                "patentamiento",
+    "38.3_ANIU_1994_M_27":           "patentamiento",
     "158.1_REPTE_0_0_5":             "ripte",
-    "310.1_REMUNERACIDOS_0_M_32":    "salario_real",
 }
 
 def fetch_serie(serie_id, nombre):
