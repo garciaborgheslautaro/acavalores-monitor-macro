@@ -871,12 +871,8 @@ with tabs[5]:
         with _st_c:
             st.markdown('<div class="section-title">Actividad Económica</div>', unsafe_allow_html=True)
 
-        row_card(dfa_f, "emae", "EMAE — Serie Original (Base 2004)", decimales=1,
-                 color="#1B2A6B", key="t5_emae", df_full=dfa)
         row_card(dfa_f, "emae_desest", "EMAE — Serie Desestacionalizada (Base 2004)", decimales=1,
                  color="#2B4FBF", key="t5_emae_d", df_full=dfa)
-        row_card(dfa_f, "ipi", "IPI — Industria Manufacturera (Base 2012)", decimales=1,
-                 color="#48BB78", key="t5_ipi", df_full=dfa)
 
         # ── Sector Fiscal ─────────────────────────────────────────────────────
         _st_l, _st_c = st.columns([1, 9])
@@ -943,43 +939,6 @@ with tabs[5]:
                     mini_chart_barras(dfa_f, col_res, key=key_res, label=label_res,
                                       fecha_str=fecha_r or "", df_full=dfa)
 
-        # ── Consumo & Mercado Laboral ──────────────────────────────────────────
-        _st_l, _st_c = st.columns([1, 9])
-        with _st_c:
-            st.markdown('<div class="section-title">Consumo & Mercado Laboral</div>', unsafe_allow_html=True)
-
-        row_card(dfa_f, "ventas_supermercados", "Ventas Supermercados ($ miles de MM)",
-                 prefijo="$ ", sufijo=" miles MM", decimales=0, color="#F6AD55",
-                 key="t5_super", df_full=dfa)
-        row_card(dfa_f, "patentamiento", "Patentamiento — Utilitarios (unidades)",
-                 sufijo=" u", decimales=0, color="#00BFFF", key="t5_patent", df_full=dfa)
-
-        # RIPTE deflactado por IPC — poder adquisitivo real
-        if "ripte" in dfa_f.columns and "inflacion_mensual" in df.columns:
-            # Merge RIPTE con IPC para deflactar
-            df_ipc = df[["fecha","inflacion_mensual"]].dropna().copy()
-            df_ipc["fecha"] = pd.to_datetime(df_ipc["fecha"])
-            df_ipc = df_ipc.sort_values("fecha")
-            # Construir índice de precios acumulado (base = primer mes disponible)
-            df_ipc["ipc_acum"] = (1 + df_ipc["inflacion_mensual"] / 100).cumprod()
-            # Factor de deflación: llevar todo a pesos del último mes
-            factor_hoy = df_ipc["ipc_acum"].iloc[-1]
-            df_ipc["deflactor"] = factor_hoy / df_ipc["ipc_acum"]
-            # Merge con RIPTE
-            dfa_ripte = dfa[["fecha","ripte"]].dropna().copy()
-            dfa_ripte["fecha"] = pd.to_datetime(dfa_ripte["fecha"])
-            dfa_ripte = pd.merge_asof(dfa_ripte.sort_values("fecha"),
-                                       df_ipc[["fecha","deflactor"]].sort_values("fecha"),
-                                       on="fecha", direction="nearest", tolerance=pd.Timedelta("35d"))
-            dfa_ripte["ripte_real"] = dfa_ripte["ripte"] * dfa_ripte["deflactor"]
-            dfa_ripte_f = dfa_ripte[(dfa_ripte["fecha"].dt.date >= desde) & (dfa_ripte["fecha"].dt.date <= hasta)]
-            row_card(dfa_ripte_f, "ripte_real",
-                     "RIPTE Real — Poder Adquisitivo ($ constantes de hoy)",
-                     prefijo="$ ", decimales=0, color="#48BB78", key="t5_ripte",
-                     df_full=dfa_ripte)
-        else:
-            row_card(dfa_f, "ripte", "RIPTE — Remuneración Imponible Promedio ($ nominal)",
-                     prefijo="$ ", decimales=0, color="#48BB78", key="t5_ripte", df_full=dfa)
 
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.divider()
