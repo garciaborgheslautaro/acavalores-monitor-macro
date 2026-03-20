@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """fetch_bonos.py — Obtiene precios de bonos soberanos argentinos desde Open BYMA Data (20 min delay)."""
 
+import re
 import requests
 import pandas as pd
 from datetime import datetime
@@ -25,23 +26,57 @@ HEADERS = {
 }
 
 
+def extract_token_from_bundle(session):
+    """Extrae el token estático del bundle JS de Angular."""
+    try:
+        html = session.get(BASE_URL, headers={"User-Agent": HEADERS["User-Agent"]}, timeout=15).text
+        # Buscar el nombre del bundle main.XXXXXXXX.js
+        match = re.search(r'src="(main\.[a-f0-9]+\.js)"', html)
+        if not match:
+            print("[fetch_bonos] No se encontró el bundle JS en el HTML.")
+            return None
+        bundle_url = f"{BASE_URL}/{match.group(1)}"
+        print(f"[fetch_bonos] Descargando bundle: {bundle_url}")
+        js = session.get(bundle_url, headers={"User-Agent": HEADERS["User-Agent"]}, timeout=30).text
+        # El token es un string hex de 32 chars usado como header 'Token'
+        # En JS minificado: setRequestHeader("Token","<32hex>")
+        patterns = [
+            r'"Token"\s*,\s*"([0-9a-f]{32})"',
+            r"'Token'\s*,\s*'([0-9a-f]{32})'",
+            r'[Tt]oken["\':,\s]+([0-9a-f]{32})',
+        ]
+        token_match = None
+        for pat in patterns:
+            token_match = re.search(pat, js)
+            if token_match:
+                break
+        if token_match:
+            token = token_match.group(1)
+            print(f"[fetch_bonos] Token extraído: {token}")
+            return token
+        print("[fetch_bonos] Token no encontrado en el bundle.")
+    except Exception as e:
+        print(f"[fetch_bonos] Error extrayendo token: {e}")
+    return None
+
+
 def get_session():
-    """Obtiene una sesión con cookies visitando la página principal."""
+    """Obtiene una sesión con cookies y el token de autenticación."""
     session = requests.Session()
     session.verify = False
-    try:
-        session.get(BASE_URL, headers={"User-Agent": HEADERS["User-Agent"]}, timeout=15)
-    except Exception:
-        pass
-    return session
+    token = extract_token_from_bundle(session)
+    return session, token
 
 
 def fetch_open_byma():
     url = f"{BASE_URL}/vanoms-be-core/rest/api/bymadata/free/bonosoberanos"
     payload = {"excludeZeroPxAndQty": True, "T2": True, "T1": False, "T0": False}
-    session = get_session()
+    session, token = get_session()
+    headers = dict(HEADERS)
+    if token:
+        headers["Token"] = token
     try:
-        r = session.post(url, json=payload, headers=HEADERS, timeout=15)
+        r = session.post(url, json=payload, headers=headers, timeout=15)
         r.raise_for_status()
         data = r.json()
         return data if isinstance(data, list) else data.get("data", [])
