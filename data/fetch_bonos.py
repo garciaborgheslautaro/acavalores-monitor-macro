@@ -1,141 +1,136 @@
 #!/usr/bin/env python3
-"""fetch_bonos.py — Precios de bonos soberanos argentinos desde Open BYMA Data (20 min delay).
+"""fetch_bonos.py — Precios históricos de bonos soberanos argentinos desde Open BYMA Data.
 
-No requiere token: inicializa sesión con cookies del dashboard, como hace PyOBD.
-Ref: https://github.com/franco-lamas/PyOBD
+Usa el endpoint de series históricas (GET) que funciona independientemente
+del horario de mercado. Ref: https://github.com/franco-lamas/PyOBD
 """
 
-import json
 import requests
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import os
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-TICKERS_OBJETIVO = {
+TICKERS_OBJETIVO = [
     "GD29", "GD30", "GD35", "GD38", "GD41", "GD46",
     "AL29", "AL30", "AL35", "AE38", "AL41", "AL46",
-}
+]
+
+# Variantes de settlement a probar por orden
+SETTLEMENTS = ["48HS", "CI", ""]
 
 BASE_URL = "https://open.bymadata.com.ar"
+HIST_URL = f"{BASE_URL}/vanoms-be-core/rest/api/bymadata/free/chart/historical-series/history"
 DASHBOARD_URL = f"{BASE_URL}/#/dashboard"
-API_URL = f"{BASE_URL}/vanoms-be-core/rest/api/bymadata/free/public-bonds"
 
 HEADERS = {
-    "Content-Type": "application/json",
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36",
     "Accept": "application/json, text/plain, */*",
-    "Accept-Language": "es-AR,es;q=0.9,en;q=0.8",
-    "sec-ch-ua": '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+    "Content-Type": "application/json",
+    "sec-ch-ua": '" Not A;Brand";v="99", "Chromium";v="96"',
+    "sec-ch-ua-mobile": "?0",
     "sec-ch-ua-platform": '"Windows"',
     "Origin": BASE_URL,
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Dest": "empty",
     "Referer": BASE_URL + "/",
+    "Accept-Language": "es-US,es-419;q=0.9,es;q=0.8,en;q=0.7",
+    "Connection": "keep-alive",
 }
+
+# Zona horaria Buenos Aires (UTC-3)
+TZ_AR = timezone(timedelta(hours=-3))
+
+
+def date_to_ts(date_str):
+    """Convierte 'YYYY-MM-DD' a Unix timestamp en zona AR."""
+    dt = datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=TZ_AR)
+    return int(dt.timestamp())
 
 
 def get_session():
-    """Inicializa sesión con cookies del dashboard (sin token)."""
     session = requests.Session()
     session.verify = False
+    session.headers.update(HEADERS)
     try:
-        resp = session.get(DASHBOARD_URL, headers={"User-Agent": HEADERS["User-Agent"]}, timeout=15)
-        print(f"[fetch_bonos] Dashboard status={resp.status_code} cookies={list(session.cookies.keys())}")
+        session.get(DASHBOARD_URL, timeout=15)
     except Exception as e:
-        print(f"[fetch_bonos] Advertencia al inicializar sesión: {e}")
+        print(f"  Advertencia inicializando sesión: {e}")
     return session
 
 
-def fetch_bonos():
-    session = get_session()
-    payload = json.dumps({"T2": True, "T1": False, "T0": False, "Content-Type": "application/json"})
+def fetch_hist(session, symbol, desde, hasta):
+    """Devuelve DataFrame con columnas [date, open, high, low, close, volume] o None."""
+    params = {
+        "symbol": symbol,
+        "resolution": "D",
+        "from": date_to_ts(desde),
+        "to": date_to_ts(hasta),
+    }
     try:
-        r = session.post(API_URL, data=payload, headers=HEADERS, timeout=20)
-        print(f"[fetch_bonos] API status={r.status_code} len={len(r.text)}")
-        print(f"[fetch_bonos] API preview: {r.text[:300]!r}")
-        r.raise_for_status()
+        r = session.get(HIST_URL, params=params, timeout=15)
+        if r.status_code != 200:
+            return None
         body = r.json()
-        if isinstance(body, list):
-            return body
-        return body.get("data", [])
+        # La API devuelve {"s":"ok","t":[...],"o":[...],"h":[...],"l":[...],"c":[...],"v":[...]}
+        if body.get("s") != "ok" or not body.get("t"):
+            return None
+        df = pd.DataFrame({
+            "fecha": [datetime.fromtimestamp(ts, tz=TZ_AR).date() for ts in body["t"]],
+            "close": body["c"],
+            "open":  body.get("o", [None]*len(body["t"])),
+            "high":  body.get("h", [None]*len(body["t"])),
+            "low":   body.get("l", [None]*len(body["t"])),
+            "volume": body.get("v", [None]*len(body["t"])),
+        })
+        df = df[df["close"].notna() & (df["close"] > 0)]
+        return df if not df.empty else None
     except Exception as e:
-        print(f"[fetch_bonos] Error: {e}")
+        print(f"    Error en {symbol}: {e}")
         return None
-
-
-def parse_precio(item):
-    for campo in ("trade_c", "ultimoPrecio", "c", "px_bid", "px_ask", "price"):
-        v = item.get(campo)
-        if v is not None:
-            try:
-                f = float(v)
-                if f > 0:
-                    return f
-            except (TypeError, ValueError):
-                pass
-    return None
-
-
-def parse_variacion(item):
-    for campo in ("c_pct_change", "variacion", "var_pct", "change_pct"):
-        v = item.get(campo)
-        if v is not None:
-            try:
-                return float(v)
-            except (TypeError, ValueError):
-                pass
-    return None
 
 
 def main():
     import sys
     print("=== INICIO fetch_bonos.py ===")
-    items = fetch_bonos()
 
-    if items is None:
-        print("ERROR: No se pudo conectar a Open BYMA Data.")
-        sys.exit(1)
+    session = get_session()
 
-    if not items:
-        print("ERROR: Respuesta vacía de Open BYMA Data.")
-        sys.exit(1)
+    hasta = datetime.now(TZ_AR).strftime("%Y-%m-%d")
+    desde = (datetime.now(TZ_AR) - timedelta(days=10)).strftime("%Y-%m-%d")
 
-    print(f"Total instrumentos recibidos: {len(items)}")
-    print(f"Claves ejemplo: {list(items[0].keys())[:12]}")
-
-    fecha_hoy = datetime.today().strftime("%Y-%m-%d")
     records = []
-
-    for item in items:
-        symbol = str(
-            item.get("symbol") or item.get("descripcionTitulo") or item.get("denominacion") or ""
-        ).strip().upper()
-
-        ticker = None
-        for t in TICKERS_OBJETIVO:
-            if symbol == t or symbol.startswith(t + " ") or symbol.startswith(t + "-") or symbol.startswith(t + "/"):
-                ticker = t
+    for ticker in TICKERS_OBJETIVO:
+        encontrado = False
+        for settlement in SETTLEMENTS:
+            symbol = f"{ticker} {settlement}".strip()
+            df = fetch_hist(session, symbol, desde, hasta)
+            if df is not None:
+                ultimo = df.sort_values("fecha").iloc[-1]
+                precio = float(ultimo["close"])
+                # Calcular variación respecto al día anterior
+                variacion = None
+                if len(df) >= 2:
+                    prev = float(df.sort_values("fecha").iloc[-2]["close"])
+                    if prev > 0:
+                        variacion = round((precio - prev) / prev * 100, 4)
+                records.append({
+                    "fecha": str(ultimo["fecha"]),
+                    "ticker": ticker,
+                    "precio": round(precio, 4),
+                    "variacion_pct": variacion,
+                    "volumen": float(ultimo["volume"]) if ultimo["volume"] is not None else None,
+                })
+                print(f"  OK {ticker:6s} [{symbol}]: {precio:.2f}  ({f'{variacion:+.2f}%' if variacion is not None else 'N/A'})")
+                encontrado = True
                 break
-
-        if ticker is None:
-            continue
-
-        precio = parse_precio(item)
-        variacion = parse_variacion(item)
-        volumen = item.get("tv") or item.get("montoOperado") or item.get("volume")
-
-        if precio is not None:
-            records.append({
-                "fecha": fecha_hoy,
-                "ticker": ticker,
-                "precio": precio,
-                "variacion_pct": variacion,
-                "volumen": float(volumen) if volumen is not None else None,
-            })
+        if not encontrado:
+            print(f"  SIN DATOS: {ticker}")
 
     if not records:
-        print("ADVERTENCIA: No se encontraron bonos objetivo.")
-        print(f"Symbols encontrados (muestra): {[str(i.get('symbol', ''))[:15] for i in items[:25]]}")
+        print("ERROR: No se pudo obtener datos de ningún bono.")
         sys.exit(1)
 
     df_new = pd.DataFrame(records)
@@ -153,11 +148,7 @@ def main():
         df_combined = df_new
 
     df_combined.to_csv(out_path, index=False)
-    print(f"\nGuardados {len(records)} bonos en {out_path}")
-    for rec in sorted(records, key=lambda x: x["ticker"]):
-        var_str = f"{rec['variacion_pct']:+.2f}%" if rec["variacion_pct"] is not None else "N/A"
-        print(f"  {rec['ticker']:6s}: {rec['precio']:.2f}  ({var_str})")
-
+    print(f"\nGuardados {len(records)} bonos → {out_path}")
     print("=== FIN fetch_bonos.py ===")
 
 
