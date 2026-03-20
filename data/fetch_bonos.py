@@ -108,16 +108,17 @@ def parse_variacion(item):
 
 
 def main():
+    import sys
     print("Fetching sovereign bond prices from Open BYMA Data...")
     items = fetch_open_byma()
 
     if items is None:
         print("No se pudo obtener datos de BYMA.")
-        return
+        sys.exit(1)
 
     if not items:
         print("Respuesta vacía de BYMA.")
-        return
+        sys.exit(1)
 
     print(f"Respuesta: {len(items)} instrumentos. Ejemplo de claves: {list(items[0].keys())[:10]}")
 
