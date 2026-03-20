@@ -13,17 +13,35 @@ TICKERS_OBJETIVO = {
     "AL29", "AL30", "AL35", "AE38", "AL41", "AL46",
 }
 
+BASE_URL = "https://open.bymadata.com.ar"
+
 HEADERS = {
     "Content-Type": "application/json",
-    "User-Agent": "Mozilla/5.0 (compatible; monitor-macro/1.0)",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "es-AR,es;q=0.9,en;q=0.8",
+    "Origin": BASE_URL,
+    "Referer": BASE_URL + "/",
 }
 
 
-def fetch_open_byma():
-    url = "https://open.bymadata.com.ar/vanoms-be-core/rest/api/bymadata/free/bonosoberanos"
-    payload = {"excludeZeroPxAndQty": True, "T2": True, "T1": False, "T0": False}
+def get_session():
+    """Obtiene una sesión con cookies visitando la página principal."""
+    session = requests.Session()
+    session.verify = False
     try:
-        r = requests.post(url, json=payload, headers=HEADERS, timeout=15, verify=False)
+        session.get(BASE_URL, headers={"User-Agent": HEADERS["User-Agent"]}, timeout=15)
+    except Exception:
+        pass
+    return session
+
+
+def fetch_open_byma():
+    url = f"{BASE_URL}/vanoms-be-core/rest/api/bymadata/free/bonosoberanos"
+    payload = {"excludeZeroPxAndQty": True, "T2": True, "T1": False, "T0": False}
+    session = get_session()
+    try:
+        r = session.post(url, json=payload, headers=HEADERS, timeout=15)
         r.raise_for_status()
         data = r.json()
         return data if isinstance(data, list) else data.get("data", [])
