@@ -34,6 +34,7 @@ jobs:
 
       - name: Ejecutar fetch Bonos Soberanos
         run: python data/fetch_bonos.py
+        continue-on-error: true
 
       - name: Commit y push
         run: |

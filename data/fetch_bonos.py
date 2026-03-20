@@ -26,35 +26,56 @@ HEADERS = {
 }
 
 
+# Token conocido — fallback si no se puede extraer del bundle
+_FALLBACK_TOKEN = "dc826d4c2dde7519e882a250359a23a2"
+
+
 def extract_token_from_bundle(session):
     """Extrae el token estático del bundle JS de Angular."""
     try:
-        html = session.get(BASE_URL, headers={"User-Agent": HEADERS["User-Agent"]}, timeout=15).text
-        # Buscar el nombre del bundle main.XXXXXXXX.js
-        match = re.search(r'src="(main\.[a-f0-9]+\.js)"', html)
+        resp = session.get(BASE_URL, headers={"User-Agent": HEADERS["User-Agent"]}, timeout=15)
+        print(f"[fetch_bonos] HTML status={resp.status_code} len={len(resp.text)}")
+        html = resp.text
+
+        # Buscar bundle main.HASH.js — manejar src="/main.js", src="main.js", src="./main.js"
+        match = re.search(r'src=["\']([^"\']*main\.[a-f0-9]+\.js)["\']', html)
         if not match:
-            print("[fetch_bonos] No se encontró el bundle JS en el HTML.")
+            print(f"[fetch_bonos] Bundle no encontrado. HTML preview: {html[:300]!r}")
             return None
-        bundle_url = f"{BASE_URL}/{match.group(1)}"
+
+        bundle_path = match.group(1)
+        if bundle_path.startswith("http"):
+            bundle_url = bundle_path
+        elif bundle_path.startswith("/"):
+            bundle_url = BASE_URL + bundle_path
+        else:
+            bundle_url = f"{BASE_URL}/{bundle_path.lstrip('./')}"
+
         print(f"[fetch_bonos] Descargando bundle: {bundle_url}")
-        js = session.get(bundle_url, headers={"User-Agent": HEADERS["User-Agent"]}, timeout=30).text
-        # El token es un string hex de 32 chars usado como header 'Token'
-        # En JS minificado: setRequestHeader("Token","<32hex>")
+        js_resp = session.get(bundle_url, headers={"User-Agent": HEADERS["User-Agent"]}, timeout=30)
+        print(f"[fetch_bonos] Bundle status={js_resp.status_code} len={len(js_resp.text)}")
+        js = js_resp.text
+
+        # El token es un string hex de 32 chars — buscar varios patrones posibles
         patterns = [
             r'"Token"\s*,\s*"([0-9a-f]{32})"',
             r"'Token'\s*,\s*'([0-9a-f]{32})'",
+            r'Token\s*:\s*"([0-9a-f]{32})"',
+            r"Token\s*:\s*'([0-9a-f]{32})'",
             r'[Tt]oken["\':,\s]+([0-9a-f]{32})',
         ]
-        token_match = None
         for pat in patterns:
-            token_match = re.search(pat, js)
-            if token_match:
-                break
-        if token_match:
-            token = token_match.group(1)
-            print(f"[fetch_bonos] Token extraído: {token}")
-            return token
-        print("[fetch_bonos] Token no encontrado en el bundle.")
+            m = re.search(pat, js)
+            if m:
+                token = m.group(1)
+                print(f"[fetch_bonos] Token extraído: {token}")
+                return token
+
+        # Debug: mostrar contexto alrededor de "Token" en el JS
+        ctx = list(re.finditer(r'.{0,20}[Tt]oken.{0,40}', js))
+        for c in ctx[:3]:
+            print(f"[fetch_bonos] Contexto Token: {c.group()!r}")
+        print("[fetch_bonos] Token no encontrado en bundle, usando fallback.")
     except Exception as e:
         print(f"[fetch_bonos] Error extrayendo token: {e}")
     return None
@@ -64,7 +85,8 @@ def get_session():
     """Obtiene una sesión con cookies y el token de autenticación."""
     session = requests.Session()
     session.verify = False
-    token = extract_token_from_bundle(session)
+    token = extract_token_from_bundle(session) or _FALLBACK_TOKEN
+    print(f"[fetch_bonos] Token a usar: {token}")
     return session, token
 
 
@@ -77,6 +99,8 @@ def fetch_open_byma():
         headers["Token"] = token
     try:
         r = session.post(url, json=payload, headers=headers, timeout=15)
+        print(f"[fetch_bonos] API status={r.status_code} len={len(r.text)}")
+        print(f"[fetch_bonos] API preview: {r.text[:200]!r}")
         r.raise_for_status()
         data = r.json()
         return data if isinstance(data, list) else data.get("data", [])
@@ -108,16 +132,17 @@ def parse_variacion(item):
 
 
 def main():
+    import sys
     print("Fetching sovereign bond prices from Open BYMA Data...")
     items = fetch_open_byma()
 
     if items is None:
         print("No se pudo obtener datos de BYMA.")
-        return
+        sys.exit(1)
 
     if not items:
         print("Respuesta vacía de BYMA.")
-        return
+        sys.exit(1)
 
     print(f"Respuesta: {len(items)} instrumentos. Ejemplo de claves: {list(items[0].keys())[:10]}")
 
