@@ -953,49 +953,198 @@ with tabs[5]:
 # ════════════════════════════════════════════════════════════════════════════════
 with tabs[6]:
 
-    # ── Definición de bonos (parámetros simplificados — bullet + cupón corriente) ──
-    _BONOS = {
-        "GD29": {"nombre": "Global 2029 (Ley NY)", "cupon": 1.000, "vto": "2029-07-09"},
-        "GD30": {"nombre": "Global 2030 (Ley NY)", "cupon": 5.000, "vto": "2030-07-09"},
-        "GD35": {"nombre": "Global 2035 (Ley NY)", "cupon": 3.625, "vto": "2035-07-09"},
-        "GD38": {"nombre": "Global 2038 (Ley NY)", "cupon": 3.875, "vto": "2038-01-09"},
-        "GD41": {"nombre": "Global 2041 (Ley NY)", "cupon": 4.125, "vto": "2041-07-09"},
-        "GD46": {"nombre": "Global 2046 (Ley NY)", "cupon": 5.000, "vto": "2046-07-09"},
-        "AL29": {"nombre": "Bonar 2029 (Ley AR)",  "cupon": 1.000, "vto": "2029-07-09"},
-        "AL30": {"nombre": "Bonar 2030 (Ley AR)",  "cupon": 5.000, "vto": "2030-07-09"},
-        "AL35": {"nombre": "Bonar 2035 (Ley AR)",  "cupon": 3.625, "vto": "2035-07-09"},
-        "AL41": {"nombre": "Bonar 2041 (Ley AR)",  "cupon": 4.125, "vto": "2041-07-09"},
+    # ── Términos verificados (Decreto 701/2020, Ley NY) ───────────────────────
+    # cupon_steps: [(inicio, fin, tasa_anual), ...]  — convención 30/360 semiannual
+    # amort: [(fecha, fracción_del_par), ...] — fracciones suman 1.0
+    _BOND_TERMS = {
+        "GD29": {
+            "nombre": "Global 2029 (Ley NY)", "isin": "US040114HR43",
+            "emision": "2020-09-04", "vto": "2029-07-09",
+            "cupon_steps": [("2020-09-04", "2029-07-09", 0.0100)],
+            "amort": [
+                ("2025-01-09", 0.10), ("2025-07-09", 0.10),
+                ("2026-01-09", 0.10), ("2026-07-09", 0.10),
+                ("2027-01-09", 0.10), ("2027-07-09", 0.10),
+                ("2028-01-09", 0.10), ("2028-07-09", 0.10),
+                ("2029-01-09", 0.10), ("2029-07-09", 0.10),
+            ],
+        },
+        "GD30": {
+            "nombre": "Global 2030 (Ley NY)", "isin": "US040114HS26",
+            "emision": "2020-09-04", "vto": "2030-07-09",
+            "cupon_steps": [
+                ("2020-09-04", "2021-07-09", 0.00125),
+                ("2021-07-09", "2023-07-09", 0.00500),
+                ("2023-07-09", "2027-07-09", 0.00750),
+                ("2027-07-09", "2030-07-09", 0.01750),
+            ],
+            "amort": [
+                ("2024-07-09", 0.04),
+                ("2025-01-09", 0.08), ("2025-07-09", 0.08),
+                ("2026-01-09", 0.08), ("2026-07-09", 0.08),
+                ("2027-01-09", 0.08), ("2027-07-09", 0.08),
+                ("2028-01-09", 0.08), ("2028-07-09", 0.08),
+                ("2029-01-09", 0.08), ("2029-07-09", 0.08),
+                ("2030-01-09", 0.08), ("2030-07-09", 0.08),
+            ],
+        },
+        "GD35": {
+            "nombre": "Global 2035 (Ley NY)", "isin": "US040114HT09",
+            "emision": "2020-09-04", "vto": "2035-07-09",
+            "cupon_steps": [
+                ("2020-09-04", "2021-07-09", 0.00125),
+                ("2021-07-09", "2023-07-09", 0.00500),
+                ("2023-07-09", "2027-07-09", 0.03625),
+                ("2027-07-09", "2035-07-09", 0.04125),
+            ],
+            "amort": [
+                ("2031-01-09", 0.10), ("2031-07-09", 0.10),
+                ("2032-01-09", 0.10), ("2032-07-09", 0.10),
+                ("2033-01-09", 0.10), ("2033-07-09", 0.10),
+                ("2034-01-09", 0.10), ("2034-07-09", 0.10),
+                ("2035-01-09", 0.10), ("2035-07-09", 0.10),
+            ],
+        },
+        "GD38": {
+            "nombre": "Global 2038 (Ley NY)", "isin": "US040114HU71",
+            "emision": "2020-09-04", "vto": "2038-01-09",
+            "cupon_steps": [
+                ("2020-09-04", "2021-07-09", 0.00125),
+                ("2021-07-09", "2023-07-09", 0.00500),
+                ("2023-07-09", "2024-07-09", 0.03875),
+                ("2024-07-09", "2038-01-09", 0.05000),
+            ],
+            "amort": [  # 22 cuotas × 1/22 ≈ 4.5455%
+                ("2027-07-09", 1/22), ("2028-01-09", 1/22), ("2028-07-09", 1/22),
+                ("2029-01-09", 1/22), ("2029-07-09", 1/22), ("2030-01-09", 1/22),
+                ("2030-07-09", 1/22), ("2031-01-09", 1/22), ("2031-07-09", 1/22),
+                ("2032-01-09", 1/22), ("2032-07-09", 1/22), ("2033-01-09", 1/22),
+                ("2033-07-09", 1/22), ("2034-01-09", 1/22), ("2034-07-09", 1/22),
+                ("2035-01-09", 1/22), ("2035-07-09", 1/22), ("2036-01-09", 1/22),
+                ("2036-07-09", 1/22), ("2037-01-09", 1/22), ("2037-07-09", 1/22),
+                ("2038-01-09", 1/22),
+            ],
+        },
+        "GD41": {
+            "nombre": "Global 2041 (Ley NY)", "isin": "US040114HV54",
+            "emision": "2020-09-04", "vto": "2041-07-09",
+            "cupon_steps": [
+                ("2020-09-04", "2021-07-09", 0.00125),
+                ("2021-07-09", "2023-07-09", 0.00500),
+                ("2023-07-09", "2041-07-09", 0.03500),
+            ],
+            "amort": [  # 29 cuotas × 1/29 ≈ 3.448%
+                ("2027-07-09", 1/29), ("2028-01-09", 1/29), ("2028-07-09", 1/29),
+                ("2029-01-09", 1/29), ("2029-07-09", 1/29), ("2030-01-09", 1/29),
+                ("2030-07-09", 1/29), ("2031-01-09", 1/29), ("2031-07-09", 1/29),
+                ("2032-01-09", 1/29), ("2032-07-09", 1/29), ("2033-01-09", 1/29),
+                ("2033-07-09", 1/29), ("2034-01-09", 1/29), ("2034-07-09", 1/29),
+                ("2035-01-09", 1/29), ("2035-07-09", 1/29), ("2036-01-09", 1/29),
+                ("2036-07-09", 1/29), ("2037-01-09", 1/29), ("2037-07-09", 1/29),
+                ("2038-01-09", 1/29), ("2038-07-09", 1/29), ("2039-01-09", 1/29),
+                ("2039-07-09", 1/29), ("2040-01-09", 1/29), ("2040-07-09", 1/29),
+                ("2041-01-09", 1/29), ("2041-07-09", 1/29),
+            ],
+        },
+        "GD46": {
+            "nombre": "Global 2046 (Ley NY)", "isin": "US040114HW38",
+            "emision": "2020-09-04", "vto": "2046-07-09",
+            "cupon_steps": [
+                ("2020-09-04", "2021-07-09", 0.00125),
+                ("2021-07-09", "2023-07-09", 0.00500),
+                ("2023-07-09", "2027-07-09", 0.03875),
+                ("2027-07-09", "2046-07-09", 0.04125),
+            ],
+            "amort": [  # 44 cuotas × 1/44 ≈ 2.2727%
+                ("2025-01-09", 1/44), ("2025-07-09", 1/44), ("2026-01-09", 1/44),
+                ("2026-07-09", 1/44), ("2027-01-09", 1/44), ("2027-07-09", 1/44),
+                ("2028-01-09", 1/44), ("2028-07-09", 1/44), ("2029-01-09", 1/44),
+                ("2029-07-09", 1/44), ("2030-01-09", 1/44), ("2030-07-09", 1/44),
+                ("2031-01-09", 1/44), ("2031-07-09", 1/44), ("2032-01-09", 1/44),
+                ("2032-07-09", 1/44), ("2033-01-09", 1/44), ("2033-07-09", 1/44),
+                ("2034-01-09", 1/44), ("2034-07-09", 1/44), ("2035-01-09", 1/44),
+                ("2035-07-09", 1/44), ("2036-01-09", 1/44), ("2036-07-09", 1/44),
+                ("2037-01-09", 1/44), ("2037-07-09", 1/44), ("2038-01-09", 1/44),
+                ("2038-07-09", 1/44), ("2039-01-09", 1/44), ("2039-07-09", 1/44),
+                ("2040-01-09", 1/44), ("2040-07-09", 1/44), ("2041-01-09", 1/44),
+                ("2041-07-09", 1/44), ("2042-01-09", 1/44), ("2042-07-09", 1/44),
+                ("2043-01-09", 1/44), ("2043-07-09", 1/44), ("2044-01-09", 1/44),
+                ("2044-07-09", 1/44), ("2045-01-09", 1/44), ("2045-07-09", 1/44),
+                ("2046-01-09", 1/44), ("2046-07-09", 1/44),
+            ],
+        },
     }
+    # Bonos Ley Argentina — misma economía, distinto marco legal
+    _BOND_TERMS["AL29"] = {**_BOND_TERMS["GD29"], "nombre": "Bonar 2029 (Ley AR)", "isin": "ARARGE3209S0"}
+    _BOND_TERMS["AL30"] = {**_BOND_TERMS["GD30"], "nombre": "Bonar 2030 (Ley AR)", "isin": "ARARGE3208S2"}
+    _BOND_TERMS["AL35"] = {**_BOND_TERMS["GD35"], "nombre": "Bonar 2035 (Ley AR)", "isin": "ARARGE3212S4"}
+    _BOND_TERMS["AE38"] = {**_BOND_TERMS["GD38"], "nombre": "Bonar 2038 (Ley AR)", "isin": "ARARGE3213S2"}
+    _BOND_TERMS["AL41"] = {**_BOND_TERMS["GD41"], "nombre": "Bonar 2041 (Ley AR)", "isin": "ARARGE3210S8"}
+    _BOND_TERMS["AL46"] = {**_BOND_TERMS["GD46"], "nombre": "Bonar 2046 (Ley AR)", "isin": "ARARGE3211S6"}
 
-    def _flujos_bono(ticker, par=100.0):
-        """Genera flujos de caja semi-anuales de un bono bullet."""
-        info = _BONOS[ticker]
-        hoy = date.today()
+    def _cupon_rate(steps, pay_date):
+        """Tasa anual vigente para una fecha de pago dada (step-up)."""
+        for s_ini, s_fin, rate in steps:
+            if date.fromisoformat(s_ini) <= pay_date <= date.fromisoformat(s_fin):
+                return rate
+        return steps[-1][2]
+
+    def _flujos_bono(ticker, par=100.0, desde=None):
+        """
+        Genera flujos de caja completos de un bono soberano argentino (30/360).
+        Retorna lista de dicts: {fecha, cupon, amort, total, saldo_post}.
+        """
+        info = _BOND_TERMS[ticker]
+        hoy = desde if desde is not None else date.today()
         vto = date.fromisoformat(info["vto"])
-        cupon_sem = info["cupon"] / 2 / 100 * par
-        fechas = []
+        emision = date.fromisoformat(info["emision"])
+
+        # Mapa de amortizaciones: fecha → monto
+        amort_map = {date.fromisoformat(f): frac * par for f, frac in info["amort"]}
+
+        # Generar todas las fechas de pago semianuales (9-ene y 9-jul) desde emisión
+        fechas_todas = []
         f = vto
-        while f > hoy:
-            fechas.append(f)
+        while f >= emision:
+            fechas_todas.append(f)
             m, y = f.month - 6, f.year
             if m <= 0:
                 m += 12
                 y -= 1
-            try:
-                f = date(y, m, f.day)
-            except ValueError:
-                f = date(y, m, 28)
-        fechas.sort()
-        return [
-            (fecha, cupon_sem + (par if i == len(fechas) - 1 else 0))
-            for i, fecha in enumerate(fechas)
-        ]
+            f = date(y, m, f.day)
+        fechas_todas.sort()
 
-    def _tir(precio, flujos, iters=300):
-        """TIR por Newton-Raphson, resultado en %."""
+        # Saldo outstanding al comienzo del primer período futuro
+        saldo = par
+        for fstr, frac in info["amort"]:
+            if date.fromisoformat(fstr) < hoy:
+                saldo -= frac * par
+
+        rows = []
+        prev_saldo = saldo
+        for fecha in fechas_todas:
+            if fecha < hoy:
+                continue
+            rate = _cupon_rate(info["cupon_steps"], fecha)
+            cupon = rate / 2 * prev_saldo          # 30/360 → exactamente 0.5 año
+            amort_pago = amort_map.get(fecha, 0.0)
+            total = cupon + amort_pago
+            nuevo_saldo = prev_saldo - amort_pago
+            rows.append({
+                "fecha":      fecha,
+                "cupon":      round(cupon, 6),
+                "amort":      round(amort_pago, 6),
+                "total":      round(total, 6),
+                "saldo_post": round(nuevo_saldo, 6),
+            })
+            prev_saldo = nuevo_saldo
+        return rows
+
+    def _tir(precio, flujos_rows, iters=300):
+        """TIR por Newton-Raphson (precio vs flujos totales). Resultado en %."""
         hoy = date.today()
-        t  = [(f - hoy).days / 365.0 for f, _ in flujos]
-        cf = [c for _, c in flujos]
+        t  = [(r["fecha"] - hoy).days / 365.0 for r in flujos_rows]
+        cf = [r["total"] for r in flujos_rows]
         r = 0.05
         for _ in range(iters):
             pv  = sum(c / (1 + r) ** ti for ti, c in zip(t, cf))
@@ -1009,12 +1158,12 @@ with tabs[6]:
             r = r_new
         return r * 100
 
-    def _duration(flujos, tir_pct, precio):
+    def _duration(flujos_rows, tir_pct, precio):
         """Devuelve (Macaulay Duration, Modified Duration) en años."""
         hoy = date.today()
         tir = tir_pct / 100
-        t  = [(f - hoy).days / 365.0 for f, _ in flujos]
-        cf = [c for _, c in flujos]
+        t  = [(r["fecha"] - hoy).days / 365.0 for r in flujos_rows]
+        cf = [r["total"] for r in flujos_rows]
         mac = sum(ti * c / (1 + tir) ** ti for ti, c in zip(t, cf)) / precio
         mod = mac / (1 + tir / 2)
         return mac, mod
@@ -1023,7 +1172,7 @@ with tabs[6]:
     precios_live = {}
     variaciones_live = {}
     if dfb is not None:
-        for ticker in _BONOS:
+        for ticker in _BOND_TERMS:
             sub = dfb[dfb["ticker"] == ticker].sort_values("fecha")
             if not sub.empty:
                 precios_live[ticker] = float(sub.iloc[-1]["precio"])
@@ -1036,12 +1185,15 @@ with tabs[6]:
         st.markdown('<div class="section-title">Precios de Mercado</div>', unsafe_allow_html=True)
 
     if precios_live:
-        st.caption("Precios con hasta 20 min de retraso (Open BYMA Data). TIR y Duration calculados asumiendo bono bullet con cupón corriente — valores aproximados.")
+        st.caption(
+            "Precios con hasta 20 min de retraso (Open BYMA Data). "
+            "TIR y Duration calculados con flujos de caja exactos (step-up coupons, amortización — 30/360)."
+        )
     else:
         st.info("Precios de mercado no disponibles. Ejecutá el script `data/fetch_bonos.py` o el Action de GitHub para actualizarlos.")
 
     tabla_rows = []
-    for ticker, info in _BONOS.items():
+    for ticker, info in _BOND_TERMS.items():
         precio = precios_live.get(ticker)
         variacion = variaciones_live.get(ticker)
         try:
@@ -1049,17 +1201,17 @@ with tabs[6]:
             if precio and fl:
                 tir_v  = _tir(precio, fl)
                 mac, mod = _duration(fl, tir_v, precio)
-                dv01 = mod * precio / 10000  # USD por bp por $100 nominal
+                dv01 = mod * precio / 10000
                 var_str = f"{variacion:+.2f}%" if variacion is not None else "-"
                 tabla_rows.append({
-                    "Bono":           ticker,
-                    "Descripción":    info["nombre"],
-                    "Precio (%)":     round(precio, 2),
-                    "Var. día":       var_str,
-                    "TIR (%)":        round(tir_v, 2),
-                    "Duration":       round(mac, 2),
-                    "Mod. Duration":  round(mod, 2),
-                    "DV01 (x$100)":   round(dv01, 4),
+                    "Bono":          ticker,
+                    "Descripción":   info["nombre"],
+                    "Precio (%)":    round(precio, 2),
+                    "Var. día":      var_str,
+                    "TIR (%)":       round(tir_v, 2),
+                    "Duration":      round(mac, 2),
+                    "Mod. Duration": round(mod, 2),
+                    "DV01 (x$100)":  round(dv01, 4),
                 })
             else:
                 tabla_rows.append({
@@ -1079,21 +1231,27 @@ with tabs[6]:
         st.dataframe(
             pd.DataFrame(tabla_rows).set_index("Bono"),
             use_container_width=True,
-            height=390,
+            height=440,
         )
 
-    # ── Sección 2: Calculadora ────────────────────────────────────────────────
+    # ── Sección 2: Calculadora de flujo de caja ───────────────────────────────
     _st_l, _st_c = st.columns([1, 9])
     with _st_c:
-        st.markdown('<div class="section-title">Calculadora de TIR</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-title">Calculadora de Flujo de Caja</div>', unsafe_allow_html=True)
 
-    col_sel, col_precio, col_esp = st.columns([2, 2, 6])
+    col_sel, col_vn, col_precio, col_esp = st.columns([2, 1, 1, 6])
     with col_sel:
         bono_calc = st.selectbox(
             "Bono",
-            list(_BONOS.keys()),
-            format_func=lambda x: f"{x} — {_BONOS[x]['nombre']}",
+            list(_BOND_TERMS.keys()),
+            format_func=lambda x: f"{x} — {_BOND_TERMS[x]['nombre']}",
             key="calc_bono",
+        )
+    with col_vn:
+        vn_calc = st.number_input(
+            "Valor nominal (USD)",
+            min_value=1.0, value=100.0, step=100.0,
+            key="calc_vn",
         )
     precio_default = precios_live.get(bono_calc, 70.0)
     with col_precio:
@@ -1106,21 +1264,23 @@ with tabs[6]:
         )
 
     try:
-        fl_calc = _flujos_bono(bono_calc)
+        fl_calc = _flujos_bono(bono_calc, par=vn_calc)
         if not fl_calc:
             st.warning("El bono ya venció o no tiene flujos futuros.")
         else:
-            tir_calc = _tir(precio_calc, fl_calc)
-            mac_calc, mod_calc = _duration(fl_calc, tir_calc, precio_calc)
+            # Métricas (calculadas sobre $100 nominal para comparabilidad)
+            fl_100 = _flujos_bono(bono_calc, par=100.0)
+            tir_calc  = _tir(precio_calc, fl_100)
+            mac_calc, mod_calc = _duration(fl_100, tir_calc, precio_calc)
             dv01_calc = mod_calc * precio_calc / 10000
 
             _esp_r, _col_r = st.columns([1, 9])
             with _col_r:
                 c1, c2, c3, c4 = st.columns(4)
                 for col_res, label_res, value_res, sufijo_res in [
-                    (c1, "TIR",             f"{tir_calc:.2f}",  "%"),
-                    (c2, "Duration (Mac.)", f"{mac_calc:.2f}",  " años"),
-                    (c3, "Duration (Mod.)", f"{mod_calc:.2f}",  " años"),
+                    (c1, "TIR",               f"{tir_calc:.2f}",  "%"),
+                    (c2, "Duration (Mac.)",   f"{mac_calc:.2f}",  " años"),
+                    (c3, "Duration (Mod.)",   f"{mod_calc:.2f}",  " años"),
                     (c4, "DV01 (x$100 nom.)", f"{dv01_calc:.4f}", " USD"),
                 ]:
                     with col_res:
@@ -1130,38 +1290,63 @@ with tabs[6]:
                             <div class="var-value" style="font-size:26px">{value_res}<span style="font-size:13px;color:#718096"> {sufijo_res}</span></div>
                         </div>""", unsafe_allow_html=True)
 
-            # Gráfico de flujo de caja
+            # Gráfico de flujo de caja (stacked: cupón + amortización)
             _st_l2, _st_c2 = st.columns([1, 9])
             with _st_c2:
                 st.markdown('<div class="section-title">Flujo de Caja</div>', unsafe_allow_html=True)
 
-            fechas_fl = [f for f, _ in fl_calc]
-            valores_fl = [c for _, c in fl_calc]
-            colores_fl = ["#4299E1" if v < 50 else "#1B2A6B" for v in valores_fl]
+            fechas_fl  = [r["fecha"] for r in fl_calc]
+            cupones_fl = [r["cupon"] for r in fl_calc]
+            amorts_fl  = [r["amort"] for r in fl_calc]
 
             fig_fl = go.Figure()
             fig_fl.add_trace(go.Bar(
-                x=fechas_fl, y=valores_fl,
-                marker_color=colores_fl,
-                text=[f"${v:.2f}" for v in valores_fl],
-                textposition="outside",
-                hovertemplate="%{x|%d/%m/%Y}<br>$%{y:.2f}<extra></extra>",
+                name="Cupón", x=fechas_fl, y=cupones_fl,
+                marker_color="#4299E1",
+                hovertemplate="%{x|%d/%m/%Y}<br>Cupón: $%{y:.4f}<extra></extra>",
+            ))
+            fig_fl.add_trace(go.Bar(
+                name="Amortización", x=fechas_fl, y=amorts_fl,
+                marker_color="#1B2A6B",
+                hovertemplate="%{x|%d/%m/%Y}<br>Amort.: $%{y:.4f}<extra></extra>",
             ))
             layout_fl = dict(LAYOUT_BASE)
             layout_fl["title"] = dict(
                 text=(f"<b>Flujo de Caja — {bono_calc}</b>"
                       f"  <span style='font-size:10px;color:#718096'>"
-                      f"precio: {precio_calc:.2f}% | TIR: {tir_calc:.2f}%</span>"),
+                      f"VN: USD {vn_calc:,.0f} | precio: {precio_calc:.2f}% | TIR: {tir_calc:.2f}%</span>"),
                 font=dict(size=14, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5),
             )
-            layout_fl["margin"] = dict(l=10, r=10, t=50, b=10)
-            layout_fl["height"] = 320
-            layout_fl["yaxis"] = dict(title="USD por $100 nominal", showgrid=True, gridcolor="#EDF2F7")
+            layout_fl["barmode"] = "stack"
+            layout_fl["margin"]  = dict(l=10, r=10, t=50, b=10)
+            layout_fl["height"]  = 320
+            layout_fl["legend"]  = dict(orientation="h", y=1.05, x=1, xanchor="right")
+            layout_fl["yaxis"]   = dict(
+                title=f"USD (VN {vn_calc:,.0f})", showgrid=True, gridcolor="#EDF2F7"
+            )
             fig_fl.update_layout(**layout_fl)
 
             _esp_fl, _col_fl = st.columns([1, 9])
             with _col_fl:
                 st.plotly_chart(fig_fl, use_container_width=True, key="fl_calc_chart")
+
+            # Tabla detallada de flujos
+            _st_l3, _st_c3 = st.columns([1, 9])
+            with _st_c3:
+                st.markdown('<div class="section-title">Tabla de Flujos</div>', unsafe_allow_html=True)
+
+            df_fl = pd.DataFrame([{
+                "Fecha":            r["fecha"].strftime("%d/%m/%Y"),
+                "Saldo Inicial":    round(r["saldo_post"] + r["amort"], 4),
+                "Cupón":            round(r["cupon"], 4),
+                "Amortización":     round(r["amort"], 4),
+                "Flujo Total":      round(r["total"], 4),
+                "Saldo Post-Pago":  round(r["saldo_post"], 4),
+            } for r in fl_calc])
+
+            _esp_tbl, _col_tbl = st.columns([1, 9])
+            with _col_tbl:
+                st.dataframe(df_fl, use_container_width=True, hide_index=True, height=320)
 
     except Exception as e:
         st.error(f"Error en el cálculo: {e}")
