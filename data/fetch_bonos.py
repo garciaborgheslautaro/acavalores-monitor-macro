@@ -8,7 +8,7 @@ import os, json
 
 TICKERS_OBJETIVO = {
     "GD29", "GD30", "GD35", "GD38", "GD41", "GD46",
-    "AL29", "AL30", "AL35", "AL41", "AL46",
+    "AL29", "AL30", "AL35", "AE38", "AL41", "AL46",
 }
 
 HEADERS = {
