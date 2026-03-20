@@ -5,10 +5,12 @@ import requests
 import pandas as pd
 from datetime import datetime
 import os, json
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 TICKERS_OBJETIVO = {
     "GD29", "GD30", "GD35", "GD38", "GD41", "GD46",
-    "AL29", "AL30", "AL35", "AL41", "AL46",
+    "AL29", "AL30", "AL35", "AE38", "AL41", "AL46",
 }
 
 HEADERS = {
@@ -21,7 +23,7 @@ def fetch_open_byma():
     url = "https://open.bymadata.com.ar/vanoms-be-core/rest/api/bymadata/free/bonosoberanos"
     payload = {"excludeZeroPxAndQty": True, "T2": True, "T1": False, "T0": False}
     try:
-        r = requests.post(url, json=payload, headers=HEADERS, timeout=15)
+        r = requests.post(url, json=payload, headers=HEADERS, timeout=15, verify=False)
         r.raise_for_status()
         data = r.json()
         return data if isinstance(data, list) else data.get("data", [])
