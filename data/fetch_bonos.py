@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
-"""fetch_bonos.py — Obtiene precios de bonos soberanos argentinos desde Open BYMA Data (20 min delay)."""
+"""fetch_bonos.py — Precios de bonos soberanos argentinos desde Open BYMA Data (20 min delay).
 
-import re
+No requiere token: inicializa sesión con cookies del dashboard, como hace PyOBD.
+Ref: https://github.com/franco-lamas/PyOBD
+"""
+
+import json
 import requests
 import pandas as pd
 from datetime import datetime
-import os, json
+import os
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -15,113 +19,65 @@ TICKERS_OBJETIVO = {
 }
 
 BASE_URL = "https://open.bymadata.com.ar"
+DASHBOARD_URL = f"{BASE_URL}/#/dashboard"
+API_URL = f"{BASE_URL}/vanoms-be-core/rest/api/bymadata/free/public-bonds"
 
 HEADERS = {
     "Content-Type": "application/json",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Accept": "application/json, text/plain, */*",
     "Accept-Language": "es-AR,es;q=0.9,en;q=0.8",
+    "sec-ch-ua": '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+    "sec-ch-ua-platform": '"Windows"',
     "Origin": BASE_URL,
     "Referer": BASE_URL + "/",
 }
 
 
-# Token conocido — fallback si no se puede extraer del bundle
-_FALLBACK_TOKEN = "dc826d4c2dde7519e882a250359a23a2"
-
-
-def extract_token_from_bundle(session):
-    """Extrae el token estático del bundle JS de Angular."""
-    try:
-        resp = session.get(BASE_URL, headers={"User-Agent": HEADERS["User-Agent"]}, timeout=15)
-        print(f"[fetch_bonos] HTML status={resp.status_code} len={len(resp.text)}")
-        html = resp.text
-
-        # Buscar bundle main.HASH.js — manejar src="/main.js", src="main.js", src="./main.js"
-        match = re.search(r'src=["\']([^"\']*main\.[a-f0-9]+\.js)["\']', html)
-        if not match:
-            print(f"[fetch_bonos] Bundle no encontrado. HTML preview: {html[:300]!r}")
-            return None
-
-        bundle_path = match.group(1)
-        if bundle_path.startswith("http"):
-            bundle_url = bundle_path
-        elif bundle_path.startswith("/"):
-            bundle_url = BASE_URL + bundle_path
-        else:
-            bundle_url = f"{BASE_URL}/{bundle_path.lstrip('./')}"
-
-        print(f"[fetch_bonos] Descargando bundle: {bundle_url}")
-        js_resp = session.get(bundle_url, headers={"User-Agent": HEADERS["User-Agent"]}, timeout=30)
-        print(f"[fetch_bonos] Bundle status={js_resp.status_code} len={len(js_resp.text)}")
-        js = js_resp.text
-
-        # El token es un string hex de 32 chars — buscar varios patrones posibles
-        patterns = [
-            r'"Token"\s*,\s*"([0-9a-f]{32})"',
-            r"'Token'\s*,\s*'([0-9a-f]{32})'",
-            r'Token\s*:\s*"([0-9a-f]{32})"',
-            r"Token\s*:\s*'([0-9a-f]{32})'",
-            r'[Tt]oken["\':,\s]+([0-9a-f]{32})',
-        ]
-        for pat in patterns:
-            m = re.search(pat, js)
-            if m:
-                token = m.group(1)
-                print(f"[fetch_bonos] Token extraído: {token}")
-                return token
-
-        # Debug: mostrar contexto alrededor de "Token" en el JS
-        ctx = list(re.finditer(r'.{0,20}[Tt]oken.{0,40}', js))
-        for c in ctx[:3]:
-            print(f"[fetch_bonos] Contexto Token: {c.group()!r}")
-        print("[fetch_bonos] Token no encontrado en bundle, usando fallback.")
-    except Exception as e:
-        print(f"[fetch_bonos] Error extrayendo token: {e}")
-    return None
-
-
 def get_session():
-    """Obtiene una sesión con cookies y el token de autenticación."""
+    """Inicializa sesión con cookies del dashboard (sin token)."""
     session = requests.Session()
     session.verify = False
-    token = extract_token_from_bundle(session) or _FALLBACK_TOKEN
-    print(f"[fetch_bonos] Token a usar: {token}")
-    return session, token
-
-
-def fetch_open_byma():
-    url = f"{BASE_URL}/vanoms-be-core/rest/api/bymadata/free/bonosoberanos"
-    payload = {"excludeZeroPxAndQty": True, "T2": True, "T1": False, "T0": False}
-    session, token = get_session()
-    headers = dict(HEADERS)
-    if token:
-        headers["Token"] = token
     try:
-        r = session.post(url, json=payload, headers=headers, timeout=15)
-        print(f"[fetch_bonos] API status={r.status_code} len={len(r.text)}")
-        print(f"[fetch_bonos] API preview: {r.text[:200]!r}")
-        r.raise_for_status()
-        data = r.json()
-        return data if isinstance(data, list) else data.get("data", [])
+        resp = session.get(DASHBOARD_URL, headers={"User-Agent": HEADERS["User-Agent"]}, timeout=15)
+        print(f"[fetch_bonos] Dashboard status={resp.status_code} cookies={list(session.cookies.keys())}")
     except Exception as e:
-        print(f"[fetch_bonos] Error fetching BYMA: {e}")
+        print(f"[fetch_bonos] Advertencia al inicializar sesión: {e}")
+    return session
+
+
+def fetch_bonos():
+    session = get_session()
+    payload = json.dumps({"T2": True, "T1": False, "T0": False, "Content-Type": "application/json"})
+    try:
+        r = session.post(API_URL, data=payload, headers=HEADERS, timeout=20)
+        print(f"[fetch_bonos] API status={r.status_code} len={len(r.text)}")
+        print(f"[fetch_bonos] API preview: {r.text[:300]!r}")
+        r.raise_for_status()
+        body = r.json()
+        if isinstance(body, list):
+            return body
+        return body.get("data", [])
+    except Exception as e:
+        print(f"[fetch_bonos] Error: {e}")
         return None
 
 
 def parse_precio(item):
-    for campo in ("trade_c", "ultimoPrecio", "c", "px_bid", "px_ask"):
+    for campo in ("trade_c", "ultimoPrecio", "c", "px_bid", "px_ask", "price"):
         v = item.get(campo)
         if v is not None:
             try:
-                return float(v)
+                f = float(v)
+                if f > 0:
+                    return f
             except (TypeError, ValueError):
                 pass
     return None
 
 
 def parse_variacion(item):
-    for campo in ("c_pct_change", "variacion", "var_pct"):
+    for campo in ("c_pct_change", "variacion", "var_pct", "change_pct"):
         v = item.get(campo)
         if v is not None:
             try:
@@ -133,18 +89,19 @@ def parse_variacion(item):
 
 def main():
     import sys
-    print("Fetching sovereign bond prices from Open BYMA Data...")
-    items = fetch_open_byma()
+    print("=== INICIO fetch_bonos.py ===")
+    items = fetch_bonos()
 
     if items is None:
-        print("No se pudo obtener datos de BYMA.")
+        print("ERROR: No se pudo conectar a Open BYMA Data.")
         sys.exit(1)
 
     if not items:
-        print("Respuesta vacía de BYMA.")
+        print("ERROR: Respuesta vacía de Open BYMA Data.")
         sys.exit(1)
 
-    print(f"Respuesta: {len(items)} instrumentos. Ejemplo de claves: {list(items[0].keys())[:10]}")
+    print(f"Total instrumentos recibidos: {len(items)}")
+    print(f"Claves ejemplo: {list(items[0].keys())[:12]}")
 
     fecha_hoy = datetime.today().strftime("%Y-%m-%d")
     records = []
@@ -154,10 +111,9 @@ def main():
             item.get("symbol") or item.get("descripcionTitulo") or item.get("denominacion") or ""
         ).strip().upper()
 
-        # Identificar ticker
         ticker = None
         for t in TICKERS_OBJETIVO:
-            if symbol == t or symbol.startswith(t + " ") or symbol.startswith(t + "-"):
+            if symbol == t or symbol.startswith(t + " ") or symbol.startswith(t + "-") or symbol.startswith(t + "/"):
                 ticker = t
                 break
 
@@ -166,9 +122,9 @@ def main():
 
         precio = parse_precio(item)
         variacion = parse_variacion(item)
-        volumen = item.get("tv") or item.get("montoOperado")
+        volumen = item.get("tv") or item.get("montoOperado") or item.get("volume")
 
-        if precio is not None and precio > 0:
+        if precio is not None:
             records.append({
                 "fecha": fecha_hoy,
                 "ticker": ticker,
@@ -178,13 +134,13 @@ def main():
             })
 
     if not records:
-        print("No se encontraron bonos objetivo en la respuesta.")
-        print(f"Symbols encontrados (muestra): {[str(i.get('symbol',''))[:10] for i in items[:20]]}")
-        return
+        print("ADVERTENCIA: No se encontraron bonos objetivo.")
+        print(f"Symbols encontrados (muestra): {[str(i.get('symbol', ''))[:15] for i in items[:25]]}")
+        sys.exit(1)
 
     df_new = pd.DataFrame(records)
-
     out_path = os.path.join(os.path.dirname(__file__), "bonos_data.csv")
+
     if os.path.exists(out_path):
         df_old = pd.read_csv(out_path)
         df_combined = (
@@ -197,10 +153,12 @@ def main():
         df_combined = df_new
 
     df_combined.to_csv(out_path, index=False)
-    print(f"Guardados {len(records)} precios en {out_path}")
+    print(f"\nGuardados {len(records)} bonos en {out_path}")
     for rec in sorted(records, key=lambda x: x["ticker"]):
         var_str = f"{rec['variacion_pct']:+.2f}%" if rec["variacion_pct"] is not None else "N/A"
         print(f"  {rec['ticker']:6s}: {rec['precio']:.2f}  ({var_str})")
+
+    print("=== FIN fetch_bonos.py ===")
 
 
 if __name__ == "__main__":
