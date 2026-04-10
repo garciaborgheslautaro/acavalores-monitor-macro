@@ -2,9 +2,14 @@
 """fetch_macro_global.py — Datos macro de EE.UU. y el mundo.
 
 Fuentes (todas libres, sin API key):
-- FRED direct CSV: Fed Funds, ECB, BoJ, CPI, desempleo
-- BCB API (Brasil): SELIC (Meta, serie 4390), IPCA
+- FRED direct CSV: Fed Funds, ECB, CPI, desempleo
+- FRED IRSTCB01JPM156N: BoJ policy rate
+- BCB API serie 4390: Meta Selic mensual
+- BCB API serie 433: IPCA mensual (→ YoY)
 - World Bank API: PIB growth por país
+
+Estrategia: si una API falla, se conserva el CSV existente (seed data).
+El script actualiza sólo las columnas que pudo obtener.
 """
 import requests
 import pandas as pd
@@ -16,7 +21,6 @@ print("=== INICIO fetch_macro_global.py ===")
 os.makedirs("data", exist_ok=True)
 
 FRED_URL = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={}"
-# Serie 4390 = Meta da taxa Selic definida pelo Copom (mensal, % a.a.)
 BCB_URL  = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{}/dados/ultimos/120?formato=json"
 WB_URL   = "https://api.worldbank.org/v2/country/{}/indicator/{}?format=json&per_page=30&mrv=30"
 
@@ -39,7 +43,7 @@ def fetch_fred(series_id, col):
 
 
 def fetch_bcb(series_id, col):
-    """Descarga serie del BCB SGS. serie 4390 = Meta Selic (% a.a.)"""
+    """Serie BCB SGS. 4390 = Meta Selic (% a.a.), 433 = IPCA mensual."""
     try:
         r = requests.get(BCB_URL.format(series_id), timeout=20)
         r.raise_for_status()
@@ -58,7 +62,7 @@ def fetch_bcb(series_id, col):
             return None
         df = pd.DataFrame(rows).sort_values("fecha").reset_index(drop=True)
         df = df[df["fecha"] >= CORTE].reset_index(drop=True)
-        print(f"  OK BCB {series_id} ({col}) — {len(df)} registros, últ: {df.iloc[-1][col]:.2f}")
+        print(f"  OK BCB {series_id} ({col}) — {len(df)} registros, últ: {df.iloc[-1][col]:.4f}")
         return df if not df.empty else None
     except Exception as e:
         print(f"  ERROR BCB {series_id}: {e}")
@@ -76,99 +80,155 @@ def fetch_worldbank(country, indicator, col):
         df = pd.DataFrame(rows).sort_values("fecha").reset_index(drop=True)
         if df.empty:
             return None
-        print(f"  OK WB {country} {indicator} ({col}) — {len(df)} años, últ: {df.iloc[-1][col]:.1f}")
+        print(f"  OK WB {country} ({col}) — {len(df)} años, últ: {df.iloc[-1][col]:.1f}")
         return df
     except Exception as e:
         print(f"  ERROR WB {country}/{indicator}: {e}")
         return None
 
 
-def merge_series(dfs_dict, ffill=True):
-    df_out = None
-    for col, df in dfs_dict.items():
-        if df is None or df.empty:
+def update_csv(csv_path, new_data_dict):
+    """
+    Actualiza un CSV existente con datos nuevos de forma segura:
+    - Lee el CSV actual (seed) si existe
+    - Hace outer merge con los nuevos datos
+    - Prefiere los datos nuevos donde se solapan
+    - Aplica ffill SOLO para tasas (baja frecuencia)
+    - Guarda el resultado
+    """
+    if os.path.exists(csv_path):
+        df_old = pd.read_csv(csv_path, parse_dates=["fecha"])
+    else:
+        df_old = None
+
+    # Combinar nuevos datos
+    df_new = None
+    for col, df_src in new_data_dict.items():
+        if df_src is None or df_src.empty:
             continue
-        df_m = df[["fecha", col]].copy()
-        df_out = df_m if df_out is None else pd.merge(df_out, df_m, on="fecha", how="outer")
-    if df_out is not None:
-        df_out.sort_values("fecha", inplace=True)
-        if ffill:
-            # Forward-fill para series con baja frecuencia (ej: BoJ, tasas de bancos centrales)
-            for c in df_out.columns:
-                if c != "fecha":
-                    df_out[c] = df_out[c].ffill()
-        df_out.reset_index(drop=True, inplace=True)
-    return df_out
+        df_m = df_src[["fecha", col]].copy()
+        if df_new is None:
+            df_new = df_m
+        else:
+            df_new = pd.merge(df_new, df_m, on="fecha", how="outer")
+
+    if df_new is None:
+        print(f"  Sin datos nuevos para {csv_path} — conservando existente")
+        return
+
+    if df_old is not None:
+        # Merge: conservar seed + sobreescribir con datos frescos donde haya
+        cols_comun = [c for c in df_new.columns if c != "fecha" and c in df_old.columns]
+        df_merged = pd.merge(df_old, df_new, on="fecha", how="outer", suffixes=("_old","_new"))
+        for col in cols_comun:
+            col_n = col+"_new"; col_o = col+"_old"
+            if col_n in df_merged.columns:
+                df_merged[col] = df_merged[col_n].combine_first(df_merged[col_o])
+                df_merged.drop(columns=[col_n, col_o], inplace=True)
+        # Añadir columnas nuevas que no estaban en el seed
+        for col in df_new.columns:
+            if col != "fecha" and col not in df_merged.columns:
+                df_merged = pd.merge(df_merged, df_new[["fecha", col]], on="fecha", how="left")
+        df_out = df_merged
+    else:
+        df_out = df_new
+
+    df_out.sort_values("fecha", inplace=True)
+    df_out.reset_index(drop=True, inplace=True)
+    df_out.to_csv(csv_path, index=False)
+    print(f"  → {csv_path} ({len(df_out)} filas)")
 
 
 # ── Tasas de política monetaria ────────────────────────────────────────────────
 print("\n[Tasas]")
-df_tasas = merge_series({
-    "us_fed":    fetch_fred("FEDFUNDS",        "us_fed"),
-    "ecb_rate":  fetch_fred("ECBDFR",          "ecb_rate"),
-    "boj_rate":  fetch_fred("IRSTJPNM193N",    "boj_rate"),  # BoJ overnight call rate (mensual)
-    "selic":     fetch_bcb(4390,               "selic"),     # Meta Selic (% a.a., mensal)
+
+df_fed   = fetch_fred("FEDFUNDS",        "us_fed")
+df_ecb   = fetch_fred("ECBDFR",          "ecb_rate")
+df_boj   = fetch_fred("IRSTCB01JPM156N", "boj_rate")   # BoJ discount/call rate
+df_selic = fetch_bcb(4390,               "selic")       # Meta Selic
+
+# Para tasas: ffill porque cambian poco (decisiones de banco central)
+def rate_series_ffill(df_rate, col):
+    if df_rate is None:
+        return None
+    # Resamplear a mensual y forward-fill
+    df_m = df_rate.set_index("fecha").resample("MS").last()[[col]].ffill().reset_index()
+    return df_m
+
+df_fed_m   = rate_series_ffill(df_fed,   "us_fed")
+df_ecb_m   = rate_series_ffill(df_ecb,   "ecb_rate")
+df_boj_m   = rate_series_ffill(df_boj,   "boj_rate")
+df_selic_m = rate_series_ffill(df_selic, "selic")
+
+update_csv("data/macro_tasas.csv", {
+    "us_fed":   df_fed_m,
+    "ecb_rate": df_ecb_m,
+    "boj_rate": df_boj_m,
+    "selic":    df_selic_m,
 })
-if df_tasas is not None:
-    df_tasas.to_csv("data/macro_tasas.csv", index=False)
-    print(f"  → macro_tasas.csv ({len(df_tasas)} filas)")
 
 # ── Inflación ──────────────────────────────────────────────────────────────────
 print("\n[Inflación YoY]")
 
-# US: calcular YoY desde índice
-df_us_idx = fetch_fred("CPIAUCSL", "us_cpi_idx")
+# US: YoY desde índice CPI
 df_us_cpi = None
+df_us_idx = fetch_fred("CPIAUCSL", "us_cpi_idx")
 if df_us_idx is not None:
     df_us_cpi = df_us_idx.copy()
     df_us_cpi["us_cpi_yoy"] = df_us_cpi["us_cpi_idx"].pct_change(12) * 100
     df_us_cpi = df_us_cpi[["fecha", "us_cpi_yoy"]].dropna()
 
-# Brasil: IPCA mensual (serie 433) → componer en 12 meses
-df_br_monthly = fetch_bcb(433, "br_ipca_m")
+# EU: HICP YoY — Eurostat via FRED
+df_eu_cpi = fetch_fred("CP0000EZ17M086NEST", "eu_cpi_yoy")   # índice → calc YoY
+if df_eu_cpi is not None:
+    df_eu_cpi["eu_cpi_yoy"] = df_eu_cpi["eu_cpi_yoy"].pct_change(12) * 100
+    df_eu_cpi = df_eu_cpi[["fecha","eu_cpi_yoy"]].dropna()
+else:
+    # Fallback: serie YoY directa
+    df_eu_cpi = fetch_fred("CPHPTT01EZM659N", "eu_cpi_yoy")
+
+# JP: YoY directo FRED
+df_jp_cpi = fetch_fred("CPALTT01JPM659N", "jp_cpi_yoy")
+
+# Brasil: IPCA mensual → YoY compuesto
 df_br_cpi = None
-if df_br_monthly is not None:
-    df_br_monthly = df_br_monthly.set_index("fecha").resample("ME").last().reset_index()
-    df_br_monthly["br_cpi_yoy"] = (
-        (1 + df_br_monthly["br_ipca_m"] / 100)
+df_br_m = fetch_bcb(433, "br_ipca_m")
+if df_br_m is not None:
+    df_br_m = df_br_m.set_index("fecha").resample("ME").last().reset_index()
+    df_br_m["br_cpi_yoy"] = (
+        (1 + df_br_m["br_ipca_m"] / 100)
         .rolling(12).apply(lambda x: x.prod(), raw=True) - 1
     ) * 100
-    df_br_cpi = df_br_monthly[["fecha", "br_cpi_yoy"]].dropna()
+    df_br_cpi = df_br_m[["fecha", "br_cpi_yoy"]].dropna()
 
-# China: CHNCPIALLMINMEI es un índice (base ~100), hay que calcular YoY
-df_cn_idx = fetch_fred("CHNCPIALLMINMEI", "cn_cpi_idx")
+# China: índice → YoY
 df_cn_cpi = None
+df_cn_idx = fetch_fred("CHNCPIALLMINMEI", "cn_cpi_idx")
 if df_cn_idx is not None:
     df_cn_cpi = df_cn_idx.copy()
     df_cn_cpi["cn_cpi_yoy"] = df_cn_cpi["cn_cpi_idx"].pct_change(12) * 100
     df_cn_cpi = df_cn_cpi[["fecha", "cn_cpi_yoy"]].dropna()
 
-df_infl = merge_series({
+update_csv("data/macro_inflacion.csv", {
     "us_cpi_yoy": df_us_cpi,
-    "eu_cpi_yoy": fetch_fred("CPHPTT01EZM659N", "eu_cpi_yoy"),
-    "jp_cpi_yoy": fetch_fred("CPALTT01JPM659N", "jp_cpi_yoy"),
+    "eu_cpi_yoy": df_eu_cpi,
+    "jp_cpi_yoy": df_jp_cpi,
     "br_cpi_yoy": df_br_cpi,
     "cn_cpi_yoy": df_cn_cpi,
 })
-if df_infl is not None:
-    df_infl.to_csv("data/macro_inflacion.csv", index=False)
-    print(f"  → macro_inflacion.csv ({len(df_infl)} filas)")
 
 # ── Desempleo ──────────────────────────────────────────────────────────────────
 print("\n[Desempleo]")
-df_unemp = merge_series({
-    "us_unrate": fetch_fred("UNRATE",            "us_unrate"),
-    "eu_unrate": fetch_fred("LRHUTTTTEZM156S",   "eu_unrate"),
-    "jp_unrate": fetch_fred("LRHUTTTTJPM156S",   "jp_unrate"),
+update_csv("data/macro_desempleo.csv", {
+    "us_unrate": fetch_fred("UNRATE",          "us_unrate"),
+    "eu_unrate": fetch_fred("LRHUTTTTEZM156S", "eu_unrate"),
+    "jp_unrate": fetch_fred("LRHUTTTTJPM156S", "jp_unrate"),
 })
-if df_unemp is not None:
-    df_unemp.to_csv("data/macro_desempleo.csv", index=False)
-    print(f"  → macro_desempleo.csv ({len(df_unemp)} filas)")
 
 # ── PIB — Crecimiento anual (World Bank) ───────────────────────────────────────
 print("\n[PIB YoY — World Bank]")
 IND_GDP = "NY.GDP.MKTP.KD.ZG"
-df_gdp = merge_series({
+update_csv("data/macro_gdp.csv", {
     "us_gdp": fetch_worldbank("US", IND_GDP, "us_gdp"),
     "eu_gdp": fetch_worldbank("XC", IND_GDP, "eu_gdp"),
     "cn_gdp": fetch_worldbank("CN", IND_GDP, "cn_gdp"),
@@ -176,8 +236,5 @@ df_gdp = merge_series({
     "br_gdp": fetch_worldbank("BR", IND_GDP, "br_gdp"),
     "ar_gdp": fetch_worldbank("AR", IND_GDP, "ar_gdp"),
 })
-if df_gdp is not None:
-    df_gdp.to_csv("data/macro_gdp.csv", index=False)
-    print(f"  → macro_gdp.csv ({len(df_gdp)} filas)")
 
 print("\n=== FIN fetch_macro_global.py ===")
