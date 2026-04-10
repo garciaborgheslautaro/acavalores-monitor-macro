@@ -32,6 +32,18 @@ jobs:
       - name: Ejecutar fetch Actividad & Fiscal
         run: python data/fetch_actividad.py
 
+      - name: Ejecutar fetch Macro Global
+        run: python data/fetch_macro_global.py
+        continue-on-error: true
+
+      - name: Ejecutar fetch Calendario
+        run: python data/fetch_calendario.py
+        continue-on-error: true
+
+      - name: Ejecutar fetch Earnings
+        run: python data/fetch_earnings.py
+        continue-on-error: true
+
       - name: Ejecutar fetch Bonos Soberanos
         run: python data/fetch_bonos.py
         continue-on-error: true

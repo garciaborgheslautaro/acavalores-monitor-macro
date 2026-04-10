@@ -128,6 +128,48 @@ def cargar_bonos():
     if not os.path.exists(path): return None
     return pd.read_csv(path).sort_values(["ticker", "fecha"]).reset_index(drop=True)
 
+@st.cache_data(ttl=3600)
+def cargar_macro_tasas():
+    path = "data/macro_tasas.csv"
+    if not os.path.exists(path): return None
+    return pd.read_csv(path, parse_dates=["fecha"]).sort_values("fecha").reset_index(drop=True)
+
+@st.cache_data(ttl=3600)
+def cargar_macro_inflacion():
+    path = "data/macro_inflacion.csv"
+    if not os.path.exists(path): return None
+    return pd.read_csv(path, parse_dates=["fecha"]).sort_values("fecha").reset_index(drop=True)
+
+@st.cache_data(ttl=3600)
+def cargar_macro_desempleo():
+    path = "data/macro_desempleo.csv"
+    if not os.path.exists(path): return None
+    return pd.read_csv(path, parse_dates=["fecha"]).sort_values("fecha").reset_index(drop=True)
+
+@st.cache_data(ttl=3600)
+def cargar_macro_gdp():
+    path = "data/macro_gdp.csv"
+    if not os.path.exists(path): return None
+    return pd.read_csv(path, parse_dates=["fecha"]).sort_values("fecha").reset_index(drop=True)
+
+@st.cache_data(ttl=1800)
+def cargar_calendario_int():
+    path = "data/calendario_internacional.csv"
+    if not os.path.exists(path): return None
+    return pd.read_csv(path, parse_dates=["date"]).sort_values("date").reset_index(drop=True)
+
+@st.cache_data(ttl=1800)
+def cargar_calendario_ar():
+    path = "data/calendario_argentina.csv"
+    if not os.path.exists(path): return None
+    return pd.read_csv(path, parse_dates=["date"]).sort_values("date").reset_index(drop=True)
+
+@st.cache_data(ttl=3600)
+def cargar_earnings():
+    path = "data/earnings_data.csv"
+    if not os.path.exists(path): return None
+    return pd.read_csv(path, parse_dates=["date"]).sort_values("date").reset_index(drop=True)
+
 df  = cargar_datos()
 if df is None:
     st.warning("Los datos aún no fueron generados.")
@@ -453,7 +495,8 @@ tabs = st.tabs([
     "Inflación",
     "Mercados",
     "Actividad & Fiscal",
-    "Bonos Soberanos",
+    "Macro Global",
+    "Calendario",
 ])
 
 # ════════════════════════════════════════════════════════════════════════════════
@@ -949,407 +992,290 @@ with tabs[5]:
 
 
 # ════════════════════════════════════════════════════════════════════════════════
-# TAB 6 — BONOS SOBERANOS
+# TAB 6 — MACRO GLOBAL
 # ════════════════════════════════════════════════════════════════════════════════
 with tabs[6]:
+    _df_tasas  = cargar_macro_tasas()
+    _df_infl   = cargar_macro_inflacion()
+    _df_unemp  = cargar_macro_desempleo()
+    _df_gdp    = cargar_macro_gdp()
 
-    # ── Términos verificados (Decreto 701/2020, Ley NY) ───────────────────────
-    # cupon_steps: [(inicio, fin, tasa_anual), ...]  — convención 30/360 semiannual
-    # amort: [(fecha, fracción_del_par), ...] — fracciones suman 1.0
-    _BOND_TERMS = {
-        "GD29": {
-            "nombre": "Global 2029 (Ley NY)", "isin": "US040114HR43",
-            "emision": "2020-09-04", "vto": "2029-07-09",
-            "cupon_steps": [("2020-09-04", "2029-07-09", 0.0100)],
-            "amort": [
-                ("2025-01-09", 0.10), ("2025-07-09", 0.10),
-                ("2026-01-09", 0.10), ("2026-07-09", 0.10),
-                ("2027-01-09", 0.10), ("2027-07-09", 0.10),
-                ("2028-01-09", 0.10), ("2028-07-09", 0.10),
-                ("2029-01-09", 0.10), ("2029-07-09", 0.10),
-            ],
-        },
-        "GD30": {
-            "nombre": "Global 2030 (Ley NY)", "isin": "US040114HS26",
-            "emision": "2020-09-04", "vto": "2030-07-09",
-            "cupon_steps": [
-                ("2020-09-04", "2021-07-09", 0.00125),
-                ("2021-07-09", "2023-07-09", 0.00500),
-                ("2023-07-09", "2027-07-09", 0.00750),
-                ("2027-07-09", "2030-07-09", 0.01750),
-            ],
-            "amort": [
-                ("2024-07-09", 0.04),
-                ("2025-01-09", 0.08), ("2025-07-09", 0.08),
-                ("2026-01-09", 0.08), ("2026-07-09", 0.08),
-                ("2027-01-09", 0.08), ("2027-07-09", 0.08),
-                ("2028-01-09", 0.08), ("2028-07-09", 0.08),
-                ("2029-01-09", 0.08), ("2029-07-09", 0.08),
-                ("2030-01-09", 0.08), ("2030-07-09", 0.08),
-            ],
-        },
-        "GD35": {
-            "nombre": "Global 2035 (Ley NY)", "isin": "US040114HT09",
-            "emision": "2020-09-04", "vto": "2035-07-09",
-            "cupon_steps": [
-                ("2020-09-04", "2021-07-09", 0.00125),
-                ("2021-07-09", "2023-07-09", 0.00500),
-                ("2023-07-09", "2027-07-09", 0.03625),
-                ("2027-07-09", "2035-07-09", 0.04125),
-            ],
-            "amort": [
-                ("2031-01-09", 0.10), ("2031-07-09", 0.10),
-                ("2032-01-09", 0.10), ("2032-07-09", 0.10),
-                ("2033-01-09", 0.10), ("2033-07-09", 0.10),
-                ("2034-01-09", 0.10), ("2034-07-09", 0.10),
-                ("2035-01-09", 0.10), ("2035-07-09", 0.10),
-            ],
-        },
-        "GD38": {
-            "nombre": "Global 2038 (Ley NY)", "isin": "US040114HU71",
-            "emision": "2020-09-04", "vto": "2038-01-09",
-            "cupon_steps": [
-                ("2020-09-04", "2021-07-09", 0.00125),
-                ("2021-07-09", "2023-07-09", 0.00500),
-                ("2023-07-09", "2024-07-09", 0.03875),
-                ("2024-07-09", "2038-01-09", 0.05000),
-            ],
-            "amort": [  # 22 cuotas × 1/22 ≈ 4.5455%
-                ("2027-07-09", 1/22), ("2028-01-09", 1/22), ("2028-07-09", 1/22),
-                ("2029-01-09", 1/22), ("2029-07-09", 1/22), ("2030-01-09", 1/22),
-                ("2030-07-09", 1/22), ("2031-01-09", 1/22), ("2031-07-09", 1/22),
-                ("2032-01-09", 1/22), ("2032-07-09", 1/22), ("2033-01-09", 1/22),
-                ("2033-07-09", 1/22), ("2034-01-09", 1/22), ("2034-07-09", 1/22),
-                ("2035-01-09", 1/22), ("2035-07-09", 1/22), ("2036-01-09", 1/22),
-                ("2036-07-09", 1/22), ("2037-01-09", 1/22), ("2037-07-09", 1/22),
-                ("2038-01-09", 1/22),
-            ],
-        },
-        "GD41": {
-            "nombre": "Global 2041 (Ley NY)", "isin": "US040114HV54",
-            "emision": "2020-09-04", "vto": "2041-07-09",
-            "cupon_steps": [
-                ("2020-09-04", "2021-07-09", 0.00125),
-                ("2021-07-09", "2023-07-09", 0.00500),
-                ("2023-07-09", "2041-07-09", 0.03500),
-            ],
-            "amort": [  # 29 cuotas × 1/29 ≈ 3.448%
-                ("2027-07-09", 1/29), ("2028-01-09", 1/29), ("2028-07-09", 1/29),
-                ("2029-01-09", 1/29), ("2029-07-09", 1/29), ("2030-01-09", 1/29),
-                ("2030-07-09", 1/29), ("2031-01-09", 1/29), ("2031-07-09", 1/29),
-                ("2032-01-09", 1/29), ("2032-07-09", 1/29), ("2033-01-09", 1/29),
-                ("2033-07-09", 1/29), ("2034-01-09", 1/29), ("2034-07-09", 1/29),
-                ("2035-01-09", 1/29), ("2035-07-09", 1/29), ("2036-01-09", 1/29),
-                ("2036-07-09", 1/29), ("2037-01-09", 1/29), ("2037-07-09", 1/29),
-                ("2038-01-09", 1/29), ("2038-07-09", 1/29), ("2039-01-09", 1/29),
-                ("2039-07-09", 1/29), ("2040-01-09", 1/29), ("2040-07-09", 1/29),
-                ("2041-01-09", 1/29), ("2041-07-09", 1/29),
-            ],
-        },
-        "GD46": {
-            "nombre": "Global 2046 (Ley NY)", "isin": "US040114HW38",
-            "emision": "2020-09-04", "vto": "2046-07-09",
-            "cupon_steps": [
-                ("2020-09-04", "2021-07-09", 0.00125),
-                ("2021-07-09", "2023-07-09", 0.00500),
-                ("2023-07-09", "2027-07-09", 0.03875),
-                ("2027-07-09", "2046-07-09", 0.04125),
-            ],
-            "amort": [  # 44 cuotas × 1/44 ≈ 2.2727%
-                ("2025-01-09", 1/44), ("2025-07-09", 1/44), ("2026-01-09", 1/44),
-                ("2026-07-09", 1/44), ("2027-01-09", 1/44), ("2027-07-09", 1/44),
-                ("2028-01-09", 1/44), ("2028-07-09", 1/44), ("2029-01-09", 1/44),
-                ("2029-07-09", 1/44), ("2030-01-09", 1/44), ("2030-07-09", 1/44),
-                ("2031-01-09", 1/44), ("2031-07-09", 1/44), ("2032-01-09", 1/44),
-                ("2032-07-09", 1/44), ("2033-01-09", 1/44), ("2033-07-09", 1/44),
-                ("2034-01-09", 1/44), ("2034-07-09", 1/44), ("2035-01-09", 1/44),
-                ("2035-07-09", 1/44), ("2036-01-09", 1/44), ("2036-07-09", 1/44),
-                ("2037-01-09", 1/44), ("2037-07-09", 1/44), ("2038-01-09", 1/44),
-                ("2038-07-09", 1/44), ("2039-01-09", 1/44), ("2039-07-09", 1/44),
-                ("2040-01-09", 1/44), ("2040-07-09", 1/44), ("2041-01-09", 1/44),
-                ("2041-07-09", 1/44), ("2042-01-09", 1/44), ("2042-07-09", 1/44),
-                ("2043-01-09", 1/44), ("2043-07-09", 1/44), ("2044-01-09", 1/44),
-                ("2044-07-09", 1/44), ("2045-01-09", 1/44), ("2045-07-09", 1/44),
-                ("2046-01-09", 1/44), ("2046-07-09", 1/44),
-            ],
-        },
+    _PAIS_LABEL = {
+        "us":  ("EE.UU.", "🇺🇸"),
+        "eu":  ("Eurozona", "🇪🇺"),
+        "jp":  ("Japón", "🇯🇵"),
+        "br":  ("Brasil", "🇧🇷"),
+        "cn":  ("China", "🇨🇳"),
+        "ar":  ("Argentina", "🇦🇷"),
     }
-    # Bonos Ley Argentina — misma economía, distinto marco legal
-    _BOND_TERMS["AL29"] = {**_BOND_TERMS["GD29"], "nombre": "Bonar 2029 (Ley AR)", "isin": "ARARGE3209S0"}
-    _BOND_TERMS["AL30"] = {**_BOND_TERMS["GD30"], "nombre": "Bonar 2030 (Ley AR)", "isin": "ARARGE3208S2"}
-    _BOND_TERMS["AL35"] = {**_BOND_TERMS["GD35"], "nombre": "Bonar 2035 (Ley AR)", "isin": "ARARGE3212S4"}
-    _BOND_TERMS["AE38"] = {**_BOND_TERMS["GD38"], "nombre": "Bonar 2038 (Ley AR)", "isin": "ARARGE3213S2"}
-    _BOND_TERMS["AL41"] = {**_BOND_TERMS["GD41"], "nombre": "Bonar 2041 (Ley AR)", "isin": "ARARGE3210S8"}
-    _BOND_TERMS["AL46"] = {**_BOND_TERMS["GD46"], "nombre": "Bonar 2046 (Ley AR)", "isin": "ARARGE3211S6"}
+    _TASA_LABEL = {
+        "us_fed":   ("Fed Funds", "EE.UU.", "#1B2A6B"),
+        "ecb_rate": ("ECB Depósito", "Eurozona", "#0070C0"),
+        "boj_rate": ("BoJ", "Japón", "#BC002D"),
+        "selic":    ("SELIC", "Brasil", "#009C3B"),
+    }
+    _CPI_COLS = {
+        "us_cpi_yoy": ("EE.UU.", "#1B2A6B"),
+        "eu_cpi_yoy": ("Eurozona", "#0070C0"),
+        "jp_cpi_yoy": ("Japón", "#BC002D"),
+        "br_cpi_yoy": ("Brasil", "#009C3B"),
+        "cn_cpi_yoy": ("China", "#DE2910"),
+    }
+    _GDP_COLS = {
+        "us_gdp": ("EE.UU.", "#1B2A6B"),
+        "eu_gdp": ("Eurozona", "#0070C0"),
+        "cn_gdp": ("China", "#DE2910"),
+        "jp_gdp": ("Japón", "#BC002D"),
+        "br_gdp": ("Brasil", "#009C3B"),
+        "ar_gdp": ("Argentina", "#74ACDF"),
+    }
 
-    def _cupon_rate(steps, pay_date):
-        """Tasa anual vigente para una fecha de pago dada (step-up)."""
-        for s_ini, s_fin, rate in steps:
-            if date.fromisoformat(s_ini) <= pay_date <= date.fromisoformat(s_fin):
-                return rate
-        return steps[-1][2]
+    def _ultimo(df, col):
+        if df is None or col not in df.columns:
+            return None, None
+        s = df[["fecha", col]].dropna(subset=[col])
+        if s.empty:
+            return None, None
+        row = s.iloc[-1]
+        return float(row[col]), row["fecha"]
 
-    def _flujos_bono(ticker, par=100.0, desde=None):
-        """
-        Genera flujos de caja completos de un bono soberano argentino (30/360).
-        Retorna lista de dicts: {fecha, cupon, amort, total, saldo_post}.
-        """
-        info = _BOND_TERMS[ticker]
-        hoy = desde if desde is not None else date.today()
-        vto = date.fromisoformat(info["vto"])
-        emision = date.fromisoformat(info["emision"])
+    def _delta(df, col):
+        if df is None or col not in df.columns:
+            return None
+        s = df[[col]].dropna()
+        if len(s) < 2:
+            return None
+        return float(s.iloc[-1][col]) - float(s.iloc[-2][col])
 
-        # Mapa de amortizaciones: fecha → monto
-        amort_map = {date.fromisoformat(f): frac * par for f, frac in info["amort"]}
+    # ── Tasas de política monetaria ────────────────────────────────────────────
+    st.markdown('<div class="section-title">Tasas de Política Monetaria</div>', unsafe_allow_html=True)
 
-        # Generar todas las fechas de pago semianuales (9-ene y 9-jul) desde emisión
-        fechas_todas = []
-        f = vto
-        while f >= emision:
-            fechas_todas.append(f)
-            m, y = f.month - 6, f.year
-            if m <= 0:
-                m += 12
-                y -= 1
-            f = date(y, m, f.day)
-        fechas_todas.sort()
+    if _df_tasas is not None:
+        _t_cols = st.columns(len(_TASA_LABEL))
+        for i, (col, (label, pais, color)) in enumerate(_TASA_LABEL.items()):
+            val, fecha = _ultimo(_df_tasas, col)
+            dlt = _delta(_df_tasas, col)
+            with _t_cols[i]:
+                fecha_str = pd.Timestamp(fecha).strftime("%b %Y") if fecha is not None else ""
+                dlt_str = f"{dlt:+.2f} pp" if dlt is not None else "—"
+                dlt_class = "pos" if dlt and dlt > 0 else ("neg" if dlt and dlt < 0 else "neu")
+                st.markdown(f"""<div class="row-card" style="text-align:center">
+                    <div class="var-label">{label}</div>
+                    <div class="var-value" style="color:{color}">{f'{val:.2f}%' if val is not None else '—'}</div>
+                    <div class="var-fecha">{fecha_str}</div>
+                    <div class="delta-item"><span class="{dlt_class}">{dlt_str}</span></div>
+                </div>""", unsafe_allow_html=True)
 
-        # Saldo outstanding al comienzo del primer período futuro
-        saldo = par
-        for fstr, frac in info["amort"]:
-            if date.fromisoformat(fstr) < hoy:
-                saldo -= frac * par
-
-        rows = []
-        prev_saldo = saldo
-        for fecha in fechas_todas:
-            if fecha < hoy:
-                continue
-            rate = _cupon_rate(info["cupon_steps"], fecha)
-            cupon = rate / 2 * prev_saldo          # 30/360 → exactamente 0.5 año
-            amort_pago = amort_map.get(fecha, 0.0)
-            total = cupon + amort_pago
-            nuevo_saldo = prev_saldo - amort_pago
-            rows.append({
-                "fecha":      fecha,
-                "cupon":      round(cupon, 6),
-                "amort":      round(amort_pago, 6),
-                "total":      round(total, 6),
-                "saldo_post": round(nuevo_saldo, 6),
-            })
-            prev_saldo = nuevo_saldo
-        return rows
-
-    def _tir(precio, flujos_rows, iters=300):
-        """TIR por Newton-Raphson (precio vs flujos totales). Resultado en %."""
-        hoy = date.today()
-        t  = [(r["fecha"] - hoy).days / 365.0 for r in flujos_rows]
-        cf = [r["total"] for r in flujos_rows]
-        r = 0.05
-        for _ in range(iters):
-            pv  = sum(c / (1 + r) ** ti for ti, c in zip(t, cf))
-            dpv = sum(-ti * c / (1 + r) ** (ti + 1) for ti, c in zip(t, cf))
-            if abs(dpv) < 1e-12:
-                break
-            r_new = max(1e-4, min(r - (pv - precio) / dpv, 3.0))
-            if abs(r_new - r) < 1e-9:
-                r = r_new
-                break
-            r = r_new
-        return r * 100
-
-    def _duration(flujos_rows, tir_pct, precio):
-        """Devuelve (Macaulay Duration, Modified Duration) en años."""
-        hoy = date.today()
-        tir = tir_pct / 100
-        t  = [(r["fecha"] - hoy).days / 365.0 for r in flujos_rows]
-        cf = [r["total"] for r in flujos_rows]
-        mac = sum(ti * c / (1 + tir) ** ti for ti, c in zip(t, cf)) / precio
-        mod = mac / (1 + tir / 2)
-        return mac, mod
-
-    # ── Precios live (última fila por ticker del CSV) ─────────────────────────
-    precios_live = {}
-    variaciones_live = {}
-    if dfb is not None:
-        for ticker in _BOND_TERMS:
-            sub = dfb[dfb["ticker"] == ticker].sort_values("fecha")
-            if not sub.empty:
-                precios_live[ticker] = float(sub.iloc[-1]["precio"])
-                v = sub.iloc[-1].get("variacion_pct")
-                variaciones_live[ticker] = float(v) if v is not None and str(v) != "nan" else None
-
-    # ── Sección 1: Tabla de mercado ───────────────────────────────────────────
-    _st_l, _st_c = st.columns([1, 9])
-    with _st_c:
-        st.markdown('<div class="section-title">Precios de Mercado</div>', unsafe_allow_html=True)
-
-    if precios_live:
-        st.caption(
-            "Precios con hasta 20 min de retraso (Open BYMA Data). "
-            "TIR y Duration calculados con flujos de caja exactos (step-up coupons, amortización — 30/360)."
+        # Chart tasas
+        fig_t = go.Figure()
+        for col, (label, pais, color) in _TASA_LABEL.items():
+            if col in _df_tasas.columns:
+                _s = _df_tasas[["fecha", col]].dropna(subset=[col])
+                if not _s.empty:
+                    fig_t.add_trace(go.Scatter(
+                        x=_s["fecha"], y=_s[col], name=f"{label} ({pais})",
+                        line=dict(color=color, width=2)
+                    ))
+        fig_t.update_layout(
+            height=320, margin=dict(l=10, r=10, t=30, b=10),
+            legend=dict(orientation="h", y=-0.2),
+            yaxis_title="% anual", xaxis_title="",
+            plot_bgcolor="#F7F9FC", paper_bgcolor="#F7F9FC",
         )
+        st.plotly_chart(fig_t, use_container_width=True, key="macro_tasas_chart")
     else:
-        st.info("Precios de mercado no disponibles. Ejecutá el script `data/fetch_bonos.py` o el Action de GitHub para actualizarlos.")
+        st.info("Datos de tasas no disponibles aún. Se generan con el próximo fetch diario.")
 
-    tabla_rows = []
-    for ticker, info in _BOND_TERMS.items():
-        precio = precios_live.get(ticker)
-        variacion = variaciones_live.get(ticker)
-        try:
-            fl = _flujos_bono(ticker)
-            if precio and fl:
-                tir_v  = _tir(precio, fl)
-                mac, mod = _duration(fl, tir_v, precio)
-                dv01 = mod * precio / 10000
-                var_str = f"{variacion:+.2f}%" if variacion is not None else "-"
-                tabla_rows.append({
-                    "Bono":          ticker,
-                    "Descripción":   info["nombre"],
-                    "Precio (%)":    round(precio, 2),
-                    "Var. día":      var_str,
-                    "TIR (%)":       round(tir_v, 2),
-                    "Duration":      round(mac, 2),
-                    "Mod. Duration": round(mod, 2),
-                    "DV01 (x$100)":  round(dv01, 4),
-                })
-            else:
-                tabla_rows.append({
-                    "Bono": ticker, "Descripción": info["nombre"],
-                    "Precio (%)": "-", "Var. día": "-",
-                    "TIR (%)": "-", "Duration": "-", "Mod. Duration": "-", "DV01 (x$100)": "-",
-                })
-        except Exception:
-            tabla_rows.append({
-                "Bono": ticker, "Descripción": info["nombre"],
-                "Precio (%)": "-", "Var. día": "-",
-                "TIR (%)": "-", "Duration": "-", "Mod. Duration": "-", "DV01 (x$100)": "-",
-            })
+    # ── Inflación mundial ──────────────────────────────────────────────────────
+    st.markdown('<div class="section-title">Inflación Mundial (IPC Interanual)</div>', unsafe_allow_html=True)
 
-    _esp_t, _col_t = st.columns([1, 9])
-    with _col_t:
-        st.dataframe(
-            pd.DataFrame(tabla_rows).set_index("Bono"),
-            use_container_width=True,
-            height=440,
+    if _df_infl is not None:
+        _i_cols = st.columns(len(_CPI_COLS))
+        for i, (col, (pais, color)) in enumerate(_CPI_COLS.items()):
+            val, fecha = _ultimo(_df_infl, col)
+            dlt = _delta(_df_infl, col)
+            with _i_cols[i]:
+                fecha_str = pd.Timestamp(fecha).strftime("%b %Y") if fecha is not None else ""
+                dlt_str = f"{dlt:+.2f} pp" if dlt is not None else "—"
+                dlt_class = "neg" if dlt and dlt > 0 else ("pos" if dlt and dlt < 0 else "neu")
+                st.markdown(f"""<div class="row-card" style="text-align:center">
+                    <div class="var-label">{pais}</div>
+                    <div class="var-value" style="color:{color}">{f'{val:.1f}%' if val is not None else '—'}</div>
+                    <div class="var-fecha">{fecha_str}</div>
+                    <div class="delta-item"><span class="{dlt_class}">{dlt_str}</span></div>
+                </div>""", unsafe_allow_html=True)
+
+        fig_i = go.Figure()
+        for col, (pais, color) in _CPI_COLS.items():
+            if col in _df_infl.columns:
+                _s = _df_infl[["fecha", col]].dropna(subset=[col])
+                if not _s.empty:
+                    fig_i.add_trace(go.Scatter(
+                        x=_s["fecha"], y=_s[col], name=pais,
+                        line=dict(color=color, width=2)
+                    ))
+        fig_i.add_hline(y=2, line_dash="dot", line_color="#718096",
+                        annotation_text="Meta 2%", annotation_position="right")
+        fig_i.update_layout(
+            height=320, margin=dict(l=10, r=10, t=30, b=10),
+            legend=dict(orientation="h", y=-0.2),
+            yaxis_title="% interanual", xaxis_title="",
+            plot_bgcolor="#F7F9FC", paper_bgcolor="#F7F9FC",
         )
+        st.plotly_chart(fig_i, use_container_width=True, key="macro_infl_chart")
+    else:
+        st.info("Datos de inflación no disponibles aún.")
 
-    # ── Sección 2: Calculadora de flujo de caja ───────────────────────────────
-    _st_l, _st_c = st.columns([1, 9])
-    with _st_c:
-        st.markdown('<div class="section-title">Calculadora de Flujo de Caja</div>', unsafe_allow_html=True)
-
-    col_sel, col_vn, col_precio, col_esp = st.columns([2, 1, 1, 6])
-    with col_sel:
-        bono_calc = st.selectbox(
-            "Bono",
-            list(_BOND_TERMS.keys()),
-            format_func=lambda x: f"{x} — {_BOND_TERMS[x]['nombre']}",
-            key="calc_bono",
-        )
-    with col_vn:
-        vn_calc = st.number_input(
-            "Valor nominal (USD)",
-            min_value=1.0, value=100.0, step=100.0,
-            key="calc_vn",
-        )
-    precio_default = precios_live.get(bono_calc, 70.0)
-    with col_precio:
-        precio_calc = st.number_input(
-            "Precio (% del par)",
-            min_value=1.0, max_value=200.0,
-            value=float(round(precio_default, 2)),
-            step=0.25,
-            key="calc_precio",
-        )
-
-    try:
-        fl_calc = _flujos_bono(bono_calc, par=vn_calc)
-        if not fl_calc:
-            st.warning("El bono ya venció o no tiene flujos futuros.")
+    # ── Desempleo ──────────────────────────────────────────────────────────────
+    _col_u1, _col_u2 = st.columns(2)
+    with _col_u1:
+        st.markdown('<div class="section-title">Desempleo</div>', unsafe_allow_html=True)
+        if _df_unemp is not None:
+            _u_labels = {"us_unrate": ("EE.UU.", "#1B2A6B"), "eu_unrate": ("Eurozona", "#0070C0"), "jp_unrate": ("Japón", "#BC002D")}
+            fig_u = go.Figure()
+            for col, (pais, color) in _u_labels.items():
+                if col in _df_unemp.columns:
+                    _s = _df_unemp[["fecha", col]].dropna(subset=[col])
+                    if not _s.empty:
+                        fig_u.add_trace(go.Scatter(x=_s["fecha"], y=_s[col], name=pais,
+                                                   line=dict(color=color, width=2)))
+            fig_u.update_layout(height=280, margin=dict(l=10, r=10, t=20, b=10),
+                                legend=dict(orientation="h", y=-0.3),
+                                yaxis_title="% desocupados", xaxis_title="",
+                                plot_bgcolor="#F7F9FC", paper_bgcolor="#F7F9FC")
+            st.plotly_chart(fig_u, use_container_width=True, key="macro_unemp_chart")
         else:
-            # Métricas (calculadas sobre $100 nominal para comparabilidad)
-            fl_100 = _flujos_bono(bono_calc, par=100.0)
-            tir_calc  = _tir(precio_calc, fl_100)
-            mac_calc, mod_calc = _duration(fl_100, tir_calc, precio_calc)
-            dv01_calc = mod_calc * precio_calc / 10000
+            st.info("Sin datos de desempleo aún.")
 
-            _esp_r, _col_r = st.columns([1, 9])
-            with _col_r:
-                c1, c2, c3, c4 = st.columns(4)
-                for col_res, label_res, value_res, sufijo_res in [
-                    (c1, "TIR",               f"{tir_calc:.2f}",  "%"),
-                    (c2, "Duration (Mac.)",   f"{mac_calc:.2f}",  " años"),
-                    (c3, "Duration (Mod.)",   f"{mod_calc:.2f}",  " años"),
-                    (c4, "DV01 (x$100 nom.)", f"{dv01_calc:.4f}", " USD"),
-                ]:
-                    with col_res:
-                        st.markdown(f"""
-                        <div class="row-card" style="text-align:center; padding:20px 10px">
-                            <div class="var-label">{label_res}</div>
-                            <div class="var-value" style="font-size:26px">{value_res}<span style="font-size:13px;color:#718096"> {sufijo_res}</span></div>
-                        </div>""", unsafe_allow_html=True)
+    with _col_u2:
+        # ── PIB Growth ─────────────────────────────────────────────────────────
+        st.markdown('<div class="section-title">Crecimiento del PIB (%)</div>', unsafe_allow_html=True)
+        if _df_gdp is not None:
+            # Últimos 8 años disponibles, barras agrupadas
+            _gdp_reciente = _df_gdp[_df_gdp["fecha"] >= pd.Timestamp("2017-01-01")]
+            _years = _gdp_reciente["fecha"].dt.year.unique()[-6:]
+            _gdp_plot = _gdp_reciente[_gdp_reciente["fecha"].dt.year.isin(_years)]
 
-            # Gráfico de flujo de caja (stacked: cupón + amortización)
-            _st_l2, _st_c2 = st.columns([1, 9])
-            with _st_c2:
-                st.markdown('<div class="section-title">Flujo de Caja</div>', unsafe_allow_html=True)
-
-            fechas_fl  = [r["fecha"] for r in fl_calc]
-            cupones_fl = [r["cupon"] for r in fl_calc]
-            amorts_fl  = [r["amort"] for r in fl_calc]
-
-            fig_fl = go.Figure()
-            fig_fl.add_trace(go.Bar(
-                name="Cupón", x=fechas_fl, y=cupones_fl,
-                marker_color="#4299E1",
-                hovertemplate="%{x|%d/%m/%Y}<br>Cupón: $%{y:.4f}<extra></extra>",
-            ))
-            fig_fl.add_trace(go.Bar(
-                name="Amortización", x=fechas_fl, y=amorts_fl,
-                marker_color="#1B2A6B",
-                hovertemplate="%{x|%d/%m/%Y}<br>Amort.: $%{y:.4f}<extra></extra>",
-            ))
-            layout_fl = dict(LAYOUT_BASE)
-            layout_fl["title"] = dict(
-                text=(f"<b>Flujo de Caja — {bono_calc}</b>"
-                      f"  <span style='font-size:10px;color:#718096'>"
-                      f"VN: USD {vn_calc:,.0f} | precio: {precio_calc:.2f}% | TIR: {tir_calc:.2f}%</span>"),
-                font=dict(size=14, color="#2D3748"), x=0, xanchor="left", pad=dict(l=5),
+            fig_g = go.Figure()
+            for col, (pais, color) in _GDP_COLS.items():
+                if col in _gdp_plot.columns:
+                    _s = _gdp_plot[["fecha", col]].dropna(subset=[col])
+                    if not _s.empty:
+                        fig_g.add_trace(go.Bar(
+                            x=_s["fecha"].dt.year.astype(str), y=_s[col],
+                            name=pais, marker_color=color
+                        ))
+            fig_g.update_layout(
+                barmode="group", height=280,
+                margin=dict(l=10, r=10, t=20, b=10),
+                legend=dict(orientation="h", y=-0.3),
+                yaxis_title="% crecimiento real", xaxis_title="",
+                plot_bgcolor="#F7F9FC", paper_bgcolor="#F7F9FC",
             )
-            layout_fl["barmode"] = "stack"
-            layout_fl["margin"]  = dict(l=10, r=10, t=50, b=10)
-            layout_fl["height"]  = 320
-            layout_fl["legend"]  = dict(orientation="h", y=1.05, x=1, xanchor="right")
-            layout_fl["yaxis"]   = dict(
-                title=f"USD (VN {vn_calc:,.0f})", showgrid=True, gridcolor="#EDF2F7"
-            )
-            fig_fl.update_layout(**layout_fl)
+            st.plotly_chart(fig_g, use_container_width=True, key="macro_gdp_chart")
+        else:
+            st.info("Sin datos de PIB aún.")
 
-            _esp_fl, _col_fl = st.columns([1, 9])
-            with _col_fl:
-                st.plotly_chart(fig_fl, use_container_width=True, key="fl_calc_chart")
+# ════════════════════════════════════════════════════════════════════════════════
+# TAB 7 — CALENDARIO
+# ════════════════════════════════════════════════════════════════════════════════
+with tabs[7]:
+    _df_cal_int = cargar_calendario_int()
+    _df_cal_ar  = cargar_calendario_ar()
+    _df_earn    = cargar_earnings()
+    _hoy        = datetime.today().date()
+    _en_30      = _hoy + timedelta(days=60)
 
-            # Tabla detallada de flujos
-            _st_l3, _st_c3 = st.columns([1, 9])
-            with _st_c3:
-                st.markdown('<div class="section-title">Tabla de Flujos</div>', unsafe_allow_html=True)
+    _FLAG = {"USD": "🇺🇸", "EUR": "🇪🇺", "JPY": "🇯🇵", "CNY": "🇨🇳", "BRL": "🇧🇷", "ARS": "🇦🇷"}
+    _IMP_COLOR = {"High": "#C53030", "Medium": "#DD6B20", "Low": "#718096"}
 
-            df_fl = pd.DataFrame([{
-                "Fecha":            r["fecha"].strftime("%d/%m/%Y"),
-                "Saldo Inicial":    round(r["saldo_post"] + r["amort"], 4),
-                "Cupón":            round(r["cupon"], 4),
-                "Amortización":     round(r["amort"], 4),
-                "Flujo Total":      round(r["total"], 4),
-                "Saldo Post-Pago":  round(r["saldo_post"], 4),
-            } for r in fl_calc])
+    def _render_cal_table(df_ev, date_col="date"):
+        if df_ev is None or df_ev.empty:
+            st.info("Sin eventos próximos.")
+            return
+        rows_html = ""
+        for _, row in df_ev.iterrows():
+            fecha_fmt  = pd.Timestamp(row[date_col]).strftime("%d/%m")
+            imp        = row.get("impact", "Medium")
+            imp_color  = _IMP_COLOR.get(imp, "#718096")
+            flag       = _FLAG.get(str(row.get("currency", "")), "")
+            actual_str = str(row.get("actual", "")) if str(row.get("actual", "")) not in ["", "nan"] else "—"
+            prev_str   = str(row.get("previous", "")) if str(row.get("previous", "")) not in ["", "nan"] else "—"
+            fore_str   = str(row.get("forecast", "")) if str(row.get("forecast", "")) not in ["", "nan"] else "—"
+            source_str = str(row.get("source", ""))
+            rows_html += f"""<tr>
+                <td style="white-space:nowrap;font-weight:600;color:#1B2A6B">{fecha_fmt}</td>
+                <td>{flag} {row.get('currency','')}</td>
+                <td style="color:{imp_color};font-weight:700;font-size:11px">{imp[:1]}</td>
+                <td style="max-width:260px">{row.get('event','')}</td>
+                <td style="text-align:center;color:#718096;font-size:12px">{source_str}</td>
+                <td style="text-align:center">{prev_str}</td>
+                <td style="text-align:center">{fore_str}</td>
+                <td style="text-align:center;font-weight:600;color:#1B2A6B">{actual_str}</td>
+            </tr>"""
+        st.markdown(f"""<style>
+        .cal-table {{width:100%;border-collapse:collapse;font-size:13px;font-family:'Montserrat',sans-serif}}
+        .cal-table th {{background:#1B2A6B;color:#fff;padding:7px 10px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.5px}}
+        .cal-table td {{padding:6px 10px;border-bottom:1px solid #E2E8F0;vertical-align:middle}}
+        .cal-table tr:hover td {{background:#EBF8FF}}
+        </style>
+        <table class="cal-table"><thead><tr>
+            <th>Fecha</th><th>País</th><th>Imp</th><th>Evento</th>
+            <th>Fuente</th><th>Anterior</th><th>Consenso</th><th>Actual</th>
+        </tr></thead><tbody>{rows_html}</tbody></table>""", unsafe_allow_html=True)
 
-            _esp_tbl, _col_tbl = st.columns([1, 9])
-            with _col_tbl:
-                st.dataframe(df_fl, use_container_width=True, hide_index=True, height=320)
+    # ── Argentina ──────────────────────────────────────────────────────────────
+    st.markdown('<div class="section-title">Próximos Eventos — Argentina</div>', unsafe_allow_html=True)
+    if _df_cal_ar is not None:
+        _prox_ar = _df_cal_ar[
+            (_df_cal_ar["date"].dt.date >= _hoy) &
+            (_df_cal_ar["date"].dt.date <= _en_30)
+        ].copy()
+        _render_cal_table(_prox_ar)
+    else:
+        st.info("Calendario argentino no disponible aún.")
 
-    except Exception as e:
-        st.error(f"Error en el cálculo: {e}")
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # ── Internacional ──────────────────────────────────────────────────────────
+    st.markdown('<div class="section-title">Calendario Internacional (High Impact)</div>', unsafe_allow_html=True)
+    if _df_cal_int is not None:
+        _prox_int = _df_cal_int[
+            (_df_cal_int["date"].dt.date >= _hoy) &
+            (_df_cal_int["date"].dt.date <= _en_30)
+        ].copy()
+        _render_cal_table(_prox_int)
+    else:
+        st.info("Calendario internacional no disponible aún.")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # ── Balances empresariales ─────────────────────────────────────────────────
+    st.markdown('<div class="section-title">Próximos Balances Empresariales</div>', unsafe_allow_html=True)
+    if _df_earn is not None and not _df_earn.empty:
+        _earn_prox = _df_earn[_df_earn["date"].dt.date >= _hoy].head(30).copy()
+        if not _earn_prox.empty:
+            _earn_rows = ""
+            for _, row in _earn_prox.iterrows():
+                _flag_e = "🇦🇷" if row.get("country") == "AR" else "🌍"
+                _eps_e  = f"{row['eps_estimate']:.2f}" if pd.notna(row.get("eps_estimate")) else "—"
+                _rev_e  = f"USD {row['revenue_estimate_B']:.1f} B" if pd.notna(row.get("revenue_estimate_B")) else "—"
+                _earn_rows += f"""<tr>
+                    <td style="font-weight:600;color:#1B2A6B;white-space:nowrap">
+                        {pd.Timestamp(row['date']).strftime('%d/%m/%Y')}</td>
+                    <td>{_flag_e} <strong>{row['ticker']}</strong></td>
+                    <td>{row.get('company','')}</td>
+                    <td style="text-align:center;color:#718096">{_eps_e}</td>
+                    <td style="text-align:center;color:#718096">{_rev_e}</td>
+                </tr>"""
+            st.markdown(f"""<table class="cal-table"><thead><tr>
+                <th>Fecha</th><th>Ticker</th><th>Empresa</th>
+                <th>EPS Est.</th><th>Revenue Est.</th>
+            </tr></thead><tbody>{_earn_rows}</tbody></table>""", unsafe_allow_html=True)
+        else:
+            st.info("Sin balances programados en los próximos 60 días.")
+    else:
+        st.info("Calendario de balances no disponible aún. Se genera con el próximo fetch diario.")
 
 
 # ── Footer ────────────────────────────────────────────────────────────────────
@@ -1358,7 +1284,8 @@ st.markdown(
     "<div style='text-align:center; color:#A0AEC0; font-size:11px'>"
     "Fuentes: BCRA (API v4.0 & Excel ITCRM) · Ámbito Financiero (Riesgo País, MEP, CCL) · "
     "datos.gob.ar (EMAE, Fiscal, Comercio Exterior, Laborales) · "
-    "Yahoo Finance (Mercados Internacionales) · INDEC"
+    "Yahoo Finance (Mercados Internacionales) · INDEC · "
+    "FRED / St. Louis Fed (Macro Global) · Banco Central do Brasil · World Bank · ForexFactory"
     "</div>",
     unsafe_allow_html=True
 )
