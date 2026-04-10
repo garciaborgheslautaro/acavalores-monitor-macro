@@ -90,53 +90,40 @@ def fetch_worldbank(country, indicator, col):
 def update_csv(csv_path, new_data_dict):
     """
     Actualiza un CSV existente con datos nuevos de forma segura:
-    - Lee el CSV actual (seed) si existe
-    - Hace outer merge con los nuevos datos
-    - Prefiere los datos nuevos donde se solapan
-    - Aplica ffill SOLO para tasas (baja frecuencia)
-    - Guarda el resultado
+    - El seed (CSV existente) es AUTORITATIVO para todas sus fechas
+    - Solo se agregan filas con fechas ESTRICTAMENTE posteriores al seed
+    - Nunca se sobreescriben datos del seed con datos de APIs (evita stale data)
     """
     if os.path.exists(csv_path):
         df_old = pd.read_csv(csv_path, parse_dates=["fecha"])
+        seed_last_date = df_old["fecha"].max()
     else:
         df_old = None
+        seed_last_date = pd.Timestamp("2000-01-01")
 
-    # Combinar nuevos datos
+    # Solo tomar datos de APIs para fechas POSTERIORES al seed
     df_new = None
     for col, df_src in new_data_dict.items():
         if df_src is None or df_src.empty:
             continue
-        df_m = df_src[["fecha", col]].copy()
+        df_m = df_src[df_src["fecha"] > seed_last_date][["fecha", col]].copy()
+        if df_m.empty:
+            continue
         if df_new is None:
             df_new = df_m
         else:
             df_new = pd.merge(df_new, df_m, on="fecha", how="outer")
 
-    if df_new is None:
-        print(f"  Sin datos nuevos para {csv_path} — conservando existente")
+    if df_new is None or df_new.empty:
+        print(f"  Sin datos nuevos posteriores a {seed_last_date.date()} — conservando seed")
         return
 
-    if df_old is not None:
-        # Merge: conservar seed + sobreescribir con datos frescos donde haya
-        cols_comun = [c for c in df_new.columns if c != "fecha" and c in df_old.columns]
-        df_merged = pd.merge(df_old, df_new, on="fecha", how="outer", suffixes=("_old","_new"))
-        for col in cols_comun:
-            col_n = col+"_new"; col_o = col+"_old"
-            if col_n in df_merged.columns:
-                df_merged[col] = df_merged[col_n].combine_first(df_merged[col_o])
-                df_merged.drop(columns=[col_n, col_o], inplace=True)
-        # Añadir columnas nuevas que no estaban en el seed
-        for col in df_new.columns:
-            if col != "fecha" and col not in df_merged.columns:
-                df_merged = pd.merge(df_merged, df_new[["fecha", col]], on="fecha", how="left")
-        df_out = df_merged
-    else:
-        df_out = df_new
-
+    # Append: seed intacto + nuevas filas al final
+    df_out = pd.concat([df_old, df_new], ignore_index=True) if df_old is not None else df_new
     df_out.sort_values("fecha", inplace=True)
     df_out.reset_index(drop=True, inplace=True)
     df_out.to_csv(csv_path, index=False)
-    print(f"  → {csv_path} ({len(df_out)} filas)")
+    print(f"  → {csv_path} ({len(df_out)} filas, {len(df_new)} nuevas)")
 
 
 # ── Tasas de política monetaria ────────────────────────────────────────────────
