@@ -1247,7 +1247,7 @@ with tabs[7]:
             _earn_show["Fecha"] = pd.to_datetime(_earn_prox["date"]).dt.strftime("%d/%m/%Y")
             _earn_show["Ticker"] = _earn_prox["ticker"]
             _earn_show["Empresa"] = _earn_prox.get("company", "")
-            _earn_show["País"] = _earn_prox["country"].apply(lambda c: "Argentina" if c == "AR" else "Global")
+            _earn_show["País"] = _earn_prox["country"].fillna("—")
             _earn_show["EPS Est."] = _earn_prox["eps_estimate"].apply(
                 lambda v: f"{v:.2f}" if pd.notna(v) else "—")
             _earn_show["Rev. Est."] = _earn_prox["revenue_estimate_B"].apply(
