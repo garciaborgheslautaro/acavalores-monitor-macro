@@ -3,7 +3,7 @@
 
 Fuentes (todas libres, sin API key):
 - FRED direct CSV: Fed Funds, ECB, BoJ, CPI, desempleo
-- BCB API (Brasil): SELIC, IPCA
+- BCB API (Brasil): SELIC (Meta, serie 4390), IPCA
 - World Bank API: PIB growth por país
 """
 import requests
@@ -16,6 +16,7 @@ print("=== INICIO fetch_macro_global.py ===")
 os.makedirs("data", exist_ok=True)
 
 FRED_URL = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={}"
+# Serie 4390 = Meta da taxa Selic definida pelo Copom (mensal, % a.a.)
 BCB_URL  = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{}/dados/ultimos/120?formato=json"
 WB_URL   = "https://api.worldbank.org/v2/country/{}/indicator/{}?format=json&per_page=30&mrv=30"
 
@@ -38,20 +39,25 @@ def fetch_fred(series_id, col):
 
 
 def fetch_bcb(series_id, col):
+    """Descarga serie del BCB SGS. serie 4390 = Meta Selic (% a.a.)"""
     try:
-        r = requests.get(BCB_URL.format(series_id), timeout=15)
+        r = requests.get(BCB_URL.format(series_id), timeout=20)
+        r.raise_for_status()
         data = r.json()
         rows = []
         for item in data:
             try:
                 rows.append({
                     "fecha": pd.to_datetime(item["data"], format="%d/%m/%Y"),
-                    col: float(item["valor"].replace(",", ".")),
+                    col: float(str(item["valor"]).replace(",", ".")),
                 })
             except Exception:
                 pass
+        if not rows:
+            print(f"  ERROR BCB {series_id}: respuesta vacía")
+            return None
         df = pd.DataFrame(rows).sort_values("fecha").reset_index(drop=True)
-        df = df[df["fecha"] >= CORTE]
+        df = df[df["fecha"] >= CORTE].reset_index(drop=True)
         print(f"  OK BCB {series_id} ({col}) — {len(df)} registros, últ: {df.iloc[-1][col]:.2f}")
         return df if not df.empty else None
     except Exception as e:
@@ -96,7 +102,7 @@ df_tasas = merge_series({
     "us_fed":    fetch_fred("FEDFUNDS",          "us_fed"),
     "ecb_rate":  fetch_fred("ECBDFR",            "ecb_rate"),
     "boj_rate":  fetch_fred("IRSTCB01JPM156N",   "boj_rate"),
-    "selic":     fetch_bcb(11,                    "selic"),
+    "selic":     fetch_bcb(4390,                  "selic"),   # Meta Selic (% a.a., mensal)
 })
 if df_tasas is not None:
     df_tasas.to_csv("data/macro_tasas.csv", index=False)
