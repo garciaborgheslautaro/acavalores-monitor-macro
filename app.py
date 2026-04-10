@@ -1187,42 +1187,27 @@ with tabs[7]:
     _en_30      = _hoy + timedelta(days=60)
 
     _FLAG = {"USD": "🇺🇸", "EUR": "🇪🇺", "JPY": "🇯🇵", "CNY": "🇨🇳", "BRL": "🇧🇷", "ARS": "🇦🇷"}
-    _IMP_COLOR = {"High": "#C53030", "Medium": "#DD6B20", "Low": "#718096"}
 
     def _render_cal_table(df_ev, date_col="date"):
         if df_ev is None or df_ev.empty:
             st.info("Sin eventos próximos.")
             return
-        rows_html = ""
-        for _, row in df_ev.iterrows():
-            fecha_fmt  = pd.Timestamp(row[date_col]).strftime("%d/%m")
-            imp        = row.get("impact", "Medium")
-            imp_color  = _IMP_COLOR.get(imp, "#718096")
-            flag       = _FLAG.get(str(row.get("currency", "")), "")
-            actual_str = str(row.get("actual", "")) if str(row.get("actual", "")) not in ["", "nan"] else "—"
-            prev_str   = str(row.get("previous", "")) if str(row.get("previous", "")) not in ["", "nan"] else "—"
-            fore_str   = str(row.get("forecast", "")) if str(row.get("forecast", "")) not in ["", "nan"] else "—"
-            source_str = str(row.get("source", ""))
-            rows_html += f"""<tr>
-                <td style="white-space:nowrap;font-weight:600;color:#1B2A6B">{fecha_fmt}</td>
-                <td>{flag} {row.get('currency','')}</td>
-                <td style="color:{imp_color};font-weight:700;font-size:11px">{imp[:1]}</td>
-                <td style="max-width:260px">{row.get('event','')}</td>
-                <td style="text-align:center;color:#718096;font-size:12px">{source_str}</td>
-                <td style="text-align:center">{prev_str}</td>
-                <td style="text-align:center">{fore_str}</td>
-                <td style="text-align:center;font-weight:600;color:#1B2A6B">{actual_str}</td>
-            </tr>"""
-        st.markdown(f"""<style>
-        .cal-table {{width:100%;border-collapse:collapse;font-size:13px;font-family:'Montserrat',sans-serif}}
-        .cal-table th {{background:#1B2A6B;color:#fff;padding:7px 10px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.5px}}
-        .cal-table td {{padding:6px 10px;border-bottom:1px solid #E2E8F0;vertical-align:middle}}
-        .cal-table tr:hover td {{background:#EBF8FF}}
-        </style>
-        <table class="cal-table"><thead><tr>
-            <th>Fecha</th><th>País</th><th>Imp</th><th>Evento</th>
-            <th>Fuente</th><th>Anterior</th><th>Consenso</th><th>Actual</th>
-        </tr></thead><tbody>{rows_html}</tbody></table>""", unsafe_allow_html=True)
+        df_show = df_ev.copy()
+        df_show["Fecha"] = pd.to_datetime(df_show[date_col]).dt.strftime("%d/%m")
+        if "currency" in df_show.columns:
+            df_show["País"] = df_show["currency"].apply(lambda c: _FLAG.get(str(c), "") + " " + str(c))
+        if "impact" in df_show.columns:
+            _IMP_MAP = {"High": "🔴 Alta", "Medium": "🟡 Media", "Low": "⚪ Baja"}
+            df_show["Imp"] = df_show["impact"].apply(lambda x: _IMP_MAP.get(str(x), str(x)))
+        col_map = {"event": "Evento", "source": "Fuente", "previous": "Anterior",
+                   "forecast": "Consenso", "actual": "Actual"}
+        cols_out = ["Fecha", "País", "Imp"] if "currency" in df_show.columns else ["Fecha"]
+        for src, dst in col_map.items():
+            if src in df_show.columns:
+                df_show[dst] = df_show[src].fillna("—").replace("nan", "—").replace("", "—")
+                cols_out.append(dst)
+        st.dataframe(df_show[[c for c in cols_out if c in df_show.columns]],
+                     use_container_width=True, hide_index=True)
 
     # ── Argentina ──────────────────────────────────────────────────────────────
     st.markdown('<div class="section-title">Próximos Eventos — Argentina</div>', unsafe_allow_html=True)
@@ -1255,23 +1240,17 @@ with tabs[7]:
     if _df_earn is not None and not _df_earn.empty:
         _earn_prox = _df_earn[_df_earn["date"].dt.date >= _hoy].head(30).copy()
         if not _earn_prox.empty:
-            _earn_rows = ""
-            for _, row in _earn_prox.iterrows():
-                _flag_e = "🇦🇷" if row.get("country") == "AR" else "🌍"
-                _eps_e  = f"{row['eps_estimate']:.2f}" if pd.notna(row.get("eps_estimate")) else "—"
-                _rev_e  = f"USD {row['revenue_estimate_B']:.1f} B" if pd.notna(row.get("revenue_estimate_B")) else "—"
-                _earn_rows += f"""<tr>
-                    <td style="font-weight:600;color:#1B2A6B;white-space:nowrap">
-                        {pd.Timestamp(row['date']).strftime('%d/%m/%Y')}</td>
-                    <td>{_flag_e} <strong>{row['ticker']}</strong></td>
-                    <td>{row.get('company','')}</td>
-                    <td style="text-align:center;color:#718096">{_eps_e}</td>
-                    <td style="text-align:center;color:#718096">{_rev_e}</td>
-                </tr>"""
-            st.markdown(f"""<table class="cal-table"><thead><tr>
-                <th>Fecha</th><th>Ticker</th><th>Empresa</th>
-                <th>EPS Est.</th><th>Revenue Est.</th>
-            </tr></thead><tbody>{_earn_rows}</tbody></table>""", unsafe_allow_html=True)
+            _earn_show = pd.DataFrame()
+            _earn_show["Fecha"] = pd.to_datetime(_earn_prox["date"]).dt.strftime("%d/%m/%Y")
+            _earn_show["Ticker"] = _earn_prox["ticker"]
+            _earn_show["Empresa"] = _earn_prox.get("company", "")
+            _earn_show["País"] = _earn_prox["country"].apply(lambda c: "🇦🇷" if c == "AR" else "🌍")
+            _earn_show["EPS Est."] = _earn_prox["eps_estimate"].apply(
+                lambda v: f"{v:.2f}" if pd.notna(v) else "—")
+            _earn_show["Rev. Est."] = _earn_prox["revenue_estimate_B"].apply(
+                lambda v: f"USD {v:.1f}B" if pd.notna(v) else "—")
+            st.dataframe(_earn_show.reset_index(drop=True),
+                         use_container_width=True, hide_index=True)
         else:
             st.info("Sin balances programados en los próximos 60 días.")
     else:
