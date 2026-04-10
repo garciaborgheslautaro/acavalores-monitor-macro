@@ -83,7 +83,7 @@ def fetch_worldbank(country, indicator, col):
         return None
 
 
-def merge_series(dfs_dict):
+def merge_series(dfs_dict, ffill=True):
     df_out = None
     for col, df in dfs_dict.items():
         if df is None or df.empty:
@@ -92,6 +92,11 @@ def merge_series(dfs_dict):
         df_out = df_m if df_out is None else pd.merge(df_out, df_m, on="fecha", how="outer")
     if df_out is not None:
         df_out.sort_values("fecha", inplace=True)
+        if ffill:
+            # Forward-fill para series con baja frecuencia (ej: BoJ, tasas de bancos centrales)
+            for c in df_out.columns:
+                if c != "fecha":
+                    df_out[c] = df_out[c].ffill()
         df_out.reset_index(drop=True, inplace=True)
     return df_out
 
@@ -99,10 +104,10 @@ def merge_series(dfs_dict):
 # ── Tasas de política monetaria ────────────────────────────────────────────────
 print("\n[Tasas]")
 df_tasas = merge_series({
-    "us_fed":    fetch_fred("FEDFUNDS",          "us_fed"),
-    "ecb_rate":  fetch_fred("ECBDFR",            "ecb_rate"),
-    "boj_rate":  fetch_fred("IRSTCB01JPM156N",   "boj_rate"),
-    "selic":     fetch_bcb(4390,                  "selic"),   # Meta Selic (% a.a., mensal)
+    "us_fed":    fetch_fred("FEDFUNDS",        "us_fed"),
+    "ecb_rate":  fetch_fred("ECBDFR",          "ecb_rate"),
+    "boj_rate":  fetch_fred("IRSTJPNM193N",    "boj_rate"),  # BoJ overnight call rate (mensual)
+    "selic":     fetch_bcb(4390,               "selic"),     # Meta Selic (% a.a., mensal)
 })
 if df_tasas is not None:
     df_tasas.to_csv("data/macro_tasas.csv", index=False)
@@ -130,12 +135,20 @@ if df_br_monthly is not None:
     ) * 100
     df_br_cpi = df_br_monthly[["fecha", "br_cpi_yoy"]].dropna()
 
+# China: CHNCPIALLMINMEI es un índice (base ~100), hay que calcular YoY
+df_cn_idx = fetch_fred("CHNCPIALLMINMEI", "cn_cpi_idx")
+df_cn_cpi = None
+if df_cn_idx is not None:
+    df_cn_cpi = df_cn_idx.copy()
+    df_cn_cpi["cn_cpi_yoy"] = df_cn_cpi["cn_cpi_idx"].pct_change(12) * 100
+    df_cn_cpi = df_cn_cpi[["fecha", "cn_cpi_yoy"]].dropna()
+
 df_infl = merge_series({
     "us_cpi_yoy": df_us_cpi,
     "eu_cpi_yoy": fetch_fred("CPHPTT01EZM659N", "eu_cpi_yoy"),
     "jp_cpi_yoy": fetch_fred("CPALTT01JPM659N", "jp_cpi_yoy"),
     "br_cpi_yoy": df_br_cpi,
-    "cn_cpi_yoy": fetch_fred("CHNCPIALLMINMEI", "cn_cpi_yoy"),
+    "cn_cpi_yoy": df_cn_cpi,
 })
 if df_infl is not None:
     df_infl.to_csv("data/macro_inflacion.csv", index=False)
