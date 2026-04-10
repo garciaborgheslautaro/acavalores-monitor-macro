@@ -30,34 +30,38 @@ EMPRESAS_AR = {
     "PAM":   "Pampa Energía",
     "EDN":   "Edenor",
     "IRCP":  "IRSA Propiedades",
-    "ARCO":  "Arca Continental",
 }
 
-# Empresas globales principales
+# Empresas globales con país de origen
 EMPRESAS_GLOBAL = {
-    "AAPL":  "Apple",
-    "MSFT":  "Microsoft",
-    "GOOGL": "Alphabet",
-    "NVDA":  "NVIDIA",
-    "META":  "Meta",
-    "AMZN":  "Amazon",
-    "TSLA":  "Tesla",
-    "JPM":   "JPMorgan",
-    "BAC":   "Bank of America",
-    "GS":    "Goldman Sachs",
-    "XOM":   "ExxonMobil",
-    "CVX":   "Chevron",
-    "V":     "Visa",
-    "JNJ":   "Johnson & Johnson",
-    "WMT":   "Walmart",
-    "TSM":   "TSMC",
-    "VALE":  "Vale",
-    "PBR":   "Petrobras",
-    "ITUB":  "Itaú Unibanco",
-    "BABA":  "Alibaba",
-    "SAP":   "SAP",
-    "SHEL":  "Shell",
-    "TTE":   "TotalEnergies",
+    # EE.UU.
+    "AAPL":  ("Apple",             "EE.UU."),
+    "MSFT":  ("Microsoft",         "EE.UU."),
+    "GOOGL": ("Alphabet",          "EE.UU."),
+    "NVDA":  ("NVIDIA",            "EE.UU."),
+    "META":  ("Meta",              "EE.UU."),
+    "AMZN":  ("Amazon",            "EE.UU."),
+    "TSLA":  ("Tesla",             "EE.UU."),
+    "JPM":   ("JPMorgan",          "EE.UU."),
+    "BAC":   ("Bank of America",   "EE.UU."),
+    "GS":    ("Goldman Sachs",     "EE.UU."),
+    "XOM":   ("ExxonMobil",        "EE.UU."),
+    "CVX":   ("Chevron",           "EE.UU."),
+    "V":     ("Visa",              "EE.UU."),
+    "JNJ":   ("Johnson & Johnson", "EE.UU."),
+    "WMT":   ("Walmart",           "EE.UU."),
+    # Asia
+    "TSM":   ("TSMC",              "Taiwan"),
+    "BABA":  ("Alibaba",           "China"),
+    # Brasil
+    "VALE":  ("Vale",              "Brasil"),
+    "PBR":   ("Petrobras",         "Brasil"),
+    "ITUB":  ("Itaú Unibanco",     "Brasil"),
+    # Europa
+    "SAP":   ("SAP",               "Alemania"),
+    "SHEL":  ("Shell",             "Reino Unido"),
+    "TTE":   ("TotalEnergies",     "Francia"),
+    "ARCO":  ("Arca Continental",  "México"),
 }
 
 HOY    = datetime.today().date()
@@ -65,8 +69,9 @@ FUTURO = HOY + timedelta(days=120)
 
 records = []
 
-for ticker, nombre in {**EMPRESAS_AR, **EMPRESAS_GLOBAL}.items():
-    pais = "AR" if ticker in EMPRESAS_AR else "Global"
+for ticker, entry in {**{t: (n, "Argentina") for t, n in EMPRESAS_AR.items()},
+                       **EMPRESAS_GLOBAL}.items():
+    nombre, pais = entry
     try:
         t = yf.Ticker(ticker)
         cal = t.calendar
