@@ -33,7 +33,17 @@ TICKERS = {
 
 def fetch_ticker(ticker, nombre):
     try:
-        df = yf.download(ticker, start=HACE_2_ANOS, end=MANANA, progress=False, auto_adjust=True)
+        # multi_level_index=False: fix para yfinance >= 0.2.51 que devuelve
+        # MultiIndex incluso para un solo ticker (breaking change)
+        try:
+            df = yf.download(ticker, start=HACE_2_ANOS, end=MANANA,
+                             progress=False, auto_adjust=True, multi_level_index=False)
+        except TypeError:
+            df = yf.download(ticker, start=HACE_2_ANOS, end=MANANA,
+                             progress=False, auto_adjust=True)
+            if isinstance(df.columns, pd.MultiIndex):
+                df.columns = df.columns.get_level_values(0)
+
         if df.empty:
             print(f"  Sin datos — {nombre} ({ticker})")
             return None
@@ -41,7 +51,8 @@ def fetch_ticker(ticker, nombre):
         df.columns = [nombre]
         df.index.name = "fecha"
         df = df.reset_index()
-        df["fecha"] = pd.to_datetime(df["fecha"]).dt.tz_localize(None)
+        col_fecha = pd.to_datetime(df["fecha"])
+        df["fecha"] = col_fecha.dt.tz_convert(None) if col_fecha.dt.tz is not None else col_fecha
         print(f"  OK {nombre} ({ticker}) — {len(df)} registros — ultimo: {df.iloc[-1][nombre]:.2f}")
         return df
     except Exception as e:
