@@ -62,61 +62,57 @@ for semana in ["thisweek", "nextweek", "week2", "week3"]:
 
 # ── Hardcoded: reuniones bancos centrales 2026 ─────────────────────────────────
 REUNIONES_2026 = [
-    # FOMC
-    {"date": "2026-01-29", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed"},
-    {"date": "2026-03-18", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed"},
-    {"date": "2026-04-29", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed"},
-    {"date": "2026-06-10", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed"},
-    {"date": "2026-07-29", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed"},
-    {"date": "2026-09-16", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed"},
-    {"date": "2026-10-28", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed"},
-    {"date": "2026-12-09", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed"},
-    # NFP (primer viernes del mes)
-    {"date": "2026-02-06", "time": "08:30", "currency": "USD", "event": "Nóminas no agrícolas (NFP)", "impact": "High", "source": "BLS"},
-    {"date": "2026-03-06", "time": "08:30", "currency": "USD", "event": "Nóminas no agrícolas (NFP)", "impact": "High", "source": "BLS"},
-    {"date": "2026-04-03", "time": "08:30", "currency": "USD", "event": "Nóminas no agrícolas (NFP)", "impact": "High", "source": "BLS"},
-    {"date": "2026-05-01", "time": "08:30", "currency": "USD", "event": "Nóminas no agrícolas (NFP)", "impact": "High", "source": "BLS"},
-    {"date": "2026-06-05", "time": "08:30", "currency": "USD", "event": "Nóminas no agrícolas (NFP)", "impact": "High", "source": "BLS"},
-    {"date": "2026-07-10", "time": "08:30", "currency": "USD", "event": "Nóminas no agrícolas (NFP)", "impact": "High", "source": "BLS"},
-    # CPI USA (aprox día 11-15 de cada mes)
-    {"date": "2026-02-11", "time": "08:30", "currency": "USD", "event": "CPI EE.UU. (ene)", "impact": "High", "source": "BLS"},
-    {"date": "2026-03-11", "time": "08:30", "currency": "USD", "event": "CPI EE.UU. (feb)", "impact": "High", "source": "BLS"},
-    {"date": "2026-04-10", "time": "08:30", "currency": "USD", "event": "CPI EE.UU. (mar)", "impact": "High", "source": "BLS"},
-    {"date": "2026-05-12", "time": "08:30", "currency": "USD", "event": "CPI EE.UU. (abr)", "impact": "High", "source": "BLS"},
-    {"date": "2026-06-10", "time": "08:30", "currency": "USD", "event": "CPI EE.UU. (may)", "impact": "High", "source": "BLS"},
-    {"date": "2026-07-14", "time": "08:30", "currency": "USD", "event": "CPI EE.UU. (jun)", "impact": "High", "source": "BLS"},
-    # ECB
-    {"date": "2026-01-30", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB"},
-    {"date": "2026-03-06", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB"},
-    {"date": "2026-04-17", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB"},
-    {"date": "2026-06-05", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB"},
-    {"date": "2026-07-24", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB"},
-    {"date": "2026-09-11", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB"},
-    {"date": "2026-10-23", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB"},
-    {"date": "2026-12-04", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB"},
-    # BoJ
-    {"date": "2026-01-24", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ"},
-    {"date": "2026-03-19", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ"},
-    {"date": "2026-05-01", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ"},
-    {"date": "2026-06-17", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ"},
-    {"date": "2026-07-31", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ"},
-    {"date": "2026-09-19", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ"},
-    {"date": "2026-10-30", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ"},
-    {"date": "2026-12-19", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ"},
-    # COPOM Brasil
-    {"date": "2026-01-28", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB"},
-    {"date": "2026-03-18", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB"},
-    {"date": "2026-05-06", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB"},
-    {"date": "2026-06-17", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB"},
-    {"date": "2026-07-29", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB"},
-    {"date": "2026-09-16", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB"},
-    {"date": "2026-10-28", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB"},
-    {"date": "2026-12-09", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB"},
+    # FOMC — tasa objetivo Fed Funds (rango superior)
+    {"date": "2026-01-29", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "4.50%", "forecast": "4.50%", "actual": "4.50%"},
+    {"date": "2026-03-18", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "4.50%", "forecast": "4.50%", "actual": "4.50%"},
+    {"date": "2026-04-29", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "4.50%", "forecast": "4.50%", "actual": ""},
+    {"date": "2026-06-10", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "4.50%", "forecast": "4.25%", "actual": ""},
+    {"date": "2026-07-29", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "4.25%", "forecast": "", "actual": ""},
+    {"date": "2026-09-16", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-10-28", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-12-09", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "", "forecast": "", "actual": ""},
+    # NFP (miles de empleos)
+    {"date": "2026-02-06", "time": "08:30", "currency": "USD", "event": "Nóminas no agrícolas (NFP)", "impact": "High", "source": "BLS", "previous": "307K", "forecast": "170K", "actual": "151K"},
+    {"date": "2026-03-06", "time": "08:30", "currency": "USD", "event": "Nóminas no agrícolas (NFP)", "impact": "High", "source": "BLS", "previous": "151K", "forecast": "160K", "actual": "177K"},
+    {"date": "2026-04-03", "time": "08:30", "currency": "USD", "event": "Nóminas no agrícolas (NFP)", "impact": "High", "source": "BLS", "previous": "177K", "forecast": "140K", "actual": "228K"},
+    {"date": "2026-05-01", "time": "08:30", "currency": "USD", "event": "Nóminas no agrícolas (NFP)", "impact": "High", "source": "BLS", "previous": "228K", "forecast": "180K", "actual": ""},
+    {"date": "2026-06-05", "time": "08:30", "currency": "USD", "event": "Nóminas no agrícolas (NFP)", "impact": "High", "source": "BLS", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-07-10", "time": "08:30", "currency": "USD", "event": "Nóminas no agrícolas (NFP)", "impact": "High", "source": "BLS", "previous": "", "forecast": "", "actual": ""},
+    # CPI EE.UU. (interanual)
+    {"date": "2026-02-11", "time": "08:30", "currency": "USD", "event": "CPI EE.UU. (ene)", "impact": "High", "source": "BLS", "previous": "2.9%", "forecast": "2.9%", "actual": "3.0%"},
+    {"date": "2026-03-11", "time": "08:30", "currency": "USD", "event": "CPI EE.UU. (feb)", "impact": "High", "source": "BLS", "previous": "3.0%", "forecast": "2.9%", "actual": "2.8%"},
+    {"date": "2026-04-10", "time": "08:30", "currency": "USD", "event": "CPI EE.UU. (mar)", "impact": "High", "source": "BLS", "previous": "2.8%", "forecast": "2.6%", "actual": ""},
+    {"date": "2026-05-12", "time": "08:30", "currency": "USD", "event": "CPI EE.UU. (abr)", "impact": "High", "source": "BLS", "previous": "2.6%", "forecast": "", "actual": ""},
+    {"date": "2026-06-10", "time": "08:30", "currency": "USD", "event": "CPI EE.UU. (may)", "impact": "High", "source": "BLS", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-07-14", "time": "08:30", "currency": "USD", "event": "CPI EE.UU. (jun)", "impact": "High", "source": "BLS", "previous": "", "forecast": "", "actual": ""},
+    # ECB — tasa de depósito
+    {"date": "2026-01-30", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB", "previous": "3.00%", "forecast": "2.75%", "actual": "2.75%"},
+    {"date": "2026-03-06", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB", "previous": "2.75%", "forecast": "2.50%", "actual": "2.50%"},
+    {"date": "2026-04-17", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB", "previous": "2.50%", "forecast": "2.25%", "actual": ""},
+    {"date": "2026-06-05", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB", "previous": "2.25%", "forecast": "2.00%", "actual": ""},
+    {"date": "2026-07-24", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-09-11", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-10-23", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-12-04", "time": "08:15", "currency": "EUR", "event": "ECB — Decisión de tasa", "impact": "High", "source": "ECB", "previous": "", "forecast": "", "actual": ""},
+    # BoJ — overnight call rate
+    {"date": "2026-01-24", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ", "previous": "0.25%", "forecast": "0.50%", "actual": "0.50%"},
+    {"date": "2026-03-19", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ", "previous": "0.50%", "forecast": "0.50%", "actual": "0.50%"},
+    {"date": "2026-05-01", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ", "previous": "0.50%", "forecast": "0.75%", "actual": ""},
+    {"date": "2026-06-17", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-07-31", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-09-19", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-10-30", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-12-19", "time": "03:00", "currency": "JPY", "event": "BoJ — Decisión de tasa", "impact": "High", "source": "BoJ", "previous": "", "forecast": "", "actual": ""},
+    # COPOM — Meta Selic (% a.a.)
+    {"date": "2026-01-28", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB", "previous": "13.25%", "forecast": "14.75%", "actual": "14.75%"},
+    {"date": "2026-03-18", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB", "previous": "14.75%", "forecast": "15.25%", "actual": "14.75%"},
+    {"date": "2026-05-06", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB", "previous": "14.75%", "forecast": "14.75%", "actual": ""},
+    {"date": "2026-06-17", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-07-29", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-09-16", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-10-28", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-12-09", "time": "18:00", "currency": "BRL", "event": "COPOM — Decisión SELIC", "impact": "High", "source": "BCB", "previous": "", "forecast": "", "actual": ""},
 ]
-for ev in REUNIONES_2026:
-    ev.setdefault("previous", "")
-    ev.setdefault("forecast", "")
-    ev.setdefault("actual", "")
 
 # Combinar ForexFactory + hardcoded
 df_hc = pd.DataFrame(REUNIONES_2026)
@@ -149,18 +145,19 @@ print(f"  → calendario_internacional.csv ({len(df_combined)} eventos)")
 # ── Calendario Argentina (INDEC + BCRA) ────────────────────────────────────────
 EVENTOS_AR = [
     # IPC Nacional (INDEC) — aprox día 14 de cada mes
-    {"date": "2026-01-14", "event": "IPC Nacional (dic 2025)", "source": "INDEC", "impact": "High"},
-    {"date": "2026-02-13", "event": "IPC Nacional (ene 2026)", "source": "INDEC", "impact": "High"},
-    {"date": "2026-03-13", "event": "IPC Nacional (feb 2026)", "source": "INDEC", "impact": "High"},
-    {"date": "2026-04-14", "event": "IPC Nacional (mar 2026)", "source": "INDEC", "impact": "High"},
-    {"date": "2026-05-14", "event": "IPC Nacional (abr 2026)", "source": "INDEC", "impact": "High"},
-    {"date": "2026-06-11", "event": "IPC Nacional (may 2026)", "source": "INDEC", "impact": "High"},
-    {"date": "2026-07-14", "event": "IPC Nacional (jun 2026)", "source": "INDEC", "impact": "High"},
-    {"date": "2026-08-13", "event": "IPC Nacional (jul 2026)", "source": "INDEC", "impact": "High"},
-    {"date": "2026-09-10", "event": "IPC Nacional (ago 2026)", "source": "INDEC", "impact": "High"},
-    {"date": "2026-10-14", "event": "IPC Nacional (sep 2026)", "source": "INDEC", "impact": "High"},
-    {"date": "2026-11-12", "event": "IPC Nacional (oct 2026)", "source": "INDEC", "impact": "High"},
-    {"date": "2026-12-11", "event": "IPC Nacional (nov 2026)", "source": "INDEC", "impact": "High"},
+    # previous = mes anterior, actual = dato publicado, forecast = estimado de mercado
+    {"date": "2026-01-14", "event": "IPC Nacional (dic 2025)", "source": "INDEC", "impact": "High", "previous": "2.4%", "forecast": "2.5%", "actual": "2.7%"},
+    {"date": "2026-02-13", "event": "IPC Nacional (ene 2026)", "source": "INDEC", "impact": "High", "previous": "2.7%", "forecast": "2.5%", "actual": "2.9%"},
+    {"date": "2026-03-13", "event": "IPC Nacional (feb 2026)", "source": "INDEC", "impact": "High", "previous": "2.9%", "forecast": "2.4%", "actual": "2.4%"},
+    {"date": "2026-04-14", "event": "IPC Nacional (mar 2026)", "source": "INDEC", "impact": "High", "previous": "2.4%", "forecast": "3.5%", "actual": ""},
+    {"date": "2026-05-14", "event": "IPC Nacional (abr 2026)", "source": "INDEC", "impact": "High", "previous": "3.5%", "forecast": "", "actual": ""},
+    {"date": "2026-06-11", "event": "IPC Nacional (may 2026)", "source": "INDEC", "impact": "High", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-07-14", "event": "IPC Nacional (jun 2026)", "source": "INDEC", "impact": "High", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-08-13", "event": "IPC Nacional (jul 2026)", "source": "INDEC", "impact": "High", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-09-10", "event": "IPC Nacional (ago 2026)", "source": "INDEC", "impact": "High", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-10-14", "event": "IPC Nacional (sep 2026)", "source": "INDEC", "impact": "High", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-11-12", "event": "IPC Nacional (oct 2026)", "source": "INDEC", "impact": "High", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-12-11", "event": "IPC Nacional (nov 2026)", "source": "INDEC", "impact": "High", "previous": "", "forecast": "", "actual": ""},
     # EMAE
     {"date": "2026-03-24", "event": "EMAE (ene 2026)",  "source": "INDEC", "impact": "Medium"},
     {"date": "2026-04-23", "event": "EMAE (feb 2026)",  "source": "INDEC", "impact": "Medium"},

@@ -1009,10 +1009,10 @@ with tabs[6]:
         "ar":  ("Argentina", "🇦🇷"),
     }
     _TASA_LABEL = {
-        "us_fed":   ("Fed Funds", "EE.UU.", "#1B2A6B"),
-        "ecb_rate": ("ECB Depósito", "Eurozona", "#0070C0"),
-        "boj_rate": ("BoJ", "Japón", "#BC002D"),
-        "selic":    ("SELIC", "Brasil", "#009C3B"),
+        "us_fed":   ("Fed Funds (EE.UU.)", "EE.UU.", "#1B2A6B"),
+        "ecb_rate": ("ECB Depósito (Eurozona)", "Eurozona", "#0070C0"),
+        "boj_rate": ("BoJ (Japón)", "Japón", "#BC002D"),
+        "selic":    ("SELIC (Brasil)", "Brasil", "#009C3B"),
     }
     _CPI_COLS = {
         "us_cpi_yoy": ("EE.UU.", "#1B2A6B"),
@@ -1188,23 +1188,26 @@ with tabs[7]:
 
     _FLAG = {"USD": "🇺🇸", "EUR": "🇪🇺", "JPY": "🇯🇵", "CNY": "🇨🇳", "BRL": "🇧🇷", "ARS": "🇦🇷"}
 
+    _CURRENCY_PAIS = {
+        "USD": "EE.UU.", "EUR": "Eurozona", "JPY": "Japón",
+        "CNY": "China", "BRL": "Brasil", "ARS": "Argentina",
+    }
+
     def _render_cal_table(df_ev, date_col="date"):
         if df_ev is None or df_ev.empty:
             st.info("Sin eventos próximos.")
             return
         df_show = df_ev.copy()
-        df_show["Fecha"] = pd.to_datetime(df_show[date_col]).dt.strftime("%d/%m")
+        df_show["Fecha"] = pd.to_datetime(df_show[date_col]).dt.strftime("%d/%m/%Y")
         if "currency" in df_show.columns:
-            df_show["País"] = df_show["currency"].apply(lambda c: _FLAG.get(str(c), "") + " " + str(c))
-        if "impact" in df_show.columns:
-            _IMP_MAP = {"High": "🔴 Alta", "Medium": "🟡 Media", "Low": "⚪ Baja"}
-            df_show["Imp"] = df_show["impact"].apply(lambda x: _IMP_MAP.get(str(x), str(x)))
+            df_show["País"] = df_show["currency"].apply(
+                lambda c: _CURRENCY_PAIS.get(str(c), str(c)))
         col_map = {"event": "Evento", "source": "Fuente", "previous": "Anterior",
                    "forecast": "Consenso", "actual": "Actual"}
-        cols_out = ["Fecha", "País", "Imp"] if "currency" in df_show.columns else ["Fecha"]
+        cols_out = ["Fecha", "País"] if "currency" in df_show.columns else ["Fecha"]
         for src, dst in col_map.items():
             if src in df_show.columns:
-                df_show[dst] = df_show[src].fillna("—").replace("nan", "—").replace("", "—")
+                df_show[dst] = df_show[src].fillna("—").replace({"nan": "—", "": "—"})
                 cols_out.append(dst)
         st.dataframe(df_show[[c for c in cols_out if c in df_show.columns]],
                      use_container_width=True, hide_index=True)
@@ -1244,7 +1247,7 @@ with tabs[7]:
             _earn_show["Fecha"] = pd.to_datetime(_earn_prox["date"]).dt.strftime("%d/%m/%Y")
             _earn_show["Ticker"] = _earn_prox["ticker"]
             _earn_show["Empresa"] = _earn_prox.get("company", "")
-            _earn_show["País"] = _earn_prox["country"].apply(lambda c: "🇦🇷" if c == "AR" else "🌍")
+            _earn_show["País"] = _earn_prox["country"].apply(lambda c: "Argentina" if c == "AR" else "Global")
             _earn_show["EPS Est."] = _earn_prox["eps_estimate"].apply(
                 lambda v: f"{v:.2f}" if pd.notna(v) else "—")
             _earn_show["Rev. Est."] = _earn_prox["revenue_estimate_B"].apply(
