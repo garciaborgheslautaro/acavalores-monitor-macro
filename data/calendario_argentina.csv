@@ -1,0 +1,37 @@
+date,event,source,impact,actual,previous,forecast,currency
+2026-01-14,IPC Nacional (dic 2025),INDEC,High,2.9%,,,ARS
+2026-02-13,IPC Nacional (ene 2026),INDEC,High,2.9%,,,ARS
+2026-03-13,IPC Nacional (feb 2026),INDEC,High,,,,ARS
+2026-04-14,IPC Nacional (mar 2026),INDEC,High,,,,ARS
+2026-05-14,IPC Nacional (abr 2026),INDEC,High,,,,ARS
+2026-06-11,IPC Nacional (may 2026),INDEC,High,,,,ARS
+2026-07-14,IPC Nacional (jun 2026),INDEC,High,,,,ARS
+2026-08-13,IPC Nacional (jul 2026),INDEC,High,,,,ARS
+2026-09-10,IPC Nacional (ago 2026),INDEC,High,,,,ARS
+2026-10-14,IPC Nacional (sep 2026),INDEC,High,,,,ARS
+2026-11-12,IPC Nacional (oct 2026),INDEC,High,,,,ARS
+2026-12-11,IPC Nacional (nov 2026),INDEC,High,,,,ARS
+2026-03-24,EMAE (ene 2026),INDEC,Medium,,,,ARS
+2026-04-23,EMAE (feb 2026),INDEC,Medium,,,,ARS
+2026-05-21,EMAE (mar 2026),INDEC,Medium,,,,ARS
+2026-06-23,EMAE (abr 2026),INDEC,Medium,,,,ARS
+2026-07-23,EMAE (may 2026),INDEC,Medium,,,,ARS
+2026-08-20,EMAE (jun 2026),INDEC,Medium,,,,ARS
+2026-02-19,Comercio Exterior (dic 2025),INDEC,Medium,,,,ARS
+2026-03-19,Comercio Exterior (ene 2026),INDEC,Medium,,,,ARS
+2026-04-16,Comercio Exterior (feb 2026),INDEC,Medium,,,,ARS
+2026-05-19,Comercio Exterior (mar 2026),INDEC,Medium,,,,ARS
+2026-06-18,Comercio Exterior (abr 2026),INDEC,Medium,,,,ARS
+2026-07-16,Comercio Exterior (may 2026),INDEC,Medium,,,,ARS
+2026-03-19,PBI — Q4 2025,INDEC,High,,,,ARS
+2026-06-18,PBI — Q1 2026,INDEC,High,,,,ARS
+2026-09-17,PBI — Q2 2026,INDEC,High,,,,ARS
+2026-12-17,PBI — Q3 2026,INDEC,High,,,,ARS
+2026-01-30,BCRA — Política Monetaria,BCRA,High,,,,ARS
+2026-03-20,BCRA — Política Monetaria,BCRA,High,,,,ARS
+2026-05-08,BCRA — Política Monetaria,BCRA,High,,,,ARS
+2026-06-19,BCRA — Política Monetaria,BCRA,High,,,,ARS
+2026-08-07,BCRA — Política Monetaria,BCRA,High,,,,ARS
+2026-09-18,BCRA — Política Monetaria,BCRA,High,,,,ARS
+2026-10-30,BCRA — Política Monetaria,BCRA,High,,,,ARS
+2026-12-11,BCRA — Política Monetaria,BCRA,High,,,,ARS
