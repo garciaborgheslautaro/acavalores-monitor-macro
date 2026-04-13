@@ -177,16 +177,42 @@ else:
 # JP: YoY directo FRED
 df_jp_cpi = fetch_fred("CPALTT01JPM659N", "jp_cpi_yoy")
 
-# Brasil: IPCA mensual → YoY compuesto
+# Brasil: IPCA — IBGE API (fuente oficial, más confiable que BCB serie 433)
 df_br_cpi = None
-df_br_m = fetch_bcb(433, "br_ipca_m")
-if df_br_m is not None:
-    df_br_m = df_br_m.set_index("fecha").resample("ME").last().reset_index()
-    df_br_m["br_cpi_yoy"] = (
-        (1 + df_br_m["br_ipca_m"] / 100)
-        .rolling(12).apply(lambda x: x.prod(), raw=True) - 1
-    ) * 100
-    df_br_cpi = df_br_m[["fecha", "br_cpi_yoy"]].dropna()
+try:
+    # IBGE: agregado 1737, variável 63 = IPCA variação mensal %
+    ibge_url = "https://servicodados.ibge.gov.br/api/v3/agregados/1737/periodos/-60/variaveis/63?localidades=N1[all]"
+    r_ibge = requests.get(ibge_url, timeout=20)
+    r_ibge.raise_for_status()
+    ibge_data = r_ibge.json()
+    rows_ibge = []
+    for item in ibge_data[0]["resultados"][0]["series"][0]["serie"].items():
+        periodo, val = item
+        try:
+            rows_ibge.append({
+                "fecha": pd.Timestamp(f"{periodo[:4]}-{periodo[4:]}-01"),
+                "br_ipca_m": float(val),
+            })
+        except Exception:
+            pass
+    if rows_ibge:
+        df_ibge = pd.DataFrame(rows_ibge).sort_values("fecha").reset_index(drop=True)
+        df_ibge["br_cpi_yoy"] = (
+            (1 + df_ibge["br_ipca_m"] / 100)
+            .rolling(12).apply(lambda x: x.prod(), raw=True) - 1
+        ) * 100
+        df_br_cpi = df_ibge[["fecha", "br_cpi_yoy"]].dropna()
+        print(f"  OK IBGE IPCA — {len(df_br_cpi)} registros, últ: {df_br_cpi.iloc[-1]['br_cpi_yoy']:.2f}%")
+except Exception as e:
+    print(f"  ERROR IBGE IPCA: {e} — usando BCB fallback")
+    df_br_m = fetch_bcb(433, "br_ipca_m")
+    if df_br_m is not None:
+        df_br_m = df_br_m.set_index("fecha").resample("ME").last().reset_index()
+        df_br_m["br_cpi_yoy"] = (
+            (1 + df_br_m["br_ipca_m"] / 100)
+            .rolling(12).apply(lambda x: x.prod(), raw=True) - 1
+        ) * 100
+        df_br_cpi = df_br_m[["fecha", "br_cpi_yoy"]].dropna()
 
 # China: índice → YoY
 df_cn_cpi = None

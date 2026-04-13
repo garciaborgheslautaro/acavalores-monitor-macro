@@ -1,20 +1,20 @@
 date,time,currency,event,impact,source,previous,forecast,actual
 2026-01-24,03:00,JPY,BoJ — Decisión de tasa,High,BoJ,0.25%,0.50%,0.50%
 2026-01-28,18:00,BRL,COPOM — Decisión SELIC,High,BCB,13.25%,14.75%,14.75%
-2026-01-29,14:00,USD,FOMC — Decisión de tasa,High,Fed,4.50%,4.50%,4.50%
+2026-01-29,14:00,USD,FOMC — Decisión de tasa,High,Fed,3.83%,3.83%,3.83%
 2026-01-30,08:15,EUR,ECB — Decisión de tasa,High,ECB,3.00%,2.75%,2.75%
 2026-02-06,08:30,USD,Nóminas no agrícolas (NFP),High,BLS,307K,170K,151K
 2026-02-11,08:30,USD,CPI EE.UU. (ene),High,BLS,2.9%,2.9%,3.0%
 2026-03-06,08:30,USD,Nóminas no agrícolas (NFP),High,BLS,151K,160K,177K
 2026-03-06,08:15,EUR,ECB — Decisión de tasa,High,ECB,2.75%,2.50%,2.50%
 2026-03-11,08:30,USD,CPI EE.UU. (feb),High,BLS,3.0%,2.9%,2.8%
-2026-03-18,14:00,USD,FOMC — Decisión de tasa,High,Fed,4.50%,4.50%,4.50%
+2026-03-18,14:00,USD,FOMC — Decisión de tasa,High,Fed,3.83%,3.63%,3.63%
 2026-03-18,18:00,BRL,COPOM — Decisión SELIC,High,BCB,14.75%,15.25%,14.75%
 2026-03-19,03:00,JPY,BoJ — Decisión de tasa,High,BoJ,0.50%,0.50%,0.50%
 2026-04-03,08:30,USD,Nóminas no agrícolas (NFP),High,BLS,177K,140K,228K
 2026-04-10,08:30,USD,CPI EE.UU. (mar),High,BLS,2.8%,2.6%,
 2026-04-17,08:15,EUR,ECB — Decisión de tasa,High,ECB,2.50%,2.25%,
-2026-04-29,14:00,USD,FOMC — Decisión de tasa,High,Fed,4.50%,4.50%,
+2026-04-29,14:00,USD,FOMC — Decisión de tasa,High,Fed,3.63%,3.63%,
 2026-05-01,08:30,USD,Nóminas no agrícolas (NFP),High,BLS,228K,180K,
 2026-05-01,03:00,JPY,BoJ — Decisión de tasa,High,BoJ,0.50%,0.75%,
 2026-05-06,18:00,BRL,COPOM — Decisión SELIC,High,BCB,14.75%,14.75%,
@@ -22,14 +22,14 @@ date,time,currency,event,impact,source,previous,forecast,actual
 2026-06-05,08:30,USD,Nóminas no agrícolas (NFP),High,BLS,,,
 2026-06-05,08:15,EUR,ECB — Decisión de tasa,High,ECB,2.25%,2.00%,
 2026-06-10,08:30,USD,CPI EE.UU. (may),High,BLS,,,
-2026-06-10,14:00,USD,FOMC — Decisión de tasa,High,Fed,4.50%,4.25%,
+2026-06-10,14:00,USD,FOMC — Decisión de tasa,High,Fed,3.63%,3.38%,
 2026-06-17,03:00,JPY,BoJ — Decisión de tasa,High,BoJ,,,
 2026-06-17,18:00,BRL,COPOM — Decisión SELIC,High,BCB,,,
 2026-07-10,08:30,USD,Nóminas no agrícolas (NFP),High,BLS,,,
 2026-07-14,08:30,USD,CPI EE.UU. (jun),High,BLS,,,
 2026-07-24,08:15,EUR,ECB — Decisión de tasa,High,ECB,,,
 2026-07-29,18:00,BRL,COPOM — Decisión SELIC,High,BCB,,,
-2026-07-29,14:00,USD,FOMC — Decisión de tasa,High,Fed,4.25%,,
+2026-07-29,14:00,USD,FOMC — Decisión de tasa,High,Fed,,,
 2026-07-31,03:00,JPY,BoJ — Decisión de tasa,High,BoJ,,,
 2026-09-11,08:15,EUR,ECB — Decisión de tasa,High,ECB,,,
 2026-09-16,18:00,BRL,COPOM — Decisión SELIC,High,BCB,,,

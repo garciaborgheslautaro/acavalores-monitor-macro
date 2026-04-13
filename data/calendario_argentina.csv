@@ -1,4 +1,16 @@
 date,event,source,impact,previous,forecast,actual,currency
+2026-01-09,IPC CABA (dic 2025),DGEyC CABA,High,2.5%,2.7%,2.8%,ARS
+2026-02-10,IPC CABA (ene 2026),DGEyC CABA,High,2.8%,2.7%,3.1%,ARS
+2026-03-10,IPC CABA (feb 2026),DGEyC CABA,High,3.1%,2.5%,2.4%,ARS
+2026-04-09,IPC CABA (mar 2026),DGEyC CABA,High,2.4%,3.7%,,ARS
+2026-05-11,IPC CABA (abr 2026),DGEyC CABA,High,,,,ARS
+2026-06-08,IPC CABA (may 2026),DGEyC CABA,High,,,,ARS
+2026-07-09,IPC CABA (jun 2026),DGEyC CABA,High,,,,ARS
+2026-08-10,IPC CABA (jul 2026),DGEyC CABA,High,,,,ARS
+2026-09-07,IPC CABA (ago 2026),DGEyC CABA,High,,,,ARS
+2026-10-09,IPC CABA (sep 2026),DGEyC CABA,High,,,,ARS
+2026-11-09,IPC CABA (oct 2026),DGEyC CABA,High,,,,ARS
+2026-12-08,IPC CABA (nov 2026),DGEyC CABA,High,,,,ARS
 2026-01-14,IPC Nacional (dic 2025),INDEC,High,2.4%,2.5%,2.9%,ARS
 2026-02-13,IPC Nacional (ene 2026),INDEC,High,2.7%,2.5%,2.9%,ARS
 2026-03-13,IPC Nacional (feb 2026),INDEC,High,2.9%,2.4%,2.4%,ARS
@@ -11,22 +23,38 @@ date,event,source,impact,previous,forecast,actual,currency
 2026-10-14,IPC Nacional (sep 2026),INDEC,High,,,,ARS
 2026-11-12,IPC Nacional (oct 2026),INDEC,High,,,,ARS
 2026-12-11,IPC Nacional (nov 2026),INDEC,High,,,,ARS
-2026-03-24,EMAE (ene 2026),INDEC,Medium,,,,ARS
-2026-04-23,EMAE (feb 2026),INDEC,Medium,,,,ARS
-2026-05-21,EMAE (mar 2026),INDEC,Medium,,,,ARS
-2026-06-23,EMAE (abr 2026),INDEC,Medium,,,,ARS
-2026-07-23,EMAE (may 2026),INDEC,Medium,,,,ARS
-2026-08-20,EMAE (jun 2026),INDEC,Medium,,,,ARS
-2026-02-19,Comercio Exterior (dic 2025),INDEC,Medium,,,,ARS
-2026-03-19,Comercio Exterior (ene 2026),INDEC,Medium,,,,ARS
-2026-04-16,Comercio Exterior (feb 2026),INDEC,Medium,,,,ARS
-2026-05-19,Comercio Exterior (mar 2026),INDEC,Medium,,,,ARS
-2026-06-18,Comercio Exterior (abr 2026),INDEC,Medium,,,,ARS
-2026-07-16,Comercio Exterior (may 2026),INDEC,Medium,,,,ARS
+2026-03-24,EMAE (ene 2026),INDEC,High,,,,ARS
+2026-04-23,EMAE (feb 2026),INDEC,High,,,,ARS
+2026-05-21,EMAE (mar 2026),INDEC,High,,,,ARS
+2026-06-23,EMAE (abr 2026),INDEC,High,,,,ARS
+2026-07-23,EMAE (may 2026),INDEC,High,,,,ARS
+2026-08-20,EMAE (jun 2026),INDEC,High,,,,ARS
+2026-02-19,Intercambio Comercial (dic 2025),INDEC,Medium,,,,ARS
+2026-03-19,Intercambio Comercial (ene 2026),INDEC,Medium,,,,ARS
+2026-04-16,Intercambio Comercial (feb 2026),INDEC,Medium,,,,ARS
+2026-05-19,Intercambio Comercial (mar 2026),INDEC,Medium,,,,ARS
+2026-06-18,Intercambio Comercial (abr 2026),INDEC,Medium,,,,ARS
+2026-07-16,Intercambio Comercial (may 2026),INDEC,Medium,,,,ARS
+2026-03-26,EPH — Mercado de Trabajo Q4 2025,INDEC,High,,,,ARS
+2026-06-25,EPH — Mercado de Trabajo Q1 2026,INDEC,High,,,,ARS
+2026-09-24,EPH — Mercado de Trabajo Q2 2026,INDEC,High,,,,ARS
+2026-12-10,EPH — Mercado de Trabajo Q3 2026,INDEC,High,,,,ARS
 2026-03-19,PBI — Q4 2025,INDEC,High,,,,ARS
 2026-06-18,PBI — Q1 2026,INDEC,High,,,,ARS
 2026-09-17,PBI — Q2 2026,INDEC,High,,,,ARS
 2026-12-17,PBI — Q3 2026,INDEC,High,,,,ARS
+2026-01-22,REM — Expectativas de Mercado,BCRA,High,,,,ARS
+2026-02-19,REM — Expectativas de Mercado,BCRA,High,,,,ARS
+2026-03-26,REM — Expectativas de Mercado,BCRA,High,,,,ARS
+2026-04-23,REM — Expectativas de Mercado,BCRA,High,,,,ARS
+2026-05-21,REM — Expectativas de Mercado,BCRA,High,,,,ARS
+2026-06-25,REM — Expectativas de Mercado,BCRA,High,,,,ARS
+2026-07-23,REM — Expectativas de Mercado,BCRA,High,,,,ARS
+2026-08-20,REM — Expectativas de Mercado,BCRA,High,,,,ARS
+2026-09-24,REM — Expectativas de Mercado,BCRA,High,,,,ARS
+2026-10-22,REM — Expectativas de Mercado,BCRA,High,,,,ARS
+2026-11-26,REM — Expectativas de Mercado,BCRA,High,,,,ARS
+2026-12-17,REM — Expectativas de Mercado,BCRA,High,,,,ARS
 2026-01-30,BCRA — Política Monetaria,BCRA,High,,,,ARS
 2026-03-20,BCRA — Política Monetaria,BCRA,High,,,,ARS
 2026-05-08,BCRA — Política Monetaria,BCRA,High,,,,ARS

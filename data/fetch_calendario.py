@@ -62,12 +62,13 @@ for semana in ["thisweek", "nextweek", "week2", "week3"]:
 
 # ── Hardcoded: reuniones bancos centrales 2026 ─────────────────────────────────
 REUNIONES_2026 = [
-    # FOMC — tasa objetivo Fed Funds (rango superior)
-    {"date": "2026-01-29", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "4.50%", "forecast": "4.50%", "actual": "4.50%"},
-    {"date": "2026-03-18", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "4.50%", "forecast": "4.50%", "actual": "4.50%"},
-    {"date": "2026-04-29", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "4.50%", "forecast": "4.50%", "actual": ""},
-    {"date": "2026-06-10", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "4.50%", "forecast": "4.25%", "actual": ""},
-    {"date": "2026-07-29", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "4.25%", "forecast": "", "actual": ""},
+    # FOMC — tasa efectiva Fed Funds (midpoint rango objetivo)
+    # Sep 2025: 4.25→4.00% | Dec 2025: 4.00→3.75% | Mar 2026: 3.75→3.50%
+    {"date": "2026-01-29", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "3.83%", "forecast": "3.83%", "actual": "3.83%"},
+    {"date": "2026-03-18", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "3.83%", "forecast": "3.63%", "actual": "3.63%"},
+    {"date": "2026-04-29", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "3.63%", "forecast": "3.63%", "actual": ""},
+    {"date": "2026-06-10", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "3.63%", "forecast": "3.38%", "actual": ""},
+    {"date": "2026-07-29", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "", "forecast": "", "actual": ""},
     {"date": "2026-09-16", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "", "forecast": "", "actual": ""},
     {"date": "2026-10-28", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "", "forecast": "", "actual": ""},
     {"date": "2026-12-09", "time": "14:00", "currency": "USD", "event": "FOMC — Decisión de tasa", "impact": "High", "source": "Fed", "previous": "", "forecast": "", "actual": ""},
@@ -139,13 +140,28 @@ else:
 
 df_combined.sort_values("date", inplace=True)
 df_combined.reset_index(drop=True, inplace=True)
+for col in ["previous", "forecast", "actual", "time"]:
+    if col in df_combined.columns:
+        df_combined[col] = df_combined[col].fillna("")
 df_combined.to_csv(CSV_INT, index=False)
 print(f"  → calendario_internacional.csv ({len(df_combined)} eventos)")
 
 # ── Calendario Argentina (INDEC + BCRA) ────────────────────────────────────────
 EVENTOS_AR = [
+    # IPC CABA — Dirección de Estadística GCBA (publica ~3 días antes que INDEC)
+    {"date": "2026-01-09", "event": "IPC CABA (dic 2025)", "source": "DGEyC CABA", "impact": "High", "previous": "2.5%", "forecast": "2.7%", "actual": "2.8%"},
+    {"date": "2026-02-10", "event": "IPC CABA (ene 2026)", "source": "DGEyC CABA", "impact": "High", "previous": "2.8%", "forecast": "2.7%", "actual": "3.1%"},
+    {"date": "2026-03-10", "event": "IPC CABA (feb 2026)", "source": "DGEyC CABA", "impact": "High", "previous": "3.1%", "forecast": "2.5%", "actual": "2.4%"},
+    {"date": "2026-04-09", "event": "IPC CABA (mar 2026)", "source": "DGEyC CABA", "impact": "High", "previous": "2.4%", "forecast": "3.7%", "actual": ""},
+    {"date": "2026-05-11", "event": "IPC CABA (abr 2026)", "source": "DGEyC CABA", "impact": "High", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-06-08", "event": "IPC CABA (may 2026)", "source": "DGEyC CABA", "impact": "High", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-07-09", "event": "IPC CABA (jun 2026)", "source": "DGEyC CABA", "impact": "High", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-08-10", "event": "IPC CABA (jul 2026)", "source": "DGEyC CABA", "impact": "High", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-09-07", "event": "IPC CABA (ago 2026)", "source": "DGEyC CABA", "impact": "High", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-10-09", "event": "IPC CABA (sep 2026)", "source": "DGEyC CABA", "impact": "High", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-11-09", "event": "IPC CABA (oct 2026)", "source": "DGEyC CABA", "impact": "High", "previous": "", "forecast": "", "actual": ""},
+    {"date": "2026-12-08", "event": "IPC CABA (nov 2026)", "source": "DGEyC CABA", "impact": "High", "previous": "", "forecast": "", "actual": ""},
     # IPC Nacional (INDEC) — aprox día 14 de cada mes
-    # previous = mes anterior, actual = dato publicado, forecast = estimado de mercado
     {"date": "2026-01-14", "event": "IPC Nacional (dic 2025)", "source": "INDEC", "impact": "High", "previous": "2.4%", "forecast": "2.5%", "actual": "2.7%"},
     {"date": "2026-02-13", "event": "IPC Nacional (ene 2026)", "source": "INDEC", "impact": "High", "previous": "2.7%", "forecast": "2.5%", "actual": "2.9%"},
     {"date": "2026-03-13", "event": "IPC Nacional (feb 2026)", "source": "INDEC", "impact": "High", "previous": "2.9%", "forecast": "2.4%", "actual": "2.4%"},
@@ -158,25 +174,43 @@ EVENTOS_AR = [
     {"date": "2026-10-14", "event": "IPC Nacional (sep 2026)", "source": "INDEC", "impact": "High", "previous": "", "forecast": "", "actual": ""},
     {"date": "2026-11-12", "event": "IPC Nacional (oct 2026)", "source": "INDEC", "impact": "High", "previous": "", "forecast": "", "actual": ""},
     {"date": "2026-12-11", "event": "IPC Nacional (nov 2026)", "source": "INDEC", "impact": "High", "previous": "", "forecast": "", "actual": ""},
-    # EMAE
-    {"date": "2026-03-24", "event": "EMAE (ene 2026)",  "source": "INDEC", "impact": "Medium"},
-    {"date": "2026-04-23", "event": "EMAE (feb 2026)",  "source": "INDEC", "impact": "Medium"},
-    {"date": "2026-05-21", "event": "EMAE (mar 2026)",  "source": "INDEC", "impact": "Medium"},
-    {"date": "2026-06-23", "event": "EMAE (abr 2026)",  "source": "INDEC", "impact": "Medium"},
-    {"date": "2026-07-23", "event": "EMAE (may 2026)",  "source": "INDEC", "impact": "Medium"},
-    {"date": "2026-08-20", "event": "EMAE (jun 2026)",  "source": "INDEC", "impact": "Medium"},
-    # Comercio exterior
-    {"date": "2026-02-19", "event": "Comercio Exterior (dic 2025)", "source": "INDEC", "impact": "Medium"},
-    {"date": "2026-03-19", "event": "Comercio Exterior (ene 2026)", "source": "INDEC", "impact": "Medium"},
-    {"date": "2026-04-16", "event": "Comercio Exterior (feb 2026)", "source": "INDEC", "impact": "Medium"},
-    {"date": "2026-05-19", "event": "Comercio Exterior (mar 2026)", "source": "INDEC", "impact": "Medium"},
-    {"date": "2026-06-18", "event": "Comercio Exterior (abr 2026)", "source": "INDEC", "impact": "Medium"},
-    {"date": "2026-07-16", "event": "Comercio Exterior (may 2026)", "source": "INDEC", "impact": "Medium"},
+    # EMAE (Estimador Mensual de Actividad Económica)
+    {"date": "2026-03-24", "event": "EMAE (ene 2026)",  "source": "INDEC", "impact": "High"},
+    {"date": "2026-04-23", "event": "EMAE (feb 2026)",  "source": "INDEC", "impact": "High"},
+    {"date": "2026-05-21", "event": "EMAE (mar 2026)",  "source": "INDEC", "impact": "High"},
+    {"date": "2026-06-23", "event": "EMAE (abr 2026)",  "source": "INDEC", "impact": "High"},
+    {"date": "2026-07-23", "event": "EMAE (may 2026)",  "source": "INDEC", "impact": "High"},
+    {"date": "2026-08-20", "event": "EMAE (jun 2026)",  "source": "INDEC", "impact": "High"},
+    # Comercio Exterior
+    {"date": "2026-02-19", "event": "Intercambio Comercial (dic 2025)", "source": "INDEC", "impact": "Medium"},
+    {"date": "2026-03-19", "event": "Intercambio Comercial (ene 2026)", "source": "INDEC", "impact": "Medium"},
+    {"date": "2026-04-16", "event": "Intercambio Comercial (feb 2026)", "source": "INDEC", "impact": "Medium"},
+    {"date": "2026-05-19", "event": "Intercambio Comercial (mar 2026)", "source": "INDEC", "impact": "Medium"},
+    {"date": "2026-06-18", "event": "Intercambio Comercial (abr 2026)", "source": "INDEC", "impact": "Medium"},
+    {"date": "2026-07-16", "event": "Intercambio Comercial (may 2026)", "source": "INDEC", "impact": "Medium"},
+    # EPH (Encuesta Permanente de Hogares — desempleo y pobreza, trimestral)
+    {"date": "2026-03-26", "event": "EPH — Mercado de Trabajo Q4 2025", "source": "INDEC", "impact": "High"},
+    {"date": "2026-06-25", "event": "EPH — Mercado de Trabajo Q1 2026", "source": "INDEC", "impact": "High"},
+    {"date": "2026-09-24", "event": "EPH — Mercado de Trabajo Q2 2026", "source": "INDEC", "impact": "High"},
+    {"date": "2026-12-10", "event": "EPH — Mercado de Trabajo Q3 2026", "source": "INDEC", "impact": "High"},
     # PBI trimestral
     {"date": "2026-03-19", "event": "PBI — Q4 2025",  "source": "INDEC", "impact": "High"},
     {"date": "2026-06-18", "event": "PBI — Q1 2026",  "source": "INDEC", "impact": "High"},
     {"date": "2026-09-17", "event": "PBI — Q2 2026",  "source": "INDEC", "impact": "High"},
     {"date": "2026-12-17", "event": "PBI — Q3 2026",  "source": "INDEC", "impact": "High"},
+    # BCRA — REM (Relevamiento de Expectativas de Mercado)
+    {"date": "2026-01-22", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
+    {"date": "2026-02-19", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
+    {"date": "2026-03-26", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
+    {"date": "2026-04-23", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
+    {"date": "2026-05-21", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
+    {"date": "2026-06-25", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
+    {"date": "2026-07-23", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
+    {"date": "2026-08-20", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
+    {"date": "2026-09-24", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
+    {"date": "2026-10-22", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
+    {"date": "2026-11-26", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
+    {"date": "2026-12-17", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
     # BCRA reuniones de política monetaria
     {"date": "2026-01-30", "event": "BCRA — Política Monetaria", "source": "BCRA", "impact": "High"},
     {"date": "2026-03-20", "event": "BCRA — Política Monetaria", "source": "BCRA", "impact": "High"},
@@ -211,6 +245,10 @@ try:
 except Exception as e:
     print(f"  No se pudieron rellenar actuals AR: {e}")
 
+# Llenar NaN con "" para que el CSV no tenga "nan"
+for col in ["previous", "forecast", "actual", "time"]:
+    if col in df_ar.columns:
+        df_ar[col] = df_ar[col].fillna("")
 df_ar.to_csv(CSV_AR, index=False)
 print(f"  → calendario_argentina.csv ({len(df_ar)} eventos)")
 
