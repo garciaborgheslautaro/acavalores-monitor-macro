@@ -238,8 +238,8 @@ update_csv("data/macro_desempleo.csv", {
     "jp_unrate": fetch_fred("LRHUTTTTJPM156S", "jp_unrate"),
 })
 
-# ── PIB — Crecimiento anual (World Bank) ───────────────────────────────────────
-print("\n[PIB YoY — World Bank]")
+# ── PIB — Crecimiento anual (World Bank + IMF proyecciones) ───────────────────
+print("\n[PIB YoY — World Bank + IMF]")
 IND_GDP = "NY.GDP.MKTP.KD.ZG"
 update_csv("data/macro_gdp.csv", {
     "us_gdp": fetch_worldbank("US", IND_GDP, "us_gdp"),
@@ -248,6 +248,113 @@ update_csv("data/macro_gdp.csv", {
     "jp_gdp": fetch_worldbank("JP", IND_GDP, "jp_gdp"),
     "br_gdp": fetch_worldbank("BR", IND_GDP, "br_gdp"),
     "ar_gdp": fetch_worldbank("AR", IND_GDP, "ar_gdp"),
+})
+
+# IMF WEO API — proyecciones 2025-2027
+def fetch_imf_gdp():
+    try:
+        url = "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH/USA/EUQ/CHN/JPN/BRA/ARG"
+        r = requests.get(url, timeout=20)
+        data = r.json()
+        vals = data.get("values", {}).get("NGDP_RPCH", {})
+        country_map = {"USA": "us_gdp", "EUQ": "eu_gdp", "CHN": "cn_gdp",
+                       "JPN": "jp_gdp", "BRA": "br_gdp", "ARG": "ar_gdp"}
+        rows = {}
+        for imf_code, col in country_map.items():
+            for year, val in vals.get(imf_code, {}).items():
+                yr = int(year)
+                if yr < 2020:
+                    continue
+                key = f"{yr}-01-01"
+                if key not in rows:
+                    rows[key] = {"fecha": pd.Timestamp(key)}
+                rows[key][col] = float(val)
+        if not rows:
+            return None
+        df_imf = pd.DataFrame(list(rows.values())).sort_values("fecha").reset_index(drop=True)
+        print(f"  OK IMF GDP — {len(df_imf)} años, hasta {df_imf['fecha'].max().year}")
+        return df_imf
+    except Exception as e:
+        print(f"  ERROR IMF GDP: {e}")
+        return None
+
+df_imf = fetch_imf_gdp()
+if df_imf is not None:
+    # Upsert IMF data into macro_gdp.csv for years not yet in WB data
+    df_gdp_cur = pd.read_csv("data/macro_gdp.csv", parse_dates=["fecha"])
+    wb_last = df_gdp_cur["fecha"].max()
+    df_imf_new = df_imf[df_imf["fecha"] > wb_last]
+    if not df_imf_new.empty:
+        df_gdp_out = pd.concat([df_gdp_cur, df_imf_new], ignore_index=True)
+        df_gdp_out.sort_values("fecha", inplace=True)
+        df_gdp_out.to_csv("data/macro_gdp.csv", index=False)
+        print(f"  → macro_gdp.csv actualizado con {len(df_imf_new)} años IMF")
+    else:
+        print("  Sin años nuevos de IMF posteriores al seed")
+
+# ── PCE — Deflactor consumo personal EE.UU. ───────────────────────────────────
+print("\n[PCE]")
+df_pce_idx = fetch_fred("PCEPI", "pce_idx")
+df_pce = None
+if df_pce_idx is not None:
+    df_pce = df_pce_idx.copy()
+    df_pce["us_pce_yoy"] = df_pce["pce_idx"].pct_change(12) * 100
+    df_pce = df_pce[["fecha", "us_pce_yoy"]].dropna()
+
+df_cpce_idx = fetch_fred("PCEPILFE", "cpce_idx")
+df_core_pce = None
+if df_cpce_idx is not None:
+    df_core_pce = df_cpce_idx.copy()
+    df_core_pce["us_core_pce_yoy"] = df_core_pce["cpce_idx"].pct_change(12) * 100
+    df_core_pce = df_core_pce[["fecha", "us_core_pce_yoy"]].dropna()
+
+update_csv("data/macro_pce.csv", {
+    "us_pce_yoy":      df_pce,
+    "us_core_pce_yoy": df_core_pce,
+})
+
+# ── Yields — Bonos del Tesoro EE.UU. ─────────────────────────────────────────
+print("\n[Yields]")
+update_csv("data/macro_yields.csv", {
+    "us_10y": fetch_fred("DGS10", "us_10y"),
+    "us_2y":  fetch_fred("DGS2",  "us_2y"),
+})
+
+# ── Mercado Laboral EE.UU. ────────────────────────────────────────────────────
+print("\n[Mercado Laboral EE.UU.]")
+
+def fetch_fred_level(series_id, col):
+    """Fetch FRED series as level (not monthly resampled)."""
+    try:
+        df = pd.read_csv(FRED_URL.format(series_id))
+        df.columns = ["fecha", col]
+        df["fecha"] = pd.to_datetime(df["fecha"])
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+        df = df.dropna(subset=[col])
+        df = df[df["fecha"] >= CORTE].reset_index(drop=True)
+        # Resample monthly
+        df = df.set_index("fecha").resample("MS").last()[[col]].ffill().reset_index()
+        print(f"  OK FRED {series_id} ({col}) — {len(df)} registros, últ: {df.iloc[-1][col]:.1f}")
+        return df
+    except Exception as e:
+        print(f"  ERROR FRED {series_id}: {e}")
+        return None
+
+# PAYEMS: Non-farm payrolls (level, in thousands) — need monthly change
+df_payems = None
+df_payems_lvl = fetch_fred("PAYEMS", "payems")
+if df_payems_lvl is not None:
+    df_payems = df_payems_lvl.copy()
+    df_payems["nfp"] = df_payems["payems"].diff()
+    df_payems = df_payems[["fecha", "nfp"]].dropna()
+
+df_quits  = fetch_fred_level("JTSQUR", "quit_rate")    # Quit Rate %
+df_jobopenings = fetch_fred_level("JTSJOL", "job_openings")  # Job Openings millions
+
+update_csv("data/macro_labor.csv", {
+    "nfp":          df_payems,
+    "quit_rate":    df_quits,
+    "job_openings": df_jobopenings,
 })
 
 print("\n=== FIN fetch_macro_global.py ===")
