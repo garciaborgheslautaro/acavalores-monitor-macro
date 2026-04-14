@@ -97,6 +97,55 @@ except Exception as e:
     print(f"  ERROR Fear&Greed: {e}")
     result["fear_greed"] = None
 
+# ── Noticias financieras — RSS feeds ─────────────────────────────────────────
+print("\n[Noticias]")
+
+def _parse_rss(url, max_items=8, timeout=15):
+    """Parse RSS feed and return list of {title, link, published}."""
+    try:
+        import xml.etree.ElementTree as ET
+        r = requests.get(url, timeout=timeout, headers={"User-Agent": "Mozilla/5.0"})
+        r.raise_for_status()
+        root = ET.fromstring(r.content)
+        items = []
+        ns = {"media": "http://search.yahoo.com/mrss/"}
+        for item in root.findall(".//item")[:max_items]:
+            title = item.findtext("title", "").strip()
+            link  = item.findtext("link", "").strip()
+            pub   = item.findtext("pubDate", "").strip()
+            # Clean Google News redirect titles (remove source suffix)
+            if " - " in title:
+                title = title.rsplit(" - ", 1)[0].strip()
+            if title and link:
+                items.append({"title": title, "link": link, "published": pub})
+        return items
+    except Exception as e:
+        print(f"  ERROR RSS {url[:60]}: {e}")
+        return []
+
+NEWS_FEEDS = {
+    "mercados_us": (
+        "https://feeds.finance.yahoo.com/rss/2.0/headline?s=^GSPC,^IXIC&region=US&lang=en-US",
+        "Mercados EE.UU."
+    ),
+    "noticias_us": (
+        "https://news.google.com/rss/search?q=stock+market+economy&hl=en&gl=US&ceid=US:en",
+        "Economía Global"
+    ),
+    "argentina": (
+        "https://news.google.com/rss/search?q=argentina+economia+dolar+mercado&hl=es&gl=AR&ceid=AR:es",
+        "Argentina"
+    ),
+}
+
+news_result = {}
+for key, (url, label) in NEWS_FEEDS.items():
+    items = _parse_rss(url)
+    news_result[key] = {"label": label, "items": items}
+    print(f"  {label}: {len(items)} noticias")
+
+result["news"] = news_result
+
 # ── Metadata ──────────────────────────────────────────────────────────────────
 result["updated_at"] = datetime.now().strftime("%Y-%m-%d %H:%M")
 result["updated_date"] = datetime.now().strftime("%Y-%m-%d")

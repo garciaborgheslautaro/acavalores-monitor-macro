@@ -1168,7 +1168,7 @@ with tabs[6]:
     with _mg_col4:
         st.markdown('<div class="section-title">Crecimiento del PIB (%) — hist. + proy. IMF</div>', unsafe_allow_html=True)
         if _df_gdp is not None:
-            _gdp_reciente = _df_gdp[_df_gdp["fecha"] >= pd.Timestamp("2019-01-01")]
+            _gdp_reciente = _df_gdp[_df_gdp["fecha"] >= pd.Timestamp("2018-01-01")]
             _HIST_CUTOFF = pd.Timestamp("2025-01-01")
             fig_g = go.Figure()
             for col, (pais, color) in _GDP_COLS.items():
@@ -1180,19 +1180,32 @@ with tabs[6]:
                         if not _s_hist.empty:
                             fig_g.add_trace(go.Bar(
                                 x=_s_hist["fecha"].dt.year.astype(str), y=_s_hist[col],
-                                name=pais, marker_color=color, showlegend=True
+                                name=pais, marker_color=color, showlegend=True,
+                                legendgroup=pais,
                             ))
                         if not _s_proj.empty:
                             fig_g.add_trace(go.Bar(
                                 x=_s_proj["fecha"].dt.year.astype(str), y=_s_proj[col],
-                                name=f"{pais} (proy.)", marker_color=color,
-                                marker_pattern_shape="/", opacity=0.7, showlegend=False
+                                name=pais, marker_color=color,
+                                marker_pattern_shape="/", opacity=0.65,
+                                showlegend=False, legendgroup=pais,
                             ))
-            fig_g.add_vline(x=3.5, line_dash="dot", line_color="#718096", line_width=1)
-            fig_g.add_annotation(x=3.7, y=0, text="proy.", font=dict(size=9, color="#718096"),
-                                 showarrow=False)
+            # Mark projection years with annotation on x-axis
+            for yr in ["2025", "2026", "2027"]:
+                fig_g.add_annotation(
+                    x=yr, y=0, text="★", showarrow=False,
+                    font=dict(size=8, color="#718096"), yshift=-14,
+                )
+            _layout_gdp = dict(**_LAYOUT_COMPACT)
+            _layout_gdp["margin"] = dict(l=5, r=5, t=25, b=30)
             fig_g.update_layout(
-                barmode="group", **_LAYOUT_COMPACT, yaxis_title="% crecimiento real"
+                barmode="group", **_layout_gdp,
+                yaxis_title="% crecimiento real",
+                annotations=fig_g.layout.annotations + (go.layout.Annotation(
+                    x=0.98, y=1.02, xref="paper", yref="paper",
+                    text="★ proyección IMF", showarrow=False,
+                    font=dict(size=9, color="#718096"), xanchor="right",
+                ),),
             )
             st.plotly_chart(fig_g, use_container_width=True, key="macro_gdp_chart")
 
@@ -1391,28 +1404,37 @@ with tabs[7]:
                         else:
                             event   = str(ev.get("event", ""))
                             source  = str(ev.get("source", ""))
-                            _prev   = ev.get("previous");  prev   = "—" if pd.isna(_prev) or str(_prev).strip() == "" else str(_prev)
-                            _fc     = ev.get("forecast");   fc     = "—" if pd.isna(_fc)   or str(_fc).strip()   == "" else str(_fc)
-                            _actual = ev.get("actual");    actual = ""  if pd.isna(_actual) or str(_actual).strip() == "" else str(_actual)
+                            def _val(v):
+                                return None if (v is None or (isinstance(v, float) and pd.isna(v)) or str(v).strip() in ("", "nan")) else str(v).strip()
+                            prev   = _val(ev.get("previous"))
+                            fc     = _val(ev.get("forecast"))
+                            actual = _val(ev.get("actual"))
                             src_color = _SOURCE_COLOR.get(source, "#4A5568")
-                            actual_html = (
-                                f"<span style='color:#276749;font-weight:700'>{actual}</span>"
-                                if actual and actual not in ("nan", "")
-                                else "—"
-                            )
                             badge = (
                                 f"<span style='background:{src_color};color:white;"
                                 f"font-size:10px;padding:1px 5px;border-radius:3px;"
                                 f"margin-right:4px'>{source}</span>"
                             )
+                            # Build data row only if at least one value exists
+                            _parts = []
+                            if prev:
+                                _parts.append(f"Ant: <b>{prev}</b>")
+                            if fc:
+                                _parts.append(f"Est: <b style='color:#2B6CB0'>{fc}</b>")
+                            if actual:
+                                _parts.append(f"<b style='color:#276749'>{actual}</b>")
+                            data_row = (
+                                f"<div style='font-size:11px;color:#718096;margin-top:2px'>"
+                                + " &nbsp;·&nbsp; ".join(_parts)
+                                + "</div>"
+                            ) if _parts else ""
                             st.markdown(
                                 f"<div style='border:1px solid #E2E8F0;border-radius:4px;"
                                 f"padding:7px 9px;margin:2px 0;background:#FAFAFA'>"
                                 f"{badge}"
-                                f"<span style='font-size:12px;font-weight:600'>{event}</span><br>"
-                                f"<span style='font-size:11px;color:#718096'>"
-                                f"Ant: <b>{prev}</b> &nbsp;·&nbsp; Est: <b>{fc}</b> &nbsp;·&nbsp; Actual: {actual_html}"
-                                f"</span></div>",
+                                f"<span style='font-size:12px;font-weight:600'>{event}</span>"
+                                f"{data_row}"
+                                f"</div>",
                                 unsafe_allow_html=True,
                             )
             st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
@@ -1662,9 +1684,43 @@ with tabs[8]:
             else:
                 st.info("Sin eventos internacionales en los próximos 7 días.")
 
+    st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
+
+    # ── Fila 5: Noticias ──────────────────────────────────────────────────────
+    st.markdown('<div class="section-title">Noticias</div>', unsafe_allow_html=True)
+    if _pm_data and _pm_data.get("news"):
+        _news = _pm_data["news"]
+        _nc1, _nc2, _nc3 = st.columns(3)
+        _news_cols = [_nc1, _nc2, _nc3]
+        _news_keys = list(_news.keys())
+        for i, key in enumerate(_news_keys[:3]):
+            feed = _news[key]
+            with _news_cols[i]:
+                st.markdown(
+                    f"<div style='font-size:12px;font-weight:700;color:#1B3A6B;"
+                    f"border-bottom:2px solid #1B3A6B;margin-bottom:6px;padding-bottom:3px'>"
+                    f"{feed['label']}</div>",
+                    unsafe_allow_html=True,
+                )
+                for article in feed.get("items", [])[:6]:
+                    title = article.get("title", "")
+                    pub   = article.get("published", "")[:16]
+                    # Shorten date string
+                    if "," in pub:
+                        pub = pub.split(",")[-1].strip()[:12]
+                    st.markdown(
+                        f"<div style='border-bottom:1px solid #EDF2F7;padding:5px 0'>"
+                        f"<span style='font-size:12px;color:#2D3748;line-height:1.3'>{title}</span>"
+                        f"<span style='font-size:10px;color:#A0AEC0;display:block'>{pub}</span>"
+                        f"</div>",
+                        unsafe_allow_html=True,
+                    )
+    else:
+        st.info("Noticias no disponibles aún — se cargan con el próximo fetch diario (GitHub Actions).")
+
     if _pm_data:
         _pm_updated = _pm_data.get("updated_at", "")
-        st.markdown(f"<div style='font-size:10px;color:#A0AEC0;margin-top:8px'>Datos de mercado actualizados: {_pm_updated}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='font-size:10px;color:#A0AEC0;margin-top:8px'>Datos actualizados: {_pm_updated}</div>", unsafe_allow_html=True)
 
 
 # ── Footer ────────────────────────────────────────────────────────────────────
