@@ -1184,42 +1184,104 @@ with tabs[7]:
     _df_cal_ar  = cargar_calendario_ar()
     _df_earn    = cargar_earnings()
     _hoy        = datetime.today().date()
-    _en_30      = _hoy + timedelta(days=60)
+    _en_60      = _hoy + timedelta(days=60)
 
-    _FLAG = {"USD": "🇺🇸", "EUR": "🇪🇺", "JPY": "🇯🇵", "CNY": "🇨🇳", "BRL": "🇧🇷", "ARS": "🇦🇷"}
-
-    _CURRENCY_PAIS = {
-        "USD": "EE.UU.", "EUR": "Eurozona", "JPY": "Japón",
-        "CNY": "China", "BRL": "Brasil", "ARS": "Argentina",
+    _SOURCE_COLOR = {
+        "INDEC": "#1B4332", "DGEyC CABA": "#1B4332",
+        "BCRA": "#1A365D",
+        "Fed": "#7B341E", "BLS": "#7B341E",
+        "ECB": "#2A4365", "BoJ": "#63171B",
+        "BCB": "#276749", "ForexFactory": "#44337A",
     }
 
-    def _render_cal_table(df_ev, date_col="date"):
+    _DAYS_ES = {"Mon": "LUN", "Tue": "MAR", "Wed": "MIE",
+                "Thu": "JUE", "Fri": "VIE", "Sat": "SAB", "Sun": "DOM"}
+    _MONTHS_ES = {"Jan": "ENE", "Feb": "FEB", "Mar": "MAR", "Apr": "ABR",
+                  "May": "MAY", "Jun": "JUN", "Jul": "JUL", "Aug": "AGO",
+                  "Sep": "SEP", "Oct": "OCT", "Nov": "NOV", "Dec": "DIC"}
+
+    def _fecha_header(date_obj):
+        """Return 'LUN 13 ABR' style string."""
+        s = pd.Timestamp(date_obj).strftime("%a %d %b")
+        day, num, mon = s.split()
+        return f"{_DAYS_ES.get(day, day)} {num} {_MONTHS_ES.get(mon, mon)}"
+
+    def _render_cards(df_ev, mode="event"):
+        """Card layout grouped by date, 4 columns per row."""
         if df_ev is None or df_ev.empty:
             st.info("Sin eventos próximos.")
             return
-        df_show = df_ev.copy()
-        df_show["Fecha"] = pd.to_datetime(df_show[date_col]).dt.strftime("%d/%m/%Y")
-        if "currency" in df_show.columns:
-            df_show["País"] = df_show["currency"].apply(
-                lambda c: _CURRENCY_PAIS.get(str(c), str(c)))
-        col_map = {"event": "Evento", "source": "Fuente", "previous": "Anterior",
-                   "forecast": "Consenso", "actual": "Actual"}
-        cols_out = ["Fecha", "País"] if "currency" in df_show.columns else ["Fecha"]
-        for src, dst in col_map.items():
-            if src in df_show.columns:
-                df_show[dst] = df_show[src].fillna("—").replace({"nan": "—", "": "—"})
-                cols_out.append(dst)
-        st.dataframe(df_show[[c for c in cols_out if c in df_show.columns]],
-                     use_container_width=True, hide_index=True)
+        df = df_ev.copy()
+        df["_date"] = pd.to_datetime(df["date"]).dt.date
+        unique_dates = sorted(df["_date"].unique())
+        N = 4
+        for row_i in range(0, len(unique_dates), N):
+            row_dates = unique_dates[row_i:row_i + N]
+            cols = st.columns(N)
+            for col_i, date in enumerate(row_dates):
+                with cols[col_i]:
+                    header = _fecha_header(date)
+                    st.markdown(
+                        f"<div style='background:#1B3A6B;color:white;padding:5px 10px;"
+                        f"border-radius:6px 6px 0 0;font-weight:700;font-size:13px;"
+                        f"text-align:center'>{header}</div>",
+                        unsafe_allow_html=True,
+                    )
+                    day_df = df[df["_date"] == date]
+                    for _, ev in day_df.iterrows():
+                        if mode == "earnings":
+                            ticker  = str(ev.get("ticker", ""))
+                            company = str(ev.get("company", ""))
+                            country = str(ev.get("country", "—"))
+                            eps_v   = ev.get("eps_estimate")
+                            eps_str = f"EPS est. {eps_v:.2f}" if pd.notna(eps_v) else ""
+                            st.markdown(
+                                f"<div style='border:1px solid #E2E8F0;border-radius:4px;"
+                                f"padding:7px 9px;margin:2px 0;background:#FAFAFA'>"
+                                f"<span style='font-weight:700;font-size:13px'>{ticker}</span>"
+                                f"<span style='color:#718096;font-size:11px;margin-left:6px'>{country}</span><br>"
+                                f"<span style='font-size:12px'>{company}</span><br>"
+                                f"<span style='font-size:11px;color:#A0AEC0'>{eps_str}</span>"
+                                f"</div>",
+                                unsafe_allow_html=True,
+                            )
+                        else:
+                            event   = str(ev.get("event", ""))
+                            source  = str(ev.get("source", ""))
+                            _prev   = ev.get("previous");  prev   = "—" if pd.isna(_prev) or str(_prev).strip() == "" else str(_prev)
+                            _fc     = ev.get("forecast");   fc     = "—" if pd.isna(_fc)   or str(_fc).strip()   == "" else str(_fc)
+                            _actual = ev.get("actual");    actual = ""  if pd.isna(_actual) or str(_actual).strip() == "" else str(_actual)
+                            src_color = _SOURCE_COLOR.get(source, "#4A5568")
+                            actual_html = (
+                                f"<span style='color:#276749;font-weight:700'>{actual}</span>"
+                                if actual and actual not in ("nan", "")
+                                else "—"
+                            )
+                            badge = (
+                                f"<span style='background:{src_color};color:white;"
+                                f"font-size:10px;padding:1px 5px;border-radius:3px;"
+                                f"margin-right:4px'>{source}</span>"
+                            )
+                            st.markdown(
+                                f"<div style='border:1px solid #E2E8F0;border-radius:4px;"
+                                f"padding:7px 9px;margin:2px 0;background:#FAFAFA'>"
+                                f"{badge}"
+                                f"<span style='font-size:12px;font-weight:600'>{event}</span><br>"
+                                f"<span style='font-size:11px;color:#718096'>"
+                                f"Ant: <b>{prev}</b> &nbsp;·&nbsp; Est: <b>{fc}</b> &nbsp;·&nbsp; Actual: {actual_html}"
+                                f"</span></div>",
+                                unsafe_allow_html=True,
+                            )
+            st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
 
     # ── Argentina ──────────────────────────────────────────────────────────────
     st.markdown('<div class="section-title">Próximos Eventos — Argentina</div>', unsafe_allow_html=True)
     if _df_cal_ar is not None:
         _prox_ar = _df_cal_ar[
             (_df_cal_ar["date"].dt.date >= _hoy) &
-            (_df_cal_ar["date"].dt.date <= _en_30)
+            (_df_cal_ar["date"].dt.date <= _en_60)
         ].copy()
-        _render_cal_table(_prox_ar)
+        _render_cards(_prox_ar, mode="event")
     else:
         st.info("Calendario argentino no disponible aún.")
 
@@ -1230,9 +1292,9 @@ with tabs[7]:
     if _df_cal_int is not None:
         _prox_int = _df_cal_int[
             (_df_cal_int["date"].dt.date >= _hoy) &
-            (_df_cal_int["date"].dt.date <= _en_30)
+            (_df_cal_int["date"].dt.date <= _en_60)
         ].copy()
-        _render_cal_table(_prox_int)
+        _render_cards(_prox_int, mode="event")
     else:
         st.info("Calendario internacional no disponible aún.")
 
@@ -1241,21 +1303,11 @@ with tabs[7]:
     # ── Balances empresariales ─────────────────────────────────────────────────
     st.markdown('<div class="section-title">Próximos Balances Empresariales</div>', unsafe_allow_html=True)
     if _df_earn is not None and not _df_earn.empty:
-        _earn_prox = _df_earn[_df_earn["date"].dt.date >= _hoy].head(30).copy()
+        _earn_prox = _df_earn[_df_earn["date"].dt.date >= _hoy].head(40).copy()
         if not _earn_prox.empty:
-            _earn_show = pd.DataFrame()
-            _earn_show["Fecha"] = pd.to_datetime(_earn_prox["date"]).dt.strftime("%d/%m/%Y")
-            _earn_show["Ticker"] = _earn_prox["ticker"]
-            _earn_show["Empresa"] = _earn_prox.get("company", "")
-            _earn_show["País"] = _earn_prox["country"].fillna("—")
-            _earn_show["EPS Est."] = _earn_prox["eps_estimate"].apply(
-                lambda v: f"{v:.2f}" if pd.notna(v) else "—")
-            _earn_show["Rev. Est."] = _earn_prox["revenue_estimate_B"].apply(
-                lambda v: f"USD {v:.1f}B" if pd.notna(v) else "—")
-            st.dataframe(_earn_show.reset_index(drop=True),
-                         use_container_width=True, hide_index=True)
+            _render_cards(_earn_prox, mode="earnings")
         else:
-            st.info("Sin balances programados en los próximos 60 días.")
+            st.info("Sin balances programados en los próximos días.")
     else:
         st.info("Calendario de balances no disponible aún. Se genera con el próximo fetch diario.")
 
