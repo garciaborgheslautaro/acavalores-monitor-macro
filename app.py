@@ -1036,12 +1036,13 @@ with tabs[6]:
         "cn_cpi_yoy": ("China", "#DE2910"),
     }
     _GDP_COLS = {
-        "us_gdp": ("EE.UU.", "#1B2A6B"),
-        "eu_gdp": ("Eurozona", "#0070C0"),
-        "cn_gdp": ("China", "#DE2910"),
-        "jp_gdp": ("Japón", "#BC002D"),
-        "br_gdp": ("Brasil", "#009C3B"),
-        "ar_gdp": ("Argentina", "#74ACDF"),
+        "world_gdp": ("Mundo",     "#4A5568"),
+        "us_gdp":    ("EE.UU.",    "#1B2A6B"),
+        "eu_gdp":    ("Eurozona",  "#0070C0"),
+        "cn_gdp":    ("China",     "#DE2910"),
+        "jp_gdp":    ("Japón",     "#BC002D"),
+        "br_gdp":    ("Brasil",    "#009C3B"),
+        "ar_gdp":    ("Argentina", "#74ACDF"),
     }
 
     def _ultimo(df, col):
@@ -1187,7 +1188,6 @@ with tabs[6]:
                             fig_g.add_trace(go.Bar(
                                 x=_s_proj["fecha"].dt.year.astype(str), y=_s_proj[col],
                                 name=pais, marker_color=color,
-                                marker_pattern_shape="/", opacity=0.65,
                                 showlegend=False, legendgroup=pais,
                             ))
             # Mark projection years with annotation on x-axis
@@ -1209,36 +1209,11 @@ with tabs[6]:
             )
             st.plotly_chart(fig_g, use_container_width=True, key="macro_gdp_chart")
 
-    # ── Fila 3: Bonos del Tesoro | PCE ────────────────────────────────────────
+    # ── Fila 3: PCE full width ─────────────────────────────────────────────────
     _mg_col5, _mg_col6 = st.columns(2)
 
     with _mg_col5:
-        st.markdown('<div class="section-title">Bonos del Tesoro EE.UU.</div>', unsafe_allow_html=True)
-        if _df_yields is not None:
-            _yc = st.columns(2)
-            for i, (col, label, color) in enumerate([
-                ("us_10y", "10 años", "#1B2A6B"),
-                ("us_2y",  "2 años",  "#E53E3E"),
-            ]):
-                val, fecha = _ultimo(_df_yields, col)
-                dlt = _delta(_df_yields, col)
-                with _yc[i]:
-                    st.markdown(_stat_card(label, val, fecha, dlt, fmt="{:.2f}%",
-                                           color=color, invert=True), unsafe_allow_html=True)
-            fig_y = go.Figure()
-            for col, label, color in [("us_10y", "10 años", "#1B2A6B"), ("us_2y", "2 años", "#E53E3E")]:
-                if col in _df_yields.columns:
-                    _s = _df_yields[["fecha", col]].dropna(subset=[col])
-                    if not _s.empty:
-                        fig_y.add_trace(go.Scatter(
-                            x=_s["fecha"], y=_s[col], name=label,
-                            line=dict(color=color, width=2)
-                        ))
-            fig_y.update_layout(**_LAYOUT_COMPACT, yaxis_title="% rendimiento")
-            st.plotly_chart(fig_y, use_container_width=True, key="macro_yields_chart")
-
-    with _mg_col6:
-        st.markdown('<div class="section-title">PCE EE.UU. (Deflactor Consumo)</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-title">PCE EE.UU. — Inflación Consumo Privado (medida favorita de la Fed)</div>', unsafe_allow_html=True)
         if _df_pce is not None:
             _pc = st.columns(2)
             for i, (col, label, color) in enumerate([
@@ -1267,6 +1242,34 @@ with tabs[6]:
                             annotation_font_size=9)
             fig_p.update_layout(**_LAYOUT_COMPACT, yaxis_title="% interanual")
             st.plotly_chart(fig_p, use_container_width=True, key="macro_pce_chart")
+
+    with _mg_col6:
+        st.markdown('<div class="section-title">Rendimientos del Tesoro EE.UU.</div>', unsafe_allow_html=True)
+        if _df_yields is not None:
+            _yc = st.columns(2)
+            for i, (col, label, color) in enumerate([
+                ("us_10y", "10Y Treasury", "#1B2A6B"),
+                ("us_2y",  "2Y Treasury",  "#0070C0"),
+            ]):
+                val, fecha = _ultimo(_df_yields, col)
+                dlt = _delta(_df_yields, col)
+                with _yc[i]:
+                    st.markdown(_stat_card(label, val, fecha, dlt, fmt="{:.2f}%",
+                                           color=color), unsafe_allow_html=True)
+            fig_y = go.Figure()
+            for col, label, color in [
+                ("us_10y", "10Y", "#1B2A6B"),
+                ("us_2y",  "2Y",  "#0070C0"),
+            ]:
+                if col in _df_yields.columns:
+                    _s = _df_yields[["fecha", col]].dropna(subset=[col])
+                    if not _s.empty:
+                        fig_y.add_trace(go.Scatter(
+                            x=_s["fecha"], y=_s[col], name=label,
+                            line=dict(color=color, width=2)
+                        ))
+            fig_y.update_layout(**_LAYOUT_COMPACT, yaxis_title="% rendimiento")
+            st.plotly_chart(fig_y, use_container_width=True, key="macro_yields_chart")
 
     # ── Fila 4: Mercado Laboral EE.UU. ────────────────────────────────────────
     st.markdown('<div class="section-title">Mercado Laboral EE.UU.</div>', unsafe_allow_html=True)
@@ -1704,13 +1707,19 @@ with tabs[8]:
                 )
                 for article in feed.get("items", [])[:6]:
                     title = article.get("title", "")
+                    link  = article.get("link", "")
                     pub   = article.get("published", "")[:16]
                     # Shorten date string
                     if "," in pub:
                         pub = pub.split(",")[-1].strip()[:12]
+                    title_html = (
+                        f'<a href="{link}" target="_blank" rel="noopener noreferrer" '
+                        f'style="color:#2D3748;text-decoration:none">{title}</a>'
+                        if link else title
+                    )
                     st.markdown(
                         f"<div style='border-bottom:1px solid #EDF2F7;padding:5px 0'>"
-                        f"<span style='font-size:12px;color:#2D3748;line-height:1.3'>{title}</span>"
+                        f"<span style='font-size:12px;line-height:1.3'>{title_html}</span>"
                         f"<span style='font-size:10px;color:#A0AEC0;display:block'>{pub}</span>"
                         f"</div>",
                         unsafe_allow_html=True,

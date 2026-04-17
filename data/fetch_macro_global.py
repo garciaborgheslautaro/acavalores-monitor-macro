@@ -242,6 +242,7 @@ update_csv("data/macro_desempleo.csv", {
 print("\n[PIB YoY — World Bank + IMF]")
 IND_GDP = "NY.GDP.MKTP.KD.ZG"
 update_csv("data/macro_gdp.csv", {
+    "world_gdp": fetch_worldbank("WLD", IND_GDP, "world_gdp"),
     "us_gdp": fetch_worldbank("US", IND_GDP, "us_gdp"),
     "eu_gdp": fetch_worldbank("XC", IND_GDP, "eu_gdp"),
     "cn_gdp": fetch_worldbank("CN", IND_GDP, "cn_gdp"),
@@ -253,11 +254,11 @@ update_csv("data/macro_gdp.csv", {
 # IMF WEO API — proyecciones 2025-2027
 def fetch_imf_gdp():
     try:
-        url = "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH/USA/EUQ/CHN/JPN/BRA/ARG"
+        url = "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH/WORLD/USA/EUQ/CHN/JPN/BRA/ARG"
         r = requests.get(url, timeout=20)
         data = r.json()
         vals = data.get("values", {}).get("NGDP_RPCH", {})
-        country_map = {"USA": "us_gdp", "EUQ": "eu_gdp", "CHN": "cn_gdp",
+        country_map = {"WORLD": "world_gdp", "USA": "us_gdp", "EUQ": "eu_gdp", "CHN": "cn_gdp",
                        "JPN": "jp_gdp", "BRA": "br_gdp", "ARG": "ar_gdp"}
         rows = {}
         for imf_code, col in country_map.items():
