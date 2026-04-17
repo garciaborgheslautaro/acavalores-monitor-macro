@@ -4,204 +4,204 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7041.27978515625,
-      "prev": 7022.9501953125,
-      "change_pct": 0.26099558353673313,
-      "date": "2026-04-16"
+      "price": 7126.06005859375,
+      "prev": 7041.27978515625,
+      "change_pct": 1.2040463669150832,
+      "date": "2026-04-17"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 24102.703125,
-      "prev": 24016.01953125,
-      "change_pct": 0.36094071974419417,
-      "date": "2026-04-16"
+      "price": 24468.48046875,
+      "prev": 24102.69921875,
+      "change_pct": 1.517594551051158,
+      "date": "2026-04-17"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 48578.71875,
-      "prev": 48463.71875,
-      "change_pct": 0.2372909115646434,
-      "date": "2026-04-16"
+      "price": 49447.4296875,
+      "prev": 48578.71875,
+      "change_pct": 1.788254115903376,
+      "date": "2026-04-17"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 2923833.25,
-      "prev": 2917889.0,
-      "change_pct": 0.20371748205637707,
-      "date": "2026-04-16"
+      "price": 2889185.25,
+      "prev": 2923833.0,
+      "change_pct": -1.185011250642564,
+      "date": "2026-04-17"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 17.940000534057617,
-      "prev": 18.170000076293945,
-      "change_pct": -1.2658202601573136,
-      "date": "2026-04-16"
+      "price": 17.479999542236328,
+      "prev": 17.940000534057617,
+      "change_pct": -2.564108016318143,
+      "date": "2026-04-17"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7078.25,
-      "prev": 7060.5,
-      "change_pct": 0.2513986261596204,
-      "date": "2026-04-16"
+      "price": 7164.25,
+      "prev": 7077.0,
+      "change_pct": 1.2328670340539776,
+      "date": "2026-04-17"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 26464.25,
-      "prev": 26365.5,
-      "change_pct": 0.37454248923782973,
-      "date": "2026-04-16"
+      "price": 26840.75,
+      "prev": 26487.25,
+      "change_pct": 1.334604385128694,
+      "date": "2026-04-17"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 48829.0,
-      "prev": 48669.0,
-      "change_pct": 0.32875136123610516,
-      "date": "2026-04-16"
+      "price": 49663.0,
+      "prev": 48767.0,
+      "change_pct": 1.8373080156663317,
+      "date": "2026-04-17"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4810.89990234375,
-      "prev": 4800.0,
-      "change_pct": 0.227081298828125,
-      "date": "2026-04-16"
+      "price": 4849.39990234375,
+      "prev": 4785.39990234375,
+      "change_pct": 1.3374012894649547,
+      "date": "2026-04-17"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 89.6500015258789,
-      "prev": 91.29000091552734,
-      "change_pct": -1.7964720924539865,
-      "date": "2026-04-16"
+      "price": 84.0,
+      "prev": 94.69000244140625,
+      "change_pct": -11.289473192295223,
+      "date": "2026-04-17"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 98.01000213623047,
-      "prev": 94.93000030517578,
-      "change_pct": 3.2444978627970777,
-      "date": "2026-04-16"
+      "price": 91.87000274658203,
+      "prev": 99.38999938964844,
+      "change_pct": -7.566150205500073,
+      "date": "2026-04-17"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 98.21399688720703,
-      "prev": 98.05999755859375,
-      "change_pct": 0.15704602533898912,
-      "date": "2026-04-16"
+      "price": 98.22699737548828,
+      "prev": 98.22000122070312,
+      "change_pct": 0.007122943085121423,
+      "date": "2026-04-17"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1782727241516113,
-      "prev": 1.179940938949585,
-      "change_pct": -0.14138121179681437,
-      "date": "2026-04-16"
+      "price": 1.176747441291809,
+      "prev": 1.1809163093566895,
+      "change_pct": -0.35301977217601344,
+      "date": "2026-04-17"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 4.9928998947143555,
-      "prev": 4.984799861907959,
-      "change_pct": 0.16249464433455013,
-      "date": "2026-04-16"
+      "price": 4.978700160980225,
+      "prev": 4.992400169372559,
+      "change_pct": -0.2744172728055931,
+      "date": "2026-04-17"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.309000015258789,
-      "prev": 4.2820000648498535,
-      "change_pct": 0.6305453059324577,
-      "date": "2026-04-16"
+      "price": 4.245999813079834,
+      "prev": 4.309000015258789,
+      "change_pct": -1.4620608483606938,
+      "date": "2026-04-17"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 3.609999895095825,
-      "prev": 3.611999988555908,
-      "change_pct": -0.05537357326744214,
-      "date": "2026-04-16"
+      "price": 3.5999999046325684,
+      "prev": 3.609999895095825,
+      "change_pct": -0.2770080541232645,
+      "date": "2026-04-17"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 94.16999816894531,
-      "prev": 93.88999938964844,
-      "change_pct": 0.29822002462143526,
-      "date": "2026-04-16"
+      "price": 93.76000213623047,
+      "prev": 94.16999816894531,
+      "change_pct": -0.4353786138758249,
+      "date": "2026-04-17"
     }
   ],
   "fear_greed": {
-    "value": 23,
+    "value": 21,
     "label": "Extreme Fear",
-    "timestamp": "1776297600"
+    "timestamp": "1776384000"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "2 Reasons to Like RKLB and 1 to Stay Skeptical",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/2-reasons-rklb-1-stay-212227848.html?.tsrc=rss",
-          "published": "Thu, 16 Apr 2026 21:22:27 +0000"
+          "title": "Stock Market Today, April 17: Tesla Rises Again to Break Losing Streak",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/04/17/stock-market-today-april-17-tesla-rises-again-to-break-losing-streak/?.tsrc=rss",
+          "published": "Fri, 17 Apr 2026 21:18:09 +0000"
         },
         {
-          "title": "Stock Market Today, April 16: Hims & Hers Health Jumps on FDA Review of Compounded Peptide Therapies",
-          "link": "https://www.fool.com/coverage/stock-market-today/2026/04/16/stock-market-today-april-16-hims-hers-health-jumps-on-fda-review-of-compounded-peptide-therapies/?.tsrc=rss",
-          "published": "Thu, 16 Apr 2026 21:17:04 +0000"
+          "title": "Meet the Glorious Gold ETF Crushing the S&P 500, the Nasdaq-100, and the Dow Jones in 2026",
+          "link": "https://www.fool.com/investing/2026/04/17/meet-the-gold-etf-crushing-sp-500-nasdaq-dow-2026/?.tsrc=rss",
+          "published": "Fri, 17 Apr 2026 21:15:00 +0000"
         },
         {
-          "title": "3 Reasons to Avoid CHH and 1 Stock to Buy Instead",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-avoid-chh-1-211427244.html?.tsrc=rss",
-          "published": "Thu, 16 Apr 2026 21:14:27 +0000"
+          "title": "Stock Market Today, April 17: Netflix Drops As Reed Hastings Departs From Board and Company Offers Soft Guidance",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/04/17/stock-market-today-april-17-netflix-drops-as-reed-hastings-departs-from-board-and-company-offers-soft-guidance/?.tsrc=rss",
+          "published": "Fri, 17 Apr 2026 21:10:35 +0000"
         },
         {
-          "title": "Dow Jones Futures: Stock Market Rally Won't Back Down, AMD Breaks Out; Netflix Dives Late",
-          "link": "https://finance.yahoo.com/m/de0d09c2-e120-3a06-b712-ed53b63caeb8/dow-jones-futures%3A-stock.html?.tsrc=rss",
-          "published": "Thu, 16 Apr 2026 21:02:23 +0000"
+          "title": "Bitcoin Price Surges Amid Epic Strategy Buying Spree",
+          "link": "https://finance.yahoo.com/m/94549225-047e-3e2d-8a23-2ab8a612c1b0/bitcoin-price-surges-amid.html?.tsrc=rss",
+          "published": "Fri, 17 Apr 2026 20:56:31 +0000"
         },
         {
-          "title": "Nasdaq, S&P 500 Score Back-to-Back Record Highs",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-p-500-score-back-210214914.html?.tsrc=rss",
-          "published": "Thu, 16 Apr 2026 21:02:14 +0000"
+          "title": "Nasdaq, S&P 500 Hit New Peaks as Iran Reopens Hormuz",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-p-500-hit-peaks-205219560.html?.tsrc=rss",
+          "published": "Fri, 17 Apr 2026 20:52:19 +0000"
         },
         {
-          "title": "Stocks rise as optimism over Mideast war takes hold",
-          "link": "https://finance.yahoo.com/markets/world-indices/articles/tokyo-record-leads-asia-stocks-024334578.html?.tsrc=rss",
-          "published": "Thu, 16 Apr 2026 20:59:33 +0000"
+          "title": "Dow Jones Futures: What To Do Amid Historic Market Run; Tesla Flashes Buy Signal With Earnings Due",
+          "link": "https://finance.yahoo.com/m/2e86a733-79d1-31a8-aaf2-9bbf4acaa122/dow-jones-futures%3A-what-to-do.html?.tsrc=rss",
+          "published": "Fri, 17 Apr 2026 20:46:56 +0000"
         },
         {
-          "title": "US Equity Indexes Rise After Israel-Lebanon Ceasefire Deal Injects Optimism in Middle East Diplomacy",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-rise-israel-205012544.html?.tsrc=rss",
-          "published": "Thu, 16 Apr 2026 20:50:12 +0000"
+          "title": "S&P 500 Posts Weekly Gain, Closes at Record High, as Iran Reopens Strait of Hormuz",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/p-500-posts-weekly-gain-204611101.html?.tsrc=rss",
+          "published": "Fri, 17 Apr 2026 20:46:11 +0000"
         },
         {
-          "title": "Stock Market Today: Nasdaq, S&P 500 Mark New Highs; These Truck Stocks Clear Entries (Live Coverage)",
-          "link": "https://finance.yahoo.com/m/c55e30bd-f999-3fc3-90be-215a49ce656d/stock-market-today%3A-nasdaq%2C.html?.tsrc=rss",
-          "published": "Thu, 16 Apr 2026 20:45:34 +0000"
+          "title": "Nasdaq Notches Longest Winning Streak Since 1992",
+          "link": "https://finance.yahoo.com/m/ca2fd8fd-5e77-3b96-8b60-bd5f754e803b/nasdaq-notches-longest.html?.tsrc=rss",
+          "published": "Fri, 17 Apr 2026 20:45:28 +0000"
         }
       ]
     },
@@ -209,29 +209,9 @@
       "label": "Economía Global",
       "items": [
         {
-          "title": "Wall Street hits record as S&P 500 continues 2-week rally, boosted by hopes for Iran war's end",
-          "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQS3kycm9PYWZzVnJiVllILUtRZlFlN19waWNzNG9hNXNReGNLRkJSdnpfNmdjaTZhTk1CdGM2THJIVlJ1RmZTc0VNS2ZvT2Rmc3JndlZWS1ItMWM0RG93X3ZjdUQ4anZJMENjXzhjaWtpVzdNTTBXbHlXd2RTR1M2WF96ZlFscVRoSXBxcjlVdE9OSFRTaDk4NmJFTGItZnJ6Y3JiVHhZMEw4NXVYZ3ZNb1V5OTFmdDhTVHNheXZ0RE9Lb1ZZRHd30gHMAUFVX3lxTE5od2ZpbkRoY2pjaG1DcVRKTVlRaUZBY0p5a2hpUDMtTFhab0ZzWG5teFZIQUNldDNoWHV0T0dsOHhFMjZGckxEMW5kZUpULXQwMFY2OFJwX2RmUFZTeVRPcW5DYmxYcFUtdXpRNlJCLWR4cDB0N2VvUDlFSUJjYXlxME9tT01sNmxDZ3JDanlOc2QySllnU3FPNmEwakJnOWFxVVhGYVNJMl9nUVk0a1B1N3N3TTBSNVo4MmhkZGFCNEloa3NkczBlS05aNA?oc=5",
-          "published": "Wed, 15 Apr 2026 21:40:17 GMT"
-        },
-        {
-          "title": "Billionaire Investor Ken Griffin Warns of Recession. Will the Stock Market Crash If He's Right?",
-          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQYVltS3J1U1FJaXAyYUZSYmVTNElLbU5rOVdDRm9PdzFVenV3SEMwSGo0cGtmNmhULTV0Sk5RQ3MySDV4SXhWblhVdzIxUVRmSnFwdjJCYzQxMFQ2VXQ3aWtWMHN6WEhEN1ZEWDdGSE5ZajQxTUExYm56UGd4SE1VRHNSZGw1VG9yWDl1TVk5aVRNWGxVN1VFYTJ1UEI?oc=5",
-          "published": "Thu, 16 Apr 2026 08:32:00 GMT"
-        },
-        {
-          "title": "IMF calls for countries to economise on energy supplies, and hails UK’s budget deficit improvement – as it happened",
-          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPYk5mQllCN2Qzd2owVmczLWFXdUlCSEpoNFZrQjBuVDlYZ2hQSFhkMmt3eDhIY0FvTlVaZG1vZHFSZndnZTJlWkVVTXJjUFBmX1hLMEdXWEF1Y3JORVc5dWlQeWVGcTVhb3RnNzV3UWZ2N3lWYmY5U3JZMHNudjVNVDVZeWhFTFQ2Y3VjSFNISU4zR3JyZURydXNHN1hYblJmNDFHb2FodERRMTVaVFhnMGlFS3IxWDF3WU1RMXdhTUotdGtrbndrSG5ESEpwQ3FV?oc=5",
-          "published": "Wed, 15 Apr 2026 06:31:00 GMT"
-        },
-        {
-          "title": "Market Factors: ‘Perfect’ stocks to hold for current geopolitical chaos",
-          "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQdkN6YjA1bHpFb3pwLTJXWEpxOFFWZTdLNmR6YXl0dHlVQy1fZE1LZ0prOVBKaWhHc0lkMVhnZFV3T2RIdnotektJWkUydmRRdm52b1lEWkJiUlZwRFVHYUlsYWw1aFJzRURoQ3NBWnFudkEtRV9sY3otSmZqenRac2E4UHpVR29mdGNJUnhiSWlmUmNSX1N6N1RXdXhVZDNmdFl6cWNrQTBuUTVKT1ZrV3N4MFpwV29jX1hqM0hpRlVLMGtRWHFfZUNkUFRSMmRlTEE?oc=5",
-          "published": "Wed, 15 Apr 2026 18:33:50 GMT"
-        },
-        {
-          "title": "Asia’s stock markets surge, oil falls on hopes for US-Iran talks",
-          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOUzk5U0F3REV0T2lQcll4bEw3NDdIejNhWHlNUWJjSXZkTUttV0Q1UVZlMmt4dUtoZ19Nb3I1SXpuS1FkVXhqSEp0elVadEEzaHczX2Z5aUdiMXpoYkFNUE9Ka3BuckpRSUNTZGtBMU5pbGdrMVZmSVJnT3dHSXBQdkxzVmxqMkhwcXVxbkJIMjVQUmsxdy1sQmNyQ1J6dDNfaFJRbm9fME9LQdIBrwFBVV95cUxOQWsyMl9JMlIzbkRyRDVKTkJKQmhjTHBoY3JNRkZISEpudkVna0dpajQ5cHhYd1FVS1prZThVZ1dYUmhzZ3VUa1Q3MDdPcUI3R3d2bXYzcXoteUk5WC1lN3M3d0VuOHM2Ul9Za2NkSmVubi1ScHhzWWVWRG9SN0FjejNPdWV3T0VmS3dDdjJmWi1hWHVaRGZObFg5MENSeTVRTnEzWnRYM0YxWlBSeTh3?oc=5",
-          "published": "Tue, 14 Apr 2026 05:49:10 GMT"
+          "title": "Why the stock market is hitting records despite Iran war",
+          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5Za21tWDVYQk5wUjUyTmhZbWk4RlFVTm9DcWplOHNzeXRNWEZHaHM0X085bTBXMFVRMk14d1YxbVVIUEtRaWpob2V0VW1BNko5cWVHRGJVLUh0SUtyNnp2dHdSdUpsUUU2Mjk0QUlNZW9RSDjSAXhBVV95cUxNcVVoNmxMT2xfQTVHV2hlRlZvb081NXAwdnFNblV6X2V1X3NmT3RSWFl0dVpDUXJBRnctVEt4d2ZoVlJaN1lZTmlkMWNIRFpGNFVURWNqM0loOEFtd2ZsWGE3ZFg2RW9jX1lEbktoQUlIcUFRdjZUYkc?oc=5",
+          "published": "Thu, 16 Apr 2026 19:32:49 GMT"
         },
         {
           "title": "Americans have never been this gloomy about the economy. Wall Street has never cashed in harder",
@@ -239,25 +219,40 @@
           "published": "Thu, 16 Apr 2026 18:20:00 GMT"
         },
         {
-          "title": "Economic Resilience Amid Market Volatility Shocks",
-          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQNF9CLXFBTm9nOWl3X3QxT012RWNSQmZPaWZtWncwTkJCM3IzcVZuWk45YXBaRTZiNDhsX05aMmpmZ1hGY21GVHp3OXJRTnJYY3JuS1kwU3VfUVFVczZXbzdNV0pNRllySWNHSmhuN25NY0NZUjNhR2NISndTOUwwNEplRjdYQVRGQkgzdDA0YnlEc0dKSVFENWRyaXJrYVRLZThRaQ?oc=5",
-          "published": "Tue, 14 Apr 2026 01:30:20 GMT"
+          "title": "Stock market notches one of its fastest turnarounds in years",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOZGtHdjJhRU4tN2p2dDQtWHFjcFFZYXpabVZMdTFjT25NVVl4ckNlbWM2MkttRGQxeWNmTkVkMlpJcE1hc0tNLXY0SzZ3aExTaXRaMDJKX2ZBRU9lbjFFcUlkUm8xTlh3TkN4RUpvbGx1OFdKekZ0aGNGNmIyWlFObVgyakVZSmNKTElXemdXbldscmtZWEVVeVEzNzNTaGF2dVo3em9HY1o0UQ?oc=5",
+          "published": "Fri, 17 Apr 2026 11:23:36 GMT"
         },
         {
-          "title": "5 Things to Know Before the Stock Market Opens",
-          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOenZubGkxVlh0UUs3MXBOWExhZld4alhfQ1ZSVXQyTlp1enRwZ0NZbTVpenp3VFpid2p0aHh2VXliRVQ0alN3Ml80ZnZKcktuWmQ0b1JFYVlfWkJnU0Q0ZnJvR3BrRzVfUFA2MzJjNDJyRlRvb3NPMlliZGxYaGkxLVMtQmFHMWktZThGTW1oZFJWZnlrNTVCOGxPSDhjemc?oc=5",
-          "published": "Mon, 13 Apr 2026 11:27:50 GMT"
+          "title": "Oil tumbles 10% and stock markets rally as Iran declares strait of Hormuz ‘completely open’ – as it happened",
+          "link": "https://news.google.com/rss/articles/CBMirAJBVV95cUxOdE5WWTFHMTBNZnlWNzJRNDRHQ21WTEhEZGZjaVJFQUFodjZsYnZQeUdqb0NiNHU0ZEExelhGcnhSUkNjMzJiRm5WbklucHNuUGxkQThIel90US12bVhTVV9KT3JIRlYyT0FtRVFkQzNtMVlKeXVOUjB0T01hQ2t4LWFQRFU3WHVZLTBRZ3hmVF9NRGtvemFJSzZNSVVKYmtFMGJyZkFZWVo3UUVINlgxWkF4bEt5Rm5HRGhHYWVSdkF1SWhHVmlDX0hLM1pjcm1TSE43cGo3cGlIVzZuVHhQZTNFM3puOWNnMTUtMGpDWXJVMUU4OTJFbmZwX3Rmek5pZERDRFE4VWpQb3FyMzlWSUNFVVpPN1RCSGxlbHR2SmZPMVpvVVc1eERHWXk?oc=5",
+          "published": "Fri, 17 Apr 2026 06:41:00 GMT"
+        },
+        {
+          "title": "Stock Market Highs Confirm US Economy Is A Winner",
+          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOWmdQRjRmYWt6b1dPVXBJczZMYmF5WXlKQ2lST08xZnA2Z1NuSVVqdm1TamNHVWthRzdOZ0pYNEdLUDlJRmVFT290SkxRMWl5VFBZTXNEdUVPVmFtMXphMTdVT1duWk9YNVZLbkdfOWlCbG9icEs4QXBhcm9OOWpXcFBvTzNGYm5CVV9Ccg?oc=5",
+          "published": "Fri, 17 Apr 2026 02:00:54 GMT"
+        },
+        {
+          "title": "These stocks are reporting strong first-quarter earnings — helping fuel the market’s record run",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQZzM5cktqaVdOZWtGd3lyS09uUlpmdHBaR1N5OThGaEV4RnlGeWlVVFFsN3puM2FHTXM0OE1SYXBrSWFJUmVjOVNRc3VpZkNiZl9pMFg1ZEVfRDV4QW1tUVVsQVhCRVJVSkQxNTBYM2tmVXd3cU5BTjlCM1FUbE9CcFhGZUdrX1M2LUViREFOclJ3bGxUTzk0U3VIbTEwY3ZVbFZEU2xrMk5yRUktRGJIb2dOLXJXZnNpckdLTXppUnJldTF6b3VxdTdScGljXzdYN1JXaGFPaw?oc=5",
+          "published": "Fri, 17 Apr 2026 11:55:00 GMT"
+        },
+        {
+          "title": "IMF calls for countries to economise on energy supplies, and hails UK’s budget deficit improvement – as it happened",
+          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPYk5mQllCN2Qzd2owVmczLWFXdUlCSEpoNFZrQjBuVDlYZ2hQSFhkMmt3eDhIY0FvTlVaZG1vZHFSZndnZTJlWkVVTXJjUFBmX1hLMEdXWEF1Y3JORVc5dWlQeWVGcTVhb3RnNzV3UWZ2N3lWYmY5U3JZMHNudjVNVDVZeWhFTFQ2Y3VjSFNISU4zR3JyZURydXNHN1hYblJmNDFHb2FodERRMTVaVFhnMGlFS3IxWDF3WU1RMXdhTUotdGtrbndrSG5ESEpwQ3FV?oc=5",
+          "published": "Wed, 15 Apr 2026 06:31:00 GMT"
+        },
+        {
+          "title": "Another ‘Stress Test’ Passed by U.S. Economy as Stocks Poised to Add to Record Highs",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBTSGN1Vzdtc1BnMXlFRlRFUHFPSGJMeTZOdk9XSFpCeDUyOHlQRnFJcWJlTXRGamFaWERLY2VPSWJKZU5QckFmbjR4Q3E4cEEyOHRhQ0hNX1lDQU5nWTFmM3BpTGRfRldVSUdiRlBSRl90N21XcHc?oc=5",
+          "published": "Fri, 17 Apr 2026 13:22:00 GMT"
         }
       ]
     },
     "argentina": {
       "label": "Argentina",
       "items": [
-        {
-          "title": "Precio del dólar hoy en Argentina: el dólar oficial cae y abre más bajo este martes 14 de abril",
-          "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOeUxpbjBtZE9zOFZPX19YWmd1cWItVFFfZFNvM3hZT1oxbkZRQmhjMUNOSmc0QktUMEszY1hneU5ybVBJTmF6NW95c0NFakYta21rbFgzMEJPY3hCZ3pSLVh6bmQ3WFVpalZrM0FjMk5BbU96OVFJMk15ekhacnhOajY0aldDNFNnQmd1SlZTNFpPWThTcXlXczliYWlXck52WTI3d01LVnotbWlLcnRSekR1YzNuYVN3RlFHUDdHaEpUOHBQUFlDag?oc=5",
-          "published": "Tue, 14 Apr 2026 11:15:00 GMT"
-        },
         {
           "title": "El mercado le muestra a Argentina su mejor cara: baja el dólar y retrocede el riesgo país",
           "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOdzRuakVISy1DdVc3dU5zOVhBRFVMSHBad0ZOa2VTMnBRM3lpQmxiOFp4TW9XNVhabUJrX2UyZUZITllqVTRHZnNBOE9xM2NkQWR2a2FfRl9kcjV0WXVkaU5IbWlKWkM2MmNoUUVjdHRaRXNlMnp6U28zSklMb21YQmkwWFhjQVhscU80cEhZR1JoeFZiSEZOQmZHYS1zeGt6UDdkSnV5ak9lZ203M3FuZklmeWsxa3R5LXZv?oc=5",
@@ -274,9 +269,9 @@
           "published": "Fri, 13 Feb 2026 08:00:00 GMT"
         },
         {
-          "title": "Dólar Blue en Córdoba – Dólar Hoy: precio y cotización de este 9 marzo 2026",
-          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQRkIycmw5YWtFMkNqZlplaEJJUUNnSXVsQk9SN0xkS3M1bUdQMy1BWTkwVjRucXZWOWJXdDhGOHhwcC1HSlFOTWtMNnAzQ2pZODJ0a2NWRGpxXzJHTW9TcTdYeTBNUWNrX0tOR19PdFd3bW0tNE1jbkkyNGR1WU51MGJ0c29USjFCaHlJVQ?oc=5",
-          "published": "Mon, 09 Mar 2026 07:00:00 GMT"
+          "title": "Está confirmado el precio que tendrá el dólar para este lunes 2 de marzo",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOeWdNX3lEbGZ1N0VuM29SZ21haVpqYzFWWnc0ZTR2MDY2U2J5RlJudjZhWlFIQ1c0TktFVF9VTE05dlNONUhOMjZ4TDY0M2xSVDRMT3VjYzZWZ1NSTkR2Nmlfa205VzU2UUF6bWY5NzNUMGVFUC0wWm9BRU5OTnM0bzVZdDdoQ0FFa3I3NExBUmZGOGltZ0gxSklNNjRwVENkbzJLWWtMWkJTQTBsQU5B?oc=5",
+          "published": "Sun, 01 Mar 2026 08:00:00 GMT"
         },
         {
           "title": "El día después de mañana: tres escenarios para el dólar y la economía argentina",
@@ -284,18 +279,23 @@
           "published": "Sat, 25 Oct 2025 07:00:00 GMT"
         },
         {
-          "title": "Milei apuesta a la intervención del Estado para contener al dólar frente al peso",
-          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQWVBwWk9VMldRWmIyUWNJM3BQUmVHNWVmQ1d5VUExdjNNdV80QnJscVRPMW9IRDQxUGdmWDZIeFFUX1VKaVltaEJiUXlkdkM3U19vanhvek44a3ZjNkJweEViQ1gxNGhwVl9LUUQwUUlULVByQ0JLRkgyVFlMTGM5QlJPTlpwREFtM0JkNk4zQ0xOa29kWU5CSmQtN2N3eks0cjJzV1NoTVFoRTdPT0JyZHBFaGd2Rlo1enlTOTlwaG9pbE3SAdcBQVVfeXFMTmgwNkNLaGpxaFdVQm93Z1pOZ0doaEtXUlZCMk9UaERTc3k5QzRxeGItVDdGME1BbGdMWWNIa3Z0TENWR1UwSnB2N2s0MXJBUEpMNlF5MXJTczc0MWczS3ZvU1FRRXU3dExwTU5fclgtN3h1bzlRV0Z2bUVabDdMZE5QeXpMNEg5WFEyMTBnRkJRZXFDRXdzazlQZzRVQ3otX0NDamQ5V2R2ZklfcEZrRk9CdmZ0YlFGc05iZWhvRlpSOG5QV1lHUTlJQ1lqeXprREIxNlRZWms?oc=5",
-          "published": "Sat, 06 Sep 2025 07:00:00 GMT"
-        },
-        {
           "title": "El economista más escuchado por Milei explicó por qué baja el dólar",
           "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOVGlORnBjWWx5cHczVU1veC1UQUd0VHRKaTRSd3R3WEg2RHJLek5oX19uRi1GMEtmQ0stOTZfb2FvMnZlb3pBc3pLZFdUNzlSdF9DaXVFVDhVN3JqRENGNXdOYlN0ZHREWXhqWHJzcnY5OTh1ZEVPREpMblN0UHJsektkdkpBazkyT3QxbWM1ejR5dDFLT3o4YzRsRWM0VTF0ak9DTllIdE14bXRramZxSG52ZEdwUHQ3emdGVWFfOU1rc09Md24xLTYxZDlOSXppS2hRMFBYZzh3SzBENzdwZkdGY3FFbmh00gGDAkFVX3lxTE1DX2FaSXRwYVhRNVpvdGhvMDNQYXRJWVNHVGI0T0F3OFlhMmpGeDBvdGtHREZFNFY2bkNjWXVXbFAyb0U0Ym0yLU5vTV9xTENyblRCMlZSekpIdzBXbjRFT19YN3NOSm1xLU5KUUlYR09jUEowMk9senZlcEVHUE9HSDlaRmJYeFZXajlPOElMYXNybXBHeU5CWWlpZ0hXNXBjdzlfd3FmNmlvTjdLaENtSktocnZtTWZ6Vkd1dks4cnQ0U0R3OC1OSHFBdWJ3alkyR0JZc0hMRXFQVUg1MFJnX3dYQk5TeXUxSGp6V096VkxPQVptZjEzY0hVSXk0Z0tPYkk?oc=5",
           "published": "Mon, 16 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Las acciones del agro subieron hasta 26%: la reacción del mercado tras el acuerdo entre la Argentina y EE.UU.",
+          "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPQU84NWhINE9tb1Nib3I4Zk9pMURnTHNCLU96alZjTjRSZEdJellNQzYyaG1ZOGI5SXQyME4xbFF1anFyUTJ1dGF1UmVrTUZ3c2Utd2NwVzF6WEtRbUNtR1Z3OFpiM3c3NnhjWjJRNl9mTFFTbDMxRXJuc1h5LXJQNG40ZHpobkxGa2pzZVpLMjVSbFFuR0ZrTkpUMHJxYlAtVExHakZLSWZQZmk4MWg3Qk45OG4xRGRybURJMkJBTm5DMzVQcjRlTkxwZlVsNW5XODZfWHN5X19RM2ZuMXdUdGhmeFRYXy1fc1NB?oc=5",
+          "published": "Fri, 14 Nov 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Dólar oficial y su impacto en el mercado: cotización y claves del jueves 12 de febrero 2026",
+          "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOREJLR2dJcElWd1k3UWUzcGwwdW9hYmhhcHU4Z3VuVkpIUk4tOFFhazVjLU5jZ2VmTlJnNTBmS1FhNllLTlRIVUNzOWdNRXM5VmYxV2sxcXJlV196dHdOR2xJajFCcnBoR1NJRVJKVjZaUHNRMk4tcFpheHFSX1BUZUVfSGljTG5BZjIxNkNpWDRjd0FzNUZ6UmRKSkRlY3VrMUY5XzlhcVVHclhGMUZUd2tQZ2FQbTFrOTNDcFJjMU9sa251X3psaWxVd0NFanN6WFHSAdoBQVVfeXFMT3V1N1N2YnJVZDJ6WnplZV9Vd3NZaEdHT0E5RnkzdEw3ZExkdXFrcGZuUHdGZ3lRSjE2ejhpYWU1N0E5ZkFlb01QcG9JMXBsbUVQbFdhQmJuakFydXVITVFvRldhR1ZvQ2RZa2RObmFrSXZCNktnb0VacWROTE5pTU9yMU1sZWw3bHd3UHp1NGYwclNObmYwNk5jS1kyMnh2VWY5Qk0xZm5SRWlTYk5hV1E2Yk02bnlFcjZ0cFBuc09lOG9DMUplNWJ1MHZ5UmsxOVNZMkJ6N2o0dkE?oc=5",
+          "published": "Thu, 12 Feb 2026 08:00:00 GMT"
         }
       ]
     }
   },
-  "updated_at": "2026-04-16 21:36",
-  "updated_date": "2026-04-16"
+  "updated_at": "2026-04-17 21:34",
+  "updated_date": "2026-04-17"
 }
