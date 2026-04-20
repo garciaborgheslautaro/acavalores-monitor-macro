@@ -1,16 +1,5 @@
 #!/usr/bin/env python3
-"""fetch_macro_global.py — Datos macro de EE.UU. y el mundo.
-
-Fuentes (todas libres, sin API key):
-- FRED direct CSV: Fed Funds, ECB, CPI, desempleo
-- FRED IRSTCB01JPM156N: BoJ policy rate
-- BCB API serie 4390: Meta Selic mensual
-- BCB API serie 433: IPCA mensual (→ YoY)
-- World Bank API: PIB growth por país
-
-Estrategia: si una API falla, se conserva el CSV existente (seed data).
-El script actualiza sólo las columnas que pudo obtener.
-"""
+"""fetch_macro_global.py — Datos macro de EE.UU. y el mundo."""
 import requests
 import pandas as pd
 import os
@@ -20,7 +9,9 @@ warnings.filterwarnings("ignore")
 print("=== INICIO fetch_macro_global.py ===")
 os.makedirs("data", exist_ok=True)
 
-FRED_URL = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={}"
+FRED_API_KEY  = os.environ.get("FRED_API_KEY", "")
+FRED_API_URL  = "https://api.stlouisfed.org/fred/series/observations?series_id={}&api_key={}&file_type=json&observation_start={}"
+FRED_CSV_URL  = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={}"
 BCB_URL  = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{}/dados/ultimos/120?formato=json"
 WB_URL   = "https://api.worldbank.org/v2/country/{}/indicator/{}?format=json&per_page=30&mrv=30"
 
@@ -28,14 +19,37 @@ CORTE = pd.Timestamp.now() - pd.DateOffset(years=10)
 
 
 def fetch_fred(series_id, col):
+    """Fetch FRED series. Usa API key si está disponible, sino CSV directo."""
+    # Intentar con API key (más estable, sin restricciones de rate)
+    if FRED_API_KEY:
+        try:
+            start = CORTE.strftime("%Y-%m-%d")
+            url = FRED_API_URL.format(series_id, FRED_API_KEY, start)
+            r = requests.get(url, timeout=20)
+            r.raise_for_status()
+            obs = r.json().get("observations", [])
+            rows = []
+            for o in obs:
+                try:
+                    val = float(o["value"])
+                    rows.append({"fecha": pd.Timestamp(o["date"]), col: val})
+                except (ValueError, KeyError):
+                    pass  # "." = dato faltante en FRED
+            if rows:
+                df = pd.DataFrame(rows).sort_values("fecha").reset_index(drop=True)
+                print(f"  OK FRED API {series_id} ({col}) — {len(df)} registros, últ: {df.iloc[-1][col]:.2f}")
+                return df
+        except Exception as e:
+            print(f"  WARN FRED API {series_id}: {e} — intentando CSV directo")
+    # Fallback: CSV directo (sin API key)
     try:
-        df = pd.read_csv(FRED_URL.format(series_id))
+        df = pd.read_csv(FRED_CSV_URL.format(series_id))
         df.columns = ["fecha", col]
         df["fecha"] = pd.to_datetime(df["fecha"])
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df.dropna(subset=[col])
         df = df[df["fecha"] >= CORTE].reset_index(drop=True)
-        print(f"  OK FRED {series_id} ({col}) — {len(df)} registros, últ: {df.iloc[-1][col]:.2f}")
+        print(f"  OK FRED CSV {series_id} ({col}) — {len(df)} registros, últ: {df.iloc[-1][col]:.2f}")
         return df
     except Exception as e:
         print(f"  ERROR FRED {series_id}: {e}")

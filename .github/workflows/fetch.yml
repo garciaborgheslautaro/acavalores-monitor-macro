@@ -36,6 +36,8 @@ jobs:
       - name: Ejecutar fetch Macro Global
         run: python data/fetch_macro_global.py
         continue-on-error: true
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
 
       - name: Ejecutar fetch Calendario
         run: python data/fetch_calendario.py
