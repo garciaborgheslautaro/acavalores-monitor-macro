@@ -4,52 +4,52 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7101.919921875,
+      "price": 7101.6298828125,
       "prev": 7126.06005859375,
-      "change_pct": -0.33875853585654164,
+      "change_pct": -0.34282865398795176,
       "date": "2026-04-20"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 24339.21484375,
+      "price": 24344.544921875,
       "prev": 24468.48046875,
-      "change_pct": -0.5282944527964948,
+      "change_pct": -0.506511007225335,
       "date": "2026-04-20"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 49385.921875,
+      "price": 49386.05078125,
       "prev": 49447.4296875,
-      "change_pct": -0.12439031288121491,
+      "change_pct": -0.12412961935110695,
       "date": "2026-04-20"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 2902300.5,
+      "price": 2908438.75,
       "prev": 2889185.0,
-      "change_pct": 0.4539515468895207,
+      "change_pct": 0.6664076547538492,
       "date": "2026-04-20"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 19.239999771118164,
+      "price": 19.1200008392334,
       "prev": 17.479999542236328,
-      "change_pct": 10.068651458652543,
+      "change_pct": 9.382158695338584,
       "date": "2026-04-20"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7137.25,
+      "price": 7136.75,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -58,7 +58,7 @@
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 26685.5,
+      "price": 26679.5,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -67,7 +67,7 @@
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 49576.0,
+      "price": 49574.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -76,7 +76,7 @@
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4818.60009765625,
+      "price": 4825.10009765625,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -85,7 +85,7 @@
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 87.23999786376953,
+      "price": 87.27999877929688,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -94,7 +94,7 @@
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 95.12000274658203,
+      "price": 95.29000091552734,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -103,7 +103,7 @@
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 98.0199966430664,
+      "price": 98.04900360107422,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -112,27 +112,27 @@
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1789672374725342,
+      "price": 1.1792453527450562,
       "prev": 1.1782727241516113,
-      "change_pct": 0.05894334195191696,
+      "change_pct": 0.08254698369133033,
       "date": "2026-04-20"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 4.982500076293945,
-      "prev": 4.987090110778809,
-      "change_pct": -0.0920383306277672,
-      "date": "2026-04-20"
+      "price": 4.987090110778809,
+      "prev": null,
+      "change_pct": null,
+      "date": "2026-04-17"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.265999794006348,
+      "price": 4.25600004196167,
       "prev": 4.245999813079834,
-      "change_pct": 0.4710311306397985,
+      "change_pct": 0.23552118045389822,
       "date": "2026-04-20"
     },
     {
@@ -148,9 +148,9 @@
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 94.54000091552734,
+      "price": 94.91000366210938,
       "prev": 93.76000213623047,
-      "change_pct": 0.8319099418999162,
+      "change_pct": 1.226537435662585,
       "date": "2026-04-20"
     }
   ],
@@ -164,9 +164,34 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
+          "title": "US Equity Indexes Decline as Fate of Iran Peace Talks Hangs in Balance",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-decline-fate-165746109.html?.tsrc=rss",
+          "published": "Mon, 20 Apr 2026 16:57:46 +0000"
+        },
+        {
+          "title": "3 Reasons We’re Fans of Natera (NTRA)",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-fans-natera-ntra-164532574.html?.tsrc=rss",
+          "published": "Mon, 20 Apr 2026 16:45:32 +0000"
+        },
+        {
+          "title": "QXO Is Buying TopBuild. What the Deal Spread Tells Investors.",
+          "link": "https://finance.yahoo.com/m/8c520581-8c2e-3d68-be4d-f22acc7b27f4/qxo-is-buying-topbuild.-what.html?.tsrc=rss",
+          "published": "Mon, 20 Apr 2026 16:32:00 +0000"
+        },
+        {
+          "title": "One Small Sale for Honeywell, One Big Leap for Brady",
+          "link": "https://finance.yahoo.com/m/74eb226f-d4de-35bc-b76e-cd72c1fb79ab/one-small-sale-for-honeywell%2C.html?.tsrc=rss",
+          "published": "Mon, 20 Apr 2026 16:26:00 +0000"
+        },
+        {
           "title": "Could This High-Yield Dividend Stock Help Make You Rich Through Compounding?",
           "link": "https://www.fool.com/investing/2026/04/20/could-this-high-yield-dividend-stock-help-make-you/?.tsrc=rss",
           "published": "Mon, 20 Apr 2026 16:25:00 +0000"
+        },
+        {
+          "title": "Blue Origin Botched a Satellite Launch. Why AST SpaceMobile Stock Is Paying the Price.",
+          "link": "https://finance.yahoo.com/m/c7d3ba6a-9c8d-33ab-b8c7-d0f38c43aaa6/blue-origin-botched-a.html?.tsrc=rss",
+          "published": "Mon, 20 Apr 2026 16:14:00 +0000"
         },
         {
           "title": "Eli Lilly (LLY): 3 Reasons We Love This Stock",
@@ -177,31 +202,6 @@
           "title": "Is Keudell/Morrison's $3.4 Million Trim of FLXR  a Signal -- or Just Smart Rebalancing?",
           "link": "https://www.fool.com/coverage/filings/2026/04/20/is-keudell-morrison-s-usd3-4-million-trim-of-flxr-a-signal-or-just-smart-rebalancing/?.tsrc=rss",
           "published": "Mon, 20 Apr 2026 16:08:20 +0000"
-        },
-        {
-          "title": "S&P 500 Companies' Earnings Season Off to Solid Start, Oppenheimer Says",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/p-500-companies-apos-earnings-155054112.html?.tsrc=rss",
-          "published": "Mon, 20 Apr 2026 15:50:54 +0000"
-        },
-        {
-          "title": "Stock Market Today: Dow Dips As U.S.-Iran Tensions Rise; This Stock Clears Entry (Live Coverage)",
-          "link": "https://finance.yahoo.com/m/eb0ff88d-6203-3b32-b483-5da2153bf650/stock-market-today%3A-dow-dips.html?.tsrc=rss",
-          "published": "Mon, 20 Apr 2026 15:35:15 +0000"
-        },
-        {
-          "title": "3 Reasons to Sell CSGS and 1 Stock to Buy Instead",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-sell-csgs-1-152532460.html?.tsrc=rss",
-          "published": "Mon, 20 Apr 2026 15:25:32 +0000"
-        },
-        {
-          "title": "Oil Prices Jump, S&P 500 Falls As U.S.-Iran Jabs Puts Ceasefire In Doubt",
-          "link": "https://finance.yahoo.com/m/b5a5c0d4-0b24-3a29-8481-6b52438409cc/oil-prices-jump%2C-s%26p-500.html?.tsrc=rss",
-          "published": "Mon, 20 Apr 2026 15:22:45 +0000"
-        },
-        {
-          "title": "Accel Entertainment (ACEL): Buy, Sell, or Hold Post Q4 Earnings?",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/accel-entertainment-acel-buy-sell-151732897.html?.tsrc=rss",
-          "published": "Mon, 20 Apr 2026 15:17:32 +0000"
         }
       ]
     },
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-04-20 16:30",
+  "updated_at": "2026-04-20 17:09",
   "updated_date": "2026-04-20"
 }
