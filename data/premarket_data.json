@@ -4,52 +4,52 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7100.77001953125,
+      "price": 7102.830078125,
       "prev": 7126.06005859375,
-      "change_pct": -0.3548951153169303,
+      "change_pct": -0.3259863133027563,
       "date": "2026-04-20"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 24338.994140625,
+      "price": 24356.986328125,
       "prev": 24468.48046875,
-      "change_pct": -0.5291964422979755,
+      "change_pct": -0.45566434240734766,
       "date": "2026-04-20"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 49387.828125,
+      "price": 49364.7890625,
       "prev": 49447.4296875,
-      "change_pct": -0.12053520855719402,
+      "change_pct": -0.16712825221103664,
       "date": "2026-04-20"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 2935280.0,
+      "price": 2932695.5,
       "prev": 2889185.0,
-      "change_pct": 1.5954326220023987,
+      "change_pct": 1.5059783295289155,
       "date": "2026-04-20"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 19.010000228881836,
+      "price": 19.020000457763672,
       "prev": 17.479999542236328,
-      "change_pct": 8.752864569296007,
+      "change_pct": 8.810074118173127,
       "date": "2026-04-20"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7143.25,
+      "price": 7136.75,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -58,7 +58,7 @@
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 26711.5,
+      "price": 26689.75,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -67,7 +67,7 @@
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 49619.0,
+      "price": 49572.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -76,7 +76,7 @@
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4829.10009765625,
+      "price": 4826.10009765625,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -85,7 +85,7 @@
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 87.48999786376953,
+      "price": 87.9000015258789,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -94,7 +94,7 @@
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 95.69000244140625,
+      "price": 95.83000183105469,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -103,7 +103,7 @@
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 98.052001953125,
+      "price": 98.0719985961914,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -112,18 +112,18 @@
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.178550362586975,
+      "price": 1.178828239440918,
       "prev": 1.1782727241516113,
-      "change_pct": 0.02356317257226478,
+      "change_pct": 0.04714657972810385,
       "date": "2026-04-20"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 4.984600067138672,
+      "price": 4.984499931335449,
       "prev": 4.987090110778809,
-      "change_pct": -0.04992979041535428,
+      "change_pct": -0.05193769083420231,
       "date": "2026-04-20"
     },
     {
@@ -148,9 +148,9 @@
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 94.7300033569336,
+      "price": 94.62000274658203,
       "prev": 93.76000213623047,
-      "change_pct": 1.034557592366244,
+      "change_pct": 0.9172361249544422,
       "date": "2026-04-20"
     }
   ],
@@ -163,6 +163,11 @@
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
+        {
+          "title": "Booking (BKNG): Buy, Sell, or Hold Post Q4 Earnings?",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/booking-bkng-buy-sell-hold-171732167.html?.tsrc=rss",
+          "published": "Mon, 20 Apr 2026 17:17:32 +0000"
+        },
         {
           "title": "Exchange-Traded Funds Mixed as US Equities Fall After Midday",
           "link": "https://finance.yahoo.com/markets/stocks/articles/exchange-traded-funds-mixed-us-170931560.html?.tsrc=rss",
@@ -197,11 +202,6 @@
           "title": "Could This High-Yield Dividend Stock Help Make You Rich Through Compounding?",
           "link": "https://www.fool.com/investing/2026/04/20/could-this-high-yield-dividend-stock-help-make-you/?.tsrc=rss",
           "published": "Mon, 20 Apr 2026 16:25:00 +0000"
-        },
-        {
-          "title": "Blue Origin Botched a Satellite Launch. Why AST SpaceMobile Stock Is Paying the Price.",
-          "link": "https://finance.yahoo.com/m/c7d3ba6a-9c8d-33ab-b8c7-d0f38c43aaa6/blue-origin-botched-a.html?.tsrc=rss",
-          "published": "Mon, 20 Apr 2026 16:14:00 +0000"
         }
       ]
     },
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-04-20 17:33",
+  "updated_at": "2026-04-20 17:44",
   "updated_date": "2026-04-20"
 }
