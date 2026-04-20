@@ -170,6 +170,12 @@ def cargar_macro_pce():
     if not os.path.exists(path): return None
     return pd.read_csv(path, parse_dates=["fecha"]).sort_values("fecha").reset_index(drop=True)
 
+@st.cache_data(ttl=3600)
+def cargar_macro_breakeven():
+    path = "data/macro_breakeven.csv"
+    if not os.path.exists(path): return None
+    return pd.read_csv(path, parse_dates=["fecha"]).sort_values("fecha").reset_index(drop=True)
+
 @st.cache_data(ttl=1800)
 def cargar_calendario_int():
     path = "data/calendario_internacional.csv"
@@ -516,6 +522,7 @@ tabs = st.tabs([
     "Macro Global",
     "Calendario",
     "Premarket",
+    "Bonos Soberanos",
 ])
 
 # ════════════════════════════════════════════════════════════════════════════════
@@ -1060,9 +1067,10 @@ with tabs[6]:
     _df_infl   = cargar_macro_inflacion()
     _df_unemp  = cargar_macro_desempleo()
     _df_gdp    = cargar_macro_gdp()
-    _df_labor  = cargar_macro_labor()
-    _df_yields = cargar_macro_yields()
-    _df_pce    = cargar_macro_pce()
+    _df_labor     = cargar_macro_labor()
+    _df_yields    = cargar_macro_yields()
+    _df_pce       = cargar_macro_pce()
+    _df_breakeven = cargar_macro_breakeven()
 
     _TASA_LABEL = {
         "us_fed":   ("Fed Funds", "EE.UU.", "#1B2A6B"),
@@ -1213,7 +1221,11 @@ with tabs[6]:
     with _mg_col4:
         st.markdown('<div class="section-title">Crecimiento del PIB (%) — hist. + proy. IMF</div>', unsafe_allow_html=True)
         if _df_gdp is not None:
-            _gdp_reciente = _df_gdp[_df_gdp["fecha"] >= pd.Timestamp("2018-01-01")]
+            _next_yr = pd.Timestamp.now().year + 1
+            _gdp_reciente = _df_gdp[
+                (_df_gdp["fecha"] >= pd.Timestamp("2018-01-01")) &
+                (_df_gdp["fecha"].dt.year <= _next_yr)
+            ]
             _HIST_CUTOFF = pd.Timestamp("2026-01-01")
             fig_g = go.Figure()
             for col, (pais, color) in _GDP_COLS.items():
@@ -1302,13 +1314,16 @@ with tabs[6]:
                 ("Spread", (_val_spr / 100 if _val_spr is not None else None), "#553C9A"),
             ]):
                 with _yc[i]:
-                    st.markdown(_stat_card(label, val, _fecha_10y, None, fmt="{:.2f}%",
+                    st.markdown(_stat_card(label, val, None, None, fmt="{:.2f}%",
                                            color=color), unsafe_allow_html=True)
             fig_y = go.Figure()
-            _spr_colors = ["#276749" if v >= 0 else "#9B2335" for v in _df_spr["spread"]]
-            fig_y.add_trace(go.Bar(
+            _spr_color = "#553C9A"
+            fig_y.add_trace(go.Scatter(
                 x=_df_spr["fecha"], y=_df_spr["spread"],
-                name="Spread 10Y-2Y", marker_color=_spr_colors,
+                name="Spread 10Y-2Y",
+                line=dict(color=_spr_color, width=2),
+                fill="tozeroy",
+                fillcolor="rgba(85,60,154,0.08)",
             ))
             fig_y.add_hline(y=0, line_dash="dot", line_color="#718096")
             fig_y.update_layout(**_LAYOUT_COMPACT, yaxis_title="puntos básicos")
@@ -1367,6 +1382,38 @@ with tabs[6]:
                 ))
                 fig_jo.update_layout(**_LAYOUT_COMPACT, yaxis_title="millones", showlegend=False)
                 st.plotly_chart(fig_jo, use_container_width=True, key="macro_jo_chart")
+
+    # ── Fila 5: Inflación Breakeven EE.UU. (TIPS) ─────────────────────────────
+    st.markdown('<div class="section-title">Inflación Implícita EE.UU. — Breakeven (TIPS)</div>', unsafe_allow_html=True)
+    if _df_breakeven is not None:
+        _be_labels = [
+            ("be_10y", "10Y Breakeven", "#1B2A6B"),
+            ("be_5y",  "5Y Breakeven",  "#0070C0"),
+            ("be_2y",  "2Y Breakeven",  "#553C9A"),
+        ]
+        _bec = st.columns(3)
+        for i, (col, label, color) in enumerate(_be_labels):
+            val, fecha = _ultimo(_df_breakeven, col)
+            dlt = _delta(_df_breakeven, col)
+            with _bec[i]:
+                st.markdown(_stat_card(label, val, fecha, dlt, fmt="{:.2f}%",
+                                       color=color, invert=False), unsafe_allow_html=True)
+        fig_be = go.Figure()
+        for col, label, color in _be_labels:
+            if col in _df_breakeven.columns:
+                _s = _df_breakeven[["fecha", col]].dropna(subset=[col])
+                if not _s.empty:
+                    fig_be.add_trace(go.Scatter(
+                        x=_s["fecha"], y=_s[col], name=label,
+                        line=dict(color=color, width=2)
+                    ))
+        fig_be.add_hline(y=2, line_dash="dot", line_color="#718096",
+                         annotation_text="Meta Fed 2%", annotation_position="right",
+                         annotation_font_size=9)
+        fig_be.update_layout(**_LAYOUT_COMPACT, yaxis_title="% inflación implícita")
+        st.plotly_chart(fig_be, use_container_width=True, key="macro_breakeven_chart")
+    else:
+        st.info("Breakeven data disponible tras el próximo fetch diario.")
 
 # ════════════════════════════════════════════════════════════════════════════════
 # TAB 7 — CALENDARIO
@@ -1774,6 +1821,163 @@ with tabs[8]:
         _pm_updated = _pm_data.get("updated_at", "")
         st.markdown(f"<div style='font-size:10px;color:#A0AEC0;margin-top:8px'>Datos actualizados: {_pm_updated}</div>", unsafe_allow_html=True)
 
+
+# ════════════════════════════════════════════════════════════════════════════════
+# TAB 9 — BONOS SOBERANOS ARGENTINA
+# ════════════════════════════════════════════════════════════════════════════════
+with tabs[9]:
+    import math as _math
+
+    # Metadata estática de bonos soberanos (cupón actual, vencimiento, ley)
+    _BOND_META = {
+        "GD29": {"coupon": 4.125, "maturity": "2029-01-09", "freq": 2, "law": "NY"},
+        "GD30": {"coupon": 3.875, "maturity": "2030-07-09", "freq": 2, "law": "NY"},
+        "GD35": {"coupon": 4.625, "maturity": "2035-07-09", "freq": 2, "law": "NY"},
+        "GD38": {"coupon": 4.250, "maturity": "2038-01-09", "freq": 2, "law": "NY"},
+        "GD41": {"coupon": 4.500, "maturity": "2041-07-09", "freq": 2, "law": "NY"},
+        "GD46": {"coupon": 5.000, "maturity": "2046-01-09", "freq": 2, "law": "NY"},
+        "AL29": {"coupon": 4.125, "maturity": "2029-07-09", "freq": 2, "law": "AR"},
+        "AL30": {"coupon": 3.875, "maturity": "2030-07-09", "freq": 2, "law": "AR"},
+        "AL35": {"coupon": 4.625, "maturity": "2035-07-09", "freq": 2, "law": "AR"},
+        "AE38": {"coupon": 4.250, "maturity": "2038-01-09", "freq": 2, "law": "AR"},
+        "AL41": {"coupon": 4.500, "maturity": "2041-07-09", "freq": 2, "law": "AR"},
+        "AL46": {"coupon": 5.000, "maturity": "2046-01-09", "freq": 2, "law": "AR"},
+    }
+
+    def _ytm_approx(price, coupon_pct, years):
+        """YTM aproximado (fórmula rápida). price en % par (ej: 75), coupon en % anual."""
+        if price <= 0 or years <= 0:
+            return None
+        c = coupon_pct / 100
+        p = price / 100
+        return (c + (1 - p) / years) / ((1 + p) / 2) * 100
+
+    def _duration_approx(coupon_pct, years, ytm_pct, freq=2):
+        """Macaulay duration aproximada (bono bullet)."""
+        if ytm_pct is None or ytm_pct <= 0:
+            return None
+        y = ytm_pct / 100 / freq
+        c = coupon_pct / 100 / freq
+        n = years * freq
+        if y == 0:
+            return years
+        try:
+            d = ((1 + y) / y - n * (c - y) / (c * ((1 + y)**n - 1) + y)) / freq
+            return round(d, 2)
+        except Exception:
+            return None
+
+    st.markdown('<div class="section-title">Bonos Soberanos Argentina — Precios BYMA</div>', unsafe_allow_html=True)
+
+    # Cargar datos BYMA
+    _df_bonos = cargar_bonos()
+    _hoy_b = datetime.today().date()
+
+    if _df_bonos is not None and not _df_bonos.empty:
+        # Último precio por ticker
+        _latest = (
+            _df_bonos.sort_values("fecha")
+            .groupby("ticker")
+            .last()
+            .reset_index()
+        )
+
+        # Construir tabla con métricas
+        _rows = []
+        for _, row in _latest.iterrows():
+            tk = row["ticker"]
+            meta = _BOND_META.get(tk)
+            if meta is None:
+                continue
+            precio = row.get("precio")
+            var_pct = row.get("variacion_pct")
+            mat = pd.Timestamp(meta["maturity"])
+            years = max((mat - pd.Timestamp.now()).days / 365.25, 0.1)
+            ytm = _ytm_approx(precio, meta["coupon"], years) if precio else None
+            dur = _duration_approx(meta["coupon"], years, ytm, meta["freq"]) if ytm else None
+            _rows.append({
+                "Bono":     tk,
+                "Ley":      meta["law"],
+                "Venc.":    meta["maturity"][:7],
+                "Cupón %":  f"{meta['coupon']:.3f}%",
+                "Precio":   f"{precio:.2f}" if precio else "—",
+                "Var. día": (f"+{var_pct:.2f}%" if var_pct >= 0 else f"{var_pct:.2f}%") if var_pct is not None else "—",
+                "YTM %":    f"{ytm:.2f}%" if ytm else "—",
+                "Duration": f"{dur:.1f}a" if dur else "—",
+                "_ytm":     ytm,
+                "_precio":  precio,
+                "_var":     var_pct,
+            })
+
+        if _rows:
+            # Separar ley NY y AR
+            _ny = [r for r in _rows if r["Ley"] == "NY"]
+            _ar = [r for r in _rows if r["Ley"] == "AR"]
+
+            for _grupo, _label in [(_ny, "🌐 Ley Nueva York (GD)"), (_ar, "🇦🇷 Ley Argentina (AL/AE)")]:
+                if not _grupo:
+                    continue
+                st.markdown(f"<div style='font-weight:700;color:#1B3A6B;margin:12px 0 6px'>{_label}</div>", unsafe_allow_html=True)
+                _cols_b = st.columns(min(len(_grupo), 6))
+                for i, r in enumerate(_grupo[:6]):
+                    _pc = "#276749" if (r["_var"] or 0) >= 0 else "#9B2335"
+                    _yc = "#1B2A6B"
+                    with _cols_b[i]:
+                        st.markdown(
+                            f"<div style='border:1px solid #E2E8F0;border-radius:6px;padding:10px;"
+                            f"background:#FAFAFA;text-align:center'>"
+                            f"<div style='font-size:14px;font-weight:700;color:#1B2A6B'>{r['Bono']}</div>"
+                            f"<div style='font-size:10px;color:#A0AEC0'>{r['Ley']} · {r['Venc.']}</div>"
+                            f"<div style='font-size:20px;font-weight:700;color:#2D3748;margin:4px 0'>{r['Precio']}</div>"
+                            f"<div style='font-size:12px;color:{_pc};font-weight:600'>{r['Var. día']}</div>"
+                            f"<div style='font-size:11px;color:#718096;margin-top:4px'>"
+                            f"YTM: <b style='color:{_yc}'>{r['YTM %']}</b> &nbsp; Dur: <b>{r['Duration']}</b></div>"
+                            f"<div style='font-size:10px;color:#A0AEC0'>Cupón: {r['Cupón %']}</div>"
+                            f"</div>",
+                            unsafe_allow_html=True,
+                        )
+
+        # Fecha de actualización
+        if "fecha" in _df_bonos.columns:
+            _ult_fecha_b = pd.to_datetime(_df_bonos["fecha"]).max()
+            st.markdown(
+                f"<div style='font-size:10px;color:#A0AEC0;margin-top:8px'>Datos BYMA — últ. actualización: {_ult_fecha_b.strftime('%d/%m/%Y')}</div>",
+                unsafe_allow_html=True,
+            )
+    else:
+        st.info("Datos BYMA no disponibles aún. Se generan con el fetch diario (GitHub Actions).")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # ── Calculadora de Rendimiento ─────────────────────────────────────────────
+    st.markdown('<div class="section-title">Calculadora de Rendimiento</div>', unsafe_allow_html=True)
+    st.markdown("<div style='font-size:12px;color:#718096;margin-bottom:8px'>Ingresá precio y parámetros para estimar YTM y duration</div>", unsafe_allow_html=True)
+
+    _calc_col1, _calc_col2, _calc_col3, _calc_col4, _calc_col5 = st.columns(5)
+    with _calc_col1:
+        _c_bono = st.selectbox("Bono", list(_BOND_META.keys()), key="calc_bono")
+    with _calc_col2:
+        _c_precio = st.number_input("Precio (% par)", min_value=1.0, max_value=200.0,
+                                    value=75.0, step=0.25, key="calc_precio")
+    with _calc_col3:
+        _c_coupon = st.number_input("Cupón anual (%)", min_value=0.0, max_value=20.0,
+                                    value=float(_BOND_META[_c_bono]["coupon"]),
+                                    step=0.125, key="calc_coupon")
+    with _calc_col4:
+        _c_mat_str = _BOND_META[_c_bono]["maturity"]
+        _c_years = max((pd.Timestamp(_c_mat_str) - pd.Timestamp.now()).days / 365.25, 0.1)
+        st.metric("Años a vencimiento", f"{_c_years:.1f}")
+    with _calc_col5:
+        _c_ytm = _ytm_approx(_c_precio, _c_coupon, _c_years)
+        _c_dur = _duration_approx(_c_coupon, _c_years, _c_ytm)
+        if _c_ytm is not None:
+            st.metric("YTM estimado", f"{_c_ytm:.2f}%")
+        if _c_dur is not None:
+            st.metric("Duration (Macaulay)", f"{_c_dur:.1f} años")
+
+    # Spread vs UST 10Y
+    if dfr is not None and _c_ytm is not None:
+        pass  # placeholder — spread vs UST se agrega cuando haya datos de yields locales
 
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.divider()
