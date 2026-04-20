@@ -644,33 +644,75 @@ with tabs[0]:
         _st_l, _st_c = st.columns([1, 9])
         with _st_c:
             st.markdown('<div class="section-title">Comercio Exterior</div>', unsafe_allow_html=True)
-        row_card(dfa_f0, "exportaciones", "Exportaciones FOB (USD MM)", prefijo="USD ",
-                 sufijo=" MM", decimales=0, color=COLORES.get("exportaciones","#F6AD55"),
-                 key="t0_expo", df_full=dfa)
-        row_card(dfa_f0, "importaciones", "Importaciones CIF (USD MM)", prefijo="USD ",
-                 sufijo=" MM", decimales=0, color=COLORES.get("importaciones","#FC8181"),
-                 key="t0_impo", invertir_colores=True, df_full=dfa)
-        if "balanza_comercial" in dfa_f0.columns:
-            col_esp_l, col_card, col_chart, col_esp_r = st.columns([1, 2, 4, 3])
-            with col_card:
-                val_bc, fecha_bc, var_bc, _, _ = get_variaciones(dfa_f0, "balanza_comercial", pp_absoluto=True)
-                if val_bc is not None:
-                    color_bc = "pos" if val_bc >= 0 else "neg"
-                    signo = "+" if val_bc >= 0 else ""
-                    var_html = f'<span class="{"pos" if var_bc>=0 else "neg"}">{"▲" if var_bc>=0 else "▼"} USD {abs(var_bc):,.0f} MM</span>'
-                    st.markdown(f"""
-                    <div class="row-card">
-                        <div class="var-label">Balanza Comercial (USD MM)</div>
-                        <div class="var-value"><span class="{color_bc}">{signo}USD {val_bc:,.0f} MM</span></div>
-                        <div class="var-fecha">últ. dato: {fecha_bc}</div>
-                        <div class="var-delta-row">
-                            <div class="delta-item"><span class="delta-label">vs últ. dato</span>{var_html}</div>
-                        </div>
-                    </div>""", unsafe_allow_html=True)
-            with col_chart:
-                mini_chart_barras(dfa_f0, "balanza_comercial", key="t0_balanza",
-                                  label="Balanza Comercial (USD MM)",
-                                  fecha_str=fecha_bc or "", df_full=dfa)
+
+        _esp_l, _col_card, _col_chart, _esp_r = st.columns([1, 2, 4, 3])
+
+        with _col_card:
+            _val_bc, _fecha_bc, _var_bc, _, _ = (
+                get_variaciones(dfa_f0, "balanza_comercial", dfa, pp_absoluto=True)
+                if "balanza_comercial" in dfa_f0.columns else (None, None, None, None, None)
+            )
+            _, _, _, _, _yoy_expo = get_variaciones(dfa_f0, "exportaciones", dfa)
+            _, _, _, _, _yoy_impo = get_variaciones(dfa_f0, "importaciones", dfa)
+            if _val_bc is not None:
+                _c_bc   = "pos" if _val_bc >= 0 else "neg"
+                _s_bc   = "+" if _val_bc >= 0 else ""
+                _vbc_h  = (f'<span class="{"pos" if (_var_bc or 0)>=0 else "neg"}">'
+                           f'{"▲" if (_var_bc or 0)>=0 else "▼"} USD {abs(_var_bc or 0):,.0f} MM</span>')
+                _ye = (f'<span class="{"pos" if (_yoy_expo or 0)>=0 else "neg"}">'
+                       f'{("+" if (_yoy_expo or 0)>=0 else "")}{_yoy_expo:.1f}% a/a</span>'
+                       if _yoy_expo is not None else "—")
+                _yi = (f'<span class="{"neg" if (_yoy_impo or 0)>=0 else "pos"}">'
+                       f'{("+" if (_yoy_impo or 0)>=0 else "")}{_yoy_impo:.1f}% a/a</span>'
+                       if _yoy_impo is not None else "—")
+                st.markdown(f"""
+                <div class="row-card">
+                    <div class="var-label">Balanza Comercial</div>
+                    <div class="var-value"><span class="{_c_bc}">{_s_bc}USD {_val_bc:,.0f} MM</span></div>
+                    <div class="var-fecha">últ. dato: {_fecha_bc}</div>
+                    <div class="var-delta-row">
+                        <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_vbc_h}</div>
+                    </div>
+                    <div style="margin-top:6px;font-size:11px;border-top:1px solid #E2E8F0;padding-top:5px">
+                        <div style="color:#718096">Expo a/a: {_ye}</div>
+                        <div style="color:#718096">Impo a/a: {_yi}</div>
+                    </div>
+                </div>""", unsafe_allow_html=True)
+
+        with _col_chart:
+            _fig_ce = go.Figure()
+            if "balanza_comercial" in dfa_f0.columns:
+                _s_bal = dfa_f0[["fecha", "balanza_comercial"]].dropna(subset=["balanza_comercial"])
+                _c_bal = ["#276749" if v >= 0 else "#9B2335" for v in _s_bal["balanza_comercial"]]
+                _fig_ce.add_trace(go.Bar(
+                    x=_s_bal["fecha"], y=_s_bal["balanza_comercial"],
+                    name="Balanza", marker_color=_c_bal, yaxis="y2",
+                    hovertemplate="%{x|%b/%Y}<br>Balanza: USD %{y:,.0f} MM<extra></extra>",
+                ))
+            for _cc, _ll, _hx in [
+                ("exportaciones", "Exportaciones", "#D69E2E"),
+                ("importaciones", "Importaciones", "#9B2335"),
+            ]:
+                if _cc in dfa_f0.columns:
+                    _ss = dfa_f0[["fecha", _cc]].dropna(subset=[_cc])
+                    if not _ss.empty:
+                        _fig_ce.add_trace(go.Scatter(
+                            x=_ss["fecha"], y=_ss[_cc], name=_ll,
+                            line=dict(color=_hx, width=2),
+                            hovertemplate=f"%{{x|%b/%Y}}<br>{_ll}: USD %{{y:,.0f}} MM<extra></extra>",
+                        ))
+            _lce = dict(LAYOUT_BASE)
+            _lce.update(dict(
+                height=300, showlegend=True,
+                legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=9)),
+                yaxis=dict(showgrid=True, gridcolor="#EDF2F7", zeroline=False,
+                           tickfont=dict(size=10), title="USD MM"),
+                yaxis2=dict(overlaying="y", side="right", showgrid=False, zeroline=True,
+                            zerolinecolor="#CBD5E0", tickfont=dict(size=10), title="Balanza"),
+                margin=dict(l=10, r=55, t=40, b=10),
+            ))
+            _fig_ce.update_layout(**_lce)
+            st.plotly_chart(_fig_ce, use_container_width=True, key="t0_combo_comercio")
 
 # ════════════════════════════════════════════════════════════════════════════════
 # TAB 1 — POLÍTICA MONETARIA
@@ -1036,12 +1078,13 @@ with tabs[6]:
         "cn_cpi_yoy": ("China", "#DE2910"),
     }
     _GDP_COLS = {
-        "us_gdp": ("EE.UU.", "#1B2A6B"),
-        "eu_gdp": ("Eurozona", "#0070C0"),
-        "cn_gdp": ("China", "#DE2910"),
-        "jp_gdp": ("Japón", "#BC002D"),
-        "br_gdp": ("Brasil", "#009C3B"),
-        "ar_gdp": ("Argentina", "#74ACDF"),
+        "world_gdp": ("Mundo",     "#4A5568"),
+        "us_gdp":    ("EE.UU.",    "#1B2A6B"),
+        "eu_gdp":    ("Eurozona",  "#0070C0"),
+        "cn_gdp":    ("China",     "#DE2910"),
+        "jp_gdp":    ("Japón",     "#BC002D"),
+        "br_gdp":    ("Brasil",    "#009C3B"),
+        "ar_gdp":    ("Argentina", "#74ACDF"),
     }
 
     def _ultimo(df, col):
@@ -1144,24 +1187,26 @@ with tabs[6]:
         st.markdown('<div class="section-title">Desempleo</div>', unsafe_allow_html=True)
         if _df_unemp is not None:
             _u_labels = {
-                "us_unrate": ("EE.UU.", "#1B2A6B"),
+                "us_unrate": ("EE.UU.",   "#1B2A6B"),
                 "eu_unrate": ("Eurozona", "#0070C0"),
-                "jp_unrate": ("Japón", "#BC002D"),
+                "jp_unrate": ("Japón",    "#BC002D"),
+                "uk_unrate": ("Reino Unido", "#276749"),
+                "br_unrate": ("Brasil",   "#009C3B"),
             }
-            _uc = st.columns(3)
-            for i, (col, (pais, color)) in enumerate(_u_labels.items()):
+            _u_avail = {k: v for k, v in _u_labels.items() if k in _df_unemp.columns}
+            _uc = st.columns(len(_u_avail))
+            for i, (col, (pais, color)) in enumerate(_u_avail.items()):
                 val, fecha = _ultimo(_df_unemp, col)
                 dlt = _delta(_df_unemp, col)
                 with _uc[i]:
                     st.markdown(_stat_card(pais, val, fecha, dlt, fmt="{:.1f}%",
                                            color=color, invert=True), unsafe_allow_html=True)
             fig_u = go.Figure()
-            for col, (pais, color) in _u_labels.items():
-                if col in _df_unemp.columns:
-                    _s = _df_unemp[["fecha", col]].dropna(subset=[col])
-                    if not _s.empty:
-                        fig_u.add_trace(go.Scatter(x=_s["fecha"], y=_s[col], name=pais,
-                                                   line=dict(color=color, width=2)))
+            for col, (pais, color) in _u_avail.items():
+                _s = _df_unemp[["fecha", col]].dropna(subset=[col])
+                if not _s.empty:
+                    fig_u.add_trace(go.Scatter(x=_s["fecha"], y=_s[col], name=pais,
+                                               line=dict(color=color, width=2)))
             fig_u.update_layout(**_LAYOUT_COMPACT, yaxis_title="% desocupados")
             st.plotly_chart(fig_u, use_container_width=True, key="macro_unemp_chart")
 
@@ -1169,7 +1214,7 @@ with tabs[6]:
         st.markdown('<div class="section-title">Crecimiento del PIB (%) — hist. + proy. IMF</div>', unsafe_allow_html=True)
         if _df_gdp is not None:
             _gdp_reciente = _df_gdp[_df_gdp["fecha"] >= pd.Timestamp("2018-01-01")]
-            _HIST_CUTOFF = pd.Timestamp("2025-01-01")
+            _HIST_CUTOFF = pd.Timestamp("2026-01-01")
             fig_g = go.Figure()
             for col, (pais, color) in _GDP_COLS.items():
                 if col in _gdp_reciente.columns:
@@ -1187,11 +1232,10 @@ with tabs[6]:
                             fig_g.add_trace(go.Bar(
                                 x=_s_proj["fecha"].dt.year.astype(str), y=_s_proj[col],
                                 name=pais, marker_color=color,
-                                marker_pattern_shape="/", opacity=0.65,
                                 showlegend=False, legendgroup=pais,
                             ))
             # Mark projection years with annotation on x-axis
-            for yr in ["2025", "2026", "2027"]:
+            for yr in ["2026", "2027"]:
                 fig_g.add_annotation(
                     x=yr, y=0, text="★", showarrow=False,
                     font=dict(size=8, color="#718096"), yshift=-14,
@@ -1209,36 +1253,11 @@ with tabs[6]:
             )
             st.plotly_chart(fig_g, use_container_width=True, key="macro_gdp_chart")
 
-    # ── Fila 3: Bonos del Tesoro | PCE ────────────────────────────────────────
+    # ── Fila 3: PCE full width ─────────────────────────────────────────────────
     _mg_col5, _mg_col6 = st.columns(2)
 
     with _mg_col5:
-        st.markdown('<div class="section-title">Bonos del Tesoro EE.UU.</div>', unsafe_allow_html=True)
-        if _df_yields is not None:
-            _yc = st.columns(2)
-            for i, (col, label, color) in enumerate([
-                ("us_10y", "10 años", "#1B2A6B"),
-                ("us_2y",  "2 años",  "#E53E3E"),
-            ]):
-                val, fecha = _ultimo(_df_yields, col)
-                dlt = _delta(_df_yields, col)
-                with _yc[i]:
-                    st.markdown(_stat_card(label, val, fecha, dlt, fmt="{:.2f}%",
-                                           color=color, invert=True), unsafe_allow_html=True)
-            fig_y = go.Figure()
-            for col, label, color in [("us_10y", "10 años", "#1B2A6B"), ("us_2y", "2 años", "#E53E3E")]:
-                if col in _df_yields.columns:
-                    _s = _df_yields[["fecha", col]].dropna(subset=[col])
-                    if not _s.empty:
-                        fig_y.add_trace(go.Scatter(
-                            x=_s["fecha"], y=_s[col], name=label,
-                            line=dict(color=color, width=2)
-                        ))
-            fig_y.update_layout(**_LAYOUT_COMPACT, yaxis_title="% rendimiento")
-            st.plotly_chart(fig_y, use_container_width=True, key="macro_yields_chart")
-
-    with _mg_col6:
-        st.markdown('<div class="section-title">PCE EE.UU. (Deflactor Consumo)</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-title">PCE EE.UU. (Gasto Personal en Consumo) — medida favorita de la Fed</div>', unsafe_allow_html=True)
         if _df_pce is not None:
             _pc = st.columns(2)
             for i, (col, label, color) in enumerate([
@@ -1267,6 +1286,33 @@ with tabs[6]:
                             annotation_font_size=9)
             fig_p.update_layout(**_LAYOUT_COMPACT, yaxis_title="% interanual")
             st.plotly_chart(fig_p, use_container_width=True, key="macro_pce_chart")
+
+    with _mg_col6:
+        st.markdown('<div class="section-title">Spread Tasas EE.UU. — 10Y minus 2Y (p.b.)</div>', unsafe_allow_html=True)
+        if _df_yields is not None and "us_10y" in _df_yields.columns and "us_2y" in _df_yields.columns:
+            _df_spr = _df_yields[["fecha", "us_10y", "us_2y"]].dropna().copy()
+            _df_spr["spread"] = (_df_spr["us_10y"] - _df_spr["us_2y"]) * 100  # convert % → bp
+            _val_spr  = float(_df_spr.iloc[-1]["spread"]) if not _df_spr.empty else None
+            _val_10y, _fecha_10y = _ultimo(_df_yields, "us_10y")
+            _val_2y,  _fecha_2y  = _ultimo(_df_yields, "us_2y")
+            _yc = st.columns(3)
+            for i, (label, val, color) in enumerate([
+                ("10Y", _val_10y, "#1B2A6B"),
+                ("2Y",  _val_2y,  "#0070C0"),
+                ("Spread", (_val_spr / 100 if _val_spr is not None else None), "#553C9A"),
+            ]):
+                with _yc[i]:
+                    st.markdown(_stat_card(label, val, _fecha_10y, None, fmt="{:.2f}%",
+                                           color=color), unsafe_allow_html=True)
+            fig_y = go.Figure()
+            _spr_colors = ["#276749" if v >= 0 else "#9B2335" for v in _df_spr["spread"]]
+            fig_y.add_trace(go.Bar(
+                x=_df_spr["fecha"], y=_df_spr["spread"],
+                name="Spread 10Y-2Y", marker_color=_spr_colors,
+            ))
+            fig_y.add_hline(y=0, line_dash="dot", line_color="#718096")
+            fig_y.update_layout(**_LAYOUT_COMPACT, yaxis_title="puntos básicos")
+            st.plotly_chart(fig_y, use_container_width=True, key="macro_yields_chart")
 
     # ── Fila 4: Mercado Laboral EE.UU. ────────────────────────────────────────
     st.markdown('<div class="section-title">Mercado Laboral EE.UU.</div>', unsafe_allow_html=True)
@@ -1704,13 +1750,19 @@ with tabs[8]:
                 )
                 for article in feed.get("items", [])[:6]:
                     title = article.get("title", "")
+                    link  = article.get("link", "")
                     pub   = article.get("published", "")[:16]
                     # Shorten date string
                     if "," in pub:
                         pub = pub.split(",")[-1].strip()[:12]
+                    title_html = (
+                        f'<a href="{link}" target="_blank" rel="noopener noreferrer" '
+                        f'style="color:#2D3748;text-decoration:none">{title}</a>'
+                        if link else title
+                    )
                     st.markdown(
                         f"<div style='border-bottom:1px solid #EDF2F7;padding:5px 0'>"
-                        f"<span style='font-size:12px;color:#2D3748;line-height:1.3'>{title}</span>"
+                        f"<span style='font-size:12px;line-height:1.3'>{title_html}</span>"
                         f"<span style='font-size:10px;color:#A0AEC0;display:block'>{pub}</span>"
                         f"</div>",
                         unsafe_allow_html=True,

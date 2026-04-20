@@ -24,7 +24,7 @@ FRED_URL = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={}"
 BCB_URL  = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{}/dados/ultimos/120?formato=json"
 WB_URL   = "https://api.worldbank.org/v2/country/{}/indicator/{}?format=json&per_page=30&mrv=30"
 
-CORTE = pd.Timestamp.now() - pd.DateOffset(years=7)
+CORTE = pd.Timestamp.now() - pd.DateOffset(years=10)
 
 
 def fetch_fred(series_id, col):
@@ -233,15 +233,18 @@ update_csv("data/macro_inflacion.csv", {
 # ── Desempleo ──────────────────────────────────────────────────────────────────
 print("\n[Desempleo]")
 update_csv("data/macro_desempleo.csv", {
-    "us_unrate": fetch_fred("UNRATE",          "us_unrate"),
-    "eu_unrate": fetch_fred("LRHUTTTTEZM156S", "eu_unrate"),
-    "jp_unrate": fetch_fred("LRHUTTTTJPM156S", "jp_unrate"),
+    "us_unrate": fetch_fred("UNRATE",           "us_unrate"),
+    "eu_unrate": fetch_fred("LRHUTTTTEZM156S",  "eu_unrate"),
+    "jp_unrate": fetch_fred("LRHUTTTTJPM156S",  "jp_unrate"),
+    "uk_unrate": fetch_fred("LRHUTTTTGBM156S",  "uk_unrate"),
+    "br_unrate": fetch_fred("LRHUTTTTBRM156S",  "br_unrate"),
 })
 
 # ── PIB — Crecimiento anual (World Bank + IMF proyecciones) ───────────────────
 print("\n[PIB YoY — World Bank + IMF]")
 IND_GDP = "NY.GDP.MKTP.KD.ZG"
 update_csv("data/macro_gdp.csv", {
+    "world_gdp": fetch_worldbank("WLD", IND_GDP, "world_gdp"),
     "us_gdp": fetch_worldbank("US", IND_GDP, "us_gdp"),
     "eu_gdp": fetch_worldbank("XC", IND_GDP, "eu_gdp"),
     "cn_gdp": fetch_worldbank("CN", IND_GDP, "cn_gdp"),
@@ -253,11 +256,11 @@ update_csv("data/macro_gdp.csv", {
 # IMF WEO API — proyecciones 2025-2027
 def fetch_imf_gdp():
     try:
-        url = "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH/USA/EUQ/CHN/JPN/BRA/ARG"
+        url = "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH/WORLD/USA/EUQ/CHN/JPN/BRA/ARG"
         r = requests.get(url, timeout=20)
         data = r.json()
         vals = data.get("values", {}).get("NGDP_RPCH", {})
-        country_map = {"USA": "us_gdp", "EUQ": "eu_gdp", "CHN": "cn_gdp",
+        country_map = {"WORLD": "world_gdp", "USA": "us_gdp", "EUQ": "eu_gdp", "CHN": "cn_gdp",
                        "JPN": "jp_gdp", "BRA": "br_gdp", "ARG": "ar_gdp"}
         rows = {}
         for imf_code, col in country_map.items():
