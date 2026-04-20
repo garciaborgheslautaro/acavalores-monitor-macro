@@ -324,12 +324,20 @@ update_csv("data/macro_pce.csv", {
     "us_core_pce_yoy": df_core_pce,
 })
 
-# ── Yields — Bonos del Tesoro EE.UU. ─────────────────────────────────────────
+# ── Yields — Bonos del Tesoro EE.UU. (diario, full overwrite) ────────────────
 print("\n[Yields]")
-update_csv("data/macro_yields.csv", {
-    "us_10y": fetch_fred("DGS10", "us_10y"),
-    "us_2y":  fetch_fred("DGS2",  "us_2y"),
-})
+# DGS10/DGS2 son diarias — hacemos overwrite completo para no quedar con seed mensual
+df_10y = fetch_fred("DGS10", "us_10y")
+df_2y  = fetch_fred("DGS2",  "us_2y")
+if df_10y is not None and df_2y is not None:
+    df_yields_out = pd.merge(df_10y, df_2y, on="fecha", how="outer").sort_values("fecha")
+    df_yields_out.to_csv("data/macro_yields.csv", index=False)
+    print(f"  → macro_yields.csv overwrite ({len(df_yields_out)} filas diarias)")
+elif df_10y is not None or df_2y is not None:
+    # Solo uno disponible — usar update_csv para no perder lo existente
+    update_csv("data/macro_yields.csv", {"us_10y": df_10y, "us_2y": df_2y})
+else:
+    print("  Sin datos de yields — conservando CSV existente")
 
 # ── Mercado Laboral EE.UU. ────────────────────────────────────────────────────
 print("\n[Mercado Laboral EE.UU.]")

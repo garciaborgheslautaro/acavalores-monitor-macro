@@ -202,7 +202,7 @@ EVENTOS_AR = [
     {"date": "2026-01-22", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
     {"date": "2026-02-19", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
     {"date": "2026-03-26", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
-    {"date": "2026-04-23", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
+    {"date": "2026-04-08", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
     {"date": "2026-05-21", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
     {"date": "2026-06-25", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
     {"date": "2026-07-23", "event": "REM — Expectativas de Mercado", "source": "BCRA", "impact": "High"},
