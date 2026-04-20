@@ -24,7 +24,7 @@ FRED_URL = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={}"
 BCB_URL  = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{}/dados/ultimos/120?formato=json"
 WB_URL   = "https://api.worldbank.org/v2/country/{}/indicator/{}?format=json&per_page=30&mrv=30"
 
-CORTE = pd.Timestamp.now() - pd.DateOffset(years=7)
+CORTE = pd.Timestamp.now() - pd.DateOffset(years=10)
 
 
 def fetch_fred(series_id, col):
@@ -233,9 +233,11 @@ update_csv("data/macro_inflacion.csv", {
 # ── Desempleo ──────────────────────────────────────────────────────────────────
 print("\n[Desempleo]")
 update_csv("data/macro_desempleo.csv", {
-    "us_unrate": fetch_fred("UNRATE",          "us_unrate"),
-    "eu_unrate": fetch_fred("LRHUTTTTEZM156S", "eu_unrate"),
-    "jp_unrate": fetch_fred("LRHUTTTTJPM156S", "jp_unrate"),
+    "us_unrate": fetch_fred("UNRATE",           "us_unrate"),
+    "eu_unrate": fetch_fred("LRHUTTTTEZM156S",  "eu_unrate"),
+    "jp_unrate": fetch_fred("LRHUTTTTJPM156S",  "jp_unrate"),
+    "uk_unrate": fetch_fred("LRHUTTTTGBM156S",  "uk_unrate"),
+    "br_unrate": fetch_fred("LRHUTTTTBRM156S",  "br_unrate"),
 })
 
 # ── PIB — Crecimiento anual (World Bank + IMF proyecciones) ───────────────────
