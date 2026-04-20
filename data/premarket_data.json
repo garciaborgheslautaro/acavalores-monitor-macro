@@ -4,52 +4,52 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7102.830078125,
+      "price": 7104.419921875,
       "prev": 7126.06005859375,
-      "change_pct": -0.3259863133027563,
+      "change_pct": -0.3036760361379896,
       "date": "2026-04-20"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 24356.986328125,
+      "price": 24372.42578125,
       "prev": 24468.48046875,
-      "change_pct": -0.45566434240734766,
+      "change_pct": -0.39256498834358167,
       "date": "2026-04-20"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 49364.7890625,
+      "price": 49374.8984375,
       "prev": 49447.4296875,
-      "change_pct": -0.16712825221103664,
+      "change_pct": -0.14668355960741766,
       "date": "2026-04-20"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 2932695.5,
+      "price": 2922715.25,
       "prev": 2889185.0,
-      "change_pct": 1.5059783295289155,
+      "change_pct": 1.1605435442867107,
       "date": "2026-04-20"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 19.020000457763672,
+      "price": 19.06999969482422,
       "prev": 17.479999542236328,
-      "change_pct": 8.810074118173127,
+      "change_pct": 9.096110950952987,
       "date": "2026-04-20"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7136.75,
+      "price": 7137.5,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -58,7 +58,7 @@
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 26689.75,
+      "price": 26706.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -67,7 +67,7 @@
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 49572.0,
+      "price": 49545.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -76,7 +76,7 @@
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4826.10009765625,
+      "price": 4827.39990234375,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -85,7 +85,7 @@
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 87.9000015258789,
+      "price": 87.4800033569336,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -94,7 +94,7 @@
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 95.83000183105469,
+      "price": 95.41000366210938,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -103,7 +103,7 @@
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 98.0719985961914,
+      "price": 98.06700134277344,
       "prev": null,
       "change_pct": null,
       "date": "2026-04-20"
@@ -112,45 +112,45 @@
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.178828239440918,
+      "price": 1.1789672374725342,
       "prev": 1.1782727241516113,
-      "change_pct": 0.04714657972810385,
+      "change_pct": 0.05894334195191696,
       "date": "2026-04-20"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 4.984499931335449,
+      "price": 4.973999977111816,
       "prev": 4.987090110778809,
-      "change_pct": -0.05193769083420231,
+      "change_pct": -0.2624803918962669,
       "date": "2026-04-20"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.254000186920166,
+      "price": 4.25600004196167,
       "prev": 4.245999813079834,
-      "change_pct": 0.18842143647031778,
+      "change_pct": 0.23552118045389822,
       "date": "2026-04-20"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 3.6050000190734863,
+      "price": 3.6029999256134033,
       "prev": 3.5999999046325684,
-      "change_pct": 0.13889207148266028,
+      "change_pct": 0.0833339183418994,
       "date": "2026-04-20"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 94.62000274658203,
+      "price": 94.54499816894531,
       "prev": 93.76000213623047,
-      "change_pct": 0.9172361249544422,
+      "change_pct": 0.8372397769085672,
       "date": "2026-04-20"
     }
   ],
@@ -163,6 +163,21 @@
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
+        {
+          "title": "Adobe Tries To Stay In The AI Race",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/adobe-tries-stay-ai-race-180417290.html?.tsrc=rss",
+          "published": "Mon, 20 Apr 2026 18:04:17 +0000"
+        },
+        {
+          "title": "Why Warren Buffett Still Isn't Seeing Bargains in the Market",
+          "link": "https://www.fool.com/investing/2026/04/20/why-warren-buffett-still-isnt-seeing-bargains-in-t/?.tsrc=rss",
+          "published": "Mon, 20 Apr 2026 17:35:00 +0000"
+        },
+        {
+          "title": "SLV Stock: A Fund Worth Watching In The Current Environment",
+          "link": "https://finance.yahoo.com/m/72f3793b-a728-38b6-bfa5-fd62edebc345/slv-stock%3A-a-fund-worth.html?.tsrc=rss",
+          "published": "Mon, 20 Apr 2026 17:31:22 +0000"
+        },
         {
           "title": "Booking (BKNG): Buy, Sell, or Hold Post Q4 Earnings?",
           "link": "https://finance.yahoo.com/markets/stocks/articles/booking-bkng-buy-sell-hold-171732167.html?.tsrc=rss",
@@ -187,21 +202,6 @@
           "title": "3 Reasons We’re Fans of Natera (NTRA)",
           "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-fans-natera-ntra-164532574.html?.tsrc=rss",
           "published": "Mon, 20 Apr 2026 16:45:32 +0000"
-        },
-        {
-          "title": "QXO Is Buying TopBuild. What the Deal Spread Tells Investors.",
-          "link": "https://finance.yahoo.com/m/8c520581-8c2e-3d68-be4d-f22acc7b27f4/qxo-is-buying-topbuild.-what.html?.tsrc=rss",
-          "published": "Mon, 20 Apr 2026 16:32:00 +0000"
-        },
-        {
-          "title": "One Small Sale for Honeywell, One Big Leap for Brady",
-          "link": "https://finance.yahoo.com/m/74eb226f-d4de-35bc-b76e-cd72c1fb79ab/one-small-sale-for-honeywell%2C.html?.tsrc=rss",
-          "published": "Mon, 20 Apr 2026 16:26:00 +0000"
-        },
-        {
-          "title": "Could This High-Yield Dividend Stock Help Make You Rich Through Compounding?",
-          "link": "https://www.fool.com/investing/2026/04/20/could-this-high-yield-dividend-stock-help-make-you/?.tsrc=rss",
-          "published": "Mon, 20 Apr 2026 16:25:00 +0000"
         }
       ]
     },
@@ -214,14 +214,19 @@
           "published": "Sat, 18 Apr 2026 18:43:16 GMT"
         },
         {
-          "title": "Why global stocks keep heading into orbit",
-          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPd2hXUUxpaEJzNUxEWmpOY1B1MTQ0Q2dlZEFjaVpoNDNBSDNkNUMtVjlyVlNnbXAzYXp6OGtaUl90cGhBb29KWDczdTVxZzdyXzdOTVB5dEVEc25oYVpnRGNDNTQ1dzRlRmlRdHo4dTlRUUdkb3BvOTZRR0hLTUVVODQ0dHlTeGNiaU5WVXBqeU9WWmRfZWUxeG9ua0paalRWN2FTYlQ0V0Y?oc=5",
-          "published": "Fri, 17 Apr 2026 19:38:55 GMT"
+          "title": "The stock market’s new approach to valuation",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQVEM1NTBnT2poWTN0dUNTWnloS1JreUZFdV9TVUo5UGFsSmZqdHFHTDNzc0VNTWhFSjJieUZkX0EtZnp1YXktU0VvR05PbVdtSklEWVBMU2JnTEQxZ2d1NzNzNXhhX3psYUljLVJfclZFc3E3bVpBZnEzUHN1MDg4ell2Q2E?oc=5",
+          "published": "Sun, 19 Apr 2026 11:00:08 GMT"
         },
         {
           "title": "Opinion | Why the Stock Market Makes No Sense Right Now",
           "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPc2hQSUk4Zkh2N1lfRkR1bWdwTjl6UE1WWXlzRlBpYkhaY2dVUVY2SXl1OXI4aWdYVTI2MkY4Rmt0RXZBaktuTjdBM2ZtZGk3b0Y5T3ZuUlF6ZzV5bDFjMnI0VVBGOVhFcDVvV3dxR21aTVNMY2NHYzNZNjhPUE5kNA?oc=5",
           "published": "Sat, 18 Apr 2026 11:00:20 GMT"
+        },
+        {
+          "title": "Market pros say load up on these 3 investments once the Strait of Hormuz finally reopens",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPYlVUejB1M19IM19xcEQ3Njlxdlowdi1YWGdHY0xwck5FRFBQQjNoVW56bHp5cTFTZThyZm1yam9IdklfWFA4R2JvZmgwS0RUOFBRYXZ2NDN4YXhXX3c0anJoXzIyeFE0VnZRdS04aDBsVERIYmxwOXBTclhCaUw0TnZ2U3AxZWNvRFRXWnJjV0g1SlhOeVEwOA?oc=5",
+          "published": "Sat, 18 Apr 2026 09:40:00 GMT"
         },
         {
           "title": "Messy War, Happy Stock Markets",
@@ -234,19 +239,14 @@
           "published": "Sun, 19 Apr 2026 14:33:00 GMT"
         },
         {
-          "title": "The stock market’s new approach to valuation",
-          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQVEM1NTBnT2poWTN0dUNTWnloS1JreUZFdV9TVUo5UGFsSmZqdHFHTDNzc0VNTWhFSjJieUZkX0EtZnp1YXktU0VvR05PbVdtSklEWVBMU2JnTEQxZ2d1NzNzNXhhX3psYUljLVJfclZFc3E3bVpBZnEzUHN1MDg4ell2Q2E?oc=5",
-          "published": "Sun, 19 Apr 2026 11:00:08 GMT"
-        },
-        {
-          "title": "Market pros say load up on these 3 investments once the Strait of Hormuz finally reopens",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPYlVUejB1M19IM19xcEQ3Njlxdlowdi1YWGdHY0xwck5FRFBQQjNoVW56bHp5cTFTZThyZm1yam9IdklfWFA4R2JvZmgwS0RUOFBRYXZ2NDN4YXhXX3c0anJoXzIyeFE0VnZRdS04aDBsVERIYmxwOXBTclhCaUw0TnZ2U3AxZWNvRFRXWnJjV0g1SlhOeVEwOA?oc=5",
-          "published": "Sat, 18 Apr 2026 09:40:00 GMT"
-        },
-        {
           "title": "‘Buffett Indicator’ Raises Fears Over US Economy",
           "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNUnlZelJGZ1JlOXRUVGdYZlZ1Uk5IMXdVal9mWkpCRzNFY0hwcGNnOUJmbk0wbEpFTmFNRlJwSlRfSUxXdHhmdU1UeVdWOXZLU3lzSE15dG1yRkh3M2VPaFU4ajhkLXZic3M2Yk9xTU9NMG1hd1FuN1FraDFtLVViV0xCTXc2WlE?oc=5",
           "published": "Mon, 20 Apr 2026 11:37:00 GMT"
+        },
+        {
+          "title": "Markets, Economy on Edge Awaiting Resumption of U.S.-Iran Ceasefire Talks",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPQXQ0VmRCem11aXYxTDFGck83LVVLUWxWcWVoc3hCR2hmS2dOY1hlSDl4SFN6eHpNWkV1SzVmSWpwN0hmX2FNOFUtZVhiUTZIM1ZEdm1WSUZGaUp5Q2owamJuUHJlZ2diZWlqa0lud3ptWE0tV3huVTJoSTBVbmEyNU4xNjE3bTNnNURiTjBRNkhQZnVaMVN2eEhBSi1RMGNSVnRMTnJJMkVtTlNGUHFuanY1SkxQQTk4V2IxX0V6MUs3aklSbm5xdG03T1BtQQ?oc=5",
+          "published": "Mon, 20 Apr 2026 13:06:00 GMT"
         }
       ]
     },
@@ -264,19 +264,9 @@
           "published": "Tue, 14 Apr 2026 11:15:00 GMT"
         },
         {
-          "title": "Dólar hoy, dólar blue hoy: a cuánto cerró este miércoles 1 de abril",
-          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOWGh6b3dFTlNYRTUxZTZtQjQ2REI1bzVENDZCNm1aUmJDRFIxakZRWjFSZzRWTHJsWFJCRUtKQ3laekNnWThjVldGcHRtcVd6ZFRYQ1czUHcya2RzVU5hN1pnOHE2bngwVWJXVlFIZEJvd3VGN01meEpPNWhNX1o2VmJ5aWw0MzlKQmxDdjQ4Z3R1N1Ryd1RNT2hvZ2FRdG9lNF85MWxJLVNwTGZIS0hwWENLN0NhQVpEYk5ySGhjazZ0QdIBxwFBVV95cUxQNWJwYUMtOUJlRUsyaVJKWDg1eU9zLVNTQk1KUzV1aU5nTWhPYk5URnJqQml5ajZlRmZqOTFXX1dsMnFwREtxQkVNeTl6aE9MOEZrOTZLSlNkeGxwOUVuWmtTVGNnTGFmdmthVHhnelRtdVYtaG5GeFV4MEJGeS0wanlxeGdueUxQN0Q1RWl3VHU0MDlzN2Z2YktOd2c0UFZPSUt0NjVYNlZ2OWlsNU1sZjlSV25kUmxSR3JXVEkxbHpmeFBOV0ow?oc=5",
-          "published": "Wed, 01 Apr 2026 07:00:00 GMT"
-        },
-        {
           "title": "El mercado le muestra a Argentina su mejor cara: baja el dólar y retrocede el riesgo país",
           "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOdzRuakVISy1DdVc3dU5zOVhBRFVMSHBad0ZOa2VTMnBRM3lpQmxiOFp4TW9XNVhabUJrX2UyZUZITllqVTRHZnNBOE9xM2NkQWR2a2FfRl9kcjV0WXVkaU5IbWlKWkM2MmNoUUVjdHRaRXNlMnp6U28zSklMb21YQmkwWFhjQVhscU80cEhZR1JoeFZiSEZOQmZHYS1zeGt6UDdkSnV5ak9lZ203M3FuZklmeWsxa3R5LXZv?oc=5",
           "published": "Wed, 04 Mar 2026 08:00:00 GMT"
-        },
-        {
-          "title": "Dólar hoy: ¿a cuánto cotiza este lunes 23 de marzo 2026 en medio del feriado bancario?",
-          "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPS2hBS0p1czZjamozazAwa1ZJeWcyLU9wTC1CcFQyWEg2VWV4dE1EUXFKWWVjb3E4N3VSeFRwQ2sxbWNmZlpGOVdrT2wyR1I3TjIwRnZZMjQ3c21jdF84Ni1lcUl4aHlmTS01LU1NYy1CRUREdkxDSmhJRU1ic1VrN2FPaWhRLXVfM2NVaHRIZTBreHF1LUNBaWdFM0tYNmdIbllsVnJ2SkV0SGtaSWVzTXJnVGgtN1h6NW1aYnNQOTVDN1RwczRnWdIB0AFBVV95cUxOUG9QQ1ZCZWlKYUc2SlEwTDRGR3FDWkxCYVFXYTVsajloejBjbnZUSWhHYllJZnM2N1d5TW10a1RQWFdrb0EyUXJiVGF0ZzV4TVNJdFVfUEI3Y2JPODdkV3gwLUR2dlhhYmNmSTZFUWVMWEhSSHpaUmhWMllKSUZVanZOY0xsR09XMlBUbWF6MDJJSmVxbDlJT0hJSUhEYkpBTS1WcTR5MllEc29FTGZzWFZSYnRnTnJ4S1BRV2RUc2FrZGx2TXVfaVpjRDhmUkNn?oc=5",
-          "published": "Mon, 23 Mar 2026 07:00:00 GMT"
         },
         {
           "title": "El raro momento del mercado que hace más riesgosa la maniobra con dólar",
@@ -289,13 +279,23 @@
           "published": "Wed, 08 Apr 2026 07:00:00 GMT"
         },
         {
+          "title": "Dólar oficial y su impacto en el mercado: cotización y claves del jueves 12 de febrero 2026",
+          "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOREJLR2dJcElWd1k3UWUzcGwwdW9hYmhhcHU4Z3VuVkpIUk4tOFFhazVjLU5jZ2VmTlJnNTBmS1FhNllLTlRIVUNzOWdNRXM5VmYxV2sxcXJlV196dHdOR2xJajFCcnBoR1NJRVJKVjZaUHNRMk4tcFpheHFSX1BUZUVfSGljTG5BZjIxNkNpWDRjd0FzNUZ6UmRKSkRlY3VrMUY5XzlhcVVHclhGMUZUd2tQZ2FQbTFrOTNDcFJjMU9sa251X3psaWxVd0NFanN6WFHSAdoBQVVfeXFMT3V1N1N2YnJVZDJ6WnplZV9Vd3NZaEdHT0E5RnkzdEw3ZExkdXFrcGZuUHdGZ3lRSjE2ejhpYWU1N0E5ZkFlb01QcG9JMXBsbUVQbFdhQmJuakFydXVITVFvRldhR1ZvQ2RZa2RObmFrSXZCNktnb0VacWROTE5pTU9yMU1sZWw3bHd3UHp1NGYwclNObmYwNk5jS1kyMnh2VWY5Qk0xZm5SRWlTYk5hV1E2Yk02bnlFcjZ0cFBuc09lOG9DMUplNWJ1MHZ5UmsxOVNZMkJ6N2o0dkE?oc=5",
+          "published": "Thu, 12 Feb 2026 08:00:00 GMT"
+        },
+        {
           "title": "Dólar: cómo impacta el shock geopolítico en el mercado local",
           "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNZ3ZQZ0VFWG5hUGduckw5bzRNWUpVMTdTd2l3ZVllc2FtdzdCNWV1Wnc2RFJvVDZqRWlWSk9Tb2pkdkh5TTRLR1ZfdU0zeUlzcUs0dUZ4V1I5YmJVejdjYy1FdmM1bXBUeEw1VGl5cGphOWt5bjBNR0hzRDlfTVNycTlzUU91OGZLdUh2UC1aMVhWZHZPWnJhMlRwdng3aXBUTW9RMjZOU1ZYSXlLaGhkT2MxY0lGOUUxb0hSUtIBwgFBVV95cUxQSzBYZUlXejZ1Y0RVbTFKRWpSVjNxdXNmclVSN1pfVGRSS2x4QjRGWlh6ckZBUm11SEFSUHZ1OXNMVWQ3U2hoYjBrTXJzYzRZMDQtZGhrdGpBQXlWck9GeVQ4MF9NbVFlMU5NR212LU1MazFPRWduSUYyZ1lIa0t1dmg5SU84RkJ2MVcyd2dWWlZlckd5TUt0QV9ERVRrdVc5UjlhdVdfNWlWdnJjeGZZb3NJeW9GcGM1ZzltOVJwQ3gwUQ?oc=5",
           "published": "Wed, 04 Mar 2026 08:00:00 GMT"
+        },
+        {
+          "title": "El economista más escuchado por Milei explicó por qué baja el dólar",
+          "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOVGlORnBjWWx5cHczVU1veC1UQUd0VHRKaTRSd3R3WEg2RHJLek5oX19uRi1GMEtmQ0stOTZfb2FvMnZlb3pBc3pLZFdUNzlSdF9DaXVFVDhVN3JqRENGNXdOYlN0ZHREWXhqWHJzcnY5OTh1ZEVPREpMblN0UHJsektkdkpBazkyT3QxbWM1ejR5dDFLT3o4YzRsRWM0VTF0ak9DTllIdE14bXRramZxSG52ZEdwUHQ3emdGVWFfOU1rc09Md24xLTYxZDlOSXppS2hRMFBYZzh3SzBENzdwZkdGY3FFbmh00gGDAkFVX3lxTE1DX2FaSXRwYVhRNVpvdGhvMDNQYXRJWVNHVGI0T0F3OFlhMmpGeDBvdGtHREZFNFY2bkNjWXVXbFAyb0U0Ym0yLU5vTV9xTENyblRCMlZSekpIdzBXbjRFT19YN3NOSm1xLU5KUUlYR09jUEowMk9senZlcEVHUE9HSDlaRmJYeFZXajlPOElMYXNybXBHeU5CWWlpZ0hXNXBjdzlfd3FmNmlvTjdLaENtSktocnZtTWZ6Vkd1dks4cnQ0U0R3OC1OSHFBdWJ3alkyR0JZc0hMRXFQVUg1MFJnX3dYQk5TeXUxSGp6V096VkxPQVptZjEzY0hVSXk0Z0tPYkk?oc=5",
+          "published": "Mon, 16 Feb 2026 08:00:00 GMT"
         }
       ]
     }
   },
-  "updated_at": "2026-04-20 17:44",
+  "updated_at": "2026-04-20 18:09",
   "updated_date": "2026-04-20"
 }
