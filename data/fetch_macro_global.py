@@ -295,6 +295,14 @@ if df_imf is not None:
     else:
         print("  Sin años nuevos de IMF posteriores al seed")
 
+# ── Breakeven Inflation EE.UU. (TIPS-implied) ────────────────────────────────
+print("\n[Breakeven Inflation]")
+update_csv("data/macro_breakeven.csv", {
+    "be_10y": fetch_fred("T10YIE", "be_10y"),
+    "be_5y":  fetch_fred("T5YIE",  "be_5y"),
+    "be_2y":  fetch_fred("T2YIE",  "be_2y"),
+})
+
 # ── PCE — Deflactor consumo personal EE.UU. ───────────────────────────────────
 print("\n[PCE]")
 df_pce_idx = fetch_fred("PCEPI", "pce_idx")
