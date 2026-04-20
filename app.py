@@ -713,7 +713,7 @@ with tabs[0]:
                 height=300, showlegend=True,
                 legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=9)),
                 yaxis=dict(showgrid=True, gridcolor="#EDF2F7", zeroline=False,
-                           tickfont=dict(size=10), title="USD MM"),
+                           tickfont=dict(size=10), title="USD MM", rangemode="nonnegative"),
                 yaxis2=dict(overlaying="y", side="right", showgrid=False, zeroline=True,
                             zerolinecolor="#CBD5E0", tickfont=dict(size=10), title="Balanza"),
                 margin=dict(l=10, r=55, t=40, b=10),
@@ -1136,6 +1136,7 @@ with tabs[6]:
         yaxis=dict(title_font=dict(size=10), tickfont=dict(size=9)),
         xaxis=dict(tickfont=dict(size=9)),
         plot_bgcolor="#F7F9FC", paper_bgcolor="#F7F9FC",
+        images=_wm_image(),
     )
 
     # ── Fila 1: Tasas | Inflación ──────────────────────────────────────────────
@@ -1253,6 +1254,7 @@ with tabs[6]:
                     font=dict(size=8, color="#718096"), yshift=-14,
                 )
             _layout_gdp = dict(**_LAYOUT_COMPACT)
+            _layout_gdp["height"] = 340
             _layout_gdp["margin"] = dict(l=5, r=5, t=25, b=30)
             fig_g.update_layout(
                 barmode="group", **_layout_gdp,
@@ -1732,16 +1734,20 @@ with tabs[8]:
     st.markdown('<div class="section-title">Commodities</div>', unsafe_allow_html=True)
     if _df_mkt is not None and not _df_mkt.empty:
         _pm_comm_cols = st.columns(6)
+        # Factores de conversión ¢/bushel → USD/ton: soja/trigo ×36.744/100, maíz ×39.368/100
+        _GRAIN_FACTOR = {"soja": 36.744 / 100, "maiz": 39.368 / 100, "trigo": 36.744 / 100}
         _comm_items = [
-            ("brent",  "Brent (USD)", "#7B341E", False, "${:.1f}"),
-            ("plata",  "Plata (USD)", "#718096", False, "${:.2f}"),
-            ("soja",   "Soja (cBs/t)", "#276749", False, "${:.1f}"),
-            ("maiz",   "Maíz (cBs/t)", "#D69E2E", False, "${:.1f}"),
-            ("trigo",  "Trigo (cBs/t)", "#C05621", False, "${:.1f}"),
+            ("brent",  "Brent (USD/bbl)", "#7B341E", False, "${:.1f}"),
+            ("plata",  "Plata (USD/oz)", "#718096", False, "${:.2f}"),
+            ("soja",   "Soja (USD/ton)", "#276749", False, "${:.1f}"),
+            ("maiz",   "Maíz (USD/ton)", "#D69E2E", False, "${:.1f}"),
+            ("trigo",  "Trigo (USD/ton)", "#C05621", False, "${:.1f}"),
             ("eem",    "EEM ETF",     "#0070C0", False, "${:.2f}"),
         ]
         for i, (col, label, color, invert, fmt) in enumerate(_comm_items):
             val, chg, _ = _mkt_chg(col) if col in _df_mkt.columns else (None, None, None)
+            if col in _GRAIN_FACTOR and val is not None:
+                val = val * _GRAIN_FACTOR[col]
             with _pm_comm_cols[i]:
                 val_str = fmt.format(val) if val is not None else "—"
                 chg_str, chg_v = _fmt_chg(chg)
@@ -1853,17 +1859,24 @@ with tabs[9]:
         return (c + (1 - p) / years) / ((1 + p) / 2) * 100
 
     def _duration_approx(coupon_pct, years, ytm_pct, freq=2):
-        """Macaulay duration aproximada (bono bullet)."""
-        if ytm_pct is None or ytm_pct <= 0:
+        """Modified Duration via DCF sobre todos los flujos de fondos."""
+        if ytm_pct is None or ytm_pct <= 0 or years <= 0:
             return None
-        y = ytm_pct / 100 / freq
-        c = coupon_pct / 100 / freq
-        n = years * freq
-        if y == 0:
-            return years
         try:
-            d = ((1 + y) / y - n * (c - y) / (c * ((1 + y)**n - 1) + y)) / freq
-            return round(d, 2)
+            y = ytm_pct / 100 / freq
+            c_per = coupon_pct / 100 / freq * 100
+            n = max(round(years * freq), 1)
+            pv_sum, weighted_sum = 0.0, 0.0
+            for i in range(1, n + 1):
+                t = i / freq
+                cf = c_per + (100.0 if i == n else 0.0)
+                pv_cf = cf / (1 + y) ** i
+                pv_sum += pv_cf
+                weighted_sum += t * pv_cf
+            if pv_sum == 0:
+                return None
+            macaulay = weighted_sum / pv_sum
+            return round(macaulay / (1 + y), 2)
         except Exception:
             return None
 
@@ -1973,7 +1986,7 @@ with tabs[9]:
         if _c_ytm is not None:
             st.metric("YTM estimado", f"{_c_ytm:.2f}%")
         if _c_dur is not None:
-            st.metric("Duration (Macaulay)", f"{_c_dur:.1f} años")
+            st.metric("Duration Mod.", f"{_c_dur:.1f} años")
 
     # Spread vs UST 10Y
     if dfr is not None and _c_ytm is not None:
