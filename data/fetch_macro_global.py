@@ -384,32 +384,13 @@ if df_payems_lvl is not None:
 df_quits       = fetch_fred_level("JTSQUR", "quit_rate")    # Quit Rate %
 df_jobopenings = fetch_fred_level("JTSJOL", "job_openings")  # Job Openings millions
 
-# NFP viene de FRED PAYEMS (fuente oficial BLS) — full overwrite para que siempre
-# refleje revisiones del BLS y no quede atado al seed manual del CSV.
-if df_payems is not None:
-    # Merge con quit_rate y job_openings (pueden tener lag de 1-2 meses)
-    df_labor_new = df_payems.copy()
-    for df_side, col in [(df_quits, "quit_rate"), (df_jobopenings, "job_openings")]:
-        if df_side is not None and not df_side.empty:
-            df_labor_new = pd.merge(df_labor_new, df_side, on="fecha", how="left")
-        else:
-            df_labor_new[col] = float("nan")
-    # Si el CSV existente tiene datos de quit_rate/job_openings más recientes (o el
-    # overwrite de FRED no los trajo), conservar los del seed para esas fechas.
-    if os.path.exists("data/macro_labor.csv"):
-        df_old_labor = pd.read_csv("data/macro_labor.csv", parse_dates=["fecha"])
-        for col in ["quit_rate", "job_openings"]:
-            if col in df_old_labor.columns:
-                fill_map = df_old_labor.dropna(subset=[col]).set_index("fecha")[col]
-                mask_nan = df_labor_new[col].isna()
-                df_labor_new.loc[mask_nan, col] = df_labor_new.loc[mask_nan, "fecha"].map(fill_map)
-    df_labor_new.sort_values("fecha", inplace=True)
-    df_labor_new.to_csv("data/macro_labor.csv", index=False)
-    print(f"  → macro_labor.csv overwrite ({len(df_labor_new)} filas, NFP desde FRED PAYEMS)")
-else:
-    update_csv("data/macro_labor.csv", {
-        "quit_rate":    df_quits,
-        "job_openings": df_jobopenings,
-    })
+# NFP: seed autoritativo (valores de release inicial del BLS, fuente investing.com).
+# Solo se agregan meses NUEVOS desde FRED — las revisiones del BLS no sobrescriben histórico.
+# quit_rate y job_openings también se agregan solo para fechas nuevas.
+update_csv("data/macro_labor.csv", {
+    "nfp":          df_payems,
+    "quit_rate":    df_quits,
+    "job_openings": df_jobopenings,
+})
 
 print("\n=== FIN fetch_macro_global.py ===")
