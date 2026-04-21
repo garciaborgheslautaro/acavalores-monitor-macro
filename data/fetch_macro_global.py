@@ -1,16 +1,5 @@
 #!/usr/bin/env python3
-"""fetch_macro_global.py — Datos macro de EE.UU. y el mundo.
-
-Fuentes (todas libres, sin API key):
-- FRED direct CSV: Fed Funds, ECB, CPI, desempleo
-- FRED IRSTCB01JPM156N: BoJ policy rate
-- BCB API serie 4390: Meta Selic mensual
-- BCB API serie 433: IPCA mensual (→ YoY)
-- World Bank API: PIB growth por país
-
-Estrategia: si una API falla, se conserva el CSV existente (seed data).
-El script actualiza sólo las columnas que pudo obtener.
-"""
+"""fetch_macro_global.py — Datos macro de EE.UU. y el mundo."""
 import requests
 import pandas as pd
 import os
@@ -20,7 +9,9 @@ warnings.filterwarnings("ignore")
 print("=== INICIO fetch_macro_global.py ===")
 os.makedirs("data", exist_ok=True)
 
-FRED_URL = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={}"
+FRED_API_KEY  = os.environ.get("FRED_API_KEY", "")
+FRED_API_URL  = "https://api.stlouisfed.org/fred/series/observations?series_id={}&api_key={}&file_type=json&observation_start={}"
+FRED_CSV_URL  = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={}"
 BCB_URL  = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{}/dados/ultimos/120?formato=json"
 WB_URL   = "https://api.worldbank.org/v2/country/{}/indicator/{}?format=json&per_page=30&mrv=30"
 
@@ -28,14 +19,37 @@ CORTE = pd.Timestamp.now() - pd.DateOffset(years=10)
 
 
 def fetch_fred(series_id, col):
+    """Fetch FRED series. Usa API key si está disponible, sino CSV directo."""
+    # Intentar con API key (más estable, sin restricciones de rate)
+    if FRED_API_KEY:
+        try:
+            start = CORTE.strftime("%Y-%m-%d")
+            url = FRED_API_URL.format(series_id, FRED_API_KEY, start)
+            r = requests.get(url, timeout=20)
+            r.raise_for_status()
+            obs = r.json().get("observations", [])
+            rows = []
+            for o in obs:
+                try:
+                    val = float(o["value"])
+                    rows.append({"fecha": pd.Timestamp(o["date"]), col: val})
+                except (ValueError, KeyError):
+                    pass  # "." = dato faltante en FRED
+            if rows:
+                df = pd.DataFrame(rows).sort_values("fecha").reset_index(drop=True)
+                print(f"  OK FRED API {series_id} ({col}) — {len(df)} registros, últ: {df.iloc[-1][col]:.2f}")
+                return df
+        except Exception as e:
+            print(f"  WARN FRED API {series_id}: {e} — intentando CSV directo")
+    # Fallback: CSV directo (sin API key)
     try:
-        df = pd.read_csv(FRED_URL.format(series_id))
+        df = pd.read_csv(FRED_CSV_URL.format(series_id))
         df.columns = ["fecha", col]
         df["fecha"] = pd.to_datetime(df["fecha"])
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df.dropna(subset=[col])
         df = df[df["fecha"] >= CORTE].reset_index(drop=True)
-        print(f"  OK FRED {series_id} ({col}) — {len(df)} registros, últ: {df.iloc[-1][col]:.2f}")
+        print(f"  OK FRED CSV {series_id} ({col}) — {len(df)} registros, últ: {df.iloc[-1][col]:.2f}")
         return df
     except Exception as e:
         print(f"  ERROR FRED {series_id}: {e}")
@@ -370,32 +384,13 @@ if df_payems_lvl is not None:
 df_quits       = fetch_fred_level("JTSQUR", "quit_rate")    # Quit Rate %
 df_jobopenings = fetch_fred_level("JTSJOL", "job_openings")  # Job Openings millions
 
-# NFP viene de FRED PAYEMS (fuente oficial BLS) — full overwrite para que siempre
-# refleje revisiones del BLS y no quede atado al seed manual del CSV.
-if df_payems is not None:
-    # Merge con quit_rate y job_openings (pueden tener lag de 1-2 meses)
-    df_labor_new = df_payems.copy()
-    for df_side, col in [(df_quits, "quit_rate"), (df_jobopenings, "job_openings")]:
-        if df_side is not None and not df_side.empty:
-            df_labor_new = pd.merge(df_labor_new, df_side, on="fecha", how="left")
-        else:
-            df_labor_new[col] = float("nan")
-    # Si el CSV existente tiene datos de quit_rate/job_openings más recientes (o el
-    # overwrite de FRED no los trajo), conservar los del seed para esas fechas.
-    if os.path.exists("data/macro_labor.csv"):
-        df_old_labor = pd.read_csv("data/macro_labor.csv", parse_dates=["fecha"])
-        for col in ["quit_rate", "job_openings"]:
-            if col in df_old_labor.columns:
-                fill_map = df_old_labor.dropna(subset=[col]).set_index("fecha")[col]
-                mask_nan = df_labor_new[col].isna()
-                df_labor_new.loc[mask_nan, col] = df_labor_new.loc[mask_nan, "fecha"].map(fill_map)
-    df_labor_new.sort_values("fecha", inplace=True)
-    df_labor_new.to_csv("data/macro_labor.csv", index=False)
-    print(f"  → macro_labor.csv overwrite ({len(df_labor_new)} filas, NFP desde FRED PAYEMS)")
-else:
-    update_csv("data/macro_labor.csv", {
-        "quit_rate":    df_quits,
-        "job_openings": df_jobopenings,
-    })
+# NFP: seed autoritativo (valores de release inicial del BLS, fuente investing.com).
+# Solo se agregan meses NUEVOS desde FRED — las revisiones del BLS no sobrescriben histórico.
+# quit_rate y job_openings también se agregan solo para fechas nuevas.
+update_csv("data/macro_labor.csv", {
+    "nfp":          df_payems,
+    "quit_rate":    df_quits,
+    "job_openings": df_jobopenings,
+})
 
 print("\n=== FIN fetch_macro_global.py ===")

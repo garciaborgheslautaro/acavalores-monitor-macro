@@ -655,34 +655,31 @@ with tabs[0]:
         _esp_l, _col_card, _col_chart, _esp_r = st.columns([1, 2, 4, 3])
 
         with _col_card:
-            _val_bc, _fecha_bc, _var_bc, _, _ = (
+            _val_bc, _fecha_bc, _, _, _ = (
                 get_variaciones(dfa_f0, "balanza_comercial", dfa, pp_absoluto=True)
                 if "balanza_comercial" in dfa_f0.columns else (None, None, None, None, None)
             )
-            _, _, _, _, _yoy_expo = get_variaciones(dfa_f0, "exportaciones", dfa)
-            _, _, _, _, _yoy_impo = get_variaciones(dfa_f0, "importaciones", dfa)
+            _val_expo, _, _, _, _yoy_expo = get_variaciones(dfa_f0, "exportaciones", dfa)
+            _val_impo, _, _, _, _yoy_impo = get_variaciones(dfa_f0, "importaciones", dfa)
             if _val_bc is not None:
-                _c_bc   = "pos" if _val_bc >= 0 else "neg"
-                _s_bc   = "+" if _val_bc >= 0 else ""
-                _vbc_h  = (f'<span class="{"pos" if (_var_bc or 0)>=0 else "neg"}">'
-                           f'{"▲" if (_var_bc or 0)>=0 else "▼"} USD {abs(_var_bc or 0):,.0f} MM</span>')
+                _c_bc = "pos" if _val_bc >= 0 else "neg"
+                _s_bc = "+" if _val_bc >= 0 else ""
                 _ye = (f'<span class="{"pos" if (_yoy_expo or 0)>=0 else "neg"}">'
                        f'{("+" if (_yoy_expo or 0)>=0 else "")}{_yoy_expo:.1f}% a/a</span>'
                        if _yoy_expo is not None else "—")
                 _yi = (f'<span class="{"neg" if (_yoy_impo or 0)>=0 else "pos"}">'
                        f'{("+" if (_yoy_impo or 0)>=0 else "")}{_yoy_impo:.1f}% a/a</span>'
                        if _yoy_impo is not None else "—")
+                _expo_str = f"USD {_val_expo:,.0f} MM" if _val_expo is not None else "—"
+                _impo_str = f"USD {_val_impo:,.0f} MM" if _val_impo is not None else "—"
                 st.markdown(f"""
                 <div class="row-card">
                     <div class="var-label">Balanza Comercial</div>
                     <div class="var-value"><span class="{_c_bc}">{_s_bc}USD {_val_bc:,.0f} MM</span></div>
                     <div class="var-fecha">últ. dato: {_fecha_bc}</div>
-                    <div class="var-delta-row">
-                        <div class="delta-item"><span class="delta-label">vs últ. dato</span>{_vbc_h}</div>
-                    </div>
                     <div style="margin-top:6px;font-size:11px;border-top:1px solid #E2E8F0;padding-top:5px">
-                        <div style="color:#718096">Expo a/a: {_ye}</div>
-                        <div style="color:#718096">Impo a/a: {_yi}</div>
+                        <div style="color:#718096">Expo: {_expo_str} &nbsp; {_ye}</div>
+                        <div style="color:#718096">Impo: {_impo_str} &nbsp; {_yi}</div>
                     </div>
                 </div>""", unsafe_allow_html=True)
 
@@ -712,8 +709,9 @@ with tabs[0]:
             _lce.update(dict(
                 height=300, showlegend=True,
                 legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=9)),
-                yaxis=dict(showgrid=True, gridcolor="#EDF2F7", zeroline=False,
-                           tickfont=dict(size=10), title="USD MM", rangemode="nonnegative"),
+                yaxis=dict(showgrid=True, gridcolor="#EDF2F7", zeroline=True,
+                           zerolinecolor="#CBD5E0", tickfont=dict(size=10), title="USD MM",
+                           range=[0, None]),
                 yaxis2=dict(overlaying="y", side="right", showgrid=False, zeroline=True,
                             zerolinecolor="#CBD5E0", tickfont=dict(size=10), title="Balanza"),
                 margin=dict(l=10, r=55, t=40, b=10),
