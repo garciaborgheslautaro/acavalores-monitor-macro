@@ -4,34 +4,34 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7196.2001953125,
+      "price": 7200.75,
       "prev": 7230.1201171875,
-      "change_pct": -0.4691474183722797,
+      "change_pct": -0.4062189384334172,
       "date": "2026-05-04"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 25008.296875,
+      "price": 25067.80078125,
       "prev": 25114.439453125,
-      "change_pct": -0.42263566472630404,
+      "change_pct": -0.18570461013891645,
       "date": "2026-05-04"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 49036.1484375,
+      "price": 48941.8984375,
       "prev": 49499.26953125,
-      "change_pct": -0.93561197596587,
+      "change_pct": -1.1260188261932211,
       "date": "2026-05-04"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 2771151.0,
+      "price": 2767136.5,
       "prev": null,
       "change_pct": null,
       "date": "2026-05-04"
@@ -40,16 +40,16 @@
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 19.040000915527344,
+      "price": 18.290000915527344,
       "prev": 16.989999771118164,
-      "change_pct": 12.06592802840434,
+      "change_pct": 7.651566579883612,
       "date": "2026-05-04"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7224.75,
+      "price": 7232.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-05-04"
@@ -58,7 +58,7 @@
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 27728.75,
+      "price": 27772.5,
       "prev": null,
       "change_pct": null,
       "date": "2026-05-04"
@@ -67,7 +67,7 @@
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 49181.0,
+      "price": 49117.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-05-04"
@@ -76,7 +76,7 @@
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4535.60009765625,
+      "price": 4530.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-05-04"
@@ -85,7 +85,7 @@
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 105.06999969482422,
+      "price": 104.87999725341797,
       "prev": null,
       "change_pct": null,
       "date": "2026-05-04"
@@ -94,7 +94,7 @@
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 113.94999694824219,
+      "price": 113.80000305175781,
       "prev": null,
       "change_pct": null,
       "date": "2026-05-04"
@@ -103,7 +103,7 @@
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 98.4219970703125,
+      "price": 98.47899627685547,
       "prev": null,
       "change_pct": null,
       "date": "2026-05-04"
@@ -112,45 +112,45 @@
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1694538593292236,
+      "price": 1.1693171262741089,
       "prev": 1.172910451889038,
-      "change_pct": -0.2947021705064881,
+      "change_pct": -0.30635975740023,
       "date": "2026-05-04"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 4.969600200653076,
+      "price": 4.964399814605713,
       "prev": 4.9695000648498535,
-      "change_pct": 0.002015007584584501,
+      "change_pct": -0.10263105297483727,
       "date": "2026-05-04"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.4639997482299805,
+      "price": 4.446000099182129,
       "prev": 4.377999782562256,
-      "change_pct": 1.9643666043627008,
+      "change_pct": 1.5532279579071924,
       "date": "2026-05-04"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 3.5950000286102295,
+      "price": 3.5900001525878906,
       "prev": 3.575000047683716,
-      "change_pct": 0.5594400184545981,
+      "change_pct": 0.4195833483664859,
       "date": "2026-05-04"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 90.47000122070312,
+      "price": 89.87999725341797,
       "prev": 89.66000366210938,
-      "change_pct": 0.9034101332923073,
+      "change_pct": 0.24536424528561981,
       "date": "2026-05-04"
     }
   ],
@@ -164,44 +164,44 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "US Equity Indexes Fall, Crude Oil Jumps as Military Tensions Flare Up in Hormuz Chokepoint",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-fall-crude-161802403.html?.tsrc=rss",
-          "published": "Mon, 04 May 2026 16:18:02 +0000"
+          "title": "Stock Market Today, May 4: Intel Pulls Back After Rally as AI PC Push Tests New Client Leadership",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/05/04/stock-market-today-may-4-intel-pulls-back-after-rally-as-ai-pc-push-tests-new-client-leadership/?.tsrc=rss",
+          "published": "Mon, 04 May 2026 22:42:55 +0000"
         },
         {
-          "title": "TSX Down 200 Points at Midday With All Sectors Lower",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/tsx-down-200-points-midday-161417769.html?.tsrc=rss",
-          "published": "Mon, 04 May 2026 16:14:17 +0000"
+          "title": "S&P 500 falls from record high on Middle East worries",
+          "link": "https://finance.yahoo.com/video/p-500-falls-record-high-223948031.html?.tsrc=rss",
+          "published": "Mon, 04 May 2026 22:39:48 +0000"
         },
         {
-          "title": "Tax-Managed Long-Short Strategies Gain Traction. Are They Worth the Risk?",
-          "link": "https://www.wealthmanagement.com/investing-strategies/tax-aware-long-short-strategies-are-in-vogue-are-they-worth-it-?.tsrc=rss",
-          "published": "Mon, 04 May 2026 15:45:11 +0000"
+          "title": "1 Industrials Stock with Exciting Potential and 2 We Brush Off",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/1-industrials-stock-exciting-potential-223655765.html?.tsrc=rss",
+          "published": "Mon, 04 May 2026 22:36:55 +0000"
         },
         {
-          "title": "Broadcom, Google And Caterpillar Lead AI Charge On Must-See List",
-          "link": "https://finance.yahoo.com/m/d8f38cc8-23ce-3e37-8320-19e404aff06f/broadcom%2C-google-and.html?.tsrc=rss",
-          "published": "Mon, 04 May 2026 15:44:30 +0000"
+          "title": "Does Warren Buffett Know Something Wall Street Doesn't? He Just Delivered a Fresh Warning and Here's What It Means for Investors.",
+          "link": "https://www.fool.com/investing/2026/05/04/does-warren-buffett-know-something-wall-street-doe/?.tsrc=rss",
+          "published": "Mon, 04 May 2026 22:30:00 +0000"
         },
         {
-          "title": "Dow Sinks 400 Points After UAE Says It Detects Missiles From Iran",
-          "link": "https://finance.yahoo.com/m/3667dc2b-2a4f-31be-906d-6ba9b83fa2fd/dow-sinks-400-points-after.html?.tsrc=rss",
-          "published": "Mon, 04 May 2026 15:43:37 +0000"
+          "title": "Stock Market Today, May 4: BlackBerry Jumps After QNX Software Momentum Boosts Turnaround Optimism",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/05/04/stock-market-today-may-4-blackberry-jumps-after-qnx-software-momentum-boosts-turnaround-optimism/?.tsrc=rss",
+          "published": "Mon, 04 May 2026 22:26:27 +0000"
         },
         {
-          "title": "Iran shock affecting firms differently, not sectors",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/iran-shock-affecting-firms-differently-153707618.html?.tsrc=rss",
-          "published": "Mon, 04 May 2026 15:37:07 +0000"
+          "title": "Stock Market Today, May 4: ADT Falls as Apollo Exits Stake Through 102 Million-Share Offering",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/05/04/stock-market-today-may-4-adt-falls-as-apollo-exits-stake-through-102-million-share-offering/?.tsrc=rss",
+          "published": "Mon, 04 May 2026 22:01:45 +0000"
         },
         {
-          "title": "Advanced Micro Devices Stock Is Downgraded Before Earnings. Chip Supply Is a Problem.",
-          "link": "https://finance.yahoo.com/m/c8c38cf1-23d7-3453-9cce-58b4c111e9e3/advanced-micro-devices-stock.html?.tsrc=rss",
-          "published": "Mon, 04 May 2026 15:29:00 +0000"
+          "title": "Stock Market Today, May 4: Norwegian Cruise Line Drops After Cutting 2026 Profit Outlook",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/05/04/stock-market-today-may-4-norwegian-cruise-line-drops-after-cutting-2026-profit-outlook/?.tsrc=rss",
+          "published": "Mon, 04 May 2026 21:41:54 +0000"
         },
         {
-          "title": "The S&P 500 Helped Trump Make History Last Year — 2026 Is Telling a Very Different Story",
-          "link": "https://247wallst.com/investing/2026/05/04/the-sp-500-helped-trump-make-history-last-year-2026-is-telling-a-very-different-story/?.tsrc=rss",
-          "published": "Mon, 04 May 2026 15:28:40 +0000"
+          "title": "Stock Market Today, May 4: Global Business Travel Group Surges on Take Private Deal Announcement",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/05/04/stock-market-today-may-4-global-business-travel-group-surges-on-take-private-deal-announcement/?.tsrc=rss",
+          "published": "Mon, 04 May 2026 21:38:32 +0000"
         }
       ]
     },
@@ -209,14 +209,19 @@
       "label": "Economía Global",
       "items": [
         {
-          "title": "Top economist Gary Shilling says a recession and a deep stock-market plunge are likely by year-end",
-          "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPN1NnMkFMa2VpMmVyV2JvU19Gdzd0SzZMWU9HNG8yM0JaTEJKQWtYYlE0cllfMTVaRUtxSDZ1Mlp3dTlhYm1pZjNHX2FJYmJjWDEzbXNTUHJVTmlWRTlERE1oekwyYmhTdjNZYmpodmo3NDhBajBLSjBiN1NVR3JpR2lpUmRfSUJMMGdUOXdkMTI5TmhnRGQ0YW9UTlZBUGlhaVRaY0hZZGZyWE5MUDdoTEM4VVBIVVRn?oc=5",
-          "published": "Sat, 02 May 2026 09:20:00 GMT"
-        },
-        {
           "title": "‘Misplaced euphoria’: Markets are sleepwalking into a recession amid Iran war oil price shock",
           "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNYnNDLUpNSm8xS3dXXzhZMWdqU3NhaFRFdkxvSzdkNHhNV25LT2ttYmVzb1Z4eFJXemJSR1k3cHR3RGtfSXVpNHJMWmVhZ2t4Q05fN2JzVTBOdk01aTl4NXdKWmhucnhXU1lqSHo2OVJxcV9SX08zTlIwbzM2aDhPMm5GdHlRLWRseGtlRWZ2VEhMNmlOb18wcFZJOU9VTjd2Z1JkSkw3UmfSAa4BQVVfeXFMTUFRUmN0QnpvTVV4X21hQVA5OHlkeEZhQ01pZi1lWHlYcnlBOV96UUhWaDdZMlVyVUFkUmFZVHhmdG9XR2o1dE9KbXNkSWNTdm51WFZkbndSbGxvby1pUnVWNzZqTmc1NEV0TU1JenhON0FIM2syTzdWdFlEVGVJUGY3QUg0d1d5OThmcEotMW1pVG1xcFl5RkV1elBnNUJfUjMxQi1Bd1dNaVJsVFJB?oc=5",
           "published": "Mon, 04 May 2026 12:50:34 GMT"
+        },
+        {
+          "title": "Top economist Gary Shilling says a recession and a deep stock-market plunge are likely by year-end",
+          "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPN1NnMkFMa2VpMmVyV2JvU19Gdzd0SzZMWU9HNG8yM0JaTEJKQWtYYlE0cllfMTVaRUtxSDZ1Mlp3dTlhYm1pZjNHX2FJYmJjWDEzbXNTUHJVTmlWRTlERE1oekwyYmhTdjNZYmpodmo3NDhBajBLSjBiN1NVR3JpR2lpUmRfSUJMMGdUOXdkMTI5TmhnRGQ0YW9UTlZBUGlhaVRaY0hZZGZyWE5MUDdoTEM4VVBIVVRn?oc=5",
+          "published": "Sat, 02 May 2026 09:20:01 GMT"
+        },
+        {
+          "title": "Why Stocks Keep Going Up",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPdWs4bERObWJvcDk2XzZIRlRXVUZiQ3Y2WTZ5OHpRZ3RIZ2xDb3h1WFhtcjNVTkgxYl9PR2hxVUxRNFQ4Q1RUUmtjS0JFTkJtNnNRalRpRWZMRXBwZzhyV2NRcEpUQjhVU2VCWXhCUm1DeGpRNE1IVXVQbHRxOHRja3hOeElYRmot?oc=5",
+          "published": "Mon, 04 May 2026 16:38:00 GMT"
         },
         {
           "title": "The Economy Is About To Test The Stock Market",
@@ -236,12 +241,7 @@
         {
           "title": "The market's tech boom points to a glaring division in the economy, a veteran strategist says",
           "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOWnU0Qy1LV1pTZEllWGthUk5uZFMzdFZENE1QdkxMMVp5aGd3NWdGMkc0NmRYdEpUVXV5Qml1ODU4ZlVYaHh1OVhMNGhyT1N3ejdTcGVLYjdlOHJRendnZ1UzMy1SalBiaDFWUWI2V2xUN183YTg0SS0wMi1NXzlHdUZ5WmE1cVBLVG1Id2RuS05lWk5qV2V2ZHZYOEcydi1j?oc=5",
-          "published": "Mon, 04 May 2026 14:27:57 GMT"
-        },
-        {
-          "title": "Top economist Mark Zandi warns the record-high stock market is detached from economic reality",
-          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPNVFDdkc4ZEY5a1ZWU3ZFbjVsd0xpdWxPVW00TEROcFNGWnV3eTlocWZGQmRQbEM4M3RiQmxld0Z0WC1rSUotRHF6U1JkT2cwQXY3RlpHNkRlanotWHR2REhWbmNLVWk1RmVWb2hzR1YxSDA5Mlk5OXRFeTJXR2JRNHg4M2QxVDcycUpaLXJHOGVnbGNYM2QtMmtMSHlvNW5IVFRv?oc=5",
-          "published": "Fri, 01 May 2026 09:45:00 GMT"
+          "published": "Mon, 04 May 2026 14:27:00 GMT"
         },
         {
           "title": "Jobs and earnings will dominate the first full week of May. Here's what's ahead",
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-05-04 16:31",
+  "updated_at": "2026-05-04 22:52",
   "updated_date": "2026-05-04"
 }
