@@ -4,153 +4,153 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7416.0,
+      "price": 7432.97021484375,
       "prev": 7353.60986328125,
-      "change_pct": 0.8484287020757304,
+      "change_pct": 1.0792026370445584,
       "date": "2026-05-20"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 26196.1875,
+      "price": 26270.359375,
       "prev": 25870.7109375,
-      "change_pct": 1.2580889767053778,
+      "change_pct": 1.5447910900689759,
       "date": "2026-05-20"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 49922.76171875,
+      "price": 50009.3515625,
       "prev": 49363.87890625,
-      "change_pct": 1.1321695638250167,
+      "change_pct": 1.3075809084530352,
       "date": "2026-05-20"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 2783379.75,
+      "price": 2788517.25,
       "prev": 2774731.0,
-      "change_pct": 0.31169688160762254,
+      "change_pct": 0.49684996491551797,
       "date": "2026-05-20"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 17.540000915527344,
+      "price": 17.440000534057617,
       "prev": 18.059999465942383,
-      "change_pct": -2.8792833100336153,
+      "change_pct": -3.432995294678508,
       "date": "2026-05-20"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7440.75,
+      "price": 7416.75,
       "prev": 7378.0,
-      "change_pct": 0.8505014909189482,
+      "change_pct": 0.5252100840336135,
       "date": "2026-05-20"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 29301.5,
+      "price": 29174.75,
       "prev": 28924.25,
-      "change_pct": 1.304268909306205,
+      "change_pct": 0.866055299618832,
       "date": "2026-05-20"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 50035.0,
+      "price": 49965.0,
       "prev": 49459.0,
-      "change_pct": 1.1646009826320791,
+      "change_pct": 1.0230696132149861,
       "date": "2026-05-20"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4536.2998046875,
+      "price": 4542.60009765625,
       "prev": 4506.2998046875,
-      "change_pct": 0.6657346670275619,
+      "change_pct": 0.8055454484184577,
       "date": "2026-05-20"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 97.75,
+      "price": 98.94999694824219,
       "prev": 107.7699966430664,
-      "change_pct": -9.29757535044988,
+      "change_pct": -8.18409573124142,
       "date": "2026-05-20"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 104.7699966430664,
+      "price": 105.4000015258789,
       "prev": 111.27999877929688,
-      "change_pct": -5.850109819952321,
+      "change_pct": -5.28396595787159,
       "date": "2026-05-20"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 99.16600036621094,
+      "price": 99.1259994506836,
       "prev": 99.30000305175781,
-      "change_pct": -0.13494731261692836,
+      "change_pct": -0.1752302071768552,
       "date": "2026-05-20"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.162520408630371,
-      "prev": 1.1655147075653076,
-      "change_pct": -0.2569078635816994,
-      "date": "2026-05-20"
+      "price": 1.163061261177063,
+      "prev": 1.1607122421264648,
+      "change_pct": 0.202377382209277,
+      "date": "2026-05-21"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.006700038909912,
-      "prev": 5.005624771118164,
-      "change_pct": 0.02148119047900292,
-      "date": "2026-05-20"
+      "price": 4.995100021362305,
+      "prev": 5.058199882507324,
+      "change_pct": -1.2474766243073265,
+      "date": "2026-05-21"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.577000141143799,
+      "price": 4.572000026702881,
       "prev": 4.666999816894531,
-      "change_pct": -1.9284268112660676,
+      "change_pct": -2.035564472227989,
       "date": "2026-05-20"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 3.565000057220459,
+      "price": 3.556999921798706,
       "prev": 3.575000047683716,
-      "change_pct": -0.27972000922729906,
+      "change_pct": -0.5035000180397832,
       "date": "2026-05-20"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 89.52999877929688,
+      "price": 90.06999969482422,
       "prev": 88.16000366210938,
-      "change_pct": 1.5539871373398269,
+      "change_pct": 2.166510836405226,
       "date": "2026-05-20"
     }
   ],
@@ -164,44 +164,44 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "US Equity Indexes Rise as Investors Await Nvidia's Earnings While Iran Peace Talks Enter Final Stages",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-rise-investors-173701842.html?.tsrc=rss",
-          "published": "Wed, 20 May 2026 17:37:01 +0000"
+          "title": "Why Micron Stock Jumped Today",
+          "link": "https://www.fool.com/investing/2026/05/20/why-micron-stock-jumped-today/?.tsrc=rss",
+          "published": "Wed, 20 May 2026 22:54:07 +0000"
         },
         {
-          "title": "Exchange-Traded Funds Move Higher as US Equities Rise After Midday",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/exchange-traded-funds-move-higher-170810609.html?.tsrc=rss",
-          "published": "Wed, 20 May 2026 17:08:10 +0000"
+          "title": "Wellgistics Health Announces Reverse Stock Split",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/wellgistics-health-announces-reverse-stock-220000566.html?.tsrc=rss",
+          "published": "Wed, 20 May 2026 22:00:00 +0000"
         },
         {
-          "title": "Goldman Sachs reveals lurking risks as stock market surges",
-          "link": "https://www.thestreet.com/investing/stocks/goldman-sachs-reveals-lurking-risks-as-stock-market-surges?.tsrc=rss",
-          "published": "Wed, 20 May 2026 17:06:00 +0000"
+          "title": "Why TJX Companies Stock Surged Today",
+          "link": "https://www.fool.com/investing/2026/05/20/why-tjx-companies-stock-surged-today/?.tsrc=rss",
+          "published": "Wed, 20 May 2026 21:57:26 +0000"
         },
         {
-          "title": "BHF Trades Above 200-Day SMA: Time to Buy or Hold the Stock?",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/bhf-trades-above-200-day-164100586.html?.tsrc=rss",
-          "published": "Wed, 20 May 2026 16:41:00 +0000"
+          "title": "Veeva Systems (VEEV) Rises Yet Lags Behind Market: Some Facts Worth Knowing",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/veeva-systems-veev-rises-yet-215003429.html?.tsrc=rss",
+          "published": "Wed, 20 May 2026 21:50:03 +0000"
         },
         {
-          "title": "Why Stocks Are Rallying Today, and Bond Yields Falling",
-          "link": "https://finance.yahoo.com/m/c3863ddf-7dcc-3fd5-a388-f33bfe8b6df0/why-stocks-are-rallying.html?.tsrc=rss",
-          "published": "Wed, 20 May 2026 16:40:03 +0000"
+          "title": "AZZ (AZZ) Outperforms Broader Market: What You Need to Know",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/azz-azz-outperforms-broader-market-215002058.html?.tsrc=rss",
+          "published": "Wed, 20 May 2026 21:50:02 +0000"
         },
         {
-          "title": "Hasbro Stock Is the S&P 500’s Worst Today. Why the Toy Maker Is Falling.",
-          "link": "https://finance.yahoo.com/m/105d6472-ddb1-38b8-b0a6-3edf2c6c3124/hasbro-stock-is-the-s%26p-500%E2%80%99s.html?.tsrc=rss",
-          "published": "Wed, 20 May 2026 16:30:00 +0000"
+          "title": "NetApp (NTAP) Stock Falls Amid Market Uptick: What Investors Need to Know",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/netapp-ntap-stock-falls-amid-215002558.html?.tsrc=rss",
+          "published": "Wed, 20 May 2026 21:50:02 +0000"
         },
         {
-          "title": "If You Invest $200 per Month in the S&P 500 Right Now, Here's What You Might Have After 30 Years",
-          "link": "https://www.fool.com/investing/2026/05/20/if-you-invest-200-per-month-in-the-sp-500-right-no/?.tsrc=rss",
-          "published": "Wed, 20 May 2026 16:20:00 +0000"
+          "title": "Accenture (ACN) Outpaces Stock Market Gains: What You Should Know",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/accenture-acn-outpaces-stock-market-215002688.html?.tsrc=rss",
+          "published": "Wed, 20 May 2026 21:50:02 +0000"
         },
         {
-          "title": "Technology Pushes US Equity Indexes Higher Ahead of Nvidia's Results",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/technology-pushes-us-equity-indexes-161148513.html?.tsrc=rss",
-          "published": "Wed, 20 May 2026 16:11:48 +0000"
+          "title": "Instant View: SpaceX files long awaited IPO, creating a fresh AI play",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/instant-view-spacex-files-long-214752165.html?.tsrc=rss",
+          "published": "Wed, 20 May 2026 21:47:52 +0000"
         }
       ]
     },
@@ -211,12 +211,17 @@
         {
           "title": "Controlled reopening ends Iran’s lengthy stock market shutdown",
           "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMEJ0dFJKZVZ3NkdBSWNwTEhPWk5WZDJmdWMtb3hteW5zSTY0azdiaGFveVNKeVBBMUoydFlqeXZybDBONlJIbUFLYmpWWTktc012NG5hTXAycnBVZHZFNHhCb0gtcmttdTVPaE11UnFCRVVwXzMyclJCVl9TWnpHZjk0ZDNSOHZKVDBKNDNHZ2cwVGF0WEJOdzRjZXhRODJGdTVwdU9Fb0bSAa4BQVVfeXFMT2k5YUVtYmQyd3BkVmpNQ2JDNE9ZclJXN0NEUVRCd040S2hWNUJJUDgxT0pRTWo3WTc3OGQ5dUhuVEgyNlBxclVtdkFiZUlqUkU2OE9kdUQ0SGtsOWMzTGtCYmI1S1o3S2JaUWNRWjJYdUxNNzM5VHh2V0J1aGZCUXNhR0hvRloxbWRqdXYySWx2dENEbG4wNXhja2I2ZGtVdEhuUHJOU0tHZk1NUUV3?oc=5",
-          "published": "Wed, 20 May 2026 17:22:12 GMT"
+          "published": "Wed, 20 May 2026 17:25:45 GMT"
         },
         {
           "title": "Stocks under pressure as correction fears grow and record rally defies geopolitical turmoil",
           "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPZDhCUTZEU2pXVVZLci1CM2VKbXE4a2lZbnhHV3I2SXdFd2VtYnhEYmlDekRTbGswSUI5a0ZlTk04TmtQNjNQYjlTQ25OTjdTcGEzQVVmVWJNTlAyd3hCOXJsTDhmUG4zTElSdXgwT01GT3pFbzN0WnhGQjR4SmlDQWhBMFh3cGpWN3dSdDVMYlpCa2J4R0HSAZsBQVVfeXFMUFlUeE9oa3I0SHhxaDNYLTNERlNuazdIeEV4bnY2NFU3SG5HQTFQa0NyOGlfSERxWk5vcFljYS1jamNWOHZkY2UtaFJONlZjRHVXMC13STRxNDJRbFlKaWpkX2pGN09WcS1pdnJyMW1adzhoeFpSLXIzTUZIR2R4c1lEZUQ3Q3p3N2ZSQkl2MnpxLVQ3bDBaVkxOWWs?oc=5",
           "published": "Wed, 20 May 2026 05:33:30 GMT"
+        },
+        {
+          "title": "Is the Bond Market Signaling Danger or Opportunity? Or Both?",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNdTlUckpEbl9veS0xSWFmTks0S2Z4LUlyLVN5Qk50b1dJSlNvaEFBS0NUaGVsUy16aTdjUXFrTndIUUFJbjljU1hENzN3UV9TTmVQNFFtZ2Eyem03UmV0VVJ3Q042Ulo4dlFER0U4V0hRcDJfd1dBV21ydEVhZm1NTW0yNEs0ZTBNeTg3Z3JhOA?oc=5",
+          "published": "Wed, 20 May 2026 09:02:14 GMT"
         },
         {
           "title": "Top economist sounds alarm on America’s 40% recession risk, warns stocks are disconnected from reality",
@@ -229,24 +234,19 @@
           "published": "Wed, 20 May 2026 10:00:41 GMT"
         },
         {
-          "title": "Weekly market wrap",
-          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPeVcxcmtaeVJRVm9kQ2VyWmVQNG9GNDZzWkJpT01xTUFJbVhYdGF6dG1qZndCb2hFaHhCM0I5NFk2RGxhY1drcWRHVnhyNzc0RWJvTU50S0dnWENrRk1UYVQ4S25xVHBtYzJsU1dabkhWeVBCckxzTHRpS3M2dklsOF84LTJRV1RJLVFRVUdGbHh2SE5CbFVPQVpROGtRa2M?oc=5",
-          "published": "Fri, 15 May 2026 07:00:00 GMT"
-        },
-        {
           "title": "Stock Market Under the Trump Administration: What is Driving Markets in 2026?",
           "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPcUowVHR1VXAzd0Zfamw1MkVSejFsRGo1bkdGdHhjNVBZVFdwU3VpcE5neGJOeWl6RmdQVkFsYlcxNEVTRGg3WHNYSGR1d1BpTjV4T2NqdWdER3ZtQ0RVbU40WTcyRXRaTEM5bFZteVlYNE5EYkM1M1BaR0lYTGlUeFlTeDhVMzRaWFFqZEZhcGc3RFJoZy1qZy1mTGViQQ?oc=5",
           "published": "Thu, 07 May 2026 07:00:00 GMT"
         },
         {
-          "title": "US investing boom masks deep economic divide",
-          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQa3lUU3lIVU9sb0VrVXpuaU53UUszbzBlWU1LekJOODFzMmU1RmpnWllxQW53Q2xNLTZ1ZkVFY3l0ejg0cWVzaThZQlpEUVd3WFlTY25ZMzhCU2Z6TXY4cVdRZ0w5TXBhSFdYX0MxWGFKS1pPSEdyNC1WUUQtc3Y4YkNlaWJib0NYTHlBck5heHo1T2dFSTZKT3lRN015V2ZMaERyUg?oc=5",
-          "published": "Wed, 20 May 2026 15:10:00 GMT"
+          "title": "Weekly market wrap",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPeVcxcmtaeVJRVm9kQ2VyWmVQNG9GNDZzWkJpT01xTUFJbVhYdGF6dG1qZndCb2hFaHhCM0I5NFk2RGxhY1drcWRHVnhyNzc0RWJvTU50S0dnWENrRk1UYVQ4S25xVHBtYzJsU1dabkhWeVBCckxzTHRpS3M2dklsOF84LTJRV1RJLVFRVUdGbHh2SE5CbFVPQVpROGtRa2M?oc=5",
+          "published": "Fri, 15 May 2026 07:00:00 GMT"
         },
         {
-          "title": "Mark Zandi warns America is ‘close to the edge’ with 40% recession risk — and says US stocks are detached from reality more than ever",
-          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQS24xeGUyekxPcGR1RnkxalJvMlBabmd2bE53UU5fRnFuNG9SY1Y2QVNZTndXdXl0VUFCbVEzT21sOWlJaDYtZEhGa19RRXpLdkJWbUhzeHBXSF91SUcyVFBocUN3T21hcDJlVF9lbUczUEhqOXYzbmMtUGE3Uk1QTlltMW8xMllRZDc0d3NJSQ?oc=5",
-          "published": "Wed, 20 May 2026 11:36:04 GMT"
+          "title": "Markets seek direction, not perfection",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQTU9wX2lmLVYtV3Bqb0pZbkxVdHAteFBqM1ZFRC1heE9uUE16eHlNbFB3akI0dUxoYVA5TlI0SU13ZUsyLWFDTXVUcjN3MXZmUFFDY2E0THZuNEtHSVc1akktNHdfM01lajloUGIzNE5NNTRLb3FGeXJ4WmVkZ1dyLWZwZGx5alNP?oc=5",
+          "published": "Mon, 18 May 2026 13:35:09 GMT"
         }
       ]
     },
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-05-20 17:54",
+  "updated_at": "2026-05-20 23:08",
   "updated_date": "2026-05-20"
 }
