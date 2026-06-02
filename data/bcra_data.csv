@@ -1,5 +1,4 @@
 fecha,reservas,tc_mayorista,tc_minorista,badlar,tasa_adelanto_cc,base_monetaria,depositos,creditos,m2_privado,prestamos_priv,inflacion_mensual,inflacion_interanual,rem_inflacion,tasa_pases_terceros,tamar,compras_usd_bcra,depositos_usd,m2_transaccional,cer,prestamos_usd
-2024-06-01,,,,,,,,,163.5,,,,,,,,,,390.45665392333,
 2024-06-02,,,,,,,,,163.4,,,,,,,,,,391.5204088078,
 2024-06-03,29134.0,937.66,896.4167,32.0625,44.94,16701852.0,9256325.0,1062869.0,163.2,24410118.0,,,,30.481,,0.0,17647.0,28616571.522,392.58706177184,6357.0
 2024-06-04,29289.0,935.68,896.9167,32.375,44.62,16642866.0,9285102.0,1105047.0,163.1,24611606.0,,,,30.757,,59.4049,17647.0,28519407.455,393.65662071095,6361.0
@@ -730,3 +729,4 @@ fecha,reservas,tc_mayorista,tc_minorista,badlar,tasa_adelanto_cc,base_monetaria,
 2026-05-30,,,,,,,,,,,,,,,,,,,780.53240009587,
 2026-05-31,,,,,,,,,,,,,,,,,,,781.17894217551,
 2026-06-01,,1444.58,1421.4672,,,,,,,,,,,,,,,,781.8260198084,
+2026-06-02,,,,,,,,,,,,,,,,,,,782.47363343815,
