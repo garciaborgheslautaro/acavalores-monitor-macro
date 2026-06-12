@@ -4,135 +4,135 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7430.02001953125,
+      "price": 7431.4599609375,
       "prev": 7394.2998046875,
-      "change_pct": 0.4830777191520654,
+      "change_pct": 0.5025513873057041,
       "date": "2026-06-12"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 25901.21484375,
+      "price": 25888.84375,
       "prev": 25809.66015625,
-      "change_pct": 0.35473031006891953,
+      "change_pct": 0.3067982812273687,
       "date": "2026-06-12"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 51214.1015625,
+      "price": 51202.26171875,
       "prev": 50848.75,
-      "change_pct": 0.7185064775436958,
+      "change_pct": 0.6952220433147324,
       "date": "2026-06-12"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 3352485.5,
+      "price": 3352707.5,
       "prev": 3353008.0,
-      "change_pct": -0.015583022766423461,
+      "change_pct": -0.00896210208863206,
       "date": "2026-06-12"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 18.420000076293945,
+      "price": 17.68000030517578,
       "prev": 19.440000534057617,
-      "change_pct": -5.246915790854518,
+      "change_pct": -9.053498871043908,
       "date": "2026-06-12"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7432.5,
+      "price": 7436.25,
       "prev": 7396.0,
-      "change_pct": 0.49351000540832884,
+      "change_pct": 0.5442130881557599,
       "date": "2026-06-12"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 29689.0,
+      "price": 29677.75,
       "prev": 29464.75,
-      "change_pct": 0.7610789163322275,
+      "change_pct": 0.7228976997938215,
       "date": "2026-06-12"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 51618.0,
+      "price": 51608.0,
       "prev": 50875.0,
-      "change_pct": 1.4604422604422604,
+      "change_pct": 1.4407862407862408,
       "date": "2026-06-12"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4239.2998046875,
+      "price": 4239.89990234375,
       "prev": 4090.300048828125,
-      "change_pct": 3.6427585771382125,
+      "change_pct": 3.657429815166873,
       "date": "2026-06-12"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 84.58000183105469,
+      "price": 84.29000091552734,
       "prev": 87.70999908447266,
-      "change_pct": -3.568575175110307,
+      "change_pct": -3.8992112696883567,
       "date": "2026-06-12"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 87.08999633789062,
+      "price": 86.70999908447266,
       "prev": 90.37999725341797,
-      "change_pct": -3.640187005430478,
+      "change_pct": -4.060630980829689,
       "date": "2026-06-12"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 99.73899841308594,
+      "price": 99.80699920654297,
       "prev": 99.86000061035156,
-      "change_pct": -0.121171837097988,
+      "change_pct": -0.0530757094779144,
       "date": "2026-06-12"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1579434871673584,
+      "price": 1.157273530960083,
       "prev": 1.1535621881484985,
-      "change_pct": 0.3798060532732941,
+      "change_pct": 0.32172888897661317,
       "date": "2026-06-12"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.0630998611450195,
+      "price": 5.06279993057251,
       "prev": 5.1921000480651855,
-      "change_pct": -2.484547403285062,
+      "change_pct": -2.4903240749541977,
       "date": "2026-06-12"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.479000091552734,
+      "price": 4.486999988555908,
       "prev": 4.4629998207092285,
-      "change_pct": 0.35850933198028245,
+      "change_pct": 0.5377586558555082,
       "date": "2026-06-12"
     },
     {
@@ -148,9 +148,9 @@
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 97.3499984741211,
+      "price": 97.91000366210938,
       "prev": 97.97000122070312,
-      "change_pct": -0.6328495854412745,
+      "change_pct": -0.061240744969054114,
       "date": "2026-06-12"
     }
   ],
@@ -164,44 +164,44 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Bank of America Sends a Stark Warning on the S&P 500",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/bank-america-sends-stark-warning-174220927.html?.tsrc=rss",
-          "published": "Fri, 12 Jun 2026 17:42:20 +0000"
+          "title": "Poet Technologies Skyrocketed Today -- Is the Stock a Buy Right Now?",
+          "link": "https://www.fool.com/investing/2026/06/12/poet-technologies-skyrocketed-today-is-the-stock-a/?.tsrc=rss",
+          "published": "Fri, 12 Jun 2026 23:04:55 +0000"
         },
         {
-          "title": "Dow Jones Edges Higher While SpaceX Steals the Show With $2 Trillion Valuation",
-          "link": "https://www.fool.com/investing/2026/06/12/dow-jones-edges-higher-and-spacex-steals-the-show/?.tsrc=rss",
-          "published": "Fri, 12 Jun 2026 17:33:17 +0000"
+          "title": "Wall Street ends higher as SpaceX's market debut dominates",
+          "link": "https://finance.yahoo.com/video/wall-street-ends-higher-spacexs-224935382.html?.tsrc=rss",
+          "published": "Fri, 12 Jun 2026 22:49:35 +0000"
         },
         {
-          "title": "Stock Market Today, June 12: SpaceX Mega IPO Soars, Testing Tech Stocks at Midday",
-          "link": "https://www.fool.com/coverage/stock-market-today/2026/06/12/stock-market-today-june-12-spacex-mega-ipo-soars-testing-tech-stocks-at-midday/?.tsrc=rss",
-          "published": "Fri, 12 Jun 2026 17:20:46 +0000"
+          "title": "TSLA Stock Recovers To Close Nearly 2% Higher As SpaceX IPO Debuts",
+          "link": "https://stocktwits.com/news-articles/markets/equity/tsla-stock-recovers-to-close-higher-as-spacex-ipo-debuts/cZKdfAjR750?.tsrc=rss",
+          "published": "Fri, 12 Jun 2026 22:44:20 +0000"
         },
         {
-          "title": "ARK Space and Defense Rockets Past Invesco Aerospace and Defense. Which ETF is Better?",
-          "link": "https://www.fool.com/coverage/etfs/2026/06/12/ark-space-and-defense-rockets-past-invesco-aerospace-and-defense-which-etf-is-better/?.tsrc=rss",
-          "published": "Fri, 12 Jun 2026 17:13:39 +0000"
+          "title": "Why First Advantage Stock Crushed the Market Today",
+          "link": "https://www.fool.com/investing/2026/06/12/why-first-advantage-stock-crushed-the-market-today/?.tsrc=rss",
+          "published": "Fri, 12 Jun 2026 22:20:56 +0000"
         },
         {
-          "title": "Exchange-Traded Funds Rise, US Equities Mixed After Midday",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/exchange-traded-funds-rise-us-171106835.html?.tsrc=rss",
-          "published": "Fri, 12 Jun 2026 17:11:06 +0000"
+          "title": "SpaceX Just Went Public at $2.1 Trillion. Here's Where History Says the Stock Will Be in 1 Year.",
+          "link": "https://www.fool.com/investing/2026/06/12/spacex-just-went-public-at-21-trillion-heres-where/?.tsrc=rss",
+          "published": "Fri, 12 Jun 2026 22:02:13 +0000"
         },
         {
-          "title": "Update: US Equity Indexes Mixed as Trump Fumes Over Leaked Terms to End Iran War, SpaceX Debuts",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-mixed-trump-164539981.html?.tsrc=rss",
-          "published": "Fri, 12 Jun 2026 16:45:39 +0000"
+          "title": "Vital Farms (VITL) Stock Drops Despite Market Gains: Important Facts to Note",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/vital-farms-vitl-stock-drops-220005798.html?.tsrc=rss",
+          "published": "Fri, 12 Jun 2026 22:00:05 +0000"
         },
         {
-          "title": "3 Reasons EBAY is Risky and 1 Stock to Buy Instead",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-ebay-risky-1-163720014.html?.tsrc=rss",
-          "published": "Fri, 12 Jun 2026 16:37:20 +0000"
+          "title": "Western Midstream (WES) Exceeds Market Returns: Some Facts to Consider",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/western-midstream-wes-exceeds-market-220005549.html?.tsrc=rss",
+          "published": "Fri, 12 Jun 2026 22:00:05 +0000"
         },
         {
-          "title": "A Broken Global Energy Supply Chain Just Unlocked a New Supercycle This High-Yield Stock",
-          "link": "https://247wallst.com/investing/2026/06/12/a-broken-global-energy-supply-chain-just-unlocked-a-new-supercycle-this-high-yield-stock/?.tsrc=rss",
-          "published": "Fri, 12 Jun 2026 16:24:48 +0000"
+          "title": "United Airlines (UAL) Laps the Stock Market: Here's Why",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/united-airlines-ual-laps-stock-220005535.html?.tsrc=rss",
+          "published": "Fri, 12 Jun 2026 22:00:05 +0000"
         }
       ]
     },
@@ -211,7 +211,7 @@
         {
           "title": "After SpaceX’s huge IPO, Americans’ financial future will be bound to AI",
           "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1NQXhPQzdPQlR4Q2ZJUnpqckZLUEJqNlpUbjlVLVBBQ2M2WUpzRDVEOVllZW54NVhGdHE0Y1huSnpLdER6alZlYXdvTzkxNHg2VkxDOUJUbEdITFBEckc0VHNTOTh0T2RLUGVwWXdyZ3VUVjZNQ0Jadw?oc=5",
-          "published": "Fri, 12 Jun 2026 16:18:00 GMT"
+          "published": "Fri, 12 Jun 2026 18:13:00 GMT"
         },
         {
           "title": "5 Stocks to Buy Before the Next Market Rotation",
@@ -219,34 +219,34 @@
           "published": "Thu, 11 Jun 2026 09:00:43 GMT"
         },
         {
-          "title": "Major bank advises investors that the market is near its peak",
-          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNWmJVM3ljX1N6SkFoUEtlcWU2NXBQRTQ2d1JOZ2FnRG1DX2tObkItRjBtNVphRVZna0R3Q2xFLU5TOHYwLUJfaGp5a0NDVHliMzZTME9EamNaTGFVd3JIM19iQnhJUVFIWnd5bUhGeXZtR1lRa2lndlpqRTBIOXVWcDQ4OXpfLTNpNnVJTGc4d3hMUGZpa1FHdFhTOVlyN3g1d1E?oc=5",
-          "published": "Tue, 09 Jun 2026 20:45:00 GMT"
-        },
-        {
-          "title": "Liftoff: The Day the Orbital Economy Became a Public Market",
-          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNM211ZVpPTGJGd2xVd0hmTkRaZmZMWC1XZExWUXJKcmxBZ0QwRG9XS2VvU25ON2trTk9pdnpfeUJqcDZIa1ZPdXdZOUdtUmhzVDN5TklueXhoWldRSExFdm5TdmdEb3ZvRU9lY1BkM0JsRUFmVDlXYnZCUU5TcWpfXzdLVEFjT1dMQm0tYVhxWGVXSnlXSXFJMmI0VW11WEUzczNuNnIzaF9xR05sNTNQNUhSZzJXdmtOZy1R?oc=5",
-          "published": "Fri, 12 Jun 2026 12:00:00 GMT"
-        },
-        {
-          "title": "SpaceX makes history with stock market debut and is poised for sharp gains",
-          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZUJ3dGdpUDFBaGJGTWVRSjVRbEk0QnFmZmcxaTNEekJhVnZuQ3dGOXpma3QwSTZTSW9xR2pHRWpRX3VnLWVSblloOGo3ZnNwREo0dFBrYlN5UlZGM25vcHdKdWhxRG5UbVNmUFRRQllZUmpHbzRlbGNVSmhKR3VVOWhQSnBONDlnejY0S203QS10RTFtM0gzLW9uaXc0SEMzeHpXVEpoSnQ1VlJ3QzIyTnNUMWtZZFh3NTFoLWRn0gHSAUFVX3lxTE9heGJFaXVqOGdLeGo1c1BTd08xem5EcEU3Y2Q4VXhHNXpDTHU2UFhlX0JkMW5VdFpHSG5udl9qbVNPejBpcWJmcHc0Z2xxQWxKYXFNRVJxcXA5VWYxVmYwTTY3RWo4N0pMcWN6bVRuc3lpeUdrX3JmQTlnQ3YtNml1T2VYUTM4THVvTkJDV0ZJU3drNGUzRk0tM3pvVjB6QkEwZC02ZlpJdmdFRW5rYkVMX1NubjNJVjluRU1uTGNld1V5VkttN2R3SllPU0R5VVNIZw?oc=5",
-          "published": "Fri, 12 Jun 2026 14:26:07 GMT"
-        },
-        {
-          "title": "Stock Market News, June 11, 2026: Dow Surges 930 Points After Trump Cancels Strikes",
-          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNc254QUF3M1VKMGZYd3lydnR5SEhiOVhMZFFWakF3TURTSDFqWEc5dW41YnA4QUJQZExmNkxyRVhrY3JwVk1uaFk3OHpVd2p3ZG1kMi1KeXlDNUJraUtCT2V3UzJBWGl2N1E0a25nOTJXaWhhV3dieFRvbE1pWF8tRUgzd0dvRms?oc=5",
-          "published": "Fri, 12 Jun 2026 03:10:00 GMT"
-        },
-        {
           "title": "Stock markets surge as Trump calls off strikes on Iran, touts peace deal",
           "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNeTFuU2M0cHZheWpCaXhYZGliRXdsUm1FYURCWXcwOE1IZ2N1ME1zVklRZmtDTGE3aFo2ZHItMmhQVUFueUlhSlBFclEyUEEzcFJZeVVWSkR4d1V6MUZXN3JlbXRuVUlYZ2FvYlA4V1BvTGlKd19GNmJ6Z2NvU0F6S19vZmMxM3VkSjhzU0RjNkpRbWJNNlZUbmVHUl9ONXRLN0JhVlhHWWtkZDl4YW1KcUdBUjgzVWPSAbwBQVVfeXFMTVZLR1Z2NlRNNkU4Q0ZSNnBPX2ZMM0RYODBydzFIVWJJdU5RNktqOFdKU3RsSTN4SGQ5R0JtVzRPeDJVTDZTbDg2MjB3eGt4Mk0tQlJ3YVZZWWRTRTdJRDRKdHpRUnNvSTVMaVdWWERicUwyTU02N2tDVXJPS1FtM2xQYVZaLUg4T19qMzhMS2ZFUDNnd0VVal9yYzRHeFZJZlJqcW5ST29LRzB5TGpyN3pMTExna2J4OG4yQ0I?oc=5",
           "published": "Fri, 12 Jun 2026 05:09:58 GMT"
         },
         {
+          "title": "What SpaceX’s IPO means for Redwire and space ‘picks-and-shovels’",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOVjQ0LUZrTzhVY29wdUJlSWpIUWtUVDZtOHhTTVJ0ZE9GTFdtcHI2Uml2QUNEUEFsZkZXLVN1YzRfeW8tQ3B5RThNZk1LeVY3Q2o0eVphLXdORW5RbTZsR3dPVG9qY2lhaG5pWVVPZHIwY2ctZGp6UTZzREU5UXZxMlBvZW51clpZOTRENW1oNEVkeDVnU2FSTUF1a2FOUlNQZmI2OFRkUXM?oc=5",
+          "published": "Fri, 12 Jun 2026 12:00:00 GMT"
+        },
+        {
+          "title": "Stock-pay boom amplifies US economic drumbeat",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPR29LanFSSUx5ZkQ3MnVYVUVtYmJTcXBCRDFsRDhjZ1JiYjllZ1RGM25DcWEzaGhJdmVzQVVBWXJmeGd6cE9jbnNFRGg5czVzMFh2VDNVeGd6dDhCWThYYnpVLUtud19qSVoxQVNBTjdxYXB4Y2dNWFd2clZFT0RJTjJCaXhhSVI3Ui1aRTFTMUZ3VGM4b2x0TXpDOTBqazhXYVEtY1BsamRPZ3FWVklXOFZqc1o?oc=5",
+          "published": "Wed, 10 Jun 2026 06:10:09 GMT"
+        },
+        {
+          "title": "Major bank advises investors that the market is near its peak",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNWmJVM3ljX1N6SkFoUEtlcWU2NXBQRTQ2d1JOZ2FnRG1DX2tObkItRjBtNVphRVZna0R3Q2xFLU5TOHYwLUJfaGp5a0NDVHliMzZTME9EamNaTGFVd3JIM19iQnhJUVFIWnd5bUhGeXZtR1lRa2lndlpqRTBIOXVWcDQ4OXpfLTNpNnVJTGc4d3hMUGZpa1FHdFhTOVlyN3g1d1E?oc=5",
+          "published": "Tue, 09 Jun 2026 20:45:00 GMT"
+        },
+        {
           "title": "Veteran strategist says stocks are flashing a warning signal that economic strength is being overestimated",
           "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOUlNJOWlXUWZrTTBUenBfcW1haVpkZDVuZ2owbUxtMTd4STI1d2NmY0RhVWtzLUhaNGZQYmRUR1hnUUoyRm1ZU19od0h3Um5rWVZiakxRZEY0am9SYzU0T2ViZnVaM0dfZzZ2aEM5a0V3alRHQXFHVVVQb29razJsR2RxdzV3SlJyQU5HY2ZONjM2U25yZTFPRUgzUGIxRkNidkhGTUhrd0IyWkV4TC1zSw?oc=5",
           "published": "Tue, 09 Jun 2026 16:31:00 GMT"
+        },
+        {
+          "title": "The Stock Market Crash - Still In Early Phase",
+          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQVVFIdFJfZnIwM0JMNUlvNkFxWUN6a3BENTlMRE9LVmQ3cFNaOVZCMnQ3WlF3SHkzYnNZd1pwbVhSV0p4RHVMS3JTM3BCb050YXl2SUJ0ZDVINGI4aTBrR1NzSWJYTzVMcGJWMU1ZOGp6OFVNaTJuVVk0NnpSREpHMUliM2NMMFJzZEdVcQ?oc=5",
+          "published": "Tue, 09 Jun 2026 12:14:59 GMT"
         }
       ]
     },
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-06-12 17:44",
+  "updated_at": "2026-06-12 23:16",
   "updated_date": "2026-06-12"
 }
