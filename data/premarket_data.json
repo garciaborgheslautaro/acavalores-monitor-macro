@@ -4,36 +4,36 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7500.580078125,
+      "price": NaN,
       "prev": 7420.10009765625,
-      "change_pct": 1.0846212235623454,
+      "change_pct": NaN,
       "date": "2026-06-18"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 26517.9296875,
+      "price": NaN,
       "prev": 26021.66015625,
-      "change_pct": 1.907140160428249,
+      "change_pct": NaN,
       "date": "2026-06-18"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 51564.69921875,
+      "price": NaN,
       "prev": 51492.55078125,
-      "change_pct": 0.14011432023730983,
+      "change_pct": NaN,
       "date": "2026-06-18"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 3289417.0,
-      "prev": 3333407.0,
-      "change_pct": -1.3196708352745403,
+      "price": 3291321.5,
+      "prev": null,
+      "change_pct": null,
       "date": "2026-06-19"
     },
     {
@@ -41,8 +41,8 @@
       "name": "VIX",
       "type": "index",
       "price": 16.780000686645508,
-      "prev": 16.399999618530273,
-      "change_pct": 2.3170797375255616,
+      "prev": null,
+      "change_pct": null,
       "date": "2026-06-19"
     },
     {
@@ -103,27 +103,27 @@
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 100.76200103759766,
-      "prev": 100.8499984741211,
-      "change_pct": -0.08725576386202756,
+      "price": 100.8489990234375,
+      "prev": 100.08999633789062,
+      "change_pct": 0.7583202251147878,
       "date": "2026-06-19"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.147315263748169,
+      "price": 1.1469204425811768,
       "prev": 1.150734782218933,
-      "change_pct": -0.29715956479306105,
+      "change_pct": -0.3314699178903111,
       "date": "2026-06-19"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.142199993133545,
+      "price": 5.141499996185303,
       "prev": 5.122099876403809,
-      "change_pct": 0.392419461056048,
+      "change_pct": 0.3787532506124194,
       "date": "2026-06-19"
     },
     {
@@ -148,9 +148,9 @@
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 97.0999984741211,
+      "price": NaN,
       "prev": 96.9000015258789,
-      "change_pct": 0.20639519617424842,
+      "change_pct": NaN,
       "date": "2026-06-18"
     }
   ],
@@ -164,44 +164,44 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Dow Jones Futures Fall With U.S. Markets Shut; Nvidia Leads 5 Stocks Near Buy Points, SpaceX Needs This",
-          "link": "https://finance.yahoo.com/m/aa0411a1-2ba1-3057-bff9-1381bd5225f7/dow-jones-futures-fall-with.html?.tsrc=rss",
-          "published": "Fri, 19 Jun 2026 17:12:18 +0000"
+          "title": "Schwab Plans S&P 500 Prediction Markets as Event Trading Moves Mainstream",
+          "link": "https://www.cryptoprowl.com/releases/schwab-plans-sp-500-prediction-markets-as-event-trading-moves-mainstream-5931?.tsrc=rss",
+          "published": "Fri, 19 Jun 2026 22:31:00 +0000"
         },
         {
-          "title": "Robinhood Stock Spikes as AI Trading Tops 50,000 Users in Weeks",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/robinhood-stock-spikes-ai-trading-170234512.html?.tsrc=rss",
-          "published": "Fri, 19 Jun 2026 17:02:34 +0000"
+          "title": "Making Six Figures but Betting Everything on U.S. Stocks? AVUV Fixes That Problem",
+          "link": "https://247wallst.com/investing/2026/06/19/making-six-figures-but-betting-everything-on-u-s-stocks-avuv-fixes-that-problem/?.tsrc=rss",
+          "published": "Fri, 19 Jun 2026 21:30:35 +0000"
         },
         {
-          "title": "1 S&P 500 Stock to Keep an Eye On and 2 That Underwhelm",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/1-p-500-stock-keep-170058671.html?.tsrc=rss",
-          "published": "Fri, 19 Jun 2026 17:00:58 +0000"
+          "title": "After Being Called the Next Trillion-Dollar AI Stock and Joining the S&P 500, Marvell's CFO Just Filed to Dump $65 Million of Stock. Here's Why.",
+          "link": "https://www.fool.com/investing/2026/06/19/marvells-cfo-just-sold-65-million-of-stock-right-a/?.tsrc=rss",
+          "published": "Fri, 19 Jun 2026 21:27:00 +0000"
         },
         {
-          "title": "Is an AI or Broad Tech ETF the Better Bet? We Pit the Roundhill AI Fund Against the State Street S&P 500 Tech Fund",
-          "link": "https://www.fool.com/coverage/etfs/2026/06/19/is-an-ai-or-broad-tech-etf-the-better-bet-we-pit-the-roundhill-ai-fund-against-the-state-street-s-and-p-500-tech-fund/?.tsrc=rss",
-          "published": "Fri, 19 Jun 2026 16:47:52 +0000"
+          "title": "If You’re 38 With $500K Saved, AVUV Fixes Your Tech-Heavy Portfolio",
+          "link": "https://247wallst.com/investing/2026/06/19/if-youre-38-with-500k-saved-avuv-fixes-your-tech-heavy-portfolio/?.tsrc=rss",
+          "published": "Fri, 19 Jun 2026 21:10:12 +0000"
         },
         {
-          "title": "The S&P 500's Dividend Yield Is Down to Around 1%. Buy This 5%-Yielding Pipeline Stock to Boost Your Passive Income.",
-          "link": "https://www.fool.com/investing/2026/06/19/the-sp-500s-dividend-yield-is-down-to-around-1-buy/?.tsrc=rss",
-          "published": "Fri, 19 Jun 2026 16:25:00 +0000"
+          "title": "Dow Jones Futures Fall; Nvidia Leads 5 Stocks Near Buy Points, SpaceX Needs This",
+          "link": "https://finance.yahoo.com/m/aa0411a1-2ba1-3057-bff9-1381bd5225f7/dow-jones-futures-fall%3B.html?.tsrc=rss",
+          "published": "Fri, 19 Jun 2026 21:00:05 +0000"
         },
         {
-          "title": "1 Consumer Stock with Solid Fundamentals and 2 We Question",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/1-consumer-stock-solid-fundamentals-160458335.html?.tsrc=rss",
-          "published": "Fri, 19 Jun 2026 16:04:58 +0000"
+          "title": "If You’re 50+ and Tired of Watching Tech Boom Without You, Read This",
+          "link": "https://247wallst.com/investing/2026/06/19/if-youre-50-and-tired-of-watching-tech-boom-without-you-read-this/?.tsrc=rss",
+          "published": "Fri, 19 Jun 2026 20:51:02 +0000"
         },
         {
-          "title": "IYF vs. KRE: Which Financial Sector ETF Is the Better Buy?",
-          "link": "https://www.fool.com/coverage/etfs/2026/06/19/iyf-vs-kre-which-financial-sector-etf-is-the-better-buy/?.tsrc=rss",
-          "published": "Fri, 19 Jun 2026 15:55:38 +0000"
+          "title": "Stocks Stall as Iran Nuclear Talks Hit Early Snag: Markets Wrap",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/stocks-slide-focus-shifts-iran-080450531.html?.tsrc=rss",
+          "published": "Fri, 19 Jun 2026 20:09:15 +0000"
         },
         {
-          "title": "2 Consumer Stocks with Competitive Advantages and 1 We Ignore",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/2-consumer-stocks-competitive-advantages-154058979.html?.tsrc=rss",
-          "published": "Fri, 19 Jun 2026 15:40:58 +0000"
+          "title": "Charles Schwab Planning to Roll Out S&P 500 Prediction Markets With Cboe: WSJ",
+          "link": "https://decrypt.co/371708/charles-schwab-planning-sp-500-prediction-markets-cboe?.tsrc=rss",
+          "published": "Fri, 19 Jun 2026 20:02:32 +0000"
         }
       ]
     },
@@ -209,9 +209,9 @@
       "label": "Economía Global",
       "items": [
         {
-          "title": "America’s bull market has entered its manic phase",
-          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPMFFRZEEyVEk2T0pzT2ZTNHhlaEEwOU9abExrWENSdGttRDlFX2YxdW9GWkpSZTh1R0xkTjNhVkNkMlVwM3NpS0Q5eTN0eWtKNjlmYXRvMkctZ0gzNjNNLXVfY3dCM0lfNWlCUUtOZzVSUFNUeTBhcFA4ejhWRWgzMnZHT0I2UkxZUlA3Uy0wWmdfUTJtUlZwbkFuSXF5VUlMbjZ6a2k1LUx2cHM?oc=5",
-          "published": "Tue, 16 Jun 2026 18:19:00 GMT"
+          "title": "India’s new economy still faces an old problem",
+          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOZTNCcmRlNzJwb1YxWUZlVjBORkw4bXdzcmpvWnZselM5cEJZaWlYWDRxRWQxd1Nxclg1a0ZKOHZHS0JtN2I0MU5XTER3MjRqMGxuV3Jub0RPQXUyQ2hETjYzVEtLbndnSVFObDhYbXc3bWxUQkFxOGZyQW9iSHpkbUZJd0t4cTdLLWlzRVZWd2I4czdy?oc=5",
+          "published": "Thu, 18 Jun 2026 09:02:20 GMT"
         },
         {
           "title": "Jim Cramer says next week's economic data will drive the markets",
@@ -229,11 +229,6 @@
           "published": "Thu, 18 Jun 2026 21:02:00 GMT"
         },
         {
-          "title": "Can the market rally continue? You asked, Rob Armstrong and Katie Martin answered",
-          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNQWowLWpXYXZmRmM1bTc3Y2ViNjZaNHBLdnFEMjAzZmxMMXdIcWFLTWsyTFo0c2tjaFEtalQtclVDbDBVWjFFeFNzeFhQZFJvVG9VNjI5ZUJ3V3JvMGVtbEQydEpqZFJFaG9mbl9Nc3RfV1hVbkpRUWhlVFpjbWlQSHpuOGg?oc=5",
-          "published": "Mon, 15 Jun 2026 20:33:35 GMT"
-        },
-        {
           "title": "Wall Street and European markets hit record highs and oil price falls to three-month low after US-Iran peace deal – as it happened | Business",
           "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOZ0RqX2JZTTY4X0RpWFNlb0JCYTNFcDVnTmo3UDdMZ2Y2Vm5FN092elpzQUVlWTNxZTdOdVNWNzQ3el9nWW9QbXBYYWxNaGR2cExBZHFXb09EY1JzeHVyZVEzNENwLVRfUHF2bkd1djFSdHVpYzF0M0ZHNnBJX1ZzU285eUJHUzc4NHdydjUzSnhSamw1dlpIM2RuSnM4VmQyY21GMzZVOWN6c3J6dk5PdjFIZDhWRUoxUXpYbnpGdEJSbUZnWUJrYlhseW0wYTJpM1h0Ykd2OWE?oc=5",
           "published": "Mon, 15 Jun 2026 06:28:00 GMT"
@@ -244,9 +239,14 @@
           "published": "Fri, 19 Jun 2026 08:55:00 GMT"
         },
         {
-          "title": "India’s new economy still faces an old problem",
-          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOZTNCcmRlNzJwb1YxWUZlVjBORkw4bXdzcmpvWnZselM5cEJZaWlYWDRxRWQxd1Nxclg1a0ZKOHZHS0JtN2I0MU5XTER3MjRqMGxuV3Jub0RPQXUyQ2hETjYzVEtLbndnSVFObDhYbXc3bWxUQkFxOGZyQW9iSHpkbUZJd0t4cTdLLWlzRVZWd2I4czdy?oc=5",
-          "published": "Thu, 18 Jun 2026 09:02:20 GMT"
+          "title": "America’s bull market has entered its manic phase",
+          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPMFFRZEEyVEk2T0pzT2ZTNHhlaEEwOU9abExrWENSdGttRDlFX2YxdW9GWkpSZTh1R0xkTjNhVkNkMlVwM3NpS0Q5eTN0eWtKNjlmYXRvMkctZ0gzNjNNLXVfY3dCM0lfNWlCUUtOZzVSUFNUeTBhcFA4ejhWRWgzMnZHT0I2UkxZUlA3Uy0wWmdfUTJtUlZwbkFuSXF5VUlMbjZ6a2k1LUx2cHM?oc=5",
+          "published": "Tue, 16 Jun 2026 18:19:00 GMT"
+        },
+        {
+          "title": "Top economist Gary Shilling says a recession and a deep stock-market plunge are likely by year-end",
+          "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPN1NnMkFMa2VpMmVyV2JvU19Gdzd0SzZMWU9HNG8yM0JaTEJKQWtYYlE0cllfMTVaRUtxSDZ1Mlp3dTlhYm1pZjNHX2FJYmJjWDEzbXNTUHJVTmlWRTlERE1oekwyYmhTdjNZYmpodmo3NDhBajBLSjBiN1NVR3JpR2lpUmRfSUJMMGdUOXdkMTI5TmhnRGQ0YW9UTlZBUGlhaVRaY0hZZGZyWE5MUDdoTEM4VVBIVVRn?oc=5",
+          "published": "Sat, 02 May 2026 07:00:00 GMT"
         }
       ]
     },
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-06-19 17:17",
+  "updated_at": "2026-06-19 22:48",
   "updated_date": "2026-06-19"
 }
