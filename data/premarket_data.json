@@ -4,27 +4,27 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7542.85009765625,
+      "price": 7543.64013671875,
       "prev": 7482.7099609375,
-      "change_pct": 0.8037213393637286,
+      "change_pct": 0.8142795337428278,
       "date": "2026-07-09"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 26178.2265625,
+      "price": 26206.890625,
       "prev": 25870.650390625,
-      "change_pct": 1.1889000362606243,
+      "change_pct": 1.2996976469398953,
       "date": "2026-07-09"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 52506.28125,
+      "price": 52487.41015625,
       "prev": 52348.390625,
-      "change_pct": 0.301615050844746,
+      "change_pct": 0.26556600802854197,
       "date": "2026-07-09"
     },
     {
@@ -40,117 +40,117 @@
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 15.970000267028809,
+      "price": 15.84000015258789,
       "prev": 16.899999618530273,
-      "change_pct": -5.502954866825868,
+      "change_pct": -6.2721863305850585,
       "date": "2026-07-09"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7588.75,
+      "price": 7585.75,
       "prev": 7528.75,
-      "change_pct": 0.7969450439980076,
+      "change_pct": 0.7570977917981072,
       "date": "2026-07-09"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 29965.0,
+      "price": 29917.25,
       "prev": 29468.5,
-      "change_pct": 1.6848499244956479,
+      "change_pct": 1.522812494697728,
       "date": "2026-07-09"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52809.0,
+      "price": 52746.0,
       "prev": 52624.0,
-      "change_pct": 0.3515506232897537,
+      "change_pct": 0.23183338400729706,
       "date": "2026-07-09"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4136.2998046875,
+      "price": 4131.7998046875,
       "prev": 4070.89990234375,
-      "change_pct": 1.6065219954461947,
+      "change_pct": 1.4959813261114068,
       "date": "2026-07-09"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 72.01000213623047,
+      "price": 71.80000305175781,
       "prev": 73.5199966430664,
-      "change_pct": -2.053855516570325,
+      "change_pct": -2.3394908458157615,
       "date": "2026-07-09"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 76.22000122070312,
+      "price": 75.9800033569336,
       "prev": 78.0199966430664,
-      "change_pct": -2.3070949754049312,
+      "change_pct": -2.614705683038639,
       "date": "2026-07-09"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 100.9000015258789,
+      "price": 100.93699645996094,
       "prev": 101.05000305175781,
-      "change_pct": -0.14844287120117697,
+      "change_pct": -0.11183234872243697,
       "date": "2026-07-09"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.144426703453064,
-      "prev": 1.140380859375,
-      "change_pct": 0.354780075867052,
-      "date": "2026-07-09"
+      "price": 1.1436413526535034,
+      "prev": 1.1422044038772583,
+      "change_pct": 0.12580487094668322,
+      "date": "2026-07-10"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.11899995803833,
-      "prev": 5.170899868011475,
-      "change_pct": -1.0036920322942398,
+      "price": 5.16349983215332,
+      "prev": null,
+      "change_pct": null,
       "date": "2026-07-09"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.536999702453613,
+      "price": 4.539000034332275,
       "prev": 4.568999767303467,
-      "change_pct": -0.7003735276777946,
+      "change_pct": -0.6565930072020261,
       "date": "2026-07-09"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 3.688000202178955,
+      "price": 3.681999921798706,
       "prev": 3.7230000495910645,
-      "change_pct": -0.9400979571825084,
+      "change_pct": -1.101265840618559,
       "date": "2026-07-09"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 91.41999816894531,
+      "price": 92.2300033569336,
       "prev": 92.44000244140625,
-      "change_pct": -1.1034230263110112,
+      "change_pct": -0.22717338698229225,
       "date": "2026-07-09"
     }
   ],
@@ -164,44 +164,44 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Stock Market Today, July 9: AI Chip, Technology Stocks Rally, Overcoming Ceasefire Worries",
-          "link": "https://www.fool.com/coverage/stock-market-today/2026/07/09/stock-market-today-july-9-ai-chip-technology-stocks-rally-overcoming-ceasefire-worries/?.tsrc=rss",
-          "published": "Thu, 09 Jul 2026 17:12:31 +0000"
+          "title": "Pepsi Reported Higher Revenue and Earnings. So Why Is the High-Yield Dividend Stock Hovering Around a 52-Week Low?",
+          "link": "https://www.fool.com/investing/2026/07/09/pepsi-reported-higher-revenue-and-earnings-so-why-is-the-high-yield-dividend-stock-hovering-around-a-52-week-low/?.tsrc=rss",
+          "published": "Thu, 09 Jul 2026 22:44:42 +0000"
         },
         {
-          "title": "Stock Market Today: S&P 500 Gains Traction Amid U.S.-Iran News; ASML, Arm, Astera Bolt Higher (Live Coverage)",
-          "link": "https://finance.yahoo.com/m/8c0acb4d-329f-354e-84a5-d2254939eee8/stock-market-today%3A-s%26p-500.html?.tsrc=rss",
-          "published": "Thu, 09 Jul 2026 17:10:42 +0000"
+          "title": "Dow Jones Futures: Micron, Sandisk Jump As Nasdaq Tops Key Level; Delta, Taiwan Semi, SK Hynix Due",
+          "link": "https://finance.yahoo.com/m/6e8baca0-b324-3166-b745-36b306c19567/dow-jones-futures%3A-micron%2C.html?.tsrc=rss",
+          "published": "Thu, 09 Jul 2026 22:32:30 +0000"
         },
         {
-          "title": "Pepsi Earnings Beat Expectations. Why the Stock Is Dropping.",
-          "link": "https://finance.yahoo.com/m/6d3b37b3-0420-36dd-bb11-e80f80e4521c/pepsi-earnings-beat.html?.tsrc=rss",
-          "published": "Thu, 09 Jul 2026 16:24:00 +0000"
+          "title": "Which Is the Better Artificial Intelligence ETF, Roundhill's CHAT or iShares' IYW?",
+          "link": "https://www.fool.com/coverage/etfs/2026/07/09/which-is-the-better-artificial-intelligence-etf-roundhill-s-chat-or-ishares-iyw/?.tsrc=rss",
+          "published": "Thu, 09 Jul 2026 22:28:01 +0000"
         },
         {
-          "title": "Update: US Equity Indexes Rise as Washington Escalates Attacks to Prevent Iran From Gaining Control of Hormuz",
-          "link": "https://finance.yahoo.com/markets/world-indices/articles/us-equity-indexes-rise-washington-162335015.html?.tsrc=rss",
-          "published": "Thu, 09 Jul 2026 16:23:35 +0000"
+          "title": "SCHH vs. VNQI: Which Real Estate ETF Is the Better Buy in 2026?",
+          "link": "https://www.fool.com/coverage/etfs/2026/07/09/schh-vs-vnqi-which-real-estate-etf-is-the-better-buy-in-2026/?.tsrc=rss",
+          "published": "Thu, 09 Jul 2026 22:15:01 +0000"
         },
         {
-          "title": "What Makes Core Natural Resources (CNR) a Good Investment?",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/makes-core-natural-resources-cnr-162158397.html?.tsrc=rss",
-          "published": "Thu, 09 Jul 2026 16:21:58 +0000"
+          "title": "Coinbase and Grayscale Executives Step Down After Major Crypto Wins",
+          "link": "https://beincrypto.com/coinbase-grayscale-executives-step-down/?.tsrc=rss",
+          "published": "Thu, 09 Jul 2026 22:05:41 +0000"
         },
         {
-          "title": "Explainer: Why Micron Looks Cheaper Than It Actually Is Right Now",
-          "link": "https://www.fool.com/investing/2026/07/09/explainer-why-micron-looks-cheaper-than-it-actuall/?.tsrc=rss",
-          "published": "Thu, 09 Jul 2026 16:07:00 +0000"
+          "title": "Chip titan SK hynix readies for mega US listing",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/chip-titan-sk-hynix-set-025602686.html?.tsrc=rss",
+          "published": "Thu, 09 Jul 2026 22:01:04 +0000"
         },
         {
-          "title": "GL Outperforms Industry, Trades at a Discount: How to Play the Stock?",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/gl-outperforms-industry-trades-discount-155700095.html?.tsrc=rss",
-          "published": "Thu, 09 Jul 2026 15:57:00 +0000"
+          "title": "Solaris Energy Infrastructure Set to Join S&P SmallCap 600",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/solaris-energy-infrastructure-set-join-214700887.html?.tsrc=rss",
+          "published": "Thu, 09 Jul 2026 21:47:00 +0000"
         },
         {
-          "title": "Broad Market Gains Offset Big Tech Weakness",
-          "link": "https://finance.yahoo.com/m/ad75b7ff-f333-3946-b7aa-e46c2cdc0c7f/broad-market-gains-offset-big.html?.tsrc=rss",
-          "published": "Thu, 09 Jul 2026 15:46:57 +0000"
+          "title": "Salesforce (CRM) Stock Sinks As Market Gains: Here's Why",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/salesforce-crm-stock-sinks-market-214505045.html?.tsrc=rss",
+          "published": "Thu, 09 Jul 2026 21:45:05 +0000"
         }
       ]
     },
@@ -274,11 +274,6 @@
           "published": "Wed, 04 Mar 2026 08:00:00 GMT"
         },
         {
-          "title": "Mercado cambiario: los valores del dólar oficial y MEP este jueves 25 de junio 2026",
-          "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQYmJjVENfYzVYaFFUVmVqcUR0UWwxdG43Vnh6Qk1qQ2VKWHpBbkRpamMta1VGamZVMHU2dldIbVpqNWU0SjA5NURieDFZdWJBaHBFMTZjYUFOMFdkWmpnZlBDT2MyX0hSSV9FMEFnSzZVMVJ3VHJmSnVOdjNLQ0luLU1aTFlpLWFacE1QaFVWME5zd2ozeXh1TWptNnlLbk5yaXluNkw1QUNzNjVEaXdGdG1uZzltVnpLOVlpa0Z6UWtfeDQ0VndFWmQ3YkNBLUxWSlU4Z3c2ZXRyZHU3MVU40gHnAUFVX3lxTE9fZUpTSG5WNnRpVEJyeW44SWxLNURtQUtqT19nR0tiZFRBWUs3ektiTkZVLUVLR2d6V081eVNXNjJ2NE53d0YxVkZzeElPQzVYVmx2OE56VDlTZ0ItMmxqcHJaV0hzcTVVYXRPQXE0T0I0djIwR2ZINzdKbzlkbTVrUUkxTTNCWlVfT3VYblZWNl8wY3d5aVVMQS16dkw2aWQ3dUI5ZlB4UTV3T0NJZ0dXWHhJcnh5VGdmeHIyOExIQ3RGdFg2YUxpX0lud3ZjTGktT2F3Q1ZTYW10djcyWjlEQnVENFJXVQ?oc=5",
-          "published": "Thu, 25 Jun 2026 07:00:00 GMT"
-        },
-        {
           "title": "Dólar: el súper peso de Milei profundiza el atraso cambiario y enciende alarmas en la economía",
           "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQLVZxMnpzcWlTWk9RN01NU3JnU3RmYnhPRE1PSEU5ZnlsUm1UTFp0aDFCNENPVERlb1daeUN6bDRzVFF1a0tRSl9PRmtHbmk2WGxueUhNWC1QbFV3OEZjYnZOeExhcEN3ZDNSYTd5RGd3Y2JoTjhTVWFfaEREei1JUk1KVENabWJFdGp4eFlOTVZTcGxjSmhfZWVvTGNTZl9aaVZGZUgwQmJDV0RqWWx3Vmh1blZmdnVVUHNuMjN6ZHdXQjIzS3VrRk94R3JwUk9CRmZ4MTY0eXVDUGZ3a0FRSTlzTEk?oc=5",
           "published": "Tue, 26 May 2026 07:00:00 GMT"
@@ -292,10 +287,15 @@
           "title": "El dólar oficial cayó luego de tres jornadas al alza, pero se mantuvo cerca de los $1.400",
           "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPOGllcnNpZEJrMnpIeVhEUmZFbmx5SDZlY3l1MHNZZ1pfaEUwLTRra2M5cXREek9wOXR3TVpfTlVwbHJUTWNhVjR4UHFqVUtzQWRreFNlT3daQjY0UHZQV0VmMl9RbHhKMk1SeklDUFRTT21PckpyS0dJMVhCYnFpXy1OemVhTEJWajJnZk9HM0VMa0JudWV2TVVyWmxVbVNoTnVZMmpBMUw4R1k5RVdGNl9wZTBGemho0gG-AUFVX3lxTE0tWHBfb185WkM5cnZXR0F5RXBtQld1VU1hck16aVBnVHFxYTQ1RTlTTkoyWTFMWjB5YXVBOFk0UmRpX0prOTBnb0xHOW1vRFU1dUFoSVhWZE1sbTVGMmNST0FLRERjZnh5cXVrcVY1ZVV5TElYLVM5Qnk0ZFNOZXQza3I1cWlRdmxwVXlTRFdpWVM1cmR6ODVSU1k2SDRvdWNsMlJ5Z3piUXdUQlYtaGM4cTRiQUhlYVN6LVBUNEE?oc=5",
           "published": "Wed, 20 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Mercado cambiario: los valores del dólar oficial y MEP este jueves 25 de junio 2026",
+          "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQYmJjVENfYzVYaFFUVmVqcUR0UWwxdG43Vnh6Qk1qQ2VKWHpBbkRpamMta1VGamZVMHU2dldIbVpqNWU0SjA5NURieDFZdWJBaHBFMTZjYUFOMFdkWmpnZlBDT2MyX0hSSV9FMEFnSzZVMVJ3VHJmSnVOdjNLQ0luLU1aTFlpLWFacE1QaFVWME5zd2ozeXh1TWptNnlLbk5yaXluNkw1QUNzNjVEaXdGdG1uZzltVnpLOVlpa0Z6UWtfeDQ0VndFWmQ3YkNBLUxWSlU4Z3c2ZXRyZHU3MVU40gHnAUFVX3lxTE9fZUpTSG5WNnRpVEJyeW44SWxLNURtQUtqT19nR0tiZFRBWUs3ektiTkZVLUVLR2d6V081eVNXNjJ2NE53d0YxVkZzeElPQzVYVmx2OE56VDlTZ0ItMmxqcHJaV0hzcTVVYXRPQXE0T0I0djIwR2ZINzdKbzlkbTVrUUkxTTNCWlVfT3VYblZWNl8wY3d5aVVMQS16dkw2aWQ3dUI5ZlB4UTV3T0NJZ0dXWHhJcnh5VGdmeHIyOExIQ3RGdFg2YUxpX0lud3ZjTGktT2F3Q1ZTYW10djcyWjlEQnVENFJXVQ?oc=5",
+          "published": "Thu, 25 Jun 2026 07:00:00 GMT"
         }
       ]
     }
   },
-  "updated_at": "2026-07-09 17:21",
+  "updated_at": "2026-07-09 23:05",
   "updated_date": "2026-07-09"
 }
