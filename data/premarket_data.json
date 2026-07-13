@@ -4,52 +4,52 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7529.4501953125,
+      "price": 7515.33984375,
       "prev": 7575.39013671875,
-      "change_pct": -0.6064366399239829,
+      "change_pct": -0.7927023147980143,
       "date": "2026-07-13"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 25952.9375,
+      "price": 25873.17578125,
       "prev": 26281.609375,
-      "change_pct": -1.2505774296784289,
+      "change_pct": -1.5540661453499744,
       "date": "2026-07-13"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 52503.671875,
+      "price": 52498.640625,
       "prev": 52637.01171875,
-      "change_pct": -0.2533195548076727,
+      "change_pct": -0.26287794316543694,
       "date": "2026-07-13"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 3259361.5,
+      "price": 3235294.75,
       "prev": 3280224.0,
-      "change_pct": -0.636008394548665,
+      "change_pct": -1.3697006667837317,
       "date": "2026-07-13"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 16.68000030517578,
+      "price": 17.15999984741211,
       "prev": 15.029999732971191,
-      "change_pct": 10.978047914299005,
+      "change_pct": 14.171657699822532,
       "date": "2026-07-13"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7573.5,
+      "price": 7555.5,
       "prev": null,
       "change_pct": null,
       "date": "2026-07-13"
@@ -58,7 +58,7 @@
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 29550.5,
+      "price": 29429.75,
       "prev": null,
       "change_pct": null,
       "date": "2026-07-13"
@@ -67,7 +67,7 @@
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52721.0,
+      "price": 52714.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-07-13"
@@ -76,7 +76,7 @@
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4002.10009765625,
+      "price": 4010.5,
       "prev": null,
       "change_pct": null,
       "date": "2026-07-13"
@@ -85,7 +85,7 @@
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 75.63999938964844,
+      "price": 78.16999816894531,
       "prev": null,
       "change_pct": null,
       "date": "2026-07-13"
@@ -94,7 +94,7 @@
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 80.55000305175781,
+      "price": 83.37000274658203,
       "prev": null,
       "change_pct": null,
       "date": "2026-07-13"
@@ -103,7 +103,7 @@
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 101.2249984741211,
+      "price": 101.2770004272461,
       "prev": null,
       "change_pct": null,
       "date": "2026-07-13"
@@ -112,45 +112,45 @@
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1390818357467651,
+      "price": 1.1386927366256714,
       "prev": 1.1433405876159668,
-      "change_pct": -0.37248322287602714,
+      "change_pct": -0.4065150000479615,
       "date": "2026-07-13"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.132599830627441,
-      "prev": 5.133900165557861,
-      "change_pct": -0.02532840313381171,
-      "date": "2026-07-13"
+      "price": 5.136600017547607,
+      "prev": 5.107800006866455,
+      "change_pct": 0.563843741776034,
+      "date": "2026-07-14"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.613999843597412,
+      "price": 4.609000205993652,
       "prev": 4.568999767303467,
-      "change_pct": 0.984899947160721,
+      "change_pct": 0.8754747368655046,
       "date": "2026-07-13"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 3.7319998741149902,
+      "price": 3.7279999256134033,
       "prev": 3.694999933242798,
-      "change_pct": 1.0013515978529552,
+      "change_pct": 0.8930985917946712,
       "date": "2026-07-13"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 94.75,
+      "price": 94.4800033569336,
       "prev": 95.06999969482422,
-      "change_pct": -0.3365937686456521,
+      "change_pct": -0.6205915007726096,
       "date": "2026-07-13"
     }
   ],
@@ -164,44 +164,44 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Meet the International ETF Quietly Beating the S&P 500 in 2026",
-          "link": "https://www.fool.com/investing/2026/07/13/meet-the-international-etf-quietly-beating-the-sp/?.tsrc=rss",
-          "published": "Mon, 13 Jul 2026 16:50:00 +0000"
+          "title": "Wall Street ends lower as Iran tensions dampen risk appetite",
+          "link": "https://finance.yahoo.com/video/wall-street-ends-lower-iran-222620456.html?.tsrc=rss",
+          "published": "Mon, 13 Jul 2026 22:26:20 +0000"
         },
         {
-          "title": "Stock Market Today, July 13: SK Hynix Tumbles 15% in South Korea, Leading Semiconductor Drop at Midday",
-          "link": "https://www.fool.com/coverage/stock-market-today/2026/07/13/stock-market-today-july-13-sk-hynix-tumbles-15-in-south-korea-leading-semiconductor-drop-at-midday/?.tsrc=rss",
-          "published": "Mon, 13 Jul 2026 16:48:18 +0000"
+          "title": "RSP’s Equal-Weight Trap: How a $10,000 Investment Lost $27,800 to Fees and Rebalancing Drag Over a Decade",
+          "link": "https://247wallst.com/investing/etf/2026/07/13/rsps-equal-weight-trap-how-a-10000-investment-lost-27800-to-fees-and-rebalancing-drag-over-a-decade/?.tsrc=rss",
+          "published": "Mon, 13 Jul 2026 22:17:30 +0000"
         },
         {
-          "title": "Why Direxion Daily Semiconductor Bull 3X ETF Dropped",
-          "link": "https://www.fool.com/investing/2026/07/13/why-direxion-daily-semiconductor-bull-3x-etf-dropp/?.tsrc=rss",
-          "published": "Mon, 13 Jul 2026 16:45:21 +0000"
+          "title": "Two Income ETFs Retirees Can Buy Inside a Roth IRA to Generate Tax Free Cash for Life",
+          "link": "https://247wallst.com/investing/2026/07/13/two-income-etfs-retirees-can-buy-inside-a-roth-ira-to-generate-tax-free-cash-for-life/?.tsrc=rss",
+          "published": "Mon, 13 Jul 2026 22:10:39 +0000"
         },
         {
-          "title": "Stock Indexes Split as Chip Stocks Fall, Oil Surges",
-          "link": "https://www.fool.com/investing/2026/07/13/stock-indexes-split-as-chip-stocks-fall-oil-surges/?.tsrc=rss",
-          "published": "Mon, 13 Jul 2026 16:43:17 +0000"
+          "title": "Here's Why USA Rare Earth Stock Rocketed 81% Higher in the First Half of 2026",
+          "link": "https://www.fool.com/investing/2026/07/13/heres-why-usa-rare-earth-stock-rocketed-81-higher/?.tsrc=rss",
+          "published": "Mon, 13 Jul 2026 21:53:06 +0000"
         },
         {
-          "title": "1 Services Stock with Solid Fundamentals and 2 Facing Challenges",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/1-services-stock-solid-fundamentals-163839525.html?.tsrc=rss",
-          "published": "Mon, 13 Jul 2026 16:38:39 +0000"
+          "title": "How Lowe's Stock Is Compounding Value Without The Sales Boom",
+          "link": "https://www.trefis.com/articles/606802/how-lowes-stock-is-compounding-value-without-the-sales-boom/2026-07-13?.tsrc=rss",
+          "published": "Mon, 13 Jul 2026 21:33:36 +0000"
         },
         {
-          "title": "Stock Market Today, July 13: Energy Stocks Cushion Dow as Tech Slides on Geopolitical Tensions",
-          "link": "https://www.fool.com/coverage/stock-market-today/2026/07/13/stock-market-today-july-13-energy-stocks-cushion-dow-as-tech-slides-on-geopolitical-tensions/?.tsrc=rss",
-          "published": "Mon, 13 Jul 2026 16:34:50 +0000"
+          "title": "3 Reasons WST is Risky and 1 Stock to Buy Instead",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-wst-risky-1-211039744.html?.tsrc=rss",
+          "published": "Mon, 13 Jul 2026 21:10:39 +0000"
         },
         {
-          "title": "Update: US Equity Indexes Drop, Crude Oil Surges as Iran Tensions Intensify",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-drop-crude-163445014.html?.tsrc=rss",
-          "published": "Mon, 13 Jul 2026 16:34:45 +0000"
+          "title": "Update: US Equity Indexes Slump, Crude Oil Soars as Trump Plans to Reinstate Iran Blockade, Impose 20% Toll on Hormuz Cargo",
+          "link": "https://finance.yahoo.com/markets/articles/us-equity-indexes-slump-crude-210947416.html?.tsrc=rss",
+          "published": "Mon, 13 Jul 2026 21:09:47 +0000"
         },
         {
-          "title": "Stock Market Today: Dow Drops As Trump Reinstates Hormuz Blockade; Oil Refiners Rise (Live Coverage)",
-          "link": "https://finance.yahoo.com/m/5eba618e-9a5d-3cbe-906d-545b7db0d19c/stock-market-today%3A-dow-drops.html?.tsrc=rss",
-          "published": "Mon, 13 Jul 2026 16:15:49 +0000"
+          "title": "Goldman Sachs does an about-face on overlooked software stock",
+          "link": "https://www.thestreet.com/investing/stocks/goldman-sachs-upgrades-toast-tost-stock-buy-rating-price-target?.tsrc=rss",
+          "published": "Mon, 13 Jul 2026 21:03:00 +0000"
         }
       ]
     },
@@ -219,9 +219,9 @@
           "published": "Sun, 12 Jul 2026 14:58:48 GMT"
         },
         {
-          "title": "Fed ‘could bail out Wall Street if market crashes’",
-          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNU0xTQWpmUExaNXhoZmhnVERfNE5MR3hiWk1xeHl6NTFwUGswcXN5Rl9ra2Z2RF84eHpldks3WkotYUdKRFZ5eXgtVUVYdkRMNGFQc0FVT2NQY002c1dWNkJCRVd0Z2JEVFpHTTNMVnpOU1hJNmw1YS1uNDhENDlSMGFIQ3pSSEE0LWxqU29QVU9XZGctelRVRDZIX2RqNUNYVXVadFZGSkowdw?oc=5",
-          "published": "Mon, 13 Jul 2026 08:00:00 GMT"
+          "title": "5 Things That Should Happen Before The Next Bear Market",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxONXZTd3F0Q1Q0Q1JuS2pqc1ViaWY1bzR2N3g5TFlpOUY4aVA0aG9MZjZCV0dvdDdpOVZ2WEg4enp6aHlrOHRkR0hZdWFTYmRQRVUwSHhHU2h4Y0xhdzN0aloyY2M4V2VCMUtFdHNvcl84end6NE1iVnJwYVdxT1h3c3FjVGpQZEZyLUhfNWc3WnBoWlRuelo4?oc=5",
+          "published": "Mon, 13 Jul 2026 17:56:13 GMT"
         },
         {
           "title": "Trump makes the stock market his scoreboard, but many Americans aren't even in the game",
@@ -229,14 +229,9 @@
           "published": "Fri, 10 Jul 2026 10:05:00 GMT"
         },
         {
-          "title": "Are US Stock Market Valuations Outpacing Fundamentals?",
-          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNVm1LUGF1eHpVcVlORmRMWHlrS0x4My1FQ2lldWdQUHlxMXFTMkRSQlJUVzA5UDROeDdfNkpIVENuUUxGeFVSdlhnMHFBOVU4T0YzUnNNeC1HQ1lWaFdGZzJsemRMREdRR1Uzc0RrUnFTbWo1SnE1RDhGdVZnX0RZdG50XzVadGhZVkhZOTBCcWtURVpmNGpWV3VrSk96NnIyYkE?oc=5",
-          "published": "Fri, 10 Jul 2026 19:01:05 GMT"
-        },
-        {
-          "title": "The Stock Market and a “Phenomena of our Lifetimes”",
-          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNGYzRGp2T1BQS1R4eVZ2Rkk5bU5WSGswWHFJcFpRN01CQ0RLWThfTi1kbE9NN1g3eXpxbmRWYy1tcmQxU2s1ajVGR1Y4ZkZGNmN3bHZMM1Z1NEFULXJlaGlQOVJ4QTBlbjhkSUh1Tzc5OGNyTU9xNzgxRW85ODZLX2VRU3VDQjg4WGdjXzVOU0d1ZjZyZ1hldmkzekJqbUE5Vm5iRERn?oc=5",
-          "published": "Fri, 10 Jul 2026 16:04:29 GMT"
+          "title": "Why are big banks doing so well in this economy?",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPbWVNTGtaSXdIS19mQ25uaHZBNFlzUEFEaFB4dkQ2bV9RVjdRaGJfMDZIS3BtLXhWOXdGRXJDNGZfMWZHSFZFMGRHMjVjdlJ3WkdWRW1VX0R3NVJCbFZkbVY0a2dHYkl5dnhlcW5CNEJUUFNDVDE4MFl0UkNqX3RxVkV5aDB1S3BqbU9DRXVfS2hmMDZsUjYw?oc=5",
+          "published": "Mon, 13 Jul 2026 21:45:00 GMT"
         },
         {
           "title": "Not a red flag: The market-economy disconnect",
@@ -244,9 +239,14 @@
           "published": "Fri, 10 Jul 2026 14:05:13 GMT"
         },
         {
-          "title": "Why the stock market and economy may seem out of sync",
-          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9vcWg0QXpqWk91X05BclFWbHdfOXotd2YzRlBpS0lSeFN4ZGJwSDhvRE5uWkliU095bnYyMy11cEktM3U1SGZXd24wdlRoajBrTDVOR01wUGNDMElqbFVheEJjUko2MTk5Vlpad3hYQWVzRk90QkRuSUpUOFZUQdIBgwFBVV95cUxOU0NUczI0QXNNbXlrWTlINlBJTkVGZHFtQi1tS05ocmVsWlVzcWFNRjhic01aVWxSdWRCRU1ISTU0WnVrX1E4RGRZWG0tWHcxa3BqSnhLSXNhSzlNb2k1Z3g1V3Y4SkRoUUVmMUsyTTNZTmZIVWpHYzJsM3FYVUpGaWtzVQ?oc=5",
-          "published": "Fri, 10 Jul 2026 12:15:02 GMT"
+          "title": "The Stock Market and a “Phenomena of our Lifetimes”",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNGYzRGp2T1BQS1R4eVZ2Rkk5bU5WSGswWHFJcFpRN01CQ0RLWThfTi1kbE9NN1g3eXpxbmRWYy1tcmQxU2s1ajVGR1Y4ZkZGNmN3bHZMM1Z1NEFULXJlaGlQOVJ4QTBlbjhkSUh1Tzc5OGNyTU9xNzgxRW85ODZLX2VRU3VDQjg4WGdjXzVOU0d1ZjZyZ1hldmkzekJqbUE5Vm5iRERn?oc=5",
+          "published": "Fri, 10 Jul 2026 16:04:29 GMT"
+        },
+        {
+          "title": "This Is Why the S&P 500 Keeps Breaking Records",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZlI1R0ZYMml2LVNmZ2FDSjdEdHlsRWwxT2NXTXM1UXpiVVlheDFYQnYzd0NxUDg3WWtBUzdNVW9vTXQ1Wi13WTZDTnhxVWdocXRLbjROR25ZclhCQWM4YlVXbk1xd21GMGxCX01OSHJteHBlS00zZHdEVHRZUG5QQ09TSG1VWnhxeGk2S0l0UDBRMVlVMWI3bDE4R095UHFrZ3BFaXB3?oc=5",
+          "published": "Mon, 13 Jul 2026 11:06:49 GMT"
         }
       ]
     },
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-07-13 17:13",
+  "updated_at": "2026-07-13 22:48",
   "updated_date": "2026-07-13"
 }
