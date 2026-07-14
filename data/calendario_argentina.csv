@@ -16,7 +16,7 @@ date,event,source,impact,previous,forecast,actual,currency
 2026-03-13,IPC Nacional (feb 2026),INDEC,High,2.9%,2.4%,3.4%,ARS
 2026-04-14,IPC Nacional (mar 2026),INDEC,High,2.4%,3.5%,2.6%,ARS
 2026-05-11,IPC Nacional (abr 2026),INDEC,High,,,2.1%,ARS
-2026-06-11,IPC Nacional (may 2026),INDEC,High,,,,ARS
+2026-06-11,IPC Nacional (may 2026),INDEC,High,,,1.9%,ARS
 2026-07-14,IPC Nacional (jun 2026),INDEC,High,,,,ARS
 2026-08-13,IPC Nacional (jul 2026),INDEC,High,,,,ARS
 2026-09-07,IPC Nacional (ago 2026),INDEC,High,,,,ARS
