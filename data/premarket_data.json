@@ -4,108 +4,108 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7546.7001953125,
+      "price": 7533.77001953125,
       "prev": 7572.39990234375,
-      "change_pct": -0.33938655330783085,
+      "change_pct": -0.5101405539945609,
       "date": "2026-07-16"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 26004.26171875,
+      "price": 25881.947265625,
       "prev": 26269.23046875,
-      "change_pct": -1.0086658241291389,
+      "change_pct": -1.4742845382764977,
       "date": "2026-07-16"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 52671.66015625,
+      "price": 52552.96875,
       "prev": 52658.640625,
-      "change_pct": 0.024724396785546533,
+      "change_pct": -0.20067338189097053,
       "date": "2026-07-16"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 3256956.75,
+      "price": 3185257.25,
       "prev": 3291246.0,
-      "change_pct": -1.0418318776536304,
+      "change_pct": -3.2203229415242736,
       "date": "2026-07-16"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 16.030000686645508,
+      "price": 16.729999542236328,
       "prev": 15.670000076293945,
-      "change_pct": 2.297387419264805,
+      "change_pct": 6.764514746531382,
       "date": "2026-07-16"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7592.75,
+      "price": 7565.25,
       "prev": 7614.75,
-      "change_pct": -0.288912964969303,
+      "change_pct": -0.6500541711809318,
       "date": "2026-07-16"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 29317.0,
+      "price": 29133.0,
       "prev": 29693.25,
-      "change_pct": -1.2671229993348656,
+      "change_pct": -1.8867924528301887,
       "date": "2026-07-16"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52956.0,
+      "price": 52741.0,
       "prev": 52900.0,
-      "change_pct": 0.10586011342155008,
+      "change_pct": -0.3005671077504726,
       "date": "2026-07-16"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4004.39990234375,
+      "price": 3979.10009765625,
       "prev": 4044.0,
-      "change_pct": -0.9792309014898615,
+      "change_pct": -1.6048442716060831,
       "date": "2026-07-16"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 79.04000091552734,
+      "price": 78.98999786376953,
       "prev": 79.5999984741211,
-      "change_pct": -0.703514534332324,
+      "change_pct": -0.7663324397548587,
       "date": "2026-07-16"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 85.01000213623047,
+      "price": 84.93000030517578,
       "prev": 84.94999694824219,
-      "change_pct": 0.07063589187041507,
+      "change_pct": -0.02353930992909827,
       "date": "2026-07-16"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 100.72799682617188,
+      "price": 100.70800018310547,
       "prev": 100.5,
-      "change_pct": 0.22686251360385573,
+      "change_pct": 0.20696535632384952,
       "date": "2026-07-16"
     },
     {
@@ -121,36 +121,36 @@
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.0991997718811035,
+      "price": 5.101900100708008,
       "prev": 5.087900161743164,
-      "change_pct": 0.22208789046025812,
+      "change_pct": 0.27516143241394175,
       "date": "2026-07-16"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.571000099182129,
+      "price": 4.568999767303467,
       "prev": 4.545000076293945,
-      "change_pct": 0.5720576997082114,
+      "change_pct": 0.5280459979461906,
       "date": "2026-07-16"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 3.695000171661377,
+      "price": 3.697000026702881,
       "prev": 3.687999963760376,
-      "change_pct": 0.18981041132829599,
+      "change_pct": 0.24403641624031353,
       "date": "2026-07-16"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 94.08999633789062,
+      "price": 92.66999816894531,
       "prev": 95.3499984741211,
-      "change_pct": -1.3214495609797472,
+      "change_pct": -2.8106977955570276,
       "date": "2026-07-16"
     }
   ],
@@ -164,44 +164,44 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Stock Market Today: Nasdaq Slides While TSMC Hits Sell Rule; Abbott Soars (Live Coverage)",
-          "link": "https://finance.yahoo.com/m/c5561775-6f2a-30c3-8319-d6feaa5d3578/stock-market-today%3A-nasdaq.html?.tsrc=rss",
-          "published": "Thu, 16 Jul 2026 16:08:01 +0000"
+          "title": "Dow Jones Futures: Micron, Sandisk, Google Lead AI Sell-Off, Netflix Dives Late; SpaceX Starship Launch Due",
+          "link": "https://finance.yahoo.com/m/b5c1ad7a-e72b-3a9b-bb20-11f0979acb67/dow-jones-futures%3A-micron%2C.html?.tsrc=rss",
+          "published": "Thu, 16 Jul 2026 22:37:43 +0000"
         },
         {
-          "title": "Stocks drop on tech sell-off, oil yo-yos on Mideast",
-          "link": "https://finance.yahoo.com/markets/world-indices/articles/asian-stocks-mostly-sink-ai-025035942.html?.tsrc=rss",
-          "published": "Thu, 16 Jul 2026 15:59:42 +0000"
+          "title": "Wall St ends lower as chip weakness offsets solid earnings, data",
+          "link": "https://finance.yahoo.com/video/wall-st-ends-lower-chip-223110982.html?.tsrc=rss",
+          "published": "Thu, 16 Jul 2026 22:31:10 +0000"
         },
         {
-          "title": "Warren Buffett pulls no punches on stock market for 2026",
-          "link": "https://www.thestreet.com/investing/stocks/warren-buffett-value-hard-to-find-stock-market-2026?.tsrc=rss",
-          "published": "Thu, 16 Jul 2026 15:47:29 +0000"
+          "title": "Why the Market Dipped But Energy Transfer LP (ET) Gained Today",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/why-market-dipped-energy-transfer-214506990.html?.tsrc=rss",
+          "published": "Thu, 16 Jul 2026 21:45:06 +0000"
         },
         {
-          "title": "Top Midday Stories: Taiwan Semiconductor Q2 Earnings Top Estimates, Increases Capex; UnitedHealth Raises Full-Year Guidance",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/top-midday-stories-taiwan-semiconductor-154157453.html?.tsrc=rss",
-          "published": "Thu, 16 Jul 2026 15:41:57 +0000"
+          "title": "Target (TGT) Advances While Market Declines: Some Information for Investors",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/target-tgt-advances-while-market-214506210.html?.tsrc=rss",
+          "published": "Thu, 16 Jul 2026 21:45:06 +0000"
         },
         {
-          "title": "1 S&P 500 Stock to Target This Week and 2 Facing Challenges",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/1-p-500-stock-target-153722047.html?.tsrc=rss",
-          "published": "Thu, 16 Jul 2026 15:37:22 +0000"
+          "title": "Verizon Communications (VZ) Advances While Market Declines: Some Information for Investors",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/verizon-communications-vz-advances-while-214505438.html?.tsrc=rss",
+          "published": "Thu, 16 Jul 2026 21:45:05 +0000"
         },
         {
-          "title": "Key Role in AI Infrastructure Buildout Bolsters Astera Labs (ALAB) in Q2",
-          "link": "https://finance.yahoo.com/technology/ai/articles/key-role-ai-infrastructure-buildout-152842779.html?.tsrc=rss",
-          "published": "Thu, 16 Jul 2026 15:28:42 +0000"
+          "title": "Novo Nordisk (NVO) Ascends While Market Falls: Some Facts to Note",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/novo-nordisk-nvo-ascends-while-214502899.html?.tsrc=rss",
+          "published": "Thu, 16 Jul 2026 21:45:02 +0000"
         },
         {
-          "title": "Western Digital Corporation (WDC) Jumped Following the Earnings Beat",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/western-digital-corporation-wdc-jumped-152602385.html?.tsrc=rss",
-          "published": "Thu, 16 Jul 2026 15:26:02 +0000"
+          "title": "S&P 500, Nasdaq, Dow End Lower As Chip Stocks Slide On TSMC Capex Concerns — TSM, MU, NVDA, UNH, GOOGL In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-nasdaq-dow-end-lower-as-chip-stocks-slide-on-tsmc-capex-concerns-tsm-mu-nvda-unh-googl-in-focus/cZZEFzQR7s6?.tsrc=rss",
+          "published": "Thu, 16 Jul 2026 21:31:03 +0000"
         },
         {
-          "title": "Increasing Demand for AI Computing Power Fuels Nebius Group (NBIS) Performance in Q2",
-          "link": "https://finance.yahoo.com/technology/ai/articles/increasing-demand-ai-computing-power-152424776.html?.tsrc=rss",
-          "published": "Thu, 16 Jul 2026 15:24:24 +0000"
+          "title": "Stock Market Today, July 16: Lucid Group Surges on CEO's Denial of Bankruptcy and Take-Private Rumors",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/07/16/stock-market-today-july-16-lucid-group-surges-on-ceos-denial-of-bankruptcy-and-take-private-rumors/?.tsrc=rss",
+          "published": "Thu, 16 Jul 2026 21:28:24 +0000"
         }
       ]
     },
@@ -219,19 +219,24 @@
           "published": "Thu, 16 Jul 2026 15:56:14 GMT"
         },
         {
+          "title": "Slumping AI stocks drag down markets around the world",
+          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOLTlKOTI3eEFOSnVTYmM0d0VfOVMxd0NMaVJCcktuRFZfSDhISmRIMmRaU3plMl9jbXlqTmQydk50THVFRU5EeXNTMDZkLUhFeUNNUnBQTVZDekhtQ0c1ekVReW9adXJ3Mzhtc2p6YkZheV9FOEgzeUZkeTJGNmx5XzBBdDI3SXBWN1VOdVNNTmxoblgtVk1LM0FEdFNOZG95Zk5wMTMzTk5PaWpzYjk4cF9zVk14S0h1V0RzUzNfWTFERVhpSUV1ekZLaw?oc=5",
+          "published": "Thu, 16 Jul 2026 22:48:23 GMT"
+        },
+        {
+          "title": "Macro Money: Stock Markets and the US Economy Problem Found",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNdm9KNC02ejNGQndiNklLOFRPS0pHSFYzNE9idHQySFp2WjUyeXNyOVk1VFU2TzNGRlFmRDRuQllqRFhYYmhwZmJsN2IyS1lmTkxhSEEyakxVRnYySHQyOEpkZXUyZ0JxVjBjb1J5bzI3NFE1cnFKTXVKeVc4M05WRWxSMUJEeGRkVHU3NVZGZWpjUnpzek4xUDdHSXkySFVpMHlGNUtJbjc1OGQwZDMzUzJUUDNWTU14RmZaNlpTZw?oc=5",
+          "published": "Thu, 16 Jul 2026 22:50:01 GMT"
+        },
+        {
           "title": "Stock market rally fueled by transportation stocks and AI excitement on Wall Street",
           "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNQ1ZzRVRWdktLa3pXaWs2eGlKYzl5ZE1QODNLR0dFV0lQVUxQMDVBUHJUYTRxSlp0eFBDaGJRV3FzcDhxak54aldBV0xndnJyV3ZpMTEwaXR3MTNxMzBDQjNkM3VMOEtTNTE3bWdfWEQ5VEg2MVdrbFZtX0V6MHhrYkxQYXhYR2E5dExiMmZCOVFkMUJQX0VKSUJTWXVybFNjR1hSSi1QN2xRbWVEQWxpajFUOGVFSW5VSFJTQW14aERFcUVPajRr?oc=5",
-          "published": "Thu, 16 Jul 2026 12:33:49 GMT"
+          "published": "Thu, 16 Jul 2026 10:58:34 GMT"
         },
         {
-          "title": "Retail sales last month rose less than expected",
-          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE4zOFg0SVc5UTh0bHA2OVFIdjVkN1N6c3hmcVNsZ081akM5RnRmRnAwNGp3R0N3OTFEaktHSlF1c3FFbWxpdGctRkxudGM5TkswMXZOc1BJWnVfTy1udUNPemZneVp5blA3dFlB?oc=5",
-          "published": "Thu, 16 Jul 2026 12:36:03 GMT"
-        },
-        {
-          "title": "AI stocks slump again worldwide, while oil prices tick higher",
-          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOLTlKOTI3eEFOSnVTYmM0d0VfOVMxd0NMaVJCcktuRFZfSDhISmRIMmRaU3plMl9jbXlqTmQydk50THVFRU5EeXNTMDZkLUhFeUNNUnBQTVZDekhtQ0c1ekVReW9adXJ3Mzhtc2p6YkZheV9FOEgzeUZkeTJGNmx5XzBBdDI3SXBWN1VOdVNNTmxoblgtVk1LM0FEdFNOZG95Zk5wMTMzTk5PaWpzYjk4cF9zVk14S0h1V0RzUzNfWTFERVhpSUV1ekZLaw?oc=5",
-          "published": "Thu, 16 Jul 2026 15:18:23 GMT"
+          "title": "I’ve spent years studying economic data. These Americans taught me what ‘affordability’ really means",
+          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOc2I2b18wYmRRZVQ3djU0Ykg2VjYtMVk3a1N5MnJMV0pTZEFTSlB6YW5IVmtUSGdlNndITDNWVklZSFFBeEFQbE5aMWNkZ2dBc1hGeGZsLTV6YlZ3Z2VBX016MjNCYTBMckhpQ2NTdnhmRFBFNGtEREZEZ3ZIQk1Pc3JEX1hKdHJwckxzcUNZUE8?oc=5",
+          "published": "Thu, 16 Jul 2026 13:00:34 GMT"
         },
         {
           "title": "Can the stock market keep reaching all-time highs?",
@@ -242,11 +247,6 @@
           "title": "Not a red flag: The market-economy disconnect",
           "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPM2pBUWlzOUZSaHh2UVRkTkNkSWJ3OG4wMzg0ZXJaUU93dUNBaXR0TlVzN0NtSVlBX1pQOXI2N18tQkN2dEJjeVNreE54UUQycTdoMlBsNm9MaDVLM3ZOQklNZG9fb3hXRmFGXzhKNkZhR2xNZkF0SzBaOTVWUzdlM3Y0OVpEcERzYTRzcjYyUGVmdG50NkVCeTk5M2Q?oc=5",
           "published": "Fri, 10 Jul 2026 14:05:13 GMT"
-        },
-        {
-          "title": "Adidas capitalizes on the World Cup but makes running its new engine for stock market gains",
-          "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOUGZPNFNpMGFMc2xuWjhmcHEwNk1ENUdpak1rTGtmZ3dnSHVyaHFKUWh3NnZ2SkhVd015WEIxczRWbDRHalBwV2M4MDM2MEhhZlg1T25tb0NManotcDJDUWpJLVhHOTRNWjV5emFlN1JVQ25BQkktakY1U2psOFZlUVZuOWxWX2Z4aU9LTTg1NllaSzktRE5nc2M2cUNfcHNHMmJORkFyTW13Q093RGRSUnA0eHFabTJ6TGdFcVh2U0Q4S0ptMXNSaW5sdVQzUG9aemllVFBXWDlLOWN2TXhvbmhEd1VLRVhwLWFJ0gH_AUFVX3lxTFBrcWJvUXMwSThNaGZueml5aWE4bzZxZlVrcUp4MnlheDhUU2pKRWtxLWVTVUpLdVh4Q1luc3NHOEI2RE93ZEFFSEVKS2xMbnF4Z3h6VzB1MGp3d3VCdEVJRjRvV0dWOWJzU0dtZnNXOEVHdUFOVEpXUDdXTFhIaWkxWUI2eDdTRlV4VmZoSldQOU44QnF0dVV0RXJXV05UZXdVV1pDQUhUcFRyTHZqZDhBMnNMRE9lR2lPUWRndWp6c2ZSMUdweVFLZ1NvVExXTEI3ZmxQUVR2Nnh0eXBBNDY0ODZ3LVVxX0gzeWFpby1CblFNb29kQ09UTU4tcWx0UQ?oc=5",
-          "published": "Thu, 16 Jul 2026 10:03:52 GMT"
         }
       ]
     },
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-07-16 16:16",
+  "updated_at": "2026-07-16 22:53",
   "updated_date": "2026-07-16"
 }
