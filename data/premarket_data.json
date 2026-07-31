@@ -4,153 +4,153 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7475.31005859375,
+      "price": 7489.72021484375,
       "prev": 7437.6298828125,
-      "change_pct": 0.5066153650415507,
+      "change_pct": 0.7003619815987983,
       "date": "2026-07-31"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 25293.40234375,
+      "price": 25373.853515625,
       "prev": 25122.1796875,
-      "change_pct": 0.6815597148809304,
+      "change_pct": 1.0017993313304137,
       "date": "2026-07-31"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 52456.55859375,
+      "price": 52485.03125,
       "prev": 52208.05859375,
-      "change_pct": 0.4759801584151393,
+      "change_pct": 0.5305170575393839,
       "date": "2026-07-31"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 3299302.0,
+      "price": 3291322.75,
       "prev": 3304918.0,
-      "change_pct": -0.16992857311437076,
+      "change_pct": -0.411364215390518,
       "date": "2026-07-31"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 16.90999984741211,
+      "price": 15.989999771118164,
       "prev": 17.09000015258789,
-      "change_pct": -1.0532492894596277,
+      "change_pct": -6.436514755110501,
       "date": "2026-07-31"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7499.25,
+      "price": 7503.5,
       "prev": 7472.5,
-      "change_pct": 0.3579792572766811,
+      "change_pct": 0.4148544663767146,
       "date": "2026-07-31"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 28372.0,
+      "price": 28287.0,
       "prev": 28237.75,
-      "change_pct": 0.4754273977211357,
+      "change_pct": 0.1744119131304725,
       "date": "2026-07-31"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52591.0,
+      "price": 52524.0,
       "prev": 52380.0,
-      "change_pct": 0.4028255059182894,
+      "change_pct": 0.27491408934707906,
       "date": "2026-07-31"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4100.89990234375,
+      "price": 4098.60009765625,
       "prev": 4100.10009765625,
-      "change_pct": 0.019506955158416602,
+      "change_pct": -0.03658447267805605,
       "date": "2026-07-31"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 84.63999938964844,
+      "price": 86.80000305175781,
       "prev": 83.58999633789062,
-      "change_pct": 1.2561348220586717,
+      "change_pct": 3.8401804695523345,
       "date": "2026-07-31"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 89.91999816894531,
+      "price": 90.12000274658203,
       "prev": 89.02999877929688,
-      "change_pct": 0.9996623630813739,
+      "change_pct": 1.2243108864768701,
       "date": "2026-07-31"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 100.04100036621094,
+      "price": 99.8030014038086,
       "prev": 100.01000213623047,
-      "change_pct": 0.03099512980536081,
+      "change_pct": -0.20698002999730483,
       "date": "2026-07-31"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1520737409591675,
+      "price": 1.1527377367019653,
       "prev": 1.1467232704162598,
-      "change_pct": 0.46658777064544066,
+      "change_pct": 0.5244915177767622,
       "date": "2026-07-31"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.075500011444092,
+      "price": 5.074699878692627,
       "prev": 5.127099990844727,
-      "change_pct": -1.006416482861168,
+      "change_pct": -1.0220224346251985,
       "date": "2026-07-31"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.734999656677246,
+      "price": 4.744999885559082,
       "prev": 4.663000106811523,
-      "change_pct": 1.5440606522944016,
+      "change_pct": 1.7585197698746908,
       "date": "2026-07-31"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 3.684999942779541,
+      "price": 3.681999921798706,
       "prev": 3.674999952316284,
-      "change_pct": 0.2721085875648523,
+      "change_pct": 0.1904753625373498,
       "date": "2026-07-31"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 95.68000030517578,
+      "price": 95.1500015258789,
       "prev": 96.1500015258789,
-      "change_pct": -0.48882081460666804,
+      "change_pct": -1.0400415851588403,
       "date": "2026-07-31"
     }
   ],
@@ -164,44 +164,44 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Rivian Stock Reverses After Earnings. The R2 Rollout Is Paying Off.",
-          "link": "https://finance.yahoo.com/m/9793be59-acb7-363f-bc68-aaccec056153/rivian-stock-reverses-after.html?.tsrc=rss",
-          "published": "Fri, 31 Jul 2026 16:48:00 +0000"
+          "title": "Wall Street ends higher as Amazon soothes AI jitters",
+          "link": "https://finance.yahoo.com/video/wall-street-ends-higher-amazon-224141562.html?.tsrc=rss",
+          "published": "Fri, 31 Jul 2026 22:41:41 +0000"
         },
         {
-          "title": "XLV vs. IHE: Which Healthcare ETF Is the Better Buy?",
-          "link": "https://www.fool.com/coverage/etfs/2026/07/31/xlv-vs-ihe-which-healthcare-etf-is-the-better-buy/?.tsrc=rss",
-          "published": "Fri, 31 Jul 2026 16:13:28 +0000"
+          "title": "US Indices End Week Higher As Amazon Earnings Lift Sentiment, But Nasdaq Logs Worst Month In Over A Year — PSKY, BABA, RDDT, RIVN, AMZN In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/us-indices-end-week-higher-as-amazon-earnings-lift-sentiment/cZN4nG4RJ5b?.tsrc=rss",
+          "published": "Fri, 31 Jul 2026 22:02:55 +0000"
         },
         {
-          "title": "The Why Behind Today's Early Stock Stumble",
-          "link": "https://finance.yahoo.com/m/30fb179b-acd1-331f-89ef-a1e90179b4ab/the-why-behind-today%27s-early.html?.tsrc=rss",
-          "published": "Fri, 31 Jul 2026 16:12:26 +0000"
+          "title": "Ferguson Enterprises Set to Join S&P 500 and ADI Global Distribution to Join S&P SmallCap 600",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/ferguson-enterprises-set-join-p-215100514.html?.tsrc=rss",
+          "published": "Fri, 31 Jul 2026 21:51:00 +0000"
         },
         {
-          "title": "Tech-fuelled rally fizzles as oil prices rise",
-          "link": "https://finance.yahoo.com/markets/world-indices/articles/tech-rebound-fuels-record-breaking-031606933.html?.tsrc=rss",
-          "published": "Fri, 31 Jul 2026 16:06:33 +0000"
+          "title": "Stock Market Today, July 31: Rivian Beats Q2 Revenue Estimate as Concerns of Rising Costs Weigh on Stock",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/07/31/stock-market-today-july-31-rivian-beats-q2-revenue-estimate-as-concerns-of-rising-costs-weigh-on-stock/?.tsrc=rss",
+          "published": "Fri, 31 Jul 2026 21:34:57 +0000"
         },
         {
-          "title": "$10,000 Split Between Bitcoin and XRP vs $10,000 in the S&P 500: Which Is Worth More by 2030?",
-          "link": "https://247wallst.com/investing/cryptocurrency/2026/07/31/10000-split-between-bitcoin-and-xrp-vs-10000-in-the-sp-500-which-is-worth-more-by-2030/?.tsrc=rss",
-          "published": "Fri, 31 Jul 2026 15:57:55 +0000"
+          "title": "3 Consumer Stocks We Keep Off Our Radar",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/3-consumer-stocks-keep-off-212357160.html?.tsrc=rss",
+          "published": "Fri, 31 Jul 2026 21:23:57 +0000"
         },
         {
-          "title": "3 Wall Street Analysts Have Oracle Going to $400: An Alphabet Partnership Just Jump Started That 200% Upside",
-          "link": "https://247wallst.com/investing/2026/07/31/3-wall-street-analysts-have-oracle-going-to-400-an-alphabet-partnership-just-jump-started-that-200-upside/?.tsrc=rss",
-          "published": "Fri, 31 Jul 2026 15:49:51 +0000"
+          "title": "Update: Wall Street Gains Amid Amazon Rally as July Ends Mostly Lower",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/wall-street-gains-amid-amazon-211458307.html?.tsrc=rss",
+          "published": "Fri, 31 Jul 2026 21:14:58 +0000"
         },
         {
-          "title": "The Nasdaq Is on Track for Its Worst July in Over 2 Decades",
-          "link": "https://finance.yahoo.com/m/b9d822fa-eada-3483-a5bc-40a1761eee28/the-nasdaq-is-on-track-for.html?.tsrc=rss",
-          "published": "Fri, 31 Jul 2026 15:27:20 +0000"
+          "title": "3 Energy Stocks We’re Skeptical Of",
+          "link": "https://finance.yahoo.com/energy/articles/3-energy-stocks-skeptical-210757413.html?.tsrc=rss",
+          "published": "Fri, 31 Jul 2026 21:07:57 +0000"
         },
         {
-          "title": "Why Strategy Earnings Are an Afterthought for MSTR Stock",
-          "link": "https://finance.yahoo.com/m/a7e8fd93-2c44-3c95-ac64-abccb7018802/why-strategy-earnings-are-an.html?.tsrc=rss",
-          "published": "Fri, 31 Jul 2026 15:17:00 +0000"
+          "title": "Uni-Fuels Announces Receipt of Nasdaq Notification Letter Regarding Minimum Price Deficiency",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/uni-fuels-announces-receipt-nasdaq-210000077.html?.tsrc=rss",
+          "published": "Fri, 31 Jul 2026 21:00:00 +0000"
         }
       ]
     },
@@ -209,14 +209,19 @@
       "label": "Economía Global",
       "items": [
         {
-          "title": "Where the US Stock Market May Be Heading Next and What to Buy Now",
-          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQZDBYRXR4TFFoQzdnQ0ZieFctRk9aNGlGczZuMFNlUm02YTB1ZDhhWDlSM0pRS3JrekVWckZQRnFKcnRGeGl2aFpCVGd6ZldHMkNXTWpHd09UMDVGaUx1d3ZPX2lzWmREOGttM0x4Z3ZFcXN4NnZtd1c5QUdIelQ4d2taWDFQcFRpUktiejlnNG56Qk9jekNTcVBBZks?oc=5",
-          "published": "Tue, 28 Jul 2026 06:26:57 GMT"
+          "title": "The biggest gamble in the U.S. economy is starting to look riskier",
+          "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQVDFlR21zT1pPMi1JUFZnSHdpZTRnbGJneFp3eUI3LU5YdWVhVGtycXBUR0F5Q2ZkVlVzTFVZaThNZlBIdWd3Rms5QjdmN2wtRmJTbG5jQzloLUJobzlQVkdINlRTaWxNemdyUXhkem9ZdlIwMXk2WkN0dmdVOWRReTJyd05oUi1nUHJLc0F5eWNrN0tIcHk3Sl9oOUdtVWNSQVNaNzdGVC1rdVN6?oc=5",
+          "published": "Fri, 31 Jul 2026 22:32:17 GMT"
         },
         {
-          "title": "Wall St Week Ahead Teetering US stock market faces jobs report, big earnings week",
-          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxONXJVQnRLbDN6Q1ZZdnVtaFMzYXIxM2RlT214dFlNMkdlWDYwSWt2cjBoQzBlME9CbFVPcVhDRzk3YnNMak5xeVVYX0NwR2NFazJQR3pKaTl5NlBfTTVDWHAwNGg1QWxIYzJ2UGJ5cUxBUm5yOThySUZmcS1xRXF5MkxNMVRVVUtQX19sZXY5bmVjam5sbFVYYnpxOTJ5WjJZckxXdnd0R2Y5UFIydzFWWGZaczdwVVZVN1AyU2pQLV9jcFU?oc=5",
-          "published": "Fri, 31 Jul 2026 10:03:44 GMT"
+          "title": "Where the Stock Market May Be Heading Next and What to Buy Now",
+          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQUTQ0SUZMQ1ZvdjVVZzFqd2dPYUowaWxrcjRHY0FrMW1XMEdycldIMFd1Qm50cGI3YkJYekZFamtxSlR1QVlRemU0dFZOZm42SFdER3FyaFJTLVBySU9iS3VrMWdoXzZueHdQUTA1ZGQxbHhpTFg5dEx6Rm15aXdwTWt3TUFzWkxNVEFMeVFOQ3VwMWFsUlRuUDFzZjA?oc=5",
+          "published": "Wed, 29 Jul 2026 10:08:47 GMT"
+        },
+        {
+          "title": "Teetering US stock market faces jobs report, big earnings week By Reuters",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNcU5sUGZUMXFOWXlFOFZPX3RqcFU2dVZkN0xjTFJRbjBPdENZVzl0ZFdzSWRoZTBtVFNLUkROay1OcGdEVXMzTU5pTVlCTzliZXViXzViRGZRMUNPaUZPNXl3a0JZbW5ZQVdhSVAyQVRwSUdUaFI4dWRhS2ExN2FFQjdNY01aS1UySENCVUZub1ZjTmNOaDlreW5Vb3NJN0x5Qk40M2JYRWhTazJlaGVxQ2p0OA?oc=5",
+          "published": "Fri, 31 Jul 2026 10:11:15 GMT"
         },
         {
           "title": "Why the stock market and economy may seem out of sync",
@@ -229,24 +234,19 @@
           "published": "Wed, 29 Jul 2026 17:54:32 GMT"
         },
         {
-          "title": "WH economic adviser calls economy ‘amazing’ despite slowed growth",
-          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOYXRaaXdqalI1WTdVc1BaVXRCN25lSmZwVG9uQXRGS0JtdGlNbjNjVWMxUmV3M0JvRk5FZjVSSzFrTjRhVVhUbG5ZZm5NWmZjVk1ONUwyVTQ0OE9rbUVHVXkzSzc1Rm9yVkg2MXhCWlp4WTNZaHN2Z0UzbkdYYnJtNG80c3V1QmZNMDVWRUtpUlZnQ21sMUlzeG9ZR0lkVnM?oc=5",
-          "published": "Thu, 30 Jul 2026 22:21:44 GMT"
-        },
-        {
           "title": "Stock Market Investors Just Got Bad News About President Trump's Economy. It Hints at a Big Move in the S&P 500 and Nasdaq.",
           "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNRGFDU3BQSFhZa21ISHY0Wm92OVIxTXZSTmRUVWJNdkdmTnVRdEd0dHpSMWRyTVFxOURFZDhfTTFYMkhOdERpYzVyZUFuMWdza2NPLUhWQlY2VXM4OEkycXR1MHdJWWlEZUxNNWFob2RsSkV6STFBRUhEWUpucEVfbkFKNTJzZ3RNdkVhZWhzVEwzRDBBdHh4UTNxbkw?oc=5",
           "published": "Wed, 29 Jul 2026 09:08:00 GMT"
         },
         {
+          "title": "US stocks close week on high note",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE8zZkV3aV8zTWJEWTFoT3pXd2dFRDRvalBndnpXLWI0UjV6RlRvTEpnb0Z3b2U2UDF1M3BMNWU4d3FDLXpfMzB4YnV5VHpSQ21PdE84OUJXZm8zYzFxbXl5OV9BUl8zMlNGc1dqVEowVzM5X0hHZmhkeEs0cjBJNU0?oc=5",
+          "published": "Fri, 31 Jul 2026 21:53:45 GMT"
+        },
+        {
           "title": "A Stock Market Correction Reveals South Korea’s Economic Dependency on Semiconductors",
           "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOQ29DUHpKZmZzb29VMUNpeDEzNkF0SDliX25fXzhVdUQxWXQ0SW5UcEhTX3Y1TDd4MzFPWU1oZ2hsLWg0Uk1JdlpnVDlfYzNkdWRnbVM0V0Y0WldvZ1Zsc0E2N096elJhS0I1OVpNVm9PSW1JdWpvQk1PSVYzeTZQTzhJUWpKVzAxNGZTbnVScmtjWFFRTF96MWJaQ2FYdlBwSGctbXYwU21XeGRRQWdTaHVOTWJKWHIy?oc=5",
           "published": "Thu, 30 Jul 2026 07:14:02 GMT"
-        },
-        {
-          "title": "Stock Market Investors Just Got Bad News About President Trump's Economy. It Hints at a Big Move in the S&P 500 and Nasdaq.",
-          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOa0VyLS0zSGNFWVFCVldibWYxNHM0cFlkdWFLV29sS3liQmk5VHdmT3ZoMkRfRHExQW5xWU96OUt6aHpZRFdMb2JJZ3ZONzcwREtqT1llUW1vS2FWenI3bzhMNFB4S0g5djJ2S19VRERlR3R4bGxybzlFaENLdTFBd1MtRld6M3ZmcFJYVHFkMmhUX00?oc=5",
-          "published": "Wed, 29 Jul 2026 09:48:00 GMT"
         }
       ]
     },
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-07-31 17:02",
+  "updated_at": "2026-07-31 22:54",
   "updated_date": "2026-07-31"
 }
