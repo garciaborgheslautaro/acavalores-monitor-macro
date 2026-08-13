@@ -4,153 +4,153 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7780.22021484375,
+      "price": 7798.990234375,
       "prev": 7748.5,
-      "change_pct": 0.4093723281118926,
+      "change_pct": 0.6516130138091244,
       "date": "2026-08-13"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 26725.16015625,
+      "price": 26803.025390625,
       "prev": 26588.490234375,
-      "change_pct": 0.5140191137979919,
+      "change_pct": 0.8068722757813366,
       "date": "2026-08-13"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 53694.5390625,
+      "price": 53839.98828125,
       "prev": 53770.26953125,
-      "change_pct": -0.14084078322498877,
+      "change_pct": 0.12966040640633414,
       "date": "2026-08-13"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 2989972.5,
+      "price": 3000582.25,
       "prev": 2999524.0,
-      "change_pct": -0.3184338581721633,
+      "change_pct": 0.03528059785485964,
       "date": "2026-08-13"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 14.699999809265137,
+      "price": 14.630000114440918,
       "prev": 14.550000190734863,
-      "change_pct": 1.0309251997521627,
+      "change_pct": 0.549827647129496,
       "date": "2026-08-13"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7804.0,
+      "price": 7824.0,
       "prev": 7770.5,
-      "change_pct": 0.43111768869442124,
+      "change_pct": 0.6885013834373592,
       "date": "2026-08-13"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 30142.25,
+      "price": 30198.5,
       "prev": 29853.25,
-      "change_pct": 0.9680688032291291,
+      "change_pct": 1.1564904993593663,
       "date": "2026-08-13"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 53805.0,
+      "price": 53946.0,
       "prev": 53871.0,
-      "change_pct": -0.12251489669766664,
+      "change_pct": 0.13922147352007574,
       "date": "2026-08-13"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4426.39990234375,
+      "price": 4411.10009765625,
       "prev": 4408.89990234375,
-      "change_pct": 0.3969244117040871,
+      "change_pct": 0.04990349885989443,
       "date": "2026-08-13"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 82.37000274658203,
+      "price": 81.05000305175781,
       "prev": 83.2699966430664,
-      "change_pct": -1.0808141380648348,
+      "change_pct": -2.6660185910953134,
       "date": "2026-08-13"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 88.08000183105469,
+      "price": 86.87999725341797,
       "prev": 88.9800033569336,
-      "change_pct": -1.011464926865251,
+      "change_pct": -2.360087687445548,
       "date": "2026-08-13"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 99.90299987792969,
+      "price": 99.9489974975586,
       "prev": 100.01000213623047,
-      "change_pct": -0.10699155685950906,
+      "change_pct": -0.06099853751505416,
       "date": "2026-08-13"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1535356044769287,
+      "price": 1.15340256690979,
       "prev": 1.1543744802474976,
-      "change_pct": -0.07266929275749348,
+      "change_pct": -0.08419393830493736,
       "date": "2026-08-13"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.1880998611450195,
+      "price": 5.179500102996826,
       "prev": 5.173500061035156,
-      "change_pct": 0.2822035360514142,
+      "change_pct": 0.11597645483489923,
       "date": "2026-08-13"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.63700008392334,
+      "price": 4.640999794006348,
       "prev": 4.682000160217285,
-      "change_pct": -0.9611293198216577,
+      "change_pct": -0.8757019395111411,
       "date": "2026-08-13"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 3.697000026702881,
+      "price": 3.7049999237060547,
       "prev": 3.7070000171661377,
-      "change_pct": -0.26975965516454065,
+      "change_pct": -0.053954503663908915,
       "date": "2026-08-13"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 90.66000366210938,
+      "price": 91.04000091552734,
       "prev": 91.12999725341797,
-      "change_pct": -0.5157397185052214,
+      "change_pct": -0.09875599758920167,
       "date": "2026-08-13"
     }
   ],
@@ -164,44 +164,44 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "If a Stock Market Crash Is Coming, History Says This 1 Investing Move Is Crucial",
-          "link": "https://www.fool.com/investing/2026/08/13/stock-market-crash-coming-history-says-1-move/?.tsrc=rss",
-          "published": "Thu, 13 Aug 2026 15:15:00 +0000"
+          "title": "Dow Jones Futures: S&P 500 Hits High On Workday, Sandisk, Oil Prices; Applied Materials Earnings Late",
+          "link": "https://finance.yahoo.com/m/d77ca588-1019-36e1-8065-a36ae0ce7b6c/dow-jones-futures%3A-s%26p-500.html?.tsrc=rss",
+          "published": "Thu, 13 Aug 2026 22:19:25 +0000"
         },
         {
-          "title": "Knight-Swift Transportation Holdings (KNX) Gains from Pricing Power",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/knight-swift-transportation-holdings-knx-154449690.html?.tsrc=rss",
-          "published": "Thu, 13 Aug 2026 15:44:49 +0000"
+          "title": "Reddit Set to Join S&P 500 and Sun Communities to Join S&P MidCap 400",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/reddit-set-join-p-500-221200419.html?.tsrc=rss",
+          "published": "Thu, 13 Aug 2026 22:12:00 +0000"
         },
         {
-          "title": "3 Reasons to Avoid CRM and 1 Stock to Buy Instead",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-avoid-crm-1-154100172.html?.tsrc=rss",
-          "published": "Thu, 13 Aug 2026 15:41:00 +0000"
+          "title": "The Investment Company of America, AIVSX, Has Outlasted Nearly Every Fund Launched Beside It",
+          "link": "https://247wallst.com/investing/2026/08/13/the-investment-company-of-america-aivsx-has-outlasted-nearly-every-fund-launched-beside-it/?.tsrc=rss",
+          "published": "Thu, 13 Aug 2026 22:10:46 +0000"
         },
         {
-          "title": "The Strategy Holds Firm on L3Harris Technologies (LHX)",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/strategy-holds-firm-l3harris-technologies-154059875.html?.tsrc=rss",
-          "published": "Thu, 13 Aug 2026 15:40:59 +0000"
+          "title": "The Signs Before UnitedHealth Stock Ran Were In Its Own Exit Plan",
+          "link": "https://www.trefis.com/articles/611364/the-signs-before-unitedhealth-stock-ran-were-in-its-own-exit-plan/2026-08-13?.tsrc=rss",
+          "published": "Thu, 13 Aug 2026 21:50:19 +0000"
         },
         {
-          "title": "3 Reasons CSX is Risky and 1 Stock to Buy Instead",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-csx-risky-1-153300107.html?.tsrc=rss",
-          "published": "Thu, 13 Aug 2026 15:33:00 +0000"
+          "title": "The Stock Market Just Flashed a Warning Seen Only 5 Times Before. History Is Crystal Clear About What Happens Next (Hint: It's Not Good).",
+          "link": "https://www.fool.com/investing/2026/08/13/the-stock-market-just-flashed-a-warning-seen-only/?.tsrc=rss",
+          "published": "Thu, 13 Aug 2026 21:50:00 +0000"
         },
         {
-          "title": "Stock Market Today: Dow's Gain Vanishes; Credo Technology Approaches New Entry (Live Coverage)",
-          "link": "https://finance.yahoo.com/m/a86837ac-df8a-3747-8923-5f2f47063c11/stock-market-today%3A-dow%27s.html?.tsrc=rss",
-          "published": "Thu, 13 Aug 2026 15:24:53 +0000"
+          "title": "Reddit Stock Jumps On S&P 500 News",
+          "link": "https://finance.yahoo.com/m/1e9add58-561f-3837-8080-51203dbe14d2/reddit-stock-jumps-on-s%26p-500.html?.tsrc=rss",
+          "published": "Thu, 13 Aug 2026 21:44:07 +0000"
         },
         {
-          "title": "Applied Materials Stock Nearly Tripled On Orders It Cannot Ship Fast Enough",
-          "link": "https://www.trefis.com/articles/611366/applied-materials-stock-nearly-tripled-on-orders-it-cannot-ship-fast-enough/2026-08-13?.tsrc=rss",
-          "published": "Thu, 13 Aug 2026 15:19:57 +0000"
+          "title": "Stock Market Today, Aug. 13: Accelerant Holdings Surges 43% on All-Cash Buyout Offer",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/08/13/stock-market-today-aug-13-accelerant-holdings-surges-43-on-all-cash-buyout-offer/?.tsrc=rss",
+          "published": "Thu, 13 Aug 2026 21:41:46 +0000"
         },
         {
-          "title": "3 Ways to Protect Your Retirement Savings Ahead of the Market’s Most Volatile Months",
-          "link": "https://finance.yahoo.com/m/576d4fa9-56cb-3c14-83ec-f032c517bc72/3-ways-to-protect-your.html?.tsrc=rss",
-          "published": "Thu, 13 Aug 2026 15:19:00 +0000"
+          "title": "Stock Market Today, Aug. 13: Stocks Rise as Inflation Cools, Workday Soars 18%",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/08/13/stock-market-today-aug-13-stocks-rise-as-inflation-cools-workday-soars-18/?.tsrc=rss",
+          "published": "Thu, 13 Aug 2026 21:36:37 +0000"
         }
       ]
     },
@@ -209,19 +209,14 @@
       "label": "Economía Global",
       "items": [
         {
+          "title": "U.S. stocks rise to a record as oil prices drop and inflation gets less bad",
+          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPTzFTMVJlbHZBeDdIT3R3dTlNVGJaVGw0YTlGVVk3X1A0Q1UzTXpFNnQtLXpnVURkdzMxQ1pUek5OZHR6SXNvU0hJZExXZldpV29YeEp5WmJMYTNhY1o3Q29jVXFWZ1JTNWRVczdTZlQxVjhrWER3anRjLWx5M0l5Rmh4VDNrOFRtekdtOHdfckM?oc=5",
+          "published": "Thu, 13 Aug 2026 21:59:00 GMT"
+        },
+        {
           "title": "The Jobless Boom Has Arrived",
           "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBaTHhmOWRhLWdzQ3ZsN2c3Ym5oT3VlZ2MzRGl0XzNGRW9zSGRjbGh6cC1CZ0dEWXV4N2NOWFZpaUNVaEp1UDJnNHhkY0hyd2hKTk51ZERFUjhMOHlvcDNTUmJrS3laNmYyR2Y0Vy1xNDBsSGQ0UWduR0x3?oc=5",
           "published": "Thu, 13 Aug 2026 09:30:00 GMT"
-        },
-        {
-          "title": "Financial Markets, Oil Prices, and Supply-Side Risks",
-          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPNmFjYWNhVVJHZ2Y1dVZ5M3A1LTdZT01sSFVQTVJZcXpfcjNNajNyRjZXNXBpWTlST29nWFBhQ19Id05CQ3pGQXMybTBoRU9CeDFvZXNNN1dxeUVxR3dkM0wyYTZhS1ZMVTJsckdySFlzVXBQVHdGMjVWd3k4TG9idUdueERPVHRZUV95NzBKYTdfYnVVNThfTlRkeEZtNGtCY0dhc3FZMjZBQ0ZHYzRhbnBkZFNxb1JQYmczWHR3S21LYU8yeXhyNk1HRk0?oc=5",
-          "published": "Mon, 10 Aug 2026 17:00:00 GMT"
-        },
-        {
-          "title": "Exclusive: Scott Bessent Says K-Shaped Economy Is Over, but Wall Street Veteran Says Wealth Divide Is Worsening: ‘50% of Americans Own No Stocks and Are Getting Left Behind’",
-          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQZHNTY0Y1SmVrQl94VFBUUlE0eFhtRXVRZHZsajltOWhtY0lHTkpFdGhMTTJ6TVhma0ZYMmdHZFctRGxzTjd5bnUwelVqb1ltZmYxSEMxS2pyYnFUSmRnQ2k2Q2NEcm53cVJabXM3dDBXSDRLZHROMlRtVDdqSnJwdTNlM1RyeUVub2ozUXJfV1JWdw?oc=5",
-          "published": "Thu, 13 Aug 2026 10:46:17 GMT"
         },
         {
           "title": "U.S. stocks edge further from their records as oil prices keep swinging",
@@ -229,24 +224,29 @@
           "published": "Tue, 11 Aug 2026 21:59:54 GMT"
         },
         {
+          "title": "Yoni Assia, founder and CEO of eToro: ‘The world is becoming more volatile’",
+          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPREZpM0FfdUZyN08zal9rX0ZOaXowOC1HOU05dWF5M1FNenhYbE53S3VWRTVEejZFQTB5M1p6RmpKOWRaeDdSMml0dUcxdHF0VFZZWE5ra3JRYjBPdkIwbzJ6R2ZaRE1VdUgzbm9xV19jcmJOc2M1TzB5VXVJVmMyY1lsdUtVZm0wZjNNakFCYl9LMzFLVFhXVE54UFR2MVZlNUx4RmJHb0lXalowb3lXZVFNOFNuM1VzcFBvemRDVm5RTENUSWxGZWhacF9zamE30gHkAUFVX3lxTE1ZUURZM2NUdmQ4aGJsZFppbXR4bEtuN3A5MXBDRW9BMkNxeGN0MGVfcF9xOERvYVhQVmVCdE1QdUJmcHJMSUI1aEhwTzlJZ2tLREFKQmgtTTY1dERMa3ZJbFBHWGNxa3Jsd1lVcFR4eGpYRXJqVlJVYjFIOXA5c1lINTdQanp1S0M1aXFKZWlKdnFvbklkS3lFeDBvUVB5SVNVTW5NWGVrR2NLd0N0dF9PeEN4MUZQYl81cGdMeXNuRDY2aV9PMm9EUVI1dE1XODZCdGZRNURLQUJoMDU5OEFWM0VETg?oc=5",
+          "published": "Thu, 13 Aug 2026 16:31:24 GMT"
+        },
+        {
+          "title": "Exclusive: Scott Bessent Says K-Shaped Economy Is Over, but Wall Street Veteran Says Wealth Divide Is Worsening: ‘50% of Americans Own No Stocks and Are Getting Left Behind’",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQZHNTY0Y1SmVrQl94VFBUUlE0eFhtRXVRZHZsajltOWhtY0lHTkpFdGhMTTJ6TVhma0ZYMmdHZFctRGxzTjd5bnUwelVqb1ltZmYxSEMxS2pyYnFUSmRnQ2k2Q2NEcm53cVJabXM3dDBXSDRLZHROMlRtVDdqSnJwdTNlM1RyeUVub2ozUXJfV1JWdw?oc=5",
+          "published": "Thu, 13 Aug 2026 10:46:17 GMT"
+        },
+        {
           "title": "Every major stock market correction since 1950 and how long recovery took",
           "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNMW9iUUxVSXNvMXR6eWU0ZkRYMDk4R0NNaU4xWXZuamkyVExFaDEtdVlYMnNGVUFKcmFYZVNMSFBpM3IxSmRMeWxFNkVMQkFOcEYxTUVza1BKSWYyR0xLLWxwRUYwNi1RSjNrVDBiWGo5MWY5aFVDLUM0c1lRa1hzclB3dGY0YkJySVhnOW5mYTNuZDl5QmtLQ3UwWW51aVdoWEVhUWQzbnE4b1JDcm5taEZRbFBFLVZ3M2NldFNyd0Yza0tBZEE?oc=5",
           "published": "Wed, 12 Aug 2026 11:24:59 GMT"
         },
         {
+          "title": "Is Planet Labs The Cheapest Stock In The Space Economy?",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPX1NSUDdfWFJWNWJkanYyYXd4cTNETGI0TVlRVHlfWHRDQ1ZrOERmbXJmZzR0QXE3dno5Z05tQ2JCS0RSbXhQbllpXzdPQVVYUlJDREVYNF9XQlRLeVJzUmU0QmloWnlVWTBrSmN5Q0R5MGZmaG0teFptT2FHcFVId2I0NVU4cjhCUl9lR0FIYWlnRUVLS2tNLQ?oc=5",
+          "published": "Thu, 13 Aug 2026 17:15:00 GMT"
+        },
+        {
           "title": "Not a red flag: The market-economy disconnect",
           "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPM2pBUWlzOUZSaHh2UVRkTkNkSWJ3OG4wMzg0ZXJaUU93dUNBaXR0TlVzN0NtSVlBX1pQOXI2N18tQkN2dEJjeVNreE54UUQycTdoMlBsNm9MaDVLM3ZOQklNZG9fb3hXRmFGXzhKNkZhR2xNZkF0SzBaOTVWUzdlM3Y0OVpEcERzYTRzcjYyUGVmdG50NkVCeTk5M2Q?oc=5",
           "published": "Fri, 10 Jul 2026 07:00:00 GMT"
-        },
-        {
-          "title": "As the U.S.-Iran war heats up again, these parts of the stock market and economy could be affected",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFAyYkFrMThCMDFmd0ZVeEJTTktSaU1TVGE1UkcwY0JlTUc5bXZmZ1FrVmRUalAyQVZVUnk0TnNieG8zMDdVSkdEYjh4LWFCZE1jREdISTRWYTQ1WVQwanktZV9GS0c2YkVPdGlZNzdxMjRMRHZsMlHSAXtBVV95cUxPaDRCaDVoTXFMRHc4bmtPSVZwNTZHR2NRVjdIRHBydHdGOEt2cVNrWkFDWEVFakM2aFVsZGg4RW5qNmN1b1VBdzc2Qi1paWx4eWhna1ZrWDl2TTltQUtJLW1GN0c0bHExakJJdXE1aS1BZjh2OUViaGktalk?oc=5",
-          "published": "Tue, 21 Jul 2026 07:00:00 GMT"
-        },
-        {
-          "title": "Does the Equity Term Structure Respond to Monetary Policy Shocks?",
-          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPcGZKaVc1MHU4VUlQTzFVZDNhOTJuN2VsZ1RITGFrRzFNMGNtWFJOT3BQQTRvcUwyLXo4bWNRcWlVaG5KSVpVU3Z1UmpjemUySjhLa1RhT2xBZHdGQ2tBT1JCSkYtZ3YtT2ZUZVNpcDBRYV9qdDdBcGtPbWFCclV4R3RVcDNJbGxyWmpjbHZ4MU9WUTFjcko5R0Vob3MyZmlMV2JHMDgybDdUa0NlcUR6QlBxa21xeHU2S1pv?oc=5",
-          "published": "Wed, 12 Aug 2026 11:00:26 GMT"
         }
       ]
     },
@@ -274,6 +274,11 @@
           "published": "Thu, 23 Jul 2026 07:00:00 GMT"
         },
         {
+          "title": "El mercado le muestra a Argentina su mejor cara: baja el dólar y retrocede el riesgo país",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOdzRuakVISy1DdVc3dU5zOVhBRFVMSHBad0ZOa2VTMnBRM3lpQmxiOFp4TW9XNVhabUJrX2UyZUZITllqVTRHZnNBOE9xM2NkQWR2a2FfRl9kcjV0WXVkaU5IbWlKWkM2MmNoUUVjdHRaRXNlMnp6U28zSklMb21YQmkwWFhjQVhscU80cEhZR1JoeFZiSEZOQmZHYS1zeGt6UDdkSnV5ak9lZ203M3FuZklmeWsxa3R5LXZv?oc=5",
+          "published": "Wed, 04 Mar 2026 08:00:00 GMT"
+        },
+        {
           "title": "Mercado Libre superó los USD 10.000 millones en ingresos por primera vez y creció en la Argentina pese al “consumo desafiante”",
           "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPOFAzSEVBbzVQRnh0Tm9oOXpOdVpTeFdTZy1QV3R0UGpDODhick1YQVhJY2czREpiMHk5Y3AzRDhzYlcyUThiOWRrTnpSb0RlUWJ0dzl5WU8xVG5EOTgtSFg0RkRsQUxJMzdoTzJSUFNITnlXVk9nNjBxMzV6QnNBV05IT0hLcG8yMml2eXZRRzFxRXdQdmRXQVBaS25OcjB2dkJEV2RxWVNDN1JKNU5rUHRTdkdtVVpZNzNwQXNTSVVGaXRiZTJVSTVOeGNROVk0bGx5MldLU3hvVlE1LWYtdVdWNDdkUmJqQTRkY2EyRFkzT3JFaXRfRmN2TWPSAZcCQVVfeXFMTkFFVC1rYkJGdGpMRkExd25PNjFWZ1I4R2RpazRmeVdsb01nOUJVYmFKSVV0dFFCc09PZGFrenp4c2k3YXR6TnZyZmtfcTJLRkNpUi0wcWNtdTA3Y0VmNjBObFJnTUhTRWJUUl95VmFUWEJoQVo0M2FMenNmX3V6TDljSkdrRmVxOUpEa092V25TNFo2SEZieV9uMVpzN0c5S1Iwc2xYNWt1ejU4S2ZKaktfeEZtYkJBWjNtX0hHYjdNTFppMm5UNmx4OFVJOGQtYmhxZlZDMm9PY1RxdV8wdmNwak5IeC12VnpabDJtem9QVFRQMVhnaTNIZlRMUTNuQ0MzVTlSUVFyX0xURlpQM1hGM3BGck1j?oc=5",
           "published": "Wed, 05 Aug 2026 23:45:00 GMT"
@@ -287,15 +292,10 @@
           "title": "Dólar oficial hoy 3 de julio 2026: precios y estabilidad en el mercado financiero argentino",
           "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPUGVMYTZUQWJCSFFFbDB2dzhReHdneVpNUlVlTDl0aHJjcUdNTzZDYVhfZGlKQ1lkVlNRdHpReVYxTHBmQ093bl9kUW95eWpBbDFXOURfelVMUF9Ka0pGY3l0VVFuMXREYlhsb0lQeXNyRV9HLWVNcU5Yc2pNTm9YRmNqOENUMUE1by1UMUN2NFJRT1hBaFVORElmUFJtUFhZb1h4ZGJoejE2MkREQnBfczJBTkdia2pFMGdFOVBHTV9obEZCeHZtSlZsS2RlSGJiUVHSAdoBQVVfeXFMUHR2OE9fWEpwNWNRajZUQWNReWhvNzRJV3dWV2hqcmZDZ21ScXFNVEFaN3JEdXJvaXJzUTA3LXl0Tko5SjI4eDZhVmk3dU5QTkZpeW1qbjA4Ri1TaG9hSkQydHpVNnF2enp6VEo4QXN0Z0JabXJCSnM2R1U5dUtSM0NLMEIxTTdnRVM3TUxlcjAxT1pScEJxdHdTX1NlY3J0NzBrRGctSmlIOTFsbmh2S1dScTh3ak5mYWJvdV9nck03Y3dtOWNYSElxSUllYndyVXV6QUtyMUlfcWc?oc=5",
           "published": "Fri, 03 Jul 2026 07:00:00 GMT"
-        },
-        {
-          "title": "Dólar hoy, dólar blue hoy: a cuánto cerró este martes 21 de julio",
-          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNTE94STRGUHNVbWhzQVpCQmxqQVZNc01SZE0xMkRiVkNzR01pZlVuZ0VXSkpOSmQ5RVJ6ekphT2FmWEpyZ1dIenZsMmh2YThEN013Z2diaFlLQmtBVXR1UjVwbXBUemt3VTJqSDh0ZlhCSndqcEJfZXVOWWVKdF9Na3AzU3owRUhzNU1jTk9jSW1kc0hOYjlNNko5Ml85SldTbDNpT09fSXphMHp2YkpPaWpsVC1NSENFUS1adXF1QQ?oc=5",
-          "published": "Tue, 21 Jul 2026 07:00:00 GMT"
         }
       ]
     }
   },
-  "updated_at": "2026-08-13 15:57",
+  "updated_at": "2026-08-13 22:34",
   "updated_date": "2026-08-13"
 }
