@@ -4,153 +4,153 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7783.22021484375,
+      "price": 7785.759765625,
       "prev": 7798.990234375,
-      "change_pct": -0.20220591457778364,
+      "change_pct": -0.1696433557729704,
       "date": "2026-08-14"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 26679.791015625,
+      "price": 26729.1640625,
       "prev": 26803.029296875,
-      "change_pct": -0.45979236109840954,
+      "change_pct": -0.2755853958030484,
       "date": "2026-08-14"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 53714.73046875,
+      "price": 53732.41015625,
       "prev": 53839.98828125,
-      "change_pct": -0.2326482907939665,
+      "change_pct": -0.19981082543709341,
       "date": "2026-08-14"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 2959057.5,
+      "price": 2947349.25,
       "prev": 3000582.0,
-      "change_pct": -1.3838815269837652,
+      "change_pct": -1.774080828319306,
       "date": "2026-08-14"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 14.59000015258789,
+      "price": 14.25,
       "prev": 14.630000114440918,
-      "change_pct": -0.2734105368430199,
+      "change_pct": -2.5974033593193826,
       "date": "2026-08-14"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7804.75,
+      "price": 7802.5,
       "prev": 7822.5,
-      "change_pct": -0.22690955576861616,
+      "change_pct": -0.2556727388942154,
       "date": "2026-08-14"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 30056.25,
+      "price": 30154.0,
       "prev": 30188.5,
-      "change_pct": -0.4380807261043112,
+      "change_pct": -0.11428192854895076,
       "date": "2026-08-14"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 53804.0,
+      "price": 53778.0,
       "prev": 53935.0,
-      "change_pct": -0.24288495411143043,
+      "change_pct": -0.29109112820988226,
       "date": "2026-08-14"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4445.7001953125,
+      "price": 4432.0,
       "prev": 4363.60009765625,
-      "change_pct": 1.881476208150859,
+      "change_pct": 1.5675107895539862,
       "date": "2026-08-14"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 81.7300033569336,
+      "price": 82.4000015258789,
       "prev": 81.25,
-      "change_pct": 0.5907733623798077,
+      "change_pct": 1.4153864933894231,
       "date": "2026-08-14"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 87.91999816894531,
+      "price": 88.58999633789062,
       "prev": 87.06999969482422,
-      "change_pct": 0.9762242759851772,
+      "change_pct": 1.7457179836842938,
       "date": "2026-08-14"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 99.52400207519531,
+      "price": 99.63600158691406,
       "prev": 99.95999908447266,
-      "change_pct": -0.4361714818633583,
+      "change_pct": -0.32412715138662107,
       "date": "2026-08-14"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1586142778396606,
+      "price": 1.157273530960083,
       "prev": 1.1530035734176636,
-      "change_pct": 0.4866163948968657,
+      "change_pct": 0.37033341794099417,
       "date": "2026-08-14"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.239500045776367,
+      "price": 5.226500034332275,
       "prev": 5.195400238037109,
-      "change_pct": 0.8488240697297904,
+      "change_pct": 0.5986025112651557,
       "date": "2026-08-14"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.684000015258789,
+      "price": 4.696000099182129,
       "prev": 4.640999794006348,
-      "change_pct": 0.9265292644049317,
+      "change_pct": 1.185096048631844,
       "date": "2026-08-14"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 3.700000047683716,
+      "price": 3.697000026702881,
       "prev": 3.7049999237060547,
-      "change_pct": -0.13494942308494212,
+      "change_pct": -0.2159216509557078,
       "date": "2026-08-14"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 91.04750061035156,
+      "price": 90.97000122070312,
       "prev": 91.04000091552734,
-      "change_pct": 0.008237801789103057,
+      "change_pct": -0.07688894345373401,
       "date": "2026-08-14"
     }
   ],
@@ -164,44 +164,44 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Stock Market Hits Highs; Cisco, Lumentum, Super Micro, Sandisk Key Movers: Weekly Review",
-          "link": "https://finance.yahoo.com/m/2fac0fb5-417c-3830-b256-1f96e6e172cc/stock-market-hits-highs%3B.html?.tsrc=rss",
-          "published": "Fri, 14 Aug 2026 14:21:23 +0000"
+          "title": "Two Funds Promise 20% Income From the S&P 500. One Caps Your Upside, One Doesn’t, and It Charges Less",
+          "link": "https://247wallst.com/investing/2026/08/14/two-funds-promise-20-income-from-the-sp-500-one-caps-your-upside-one-doesnt-and-it-charges-less/?.tsrc=rss",
+          "published": "Fri, 14 Aug 2026 21:35:08 +0000"
         },
         {
-          "title": "The Nasdaq Just Had Its Worst Month of 2026 and These 3 ETFs Turn Selloffs Into Double-Digit Monthly Income",
-          "link": "https://247wallst.com/investing/2026/08/14/the-nasdaq-just-had-its-worst-month-of-2026-and-these-3-etfs-turn-selloffs-into-double-digit-monthly-income/?.tsrc=rss",
-          "published": "Fri, 14 Aug 2026 14:00:07 +0000"
+          "title": "Stock Market Today, Aug. 14: Rally Stalls on Disappointing Consumer Data, Broadcom Falls 6%",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/08/14/stock-market-today-aug-14-stocks-slip-as-consumer-data-disappoints-broadcom-falls-6/?.tsrc=rss",
+          "published": "Fri, 14 Aug 2026 21:30:18 +0000"
         },
         {
-          "title": "Why Sandisk Stock Is Soaring Today",
-          "link": "https://www.fool.com/investing/2026/08/14/why-sandisk-stock-is-soaring-today/?.tsrc=rss",
-          "published": "Fri, 14 Aug 2026 15:33:56 +0000"
+          "title": "Dow Jones Futures: Market Ready To Run? Sandisk Soars, Nvidia In Buy Area; Walmart, Target Due",
+          "link": "https://finance.yahoo.com/m/79b73c1c-e364-315f-8433-18e9ae96269d/dow-jones-futures%3A-market.html?.tsrc=rss",
+          "published": "Fri, 14 Aug 2026 21:04:48 +0000"
         },
         {
-          "title": "Target Stock Flies To New Highs As Earnings Approach, But Walmart Stuck In Neutral",
-          "link": "https://finance.yahoo.com/m/a3b59d1c-6f71-3b50-9ddf-db0117d7e25e/target-stock-flies-to-new.html?.tsrc=rss",
-          "published": "Fri, 14 Aug 2026 14:26:00 +0000"
+          "title": "Update: S&P Logs Third Consecutive Weekly Gain Despite Pullback From Record High",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/p-logs-third-consecutive-weekly-203827209.html?.tsrc=rss",
+          "published": "Fri, 14 Aug 2026 20:38:27 +0000"
         },
         {
-          "title": "Here's Why Investors Must Hold WM Stock in Their Portfolios Now",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/heres-why-investors-must-hold-142300541.html?.tsrc=rss",
-          "published": "Fri, 14 Aug 2026 14:23:00 +0000"
+          "title": "S&P 500, Nasdaq Extend Weekly Win Streaks: Stock Market Today",
+          "link": "https://www.kiplinger.com/investing/stocks/s-and-p-500-nasdaq-extend-weekly-win-streaks-stock-market-today?.tsrc=rss",
+          "published": "Fri, 14 Aug 2026 20:09:10 +0000"
         },
         {
-          "title": "Citi Keeps S&P 500 Target at 8,100 as Earnings Outlook Strengthens",
-          "link": "https://investorshub.advfn.com/market-news/article/34276/citi-keeps-sp-500-target-at-8100-as-earnings-outlook-strengthens?.tsrc=rss",
-          "published": "Fri, 14 Aug 2026 15:00:00 +0000"
+          "title": "Retirees Keep Going Back to Work Because the Money Ran Short. These 4 ETFs Keep You Off That List",
+          "link": "https://247wallst.com/investing/etf/2026/08/14/retirees-keep-going-back-to-work-because-the-money-ran-short-these-4-etfs-keep-you-off-that-list/?.tsrc=rss",
+          "published": "Fri, 14 Aug 2026 21:45:15 +0000"
         },
         {
-          "title": "Reddit is joining the S&P 500 next week. Here's what you need to know.",
-          "link": "https://finance.yahoo.com/video/reddit-joining-p-500-next-145131579.html?.tsrc=rss",
-          "published": "Fri, 14 Aug 2026 14:51:31 +0000"
+          "title": "3 Reasons to Sell NDSN and 1 Stock to Buy Instead",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-sell-ndsn-1-213300929.html?.tsrc=rss",
+          "published": "Fri, 14 Aug 2026 21:33:00 +0000"
         },
         {
-          "title": "Mining Tycoon Gina Rinehart Reveals $1.4 Billion SpaceX Stake",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/mining-tycoon-gina-rinehart-reveals-144646372.html?.tsrc=rss",
-          "published": "Fri, 14 Aug 2026 14:46:46 +0000"
+          "title": "Stock Market Today: Nasdaq Slips On Retail Sales Gloom; Nvidia Eyes Robotics Wave",
+          "link": "https://finance.yahoo.com/m/00339b32-5e9a-331a-9223-dd02518723a7/stock-market-today%3A-nasdaq.html?.tsrc=rss",
+          "published": "Fri, 14 Aug 2026 21:05:08 +0000"
         }
       ]
     },
@@ -209,55 +209,50 @@
       "label": "Economía Global",
       "items": [
         {
+          "title": "Wall Street slips from its record following the latest weak update on the economy",
+          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNOU0yN2RjbDY3dU9fVXJoTE1yXzJsUm53dTlGQ2t3QWlYQ3VRY2ZrdVpsZWJrMUVwdUhuaF9GNDRIdzYxSmp2dU9FV2dPejZTVFFfWXAwaUNaY1lvOU5KWUUxOTBmZ0xVcmhwaGJZZ2dfLWlYak1fdU5Id241OGlaUC11NnZwRXVHX25IMEJFNzFCdlcydG9Lb3JucUFWbmhKaG4zejNuVW8zZVhGdndmT1hWeEZQd19MU25hakI3ajc?oc=5",
+          "published": "Fri, 14 Aug 2026 21:23:09 GMT"
+        },
+        {
+          "title": "The Jobless Boom Has Arrived",
+          "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBaTHhmOWRhLWdzQ3ZsN2c3Ym5oT3VlZ2MzRGl0XzNGRW9zSGRjbGh6cC1CZ0dEWXV4N2NOWFZpaUNVaEp1UDJnNHhkY0hyd2hKTk51ZERFUjhMOHlvcDNTUmJrS3laNmYyR2Y0Vy1xNDBsSGQ0UWduR0x3?oc=5",
+          "published": "Thu, 13 Aug 2026 09:30:00 GMT"
+        },
+        {
+          "title": "Stock Market News, August 7, 2026: S&P 500 Rises to Record After Jobs Data Misses Forecasts",
+          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5kUzI3cTh1VU83bjJkTHNIaFNZX3R0NDVZcG9UazF1cEp6UWd0Rk5kZnU5U2h2dUhHdXpzYmNGakF6ajA0Y1dnWXEzMkVkRXhuNV9xSHZkRk54S3JvcExGMmlVaWE0QVU3bFNKcXdBb1FpWURwWHIwRFF2WVpjZw?oc=5",
+          "published": "Sat, 08 Aug 2026 00:12:00 GMT"
+        },
+        {
+          "title": "Wall Street slips from its record following the latest weak update on the US economy",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNVklqcFk2OV94LWJ4X1VOMWZKc1ZudXpnUFIxRGp2Vk1FOU1oUTFQYUZOQkhXUzU5d0R5anlzX1pkc0xsU18zUzhUeXh3UHhaQmQ4LXRGdEw0SndVN1o3YXdWamhkMUJLSWtuR21KZkdpZTFJNUFNWVg0YTlBUW02ZkdTaEZmX0FaVWwwdjA5VUhKeXdIWndmV3Azdjg1eUlhNXVVZURuTVh2QQ?oc=5",
+          "published": "Fri, 14 Aug 2026 20:19:27 GMT"
+        },
+        {
           "title": "The 30-year Treasury yield hit levels not seen since 2007. What does that mean for investors and the economy?",
           "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNdVVETzdjZUpMbEtXVDB2Y2JNWTlIRVpBSnNiRm9TNlVFMTdaX01CSENEcUlVSUVYTUcxTEdxV0hQQjFhejNRc3c1TWZvVDUwREZ3VXhsRGpzSDF1am1NOF9ZdWRLWl9vM1NRTVc0bF9DOEZqS3pVZWE2Z1pHMkFFa1hWeUFWcEgzN1U3d0lFNTN5aFI4S3JCWWpidHZxbVh3Vjc3QlkxTnpiMkM0SWV2U3NDZHM5cHI1TE1lUU8xbjZ6R2hXRmhpWk12b19UZw?oc=5",
           "published": "Fri, 14 Aug 2026 14:32:17 GMT"
         },
         {
-          "title": "Wall Street Holds Near Its Record Following the Latest Weak Update on the US Economy",
-          "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNVVg3WHBuYXBJQU9VWTBsSGZ4UGdvU0F5dFE1elBPZEZmUlc3S0lEWld0NjRXdV81NmM5SVVqZXBBUjdnMGdnTWtsQ0hJd2ZYZWlwdzVQSnl2SFNlbTY0NUczTWNVX2R6WjJOTnFhT0VJZmQ4RGNNMUN4dWMtS3pQWUtTNXJhUktRWE9HUElBdTNrN3lzR2xrNVdmSm9VY2pOUGFnQVo0cW12d051NjhQLWtWSmZ1Xy1Jc3lpbGZZdjBOazR6QlcyRGlpUDJyckphbEZmRWhhUTh0YXZETzhzb0Fn?oc=5",
-          "published": "Fri, 14 Aug 2026 05:58:00 GMT"
-        },
-        {
           "title": "Wall Street holds near its record following the latest weak update on the US economy",
-          "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPajA5TzlqY0FGcFF4SzYzSUlmem9yNHhxM2hXeEFaSGEycVpwZFNkd0c4Vnd5WUs0ZnJaU0E2R0lZWlFGUU4xZ1pzMk9aWFJWS0djTXN0SkpFSWJZVC1KSUl4UlRWRGxwM2xjd2o3cjhRTGhCUXZkWHMtS3NOang4Wm9ob3RBRXoxby1abm5JUlNUc01oTG51WXlrdkZONmRLU1d6Uk40eHlOQTV2WjhITm15X1NEM2pldUVIRUxkZngyT0IxNG9kQTdoclk5SnVEZnZFR3d1OGExVVAwV3Q1TzQ1M1FQZ0NPanRJRVZNS215QldadTQ5VTFqSXlhZw?oc=5",
-          "published": "Fri, 14 Aug 2026 13:34:47 GMT"
+          "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBGRXVnWjN3T2pLc1AwNWh6ZGVqMkR4Y0pKXy1LWGlxX2hLWnM4VExEYTBidlpaYmhWRHpCYTBKZDBBOVRrcV95Q1J2UTVsSmZzNTVVTk42dG5STGdHMHdyV0NkSTYyRW1jX1l5QmZURlQ3amZxdS1jcnJTVVE?oc=5",
+          "published": "Fri, 14 Aug 2026 12:56:40 GMT"
         },
         {
-          "title": "Stocks Pressured by Worries About US Economy",
-          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPc3JkVDlXbm5ZRmRNNGhLejRZWEMxQlo0UGNRNXRNZE0xazdYNUhuX3FvRUt0Z0lCYVo2b2szY2tNeGxPMXFRTk83U2daWDZsRkxKMjdSdHktbG1aaHJxSXN0YmotY0hoNnVGQTZlZTJMNXJha01RdkxGVmtDeHVfQWU3Um9pMVNyRmZNal9ZMzJKZw?oc=5",
-          "published": "Fri, 14 Aug 2026 15:29:26 GMT"
+          "title": "Stocks Close Lower on Worries About US Economy",
+          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNem94MnhUUzNDdnlEOFFhTTJISURIV2U5WnFSelJlQTBCSlJsbWo4R3M0MHF3VW5yVzZNMTM0aXhNcTJiWWZkQmlNMUk3SXhQano2d051eS10Q1ZwTGhiUlowN2J2dzQ5MDFBNXBxZzExZ015RTNJRmVWVVpvd3dHXzk4OW16YzJaMllsN2NnME1Qb2N3?oc=5",
+          "published": "Fri, 14 Aug 2026 20:25:38 GMT"
         },
         {
-          "title": "Europe’s economy faces a one-two punch from extreme weather and war",
-          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE96YnQ3NjNZTWJYLWJWbzJiSFBHN0dOZTI1UlhqdVNUTzRRYVZGbEFJV0UzTG9YVVA5RnIydk1tVlROcFd5a2I0SWxFOXd5bzlicDNOeFM3OEZ2UmRkLWo1d2lTcDdqREtFRlhtdVpoMVBnR0hWRE9J?oc=5",
-          "published": "Fri, 14 Aug 2026 04:01:29 GMT"
-        },
-        {
-          "title": "Everyday economy stocks: the companies embedded in modern life",
-          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNbWxRcFVWZ2wtejhIRlhuek43TnBObVZwT1YtNmFOSjkwWnJYUUktamxlX2szSm05MkZZcjRzQ2JGb2s5NUJleTI5SWV2a3ZleUNfU0Z3RWl3WGE0Z3JUT1o4N3FjTVlqSkN2OFNJSEdCMlNPYi1LdkJqNGFwaVJHRWtoSklHM3VOQkRUeU1UUFkxOUN0Njd6bG53WHpvYkttWVhleTc1UzJMSWtNTW9BWUlTVWZWQ3RibDZkQ3F1clU?oc=5",
-          "published": "Fri, 14 Aug 2026 12:45:00 GMT"
-        },
-        {
-          "title": "Wall Street holds near its record following latest weak update on U.S. economy",
-          "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPUF92RC10c2hYYjFOdW9WX08tTVh6TDdTZXQzcmtjWjRla1RaUXllbXNtNmRMWlh3NWZfT1k4TGJKQUNUOHpxYnVOcWVGRGJPRHJzeU1zRTdSd3ZzcGRyYlBmNk5BeEo3RHJLcFJRYm9Ed0tmMzVBZmVqbFpmZUZRZjJLQnl5Q0xnSG4yNGpfeFZkSXNDN2lXNkFMTkxYX1gxcjBwQzlTY2dxYWJOWXRBTGliS3dPRm9OWkR0VXhRRXBvM0NHMFJCRUxKQURpSTkzb3M3NHJ5eEt4dmZBdk03d3N1dnhlNjhnajVidw?oc=5",
-          "published": "Fri, 14 Aug 2026 13:54:00 GMT"
-        },
-        {
-          "title": "Wall Street holds near its record following the latest weak update on the U.S. economy",
-          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPTmphMUxQWHFjNGRsTnFrWVVLV09ueWk1d0hLWnBOdURTeFVWa2FXZmNxYmRPUmJkbUZwSTFPbEdhX05ZcHdVRXFCWlNEeV9meEdHN25fRFRZX0lpSU85dlFDaFhmeXJoLVBxSGYwdzlyRGg2eXZhbUhPZS1hVkdVbDZQVmp2bTUtVXFnUGwwa0lKdFNIMXdrQUllVVRlRVJPRG56UGhSZkx5bm9hbVlSVld0VW5vQ1VzVjJuZ1NIcHprZFgtSTg0Q1F3?oc=5",
-          "published": "Fri, 14 Aug 2026 14:01:27 GMT"
+          "title": "The Club's top 10 things to watch in the stock market Friday",
+          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQbzNVUGlRWXVpNDVObUFnMEdlYXd5RzBQSVpPU2Y1TzQxSDN4b194WF9CdHNzOVlldDgxR0E0X1ptTlFKcTZ5c0Q1bHZFc2VkUDVRN21lNW1yc2hYT042T3NVOEkwc1BxaXVEX1lOQ0hNWXZMRTJSRzBmd205Z3Q2NjhKY1ZBb0F0RzN1SUx6b3M4QUQtU3NzcXN1czg?oc=5",
+          "published": "Fri, 14 Aug 2026 13:17:02 GMT"
         }
       ]
     },
     "argentina": {
       "label": "Argentina",
       "items": [
-        {
-          "title": "Así cerró el dólar en los bancos argentinos este miércoles 12 de agosto",
-          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQRk9FLVdBWTI3anFZY1dxT3ZaSU1kd0RKaFpXeWk3ZURWazB1UE1kblNFVkhJY2xmTVNlZnE2MGVyaThrcERMUXNPTEkwTFhNQTY1SzhzTlhmNkd4ZFlIWVZfZl9BVWJyRWdBUEZNOFJ0ZXhDSWJjQW5oNXprb2hMc21SQXZBTVlTcGw5clpBbks3STNVakhj0gGcAUFVX3lxTE5laHFjbHl4Skw4TGVLTHBpWXkwNWc3Zng3U1V1azM1YzIweUd2Mm9ZS0JQR3RtbWdJXzI0VzFDX3JtY3lTSzF4WmJJMHdKY2J2VUtqZ2lhdXpiY2NpOVNkV1QyNGJtcDgyVXZrNmt0WDItVGdsNmFwX21ScTRiSDVqZ0p2ellxczgtR2JpZ0t0WEp0THU2ZmdQOGlmcg?oc=5",
-          "published": "Wed, 12 Aug 2026 18:36:07 GMT"
-        },
         {
           "title": "Dólar hoy, dólar blue hoy: a cuánto cotiza este jueves 13 de agosto",
           "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPektlblJfclRTRHp6ZUhnejVPSVR4a1FDV1pYTlF6elJFMnhqUVFBQm1uZklzbWpmdXp1YjFsR0NUMmVaYzhUTy1CUDlCSUJteHpkanlhNGFpaWU0SUctM1dGblVWclAzUEttcHB2T0xzRDByUUFTd1Q2b2N5em5uY3QxTzQ4aWtDOHdUUXlGeUh1azREakpZamJYTnNNOExqS0NBZzlJZTU1Vl9NWWQ5TzlCTkhjYkFiVVpqMzR0UkM0UdIBxwFBVV95cUxOZUlNRHZYVUJqR3JBOVJyZGdPd1lTUlZaTHlraUMySE42Qml1b2FNWlBEVThfWDVZZU9vdkZEQ0FhMDZlMEI4NFRya3JMcktvOGZ5VmZGc3FaeVFmeEVTaGIyR2J3U21tRGtONUJaNkYwa2VxYlo5Y1hCcTdLdXpkV2kzazFyOVVPa0NReWswd25pOXNLOVhaSWs4TFE5VHlrcXBaZVpnd3lJRGdkLTVtY05KTnpsSXlZOVVnWnl4ZzAyNENKQmxn?oc=5",
@@ -284,6 +279,11 @@
           "published": "Wed, 20 May 2026 07:00:00 GMT"
         },
         {
+          "title": "La ficción colectiva del dólar barato y un mercado financiero que ahoga a los cumplidores",
+          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQU3drOE94TzdoTzRSMmp3SVEyclU5cjNOYmhnek91cW40SjlQVmNadmF4cUpJeWhnRFgzY2k5ejdLYlRpRmQ4dTBJanpOMmR4ODk0MFQ4TXNyTFpNTllid0pDdkhtRzg1YXRFUE96Rl9DWkRtbndvOFllc1FUT0NnbUVfZFY5Nm9qV2NlS2p0dk80YlAzRDNhQlBmMmlCTEprMzFONTBBd2dTQzlKUlZjNmZEbmxoVExUNk96c1VaWW9ZQkl1UlNpMW9VaV9LdWthYVNHaFhn0gHbAUFVX3lxTFA0aE1kNWE2UnI1OU95YVpTRDNOR0NheGRScnp6cGRybTI1OGQ3MWVjRlIxNENxMndqVTd3NzdEcWhRYy1jTkJhOEhLYUthQmJ5RHVPS2I0VmFjRkFSY0hoT25GZm1iN3FaNmlsV3RmVl9SbFZrZlRLRGVHN2ZqdDFRT1ZDQUNOOUxIM05DTDRrbXB5RTJaZmJJMWdDaGpQczNpbHZ5ZnpmQVBCMUJFMDZkZ3c4RXlEOW5TT2k0ZG9FU3lZdmhNMldwMHNKdTgzRFhuRGhzaThaV0ZfWQ?oc=5",
+          "published": "Thu, 28 May 2026 07:00:00 GMT"
+        },
+        {
           "title": "Dólar oficial hoy 3 de julio 2026: precios y estabilidad en el mercado financiero argentino",
           "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPUGVMYTZUQWJCSFFFbDB2dzhReHdneVpNUlVlTDl0aHJjcUdNTzZDYVhfZGlKQ1lkVlNRdHpReVYxTHBmQ093bl9kUW95eWpBbDFXOURfelVMUF9Ka0pGY3l0VVFuMXREYlhsb0lQeXNyRV9HLWVNcU5Yc2pNTm9YRmNqOENUMUE1by1UMUN2NFJRT1hBaFVORElmUFJtUFhZb1h4ZGJoejE2MkREQnBfczJBTkdia2pFMGdFOVBHTV9obEZCeHZtSlZsS2RlSGJiUVHSAdoBQVVfeXFMUHR2OE9fWEpwNWNRajZUQWNReWhvNzRJV3dWV2hqcmZDZ21ScXFNVEFaN3JEdXJvaXJzUTA3LXl0Tko5SjI4eDZhVmk3dU5QTkZpeW1qbjA4Ri1TaG9hSkQydHpVNnF2enp6VEo4QXN0Z0JabXJCSnM2R1U5dUtSM0NLMEIxTTdnRVM3TUxlcjAxT1pScEJxdHdTX1NlY3J0NzBrRGctSmlIOTFsbmh2S1dScTh3ak5mYWJvdV9nck03Y3dtOWNYSElxSUllYndyVXV6QUtyMUlfcWc?oc=5",
           "published": "Fri, 03 Jul 2026 07:00:00 GMT"
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-08-14 15:48",
+  "updated_at": "2026-08-14 22:15",
   "updated_date": "2026-08-14"
 }
