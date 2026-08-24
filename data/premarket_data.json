@@ -4,52 +4,52 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7656.18994140625,
+      "price": 7652.85986328125,
       "prev": 7674.3701171875,
-      "change_pct": -0.23689469628958507,
+      "change_pct": -0.2802868975275989,
       "date": "2026-08-24"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 26059.8125,
+      "price": 25980.19140625,
       "prev": 26180.4609375,
-      "change_pct": -0.4608338935972945,
+      "change_pct": -0.7649580033296539,
       "date": "2026-08-24"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 53423.19921875,
+      "price": 53417.16015625,
       "prev": 53277.01171875,
-      "change_pct": 0.2743913280491887,
+      "change_pct": 0.2630561155341169,
       "date": "2026-08-24"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 2947172.0,
+      "price": 2995129.5,
       "prev": 2913184.0,
-      "change_pct": 1.1666959587859882,
+      "change_pct": 2.812918785768424,
       "date": "2026-08-24"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 15.90999984741211,
+      "price": 15.850000381469727,
       "prev": 15.130000114440918,
-      "change_pct": 5.155318751298065,
+      "change_pct": 4.758759164460283,
       "date": "2026-08-24"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7665.75,
+      "price": 7675.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-08-24"
@@ -58,7 +58,7 @@
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 29086.0,
+      "price": 29130.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-08-24"
@@ -67,7 +67,7 @@
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 53471.0,
+      "price": 53527.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-08-24"
@@ -76,7 +76,7 @@
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4731.10009765625,
+      "price": 4717.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-08-24"
@@ -85,7 +85,7 @@
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 84.8499984741211,
+      "price": 85.01000213623047,
       "prev": null,
       "change_pct": null,
       "date": "2026-08-24"
@@ -94,7 +94,7 @@
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 92.47000122070312,
+      "price": 92.05000305175781,
       "prev": null,
       "change_pct": null,
       "date": "2026-08-24"
@@ -103,7 +103,7 @@
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 98.9520034790039,
+      "price": 98.98400115966797,
       "prev": null,
       "change_pct": null,
       "date": "2026-08-24"
@@ -112,45 +112,45 @@
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1674060821533203,
+      "price": 1.1668611764907837,
       "prev": 1.1687841415405273,
-      "change_pct": -0.1179053803203273,
+      "change_pct": -0.16452696279820067,
       "date": "2026-08-24"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.143199920654297,
-      "prev": 5.1930999755859375,
-      "change_pct": -0.9608914745765202,
-      "date": "2026-08-24"
+      "price": 5.1539998054504395,
+      "prev": 5.13730001449585,
+      "change_pct": 0.3250694120932839,
+      "date": "2026-08-25"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.697999954223633,
+      "price": 4.703999996185303,
       "prev": 4.73799991607666,
-      "change_pct": -0.8442372849628423,
+      "change_pct": -0.7176006858081866,
       "date": "2026-08-24"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 3.7130000591278076,
+      "price": 3.7029998302459717,
       "prev": 3.7100000381469727,
-      "change_pct": 0.08086309838242957,
+      "change_pct": -0.1886848471434884,
       "date": "2026-08-24"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 94.65499877929688,
+      "price": 94.86000061035156,
       "prev": 92.80999755859375,
-      "change_pct": 1.9879337024422614,
+      "change_pct": 2.208817051701336,
       "date": "2026-08-24"
     }
   ],
@@ -164,50 +164,55 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "The Stock Market Just Did Something for the 2nd Time in 145 Years, and History Says What Comes Next",
-          "link": "https://www.fool.com/investing/2026/08/24/the-stock-market-just-did-something-for-the-2nd/?.tsrc=rss",
-          "published": "Mon, 24 Aug 2026 15:20:00 +0000"
+          "title": "Why the Market Dipped But Signet (SIG) Gained Today",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/why-market-dipped-signet-sig-220002927.html?.tsrc=rss",
+          "published": "Mon, 24 Aug 2026 22:00:02 +0000"
         },
         {
-          "title": "2 Reasons to Like DHT and 1 to Stay Skeptical",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/2-reasons-dht-1-stay-150536041.html?.tsrc=rss",
-          "published": "Mon, 24 Aug 2026 15:05:36 +0000"
+          "title": "S&P 500, Nasdaq end down on tech stocks, investors weigh Iran moves",
+          "link": "https://finance.yahoo.com/video/p-500-nasdaq-end-down-215152032.html?.tsrc=rss",
+          "published": "Mon, 24 Aug 2026 21:51:52 +0000"
         },
         {
-          "title": "Stock Market Today: Dow Up As Trump Says This On Canada; Tech Hit With Micron, Nvidia Drops (Live Coverage)",
-          "link": "https://finance.yahoo.com/m/1a58dcaa-61d6-34aa-8999-e800df60b02d/stock-market-today%3A-dow-up-as.html?.tsrc=rss",
-          "published": "Mon, 24 Aug 2026 14:43:36 +0000"
+          "title": "BlackBerry (BB) Falls More Steeply Than Broader Market: What Investors Need to Know",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/blackberry-bb-falls-more-steeply-214503002.html?.tsrc=rss",
+          "published": "Mon, 24 Aug 2026 21:45:03 +0000"
         },
         {
-          "title": "Estee Lauder Stock Jumped On A Bigger Margin Promise",
-          "link": "https://www.trefis.com/articles/612582/estee-lauder-stock-jumped-on-a-bigger-margin-promise/2026-08-24?.tsrc=rss",
-          "published": "Mon, 24 Aug 2026 14:27:20 +0000"
+          "title": "Micron (MU) Falls More Steeply Than Broader Market: What Investors Need to Know",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/micron-mu-falls-more-steeply-214502820.html?.tsrc=rss",
+          "published": "Mon, 24 Aug 2026 21:45:02 +0000"
         },
         {
-          "title": "SYRE Rallies 44.9% in 3 Months. Can Clinical Catalysts Sustain It?",
-          "link": "https://finance.yahoo.com/healthcare/articles/syre-rallies-44-9-3-140900299.html?.tsrc=rss",
-          "published": "Mon, 24 Aug 2026 14:09:00 +0000"
+          "title": "Chewy (CHWY) Increases Despite Market Slip: Here's What You Need to Know",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/chewy-chwy-increases-despite-market-214502321.html?.tsrc=rss",
+          "published": "Mon, 24 Aug 2026 21:45:02 +0000"
         },
         {
-          "title": "Here's Why You Should Retain OPK Stock in Your Portfolio for Now",
-          "link": "https://finance.yahoo.com/healthcare/articles/heres-why-retain-opk-stock-151500324.html?.tsrc=rss",
-          "published": "Mon, 24 Aug 2026 15:15:00 +0000"
+          "title": "Lululemon (LULU) Increases Despite Market Slip: Here's What You Need to Know",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/lululemon-lulu-increases-despite-market-214502823.html?.tsrc=rss",
+          "published": "Mon, 24 Aug 2026 21:45:02 +0000"
         },
         {
-          "title": "Nvidia Rises Before Earnings That Could Reset the AI Trade",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/nvidia-rises-earnings-could-reset-150838218.html?.tsrc=rss",
-          "published": "Mon, 24 Aug 2026 15:08:38 +0000"
+          "title": "Oracle (ORCL) Declines More Than Market: Some Information for Investors",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/oracle-orcl-declines-more-market-214502575.html?.tsrc=rss",
+          "published": "Mon, 24 Aug 2026 21:45:02 +0000"
         },
         {
-          "title": "Morgan Stanley Gains 45.1% in a Year: Should You Buy MS Stock Now?",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-gains-45-1-145200534.html?.tsrc=rss",
-          "published": "Mon, 24 Aug 2026 14:52:00 +0000"
+          "title": "Update: US Equity Indexes Mixed as Chipmakers Push Technology Lower, Bessent Unveils Plans to Choke Iran's Economy",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-mixed-chipmakers-210802812.html?.tsrc=rss",
+          "published": "Mon, 24 Aug 2026 21:08:02 +0000"
         }
       ]
     },
     "noticias_us": {
       "label": "Economía Global",
       "items": [
+        {
+          "title": "Wall Street drifts ahead of a big week that could swing stocks and bonds - ABC News",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPMHE4ODYyV3RDbktJcl9aSUdEbWJoUHhYak9UcU9MY0hiN3hRTktpOERwZXQxU2ZkWVJzMUUzTS1oMmNmSTdsU295V1dNOElZQUF0MVpGcGdhNzE4VFlQTE1laDdYZm1mOHlMRUlGQ1JIZlhaX0RnTFgwWWVfUXI3TzRleFpOaDJ5UmNZMll2Z1VISVZLaTVDYzRPRGZyQdIBowFBVV95cUxPNmtUbS10NFhyODhhMkhyemwwLXFXWFRsTXNLREdfMV9GaFN4RjY2dzREZEtWdlVhT2V6bnpnUWV6UHJIenh1RmhQVXh0RUJiSVlZWWo2VExOMFJqdHl5bVBwM2d1eEZtRHRNVXJFMnJHU3hsSENRa1Z3VmZnVVZmRHZONk9JWHp3dGZsSGxmVzFjOERhU2RfTU5wcXJBUHhjcUlr?oc=5",
+          "published": "Mon, 24 Aug 2026 19:34:09 GMT"
+        },
         {
           "title": "Santoli: Why all the fuss about bond yields is happening now",
           "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPMzdicjR1YXo0VEl4d2NJeG5HUjVOYzhiMjdOaE5nM0JvbnREX2VGY1VzRTJsYjJPTXRfa0NZajBMR01GU2ZTN2tFY2RUaWdadlloWWVnSThzUWdmMDk1ejNNVV9ZUHhhNV90bko5OWdnRWlzOEVKSnNuMUJDZEtzNG5yZ21tTG9kbFhpVlFWOWdvd9IBlwFBVV95cUxNQ2Jsb0lqT2hGTlM2ckEyek43UVRrV3ctd0tydFVHR200Tk1GZGhUblV2YTdlTlcwN2RWanRTOUk1bmpsNG5TNEdReXJXNndfZ0FjbzRHSUg3NE5pakY2MkhhSlkxWjNXRVpXczByQ3pZMTZEV3B1dFVsR2lvRFJkejhEUHVnaDZqc2Z2X0JJVW5hdExaanhr?oc=5",
@@ -217,11 +222,6 @@
           "title": "European Stock Markets’ Low Tech Weighting Is a Trump Card Right Now",
           "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNRlM4ZzNoMjExbXBjSW9tblJhbl9lTDl0b1p4TzRtN0c3QzRrS3NHS3VaekV5X29nUzdxRHpjVktyT0JydFNUVVJNalhpdkFJVlhpeWVubkJ2Q19XWEl5SmFxZU1wTXRUYVF1YlpjZ0o0MXROWUZ0SmxQNUdVZkpRNFJiSTl6MDRueTJ3Sld5NUo1bW9aQ2RXTlNfZmRGcFFXekVCUWt1cVhwSnhla29r?oc=5",
           "published": "Mon, 24 Aug 2026 08:12:50 GMT"
-        },
-        {
-          "title": "Jim Cramer Says Stocks and the Economy Are Telling Two Very Different Stories: ‘Jarring Gulf’",
-          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxObTFrcnBjNWJMa0V3WmVsc0V5YTNSaC1WcWFGWkx5cjBKcnJCSlBhengteUthVVBFOGZVb19uSHVBTUQ5akU2clJJQmxocWtraU9lSFpHQ0VpMVdMbkMxWHhvaU1ZSXRNaHZBVGdvSXV3Y3NxbjA4aVVOcW9pQmZrVkRlUFpONTRYZnpkMmxPM0FDSGliRjkwU05IZw?oc=5",
-          "published": "Sun, 23 Aug 2026 20:31:16 GMT"
         },
         {
           "title": "Has Broader Stock Market Participation Changed How Interest Rates Affect the Economy?",
@@ -234,9 +234,9 @@
           "published": "Wed, 19 Aug 2026 20:22:01 GMT"
         },
         {
-          "title": "Don’t let debt fears derail market perspective",
-          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNZk1MVWpWT2ppa2padVFTczFrTGlvQTg2QktsNXl0OHQxTFJLdkxIVDRhODdsQXphRHVHeGtlU1duMUEtbk1Tay1qOWVvd2JLUjdyQ2JFMUJHUHBLUHk4Tzd6SlI0RExCM0I0R2EtVUJtTUxmaENpVGE4UjJ3VUVhVFRqckRrUmRLYWVr?oc=5",
-          "published": "Mon, 24 Aug 2026 14:16:05 GMT"
+          "title": "Why one of Trump’s favorite economic statistics is nearly meaningless",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE43X0dBR195alBQU1BKcVZ3bFVoQW9JSEY0UjFHYmJQblY0TlZiSm5VZmdQYVNvN2tpWUw4TFRLaV9WRzNiaFdGZy1TdVlqR3Z0bV9hQkRYVGQzRWkxS056ZVBwN25EQXh3RDRaaEdxNWdSMHd1UXRObTg3MUhfekU?oc=5",
+          "published": "Mon, 24 Aug 2026 15:27:19 GMT"
         },
         {
           "title": "CT economy is split: Nation’s highest unemployment rate amid booming stock market",
@@ -244,9 +244,9 @@
           "published": "Sun, 23 Aug 2026 09:36:34 GMT"
         },
         {
-          "title": "Wall Street drifts ahead of a big week that could swing stocks and bonds",
-          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQYlBaWDY4U0ptQXBnMGRocG14Rm00UmJYa0tIYVViMEFyRGxfUUtXNDNQREQ1cUtobm9rZnNOUUJKVkI5NkJNRFRUZFo3UnJyRFVucFdraGZkYXlqc3BMZGttbzRSZ0trb0lid3pnS0ZfRTFDUnJqUGd1X2I5QlZZR3RXd3I2VXZBcjBJQXVGMEJ6MVJuOWIxcElyXzFjdEl2N1BWdFotbGNjREJ6Rl82WmxZWmkteEc1c3E2c3RyMDR4TzJ1LWVzYWF4bw?oc=5",
-          "published": "Mon, 24 Aug 2026 15:34:15 GMT"
+          "title": "Why Strong Earnings Are Lifting Stocks Despite Rates",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPN3JvTEtiS0xtc1NkQ3dRQ0J4cWliQm9mcjRvcFk5Wk5pWUFXeEh2Y01WNjF5dVVuc05Jakg3Nlh4ZTBzbjdBaExvVG1OUklnS1c4S0NOXzB0LVg1LWRRS1JBUjA1SXZLSWtpQmxaZjNyTGNWWjZmcnNxeWJ1Z2NXeUoydUYtcUFxekNvSlRIWXFEbjJRckNWZzViRGhzeEJCdlE?oc=5",
+          "published": "Mon, 24 Aug 2026 20:13:29 GMT"
         }
       ]
     },
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-08-24 15:37",
+  "updated_at": "2026-08-24 22:18",
   "updated_date": "2026-08-24"
 }
