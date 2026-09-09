@@ -4,204 +4,204 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7673.52001953125,
-      "prev": 7718.60009765625,
-      "change_pct": -0.5840447432778457,
-      "date": "2026-09-08"
+      "price": 7639.56982421875,
+      "prev": 7673.52001953125,
+      "change_pct": -0.4424331366320447,
+      "date": "2026-09-09"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 26421.412109375,
-      "prev": 26506.990234375,
-      "change_pct": -0.3228511582918981,
-      "date": "2026-09-08"
+      "price": 26243.1953125,
+      "prev": 26421.41015625,
+      "change_pct": -0.6745092055877387,
+      "date": "2026-09-09"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 52786.0703125,
-      "prev": 53414.25,
-      "change_pct": -1.1760526217254759,
-      "date": "2026-09-08"
+      "price": 52457.91015625,
+      "prev": 52786.0703125,
+      "change_pct": -0.6216794588179262,
+      "date": "2026-09-09"
     },
     {
       "symbol": "^MERV",
       "name": "MERVAL",
       "type": "index",
-      "price": 3075981.75,
-      "prev": 3034599.0,
-      "change_pct": 1.3636974769977845,
-      "date": "2026-09-08"
+      "price": 3108324.25,
+      "prev": 3075982.0,
+      "change_pct": 1.051444709364359,
+      "date": "2026-09-09"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 15.720000267028809,
-      "prev": 15.300000190734863,
-      "change_pct": 2.7450985036476174,
-      "date": "2026-09-08"
+      "price": 16.190000534057617,
+      "prev": 15.720000267028809,
+      "change_pct": 2.989823530821364,
+      "date": "2026-09-09"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7676.5,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-09-08"
+      "price": 7647.25,
+      "prev": 7680.5,
+      "change_pct": -0.43291452379402384,
+      "date": "2026-09-09"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 29509.0,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-09-08"
+      "price": 29452.5,
+      "prev": 29538.75,
+      "change_pct": -0.29198933604164024,
+      "date": "2026-09-09"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52806.0,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-09-08"
+      "price": 52481.0,
+      "prev": 52832.0,
+      "change_pct": -0.6643700787401575,
+      "date": "2026-09-09"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4400.5,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-09-08"
+      "price": 4463.10009765625,
+      "prev": 4393.89990234375,
+      "change_pct": 1.5749151516990163,
+      "date": "2026-09-09"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 94.41999816894531,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-09-08"
+      "price": 96.16000366210938,
+      "prev": 93.02999877929688,
+      "change_pct": 3.364511366100393,
+      "date": "2026-09-09"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 99.48999786376953,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-09-08"
+      "price": 101.31999969482422,
+      "prev": 97.91999816894531,
+      "change_pct": 3.4722238454424263,
+      "date": "2026-09-09"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 98.80799865722656,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-09-08"
+      "price": 98.74700164794922,
+      "prev": 98.83999633789062,
+      "change_pct": -0.09408609205477726,
+      "date": "2026-09-09"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1631964445114136,
+      "price": 1.163873314857483,
       "prev": 1.1627637147903442,
-      "change_pct": 0.03721561961084765,
+      "change_pct": 0.09542782020324239,
       "date": "2026-09-09"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.126699924468994,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-09-08"
+      "price": 5.104100227355957,
+      "prev": 5.126699924468994,
+      "change_pct": -0.44082348188884696,
+      "date": "2026-09-09"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.806000232696533,
-      "prev": 4.783999919891357,
-      "change_pct": 0.4598727670061374,
-      "date": "2026-09-08"
+      "price": 4.828999996185303,
+      "prev": 4.806000232696533,
+      "change_pct": 0.47856351175965106,
+      "date": "2026-09-09"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 3.7750000953674316,
-      "prev": 3.756999969482422,
-      "change_pct": 0.4791090239878157,
-      "date": "2026-09-08"
+      "price": 3.804999828338623,
+      "prev": 3.7750000953674316,
+      "change_pct": 0.794694893067849,
+      "date": "2026-09-09"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 95.95999908447266,
-      "prev": 96.41000366210938,
-      "change_pct": -0.46676129088622526,
-      "date": "2026-09-08"
+      "price": 95.84590148925781,
+      "prev": 95.95999908447266,
+      "change_pct": -0.11890120498480282,
+      "date": "2026-09-09"
     }
   ],
   "fear_greed": {
-    "value": 69,
+    "value": 66,
     "label": "Greed",
-    "timestamp": "1788825600"
+    "timestamp": "1788912000"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "1 S&P 500 Stock with Exciting Potential and 2 We Ignore",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/1-p-500-stock-exciting-232718587.html?.tsrc=rss",
-          "published": "Tue, 08 Sep 2026 23:27:18 +0000"
+          "title": "Update: US Equity Indexes Drop as Crude Oil Tops $100 Mark Amid Worsening Iran War, Yields Surge After Treasury Triples Government-Debt Buybacks",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-drop-crude-173635855.html?.tsrc=rss",
+          "published": "Wed, 09 Sep 2026 17:36:35 +0000"
         },
         {
-          "title": "S&P 500, Dow End Lower As Middle East Tensions Spur Oil Rally Ahead Of Key Inflation Data — META, QCOM, BE, AMZN, AVGO In Focus",
-          "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-dow-end-lower-as-middle-east-tensions-spur-oil-rally/cZtEOUNRJyE?.tsrc=rss",
-          "published": "Tue, 08 Sep 2026 22:46:39 +0000"
+          "title": "If a Market Correction Is Imminent, This Simple Strategy Is Key to Protecting Your Investments",
+          "link": "https://www.fool.com/investing/2026/09/09/if-market-correction-is-imminent-simple-strategy/?.tsrc=rss",
+          "published": "Wed, 09 Sep 2026 17:20:00 +0000"
         },
         {
-          "title": "Why M/I Homes (MHO) Dipped More Than Broader Market Today",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/why-m-homes-mho-dipped-221504635.html?.tsrc=rss",
-          "published": "Tue, 08 Sep 2026 22:15:04 +0000"
+          "title": "VOO vs. QQQ: Which Popular ETF Is Right for Your Portfolio in 2026?",
+          "link": "http://www.etf.com/sections/news/voo-vs-qqq-which-popular-etf-right-your-portfolio-2026?utm_source=yahoo-finance&utm_medium=rss&utm_campaign=yahoo-finance-rss&.tsrc=rss",
+          "published": "Wed, 09 Sep 2026 18:11:39 +0000"
         },
         {
-          "title": "Rithm (RITM) Registers a Bigger Fall Than the Market: Important Facts to Note",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/rithm-ritm-registers-bigger-fall-221504843.html?.tsrc=rss",
-          "published": "Tue, 08 Sep 2026 22:15:04 +0000"
+          "title": "Here's Why You Should Retain FactSet Stock in Your Portfolio Now",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/heres-why-retain-factset-stock-173400588.html?.tsrc=rss",
+          "published": "Wed, 09 Sep 2026 17:34:00 +0000"
         },
         {
-          "title": "BlackRock (BLK) Declines More Than Market: Some Information for Investors",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/blackrock-blk-declines-more-market-221503106.html?.tsrc=rss",
-          "published": "Tue, 08 Sep 2026 22:15:03 +0000"
+          "title": "Dow Hits 1-Month Low as Oil Surges Above $100",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/dow-hits-1-month-low-173224676.html?.tsrc=rss",
+          "published": "Wed, 09 Sep 2026 17:32:24 +0000"
         },
         {
-          "title": "Lennar (LEN) Registers a Bigger Fall Than the Market: Important Facts to Note",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/lennar-len-registers-bigger-fall-221503816.html?.tsrc=rss",
-          "published": "Tue, 08 Sep 2026 22:15:03 +0000"
+          "title": "Expion Falls 35% in Six Months: Should You Buy the Dip or Wait?",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/expion-falls-35-six-months-172700799.html?.tsrc=rss",
+          "published": "Wed, 09 Sep 2026 17:27:00 +0000"
         },
         {
-          "title": "Why Kinsale Capital Group, Inc. (KNSL) Dipped More Than Broader Market Today",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/why-kinsale-capital-group-inc-221503996.html?.tsrc=rss",
-          "published": "Tue, 08 Sep 2026 22:15:03 +0000"
+          "title": "Investors: Sept. 16 Will Be a Critical Day for the Stock Market. Here's What You Need to Know.",
+          "link": "https://www.fool.com/investing/2026/09/09/investors-sept-16-critical-day-stock-market/?.tsrc=rss",
+          "published": "Wed, 09 Sep 2026 17:23:48 +0000"
         },
         {
-          "title": "Whirlpool (WHR) Dips More Than Broader Market: What You Should Know",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/whirlpool-whr-dips-more-broader-221502369.html?.tsrc=rss",
-          "published": "Tue, 08 Sep 2026 22:15:02 +0000"
+          "title": "AI Boom Could Worsen Stock Sell-Off, Analysts Warn. These Are The Risks They See.",
+          "link": "https://finance.yahoo.com/m/538877d7-2318-3d51-94bd-60c5838d75ae/ai-boom-could-worsen-stock.html?.tsrc=rss",
+          "published": "Wed, 09 Sep 2026 17:59:18 +0000"
         }
       ]
     },
@@ -209,9 +209,34 @@
       "label": "Economía Global",
       "items": [
         {
-          "title": "There’s a simple way the Fed could help calm the bond market",
-          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1xS0xVRGFsRlhGb1BFXy1Vc1c5Zjd1NkxfajlLZ0JUQkZfM1VkVVhhUkh1TnZHZnlMeTI4R3Rkb0dqMG1CWVk4WFhYdkxyMUVhVUM3TUhtdWdqeDlMRTZpVjU5UTBTN3VGOVZzZA?oc=5",
-          "published": "Tue, 08 Sep 2026 17:33:57 GMT"
+          "title": "'The mirror has turned': A strategist lays out a path for the S&P 500 to soar 30% by 2027",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNWlJZYWFuRlhuRnBoUlE2YmlOU1Z5OENpVllpaGdhX1QtNGgwYTFleUQxaFNqWDFrMmx4emtCTnBkbGk3NGJhd0ZTXzkzekhMclY2MGdka3ZsOGZ0R1kwWk1SSkFZNlhqdkRZbEFxRTVHbW9ueDkzTUtQUW9FeWQwUGdzMEg1MEZVX1owWnFNaElkX0lVZmVWSUZBZmFkUQ?oc=5",
+          "published": "Wed, 09 Sep 2026 09:15:13 GMT"
+        },
+        {
+          "title": "Global economy vulnerable to market correction",
+          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQOUhiS0NTVWN2SkNWWFBsckxMV3R3OFpkVjFZcDBUMWY1bnR1QTZublNMRGdCNW9BTGJzclJvRGItWEk1NmtxaG9FUUFCTDUwcGhUZGNfcHZ2Unh0U3k2NjZ6NFlUUHFKc1A3YVgxeWVpVjktM2Q2UTRfdS1GYzlmTXFVRzBZOGFKMmUtN2JkRDAzTWNtaUpOZEQxT0k?oc=5",
+          "published": "Wed, 09 Sep 2026 17:49:19 GMT"
+        },
+        {
+          "title": "Don’t Panic About a Bond Market Selloff. It Could Be a Sign of Economic Strength",
+          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOblJ5N2t5X3BrMVZFRDZodmI3RUx4WTBTUXM1MnhQZ0xpM1E2WWNmbGxqM1pTU2xlRDJpOVNEbGhhX3YtNUdweDByeE5YQ3c2RUprTkRvdHgxMExBWFVIcnBCaTNtVnp3T2IySHlEblJQaW42b21tSnB3T3JFa3ZYbm1FV1pSRjh3aGk0TkI2My1RY0tlbjhvVmNhQnBnNFo4cjZXQm1UblctTDQ?oc=5",
+          "published": "Wed, 09 Sep 2026 09:04:53 GMT"
+        },
+        {
+          "title": "Financial analyst talks trade war impacts on U.S. economy, stock market",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQUTJpcVRWV3dzMVhBdmFzQlFWTS1PUnFvaVhuWTVDTFNuUVVIdE1tcFl1Q3J1ejhJRFdvc3VXUjU2bElwUjBwcV80VS02YmVfbXFGTDRMR0ZsaEQxdm9CUm1fdkNrZFlRa1BvS2dVWWRNUXJ4TUJYdGZMaFktcVkwLW9vM1VLeHJMLW5NMzd1NjVYaFpXeGJwck1zNDhncWNhZGIzMjhJbjFwYjRnZWRyWEtVYjnSAboBQVVfeXFMT3FFRVhPRC1hdnFaT1BrVlc5a1R5M0dmZ3dBWmdFaFZOTGlBZ1hHTGwyNTk0NjB1ZUZhc2pRbE1qVERtcDZvRlNtT3IxM1E4QXpqQU5CeEZGalVyNnk4TVR5SXB6MjdPY3ZJSlBxcnVEbEVKdXNteEhKVFplR3JNblBSUFBwZTgzVUtTT2J1VHdEb0Y3cHdpT09EcmVRUE1zd1M0a2FPb3lYdHJjWmprWE16QnFsdTRFcjln?oc=5",
+          "published": "Tue, 08 Sep 2026 20:21:02 GMT"
+        },
+        {
+          "title": "Investors: Sept. 16 Will Be a Critical Day for the Stock Market. Here's What You Need to Know.",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNYjUtd3V3SnlPeGVuWnc5QmZVeC1lWHBSMXdPUUJwWUlicFpzUHNUX1c4N1FvT2RVM3VaOEZwS283empaUEhjdHFURk1YendlcGNySExTNDBQdUhUTTdzS0szcDN2NTRPRjFmVm1jemx0NWtxZ1ZFUnd5bUtITjlDRnNJWTlsWkR0azRkY2s2eW13d3hieVZEdktlUQ?oc=5",
+          "published": "Wed, 09 Sep 2026 17:23:48 GMT"
+        },
+        {
+          "title": "Recognised again: Raspberry Pi and the London Stock Exchange’s Green Economy Mark",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNYmw3UVpmdXQxVml4UlV1Q2RGXzNFMWYxVjJ2eld4Nm40VkFzUmFyT1FxMFFhRmRCS0JQNUVOYzYzMnU5cWpjbEtVWVZ3bl81SjJXWFMwZWkyLWtiZTFrX3RSZ2EzWFVTZ3dYaHNTYWgtOWNoa09RRFhTQlQzOXJrYWduUDZESXR0c2JIdlNMMENYYzFqRkhBV09nSWJqUUwxT3FUZjVZY0YyZXp2TlNEcTctQQ?oc=5",
+          "published": "Wed, 09 Sep 2026 10:19:54 GMT"
         },
         {
           "title": "Why investors may want to ignore some market headlines",
@@ -219,34 +244,9 @@
           "published": "Tue, 08 Sep 2026 15:05:26 GMT"
         },
         {
-          "title": "Financial analyst talks trade war impacts on U.S. economy, stock market",
-          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPbThpUVBrWW1YbHlvdDJya2lfQW9ieEdoNEtMcEl5MDdIODZfVUJ4X2dHVERLdUNJeVlrQW1acVNja1lGTk9CVzBoUXREMWFmWVVnVnpaZVJwbjhJa0ZTS1lhYk5sNkJLYm85VkFadWlTb3d2QjllQkRFY0duNzk5Q2hReVdyeU94SUpYY1NDM2dqcGVkQ2NiVVpJYmxiQXJtX3QxTVBKUXdueU5IUVFaR2xDSXJmY1E?oc=5",
-          "published": "Tue, 08 Sep 2026 20:21:10 GMT"
-        },
-        {
-          "title": "Why Stocks Are Defying Gravity and What Could Bring Them Down",
-          "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPeVhZcEJvZ3BfMlcxazNWZFlTdUdaN0RZUk16aGh4TndmTTRFMnVrejJnbHA3eTRONzRrOXNlZ2ZrRG1sQlB0dFJqMlVPNzRNVG1PT0RvaDF4bGM0WFhrR2U5dS16VWlnNlUtb2tpWXhHdGVmTW1VdGJWR3dGVFlja0ln?oc=5",
-          "published": "Tue, 08 Sep 2026 13:53:50 GMT"
-        },
-        {
-          "title": "Dr. Copper Says the AI Boom Is Spreading Through the Real Economy",
-          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQeUtZOWs0a044cW1KZWc2UFFweVBmeU1XdGMwYVFNeEdJdkZxYUYyZ1pUR2MyZ3c5Tnh4aThvN09mck9GTkMwOGJqOWxaM0haamg5aDd2Yi1Pbl90RlVJZVhzeDBXMUI1STc0dGFqeFZ3QzFsUWhqWXhlTE5aWTNDTUZCVFNYNGcwejI1WDBEUDZMUmdzVW5n?oc=5",
-          "published": "Tue, 08 Sep 2026 14:26:42 GMT"
-        },
-        {
-          "title": "Inside India newsletter: India’s economic growth is smashing forecasts, but its biggest stocks aren't feeling the love",
-          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPMmMtMC1ZYXZVbWQ3OFdmVFpod1RlV2JxRzBEZ2hlZmM5NmV4NVZTVUtmbFJvZnRTc2lFVVNlNVIxcFd0SVktT0pvUGJnbjBodU1Xb3dJSlp4a1JNS3otSHIwTVpwWVZmNDl4Q3U2Yk1LNkZMS1dubDZqZ0c2MVcyc3V5RUFSY1ZR0gGOAUFVX3lxTE14amIzRGJYTjFlNWtTTjhkWElGLTVVQ3ZpWVFlX3lGSHotbEVDRkUwWmVjeGJCZ0pOTmxvRkZENEVKWGhnbVJEalcwSDlmQnE5SDV0b194REp1Q3lkMHJGdU5HZlVXdHhJS3R5Zm11ZGtVSDBCV1ZBdmxWb1NxRnJwWTFQMV9Hd3NTZ1NJN1E?oc=5",
-          "published": "Thu, 03 Sep 2026 00:05:00 GMT"
-        },
-        {
-          "title": "Financial analyst talks trade war impacts on U.S. economy, stock market",
-          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPLVJSeDdpUHJlUE9yUi1TQjk4d3pKbkctT2pqeTdLUmU0eF9FQXpUNERXODNoc21FemtNelR4R1pFcy1QSXJuNWxJMjBTc3VCd1c1ZTdQRHBkeGxpMDlvbFYxYmxZU2ZINWRrYzdVQ1ViOWloS2UwNVRkY0xseUFSM0ZiVQ?oc=5",
-          "published": "Tue, 08 Sep 2026 20:21:23 GMT"
-        },
-        {
-          "title": "Stocks slip on Wall Street under pressure from rising oil prices, bond sell-off",
-          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNVUpDbXlNdGxqU3l1LVBFQ1drbmNpcU40UmxDTldlNlBiOE9aazU2bVg1VE1qOXAtM1Z3VlBIUHNpN1NMWlZlSm9DY3cxLVdjTVNDcFZPUTAxUHhkNFMwUW9WQWVPUnlKZ2Fqc3dBRUV3aTNfU3JVWlVCYk56cC12clA4dGFRN2hoYWg2cUMybmh4ZkEtV0d0VTdZTDQwYUVBV01oRmxPMmxnMENCc3BkY0xpWU5mZ9IBuwFBVV95cUxPbVR0dUcteGhCV0s5UmFidkNta0didWVNOVk1WTRkUTJYbDZnTjhBOTJsNFNZMWUwdm00S0g4WmNLbm9vS3d0UkVoc3FWZXZOcmNBRjNqSGtCd0JFa3RxTVY1Wks1OW1hVDdlMFp6eUFMUFNMWkprcjB5eFlqdldxT3BCaDJLczJkdDhSREN2Y29QX0tUOWROZk4xd2M3bEZiVGRrTDZDeXZXV3RydTZ0bl9aV0JFWVJXc2U4?oc=5",
-          "published": "Tue, 01 Sep 2026 17:48:23 GMT"
+          "title": "The stock market rally that’s making some people rich and everyone else miserable",
+          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4wTnVnQTZObVBiRWNaVmMwNHFDandIeHBjbDRnc182d2VPcnVOeHp5alN2LVBGSjFZTkE5RmpLXzRMcDVlU0MwbGRBYnd6SWptRGtZYkNPYjNjWnlab1ZwUUFLT0c2dE1UUVBIaA?oc=5",
+          "published": "Mon, 29 Jun 2026 07:00:00 GMT"
         }
       ]
     },
@@ -254,14 +254,19 @@
       "label": "Argentina",
       "items": [
         {
-          "title": "A cuánto llegarán el dólar y la inflación a fin de 2026, según los principales analistas de mercado",
-          "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOU2hrWXl0bnpKaDdKSDlqVTFGZW1XTFhlWkJ1MlM2SnZERzNoM0dtODdGYjMwNnBaSHFicWdzMnA2VmRveXdnUUJtSHEwbDJnX3dINUJ4TE5jaHZLSDJmZmFEODdubGlGbzBnVmVkMDloM19PWDNVTy00WTd1VExlRmVRUG1MMWtKS3VTbU5sVElHYzRwWTBLQXVCdXVFYldwNGZYeXJNMVZtSFk5S2IwZzRkQVNmZC0yNmJVN1gzNkp5aFByeERzTy1UdldLZFBUMXpJcnhlNVJuTUXSAfYBQVVfeXFMTUt5emNSaWxLYXgwNk83YjdNRVRKeDRUT1ZlWmpGUEE0TkdhNHI1bDU0MURfcjZ4U1FWSXFUNmpOSDRWT0Q0UXFDcjhKZnNsZ19TaEtmNTE2dDg1dTNLcE5HMThRM0k3d3ZNOWw2MlBIc2NNWTQ5YlhNcy1HRWJWeUZzT0ZiV3prV3BoWXUzWUxuSWpqZ0lfVG9sMGdNcG9kS1kwWFlGREZic1NXRnNsQjNpTlJiZlc4ZEEtbVVsMUFHRC1qb0dkOFk4MnNpUWJKMWhhbFFpM21tc015Vm5aZFRFQW81R3NJeHFtZWJpSzNuQmUxdzdn?oc=5",
-          "published": "Tue, 08 Sep 2026 13:35:00 GMT"
+          "title": "El clásico dólar vs. inflación: cuál preocupa más al mercado con el billete bajo control y los precios a la baja",
+          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQbzBRWVNtelo2UHl2dmJqVGpyZVhIaHR3ajNac1Jrak5NbzcwcHk0Y1RaSVpJem5BRVhsTW9EU1NJUnoyTjI3WVBkYUdXWEpoemExWXRYUEVOWGxrdlZMQ19IQ0RkRW10NmJWWGZoNG1mcnFNek9RRzRoQmVQV0Z0ZnpIdlM0ZjdNQnZ5WFRNRUN2Q3N3eTFCMFFTUFIxUWEwS0x2T0ZxMFFPZTNEUDJhdmJ1ejI3VUlXYmZqNzRZTGt5QdIBxwFBVV95cUxObkI4dmRZVE50YUtNdmNWbHYyaE10ZHRwcmNRUFVpbV82TXZLcDNoS2ZXMDhVM293TVpXT2VzZGttOUtXWUlISDFCVGlrTFhZaDEyOVREa0RFWlRLLUdYZTg2UjhBT2xiOVA1QXZUSk50RzNncy1nMGNRckRZM0luV0M3Rnpsa0xCTkdqRVc4aFhIVmdtT3VtT3pfT3l4X3F3OVd6S29UWTRXeVFlYVRyYTkwUlM4N2F5OVd2dWlMU09ldmtFZEtz?oc=5",
+          "published": "Wed, 09 Sep 2026 10:13:00 GMT"
         },
         {
           "title": "Dólar en Argentina: cuánto se espera que valga a fin de 2026",
           "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxObzByWnhCcmdXSUFuTmdLeTkyYWRucjRVS3NKaHVBUzQ0QmRNdkVOazVuX3BSOE5GTjhvZ0ZvYW5oYW1oZnotYnJfMTQ3T0hqeE4tdkppX2J2T2V2ODJDcWpTbnhtVmVDRThNNndpcW42Um1sN1REbzhuTDFhOUQzQS0wU0pqc2dZT2ZVN29UNF9JdGhLNnRkNmJkNXFsQkltSlVIVlhTUmhFd1Z0eExtN2l5bHc5bS1nWF9qXzBPUWJJdDdzQ2FrNWVlQ0xXUG9jRUY1VlJzQl9jWXpxdTJTYUxaNUFvajZaUUlSd05TVjNuZlIxdTlNVVZfYlRCM280MFHSAYcCQVVfeXFMTlE0ckRPN2k5THQ1TWYxZmlsSzNlQVRHSkh6dE1WMkwxTno0SHNzeXdCNjFjQUtNeFg1QlpfcndUZE96aXVwQjh5c0V0c3FURXZiS1BDQndPRnVpek52bGh1VDJ6NlFDM3k1czZWajcxb1p5dmEzcjlyMVVSejRWeTlMT0dmWlNoVmQ5OERsdmY2RldMeHRibFJVUWl6VVBsNk05czRZeXZKeVRTdWhqd3Rka2RSbXU4SnA1RzBjQzc0UzhVQzFFeDFMREpmSDY4eDdmeTY2dUZZQlNscGJDazJJWHk3blh2LUQ2ZWRWc2pSRTRxNWljX1FBbnRwbGRBNF9MOEozODA?oc=5",
           "published": "Sun, 06 Sep 2026 15:30:04 GMT"
+        },
+        {
+          "title": "A cuánto llegarán el dólar y la inflación a fin de 2026, según los principales analistas de mercado",
+          "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOU2hrWXl0bnpKaDdKSDlqVTFGZW1XTFhlWkJ1MlM2SnZERzNoM0dtODdGYjMwNnBaSHFicWdzMnA2VmRveXdnUUJtSHEwbDJnX3dINUJ4TE5jaHZLSDJmZmFEODdubGlGbzBnVmVkMDloM19PWDNVTy00WTd1VExlRmVRUG1MMWtKS3VTbU5sVElHYzRwWTBLQXVCdXVFYldwNGZYeXJNMVZtSFk5S2IwZzRkQVNmZC0yNmJVN1gzNkp5aFByeERzTy1UdldLZFBUMXpJcnhlNVJuTUXSAfYBQVVfeXFMTUt5emNSaWxLYXgwNk83YjdNRVRKeDRUT1ZlWmpGUEE0TkdhNHI1bDU0MURfcjZ4U1FWSXFUNmpOSDRWT0Q0UXFDcjhKZnNsZ19TaEtmNTE2dDg1dTNLcE5HMThRM0k3d3ZNOWw2MlBIc2NNWTQ5YlhNcy1HRWJWeUZzT0ZiV3prV3BoWXUzWUxuSWpqZ0lfVG9sMGdNcG9kS1kwWFlGREZic1NXRnNsQjNpTlJiZlc4ZEEtbVVsMUFHRC1qb0dkOFk4MnNpUWJKMWhhbFFpM21tc015Vm5aZFRFQW81R3NJeHFtZWJpSzNuQmUxdzdn?oc=5",
+          "published": "Tue, 08 Sep 2026 13:35:00 GMT"
         },
         {
           "title": "“Lo que el dólar calla, los bonos gritan”: el mercado mira con más cautela la economía de cara a 2027 y sube el riesgo país",
@@ -279,23 +284,18 @@
           "published": "Thu, 13 Aug 2026 07:00:00 GMT"
         },
         {
+          "title": "El dólar está tranquilo, pero el mercado no: los tres datos que pondrán a prueba la economía esta semana",
+          "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPalBfUC04aGtISE1CZjdDWHZDaHJnYi1nSUxEWnNsX3hHbm11X1RIOTl4N3VycjJDTXdqX0FERzNJTS05VktnWW80MzdUdkNUa1MxbW1lajdvOC1FeEh1T1RqN1A2MXhXbVhhczZRdjE2OXVHRXZxbEw1Tm8takpmOGNLODlHWW1BSXp0a1Z2Z0VVMUNjc3pJYTR0WEpUcHdzb3JxTldGTXF2UW5ucmloY29EMm5XMnNQV2dYX1RlcHl3dWQ2ckFKLW1hT1pxTUtrUU9pUW1ZWmFhaE0?oc=5",
+          "published": "Tue, 18 Aug 2026 07:00:00 GMT"
+        },
+        {
           "title": "Inflación y dólar: cuáles son las proyecciones del mercado para julio, según el REM del Banco Central",
           "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQR3VkQVRybjNYWDB3M1RlRFJ1MnJxOVcySzY5UktxNVNqQ3ZzTm1jbkhaTG5yenNrYkh1X2pBWFlZV3NhdVFaY2ZtSDdKX0RyM0E4d1VZTnFjZnZ5SXBTTU5SaXcwY0I4US1razlITmlwSWE0aVJqX2VrSjlTMHY5RVp4RXdCT2dSaTc0WTlMXzZCV2loYkVTZnptaGR5NDgyRWNtS3BKZ1ZHN0NySGRSUUUyZ18yMUlSaEdIekd6WW5LbWtVV1VGY3FMQkR0Qjh2LXRHaXlmeEQ2NmZqX2ZkcmJoems1cU5YeXJVdkxJMmpydDDSAfgBQVVfeXFMUDQ5Tm00UzI5a3hKNWtfV1V6NWlVOUdySWl1VkR4dDZzaVdYUko0cUlnV3JVMFlta0t0S3ZWcUx4blRobmRnSXFCTFZKMEd4OVJUUFhPM2VJOGM0QkJhUnM4YUxqdkthckV0NDBPaXVzZDlxQzJpR3V2c3RrMTVuRXJQSFZzb3ZGU043LTJxbUc1S0VKQVNnU3VwaDhqcnJnUUZ4X3dxYWpPUVpJdDJyS0w2Y0plUXN2QVBTb3lydHFmeWdXZjBoQXFUc3laY1ZpV2tQQzljUnZ4SS1QZGFFMTFTQWJBVEdPOUV3c0JxSVdveklsUzNNMTA?oc=5",
           "published": "Thu, 06 Aug 2026 07:00:00 GMT"
-        },
-        {
-          "title": "Riesgo país, acciones y bonos: así operó el mercado HOY, jueves 2 de julio",
-          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQcWxqdVpmY2NIM21kMWlQcC1VOHFPN2E5RU5rZkVGYUsxcXdSZklod2JZWXVNVVpGWTFFZy1Ya1BRMlNCMHdtZWhlVFBVd0ZvajUyQ0tLMGZJczJsM0xsdUtlS0toU2lzbXZ5U0c1NU1xZ2RnM050bThTT3ZmeXc0VDYxSk1EdWE0dUM3TXE0Y1BqOVA2TVZzY2JUbFVVVFVOZm9QWlUwWUdKa3hoZExfbTNPV2VWMUdlRmpuazVzT01zanfSAdcBQVVfeXFMTWlzRHNFYmRVTng0bjh1aGJ6dFEyTzVyemZJUlFuSDlJN2dUaU9wNXEydjNaVU1BbUdPRDZjem9ZZVlqTUJvVFFQdnh4NENqVldPNjlDVzV0bEtFMXg5MGZrZ2R5ZHJ3anZZMHc0dFFaNjJ6U0pYZkpISThTYUxMc2NBYnJVdGJlODFnUlU3aldTTWt1SFQ2Vi1Pa2JncXg5Wk1QN3p4RHZlQjRXVzRNZTdoTGtldGtBV1dxWVFZUmhQbHY0YjdON1M3MmZkTWpubTdWd3ZKcDQ?oc=5",
-          "published": "Thu, 02 Jul 2026 07:00:00 GMT"
-        },
-        {
-          "title": "\"Dólar Ravier\": el mercado estima que recién en mayo del 2027 el tipo de cambio llegaría a $1.800",
-          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNNGN6ZHkxU1BlU1AzMXdhTXh4c2k1Y2ZlQjZwZEpub0dMaW54X2FwLUxLQ3Z6QV9PeTlmVkpfR09pdV9LNlJIZy1jYk1VbkdKVEZEY2VFTm9sd2h5d2RPT0VBR3VFa013bnEtUkVTLWZFNlJXRzVGdHV2VndzMWNqSER3N2t5NnhlOWNvRGZjN1I4dzdFektLRnVnSV9hLUctQ09KYjgxanFfSkZyY19qUU8zNWvSAboBQVVfeXFMUEhzZ3V1NzdqUHZtZnVubGRxam1WcFJWWWxLTXZudzVDZmV1dk4zb2FfYk9tQ1JTcGJvR3FYaGtqWXYtVjRENlNJbDdKbGRNOGVmVUx5WTVIRTFISG0zZTg5OXVPcE9KWFI1RTc5QzBIZjhnTFJRdnExN3hEQkRac0R2QkZ0Z3EzNDlfUG5zckNUYWstcS1IRVFrT2N1a25XdVJiOXlIWmEtZzY3SXA4d1Rtbm9rMC0wSDNn?oc=5",
-          "published": "Mon, 27 Jul 2026 07:00:00 GMT"
         }
       ]
     }
   },
-  "updated_at": "2026-09-08 23:48",
-  "updated_date": "2026-09-08"
+  "updated_at": "2026-09-09 18:19",
+  "updated_date": "2026-09-09"
 }
