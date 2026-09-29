@@ -49,7 +49,7 @@
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7742.25,
+      "price": 7735.25,
       "prev": null,
       "change_pct": null,
       "date": "2026-09-28"
@@ -58,7 +58,7 @@
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 30542.25,
+      "price": 30481.5,
       "prev": null,
       "change_pct": null,
       "date": "2026-09-28"
@@ -67,7 +67,7 @@
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 51822.0,
+      "price": 51794.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-09-28"
@@ -76,7 +76,7 @@
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4145.89990234375,
+      "price": 4155.2001953125,
       "prev": null,
       "change_pct": null,
       "date": "2026-09-28"
@@ -85,7 +85,7 @@
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 93.30000305175781,
+      "price": 93.4800033569336,
       "prev": null,
       "change_pct": null,
       "date": "2026-09-28"
@@ -94,7 +94,7 @@
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 98.54000091552734,
+      "price": 98.9000015258789,
       "prev": null,
       "change_pct": null,
       "date": "2026-09-28"
@@ -103,7 +103,7 @@
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 101.19599914550781,
+      "price": 101.20600128173828,
       "prev": null,
       "change_pct": null,
       "date": "2026-09-28"
@@ -113,18 +113,18 @@
       "name": "EUR/USD",
       "type": "forex",
       "price": 1.1371389627456665,
-      "prev": 1.1374752521514893,
-      "change_pct": -0.02956454702523645,
-      "date": "2026-09-28"
+      "prev": 1.13779878616333,
+      "change_pct": -0.05799122179489275,
+      "date": "2026-09-29"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.2245001792907715,
-      "prev": 5.190499782562256,
-      "change_pct": 0.6550505375752381,
-      "date": "2026-09-28"
+      "price": 5.222599983215332,
+      "prev": 5.1875,
+      "change_pct": 0.676626182464232,
+      "date": "2026-09-29"
     },
     {
       "symbol": "^TNX",
@@ -155,53 +155,53 @@
     }
   ],
   "fear_greed": {
-    "value": 74,
+    "value": 73,
     "label": "Greed",
-    "timestamp": "1790553600"
+    "timestamp": "1790640000"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "US stocks fall, bond yields rise as Middle East war drags on",
-          "link": "https://finance.yahoo.com/energy/articles/oil-prices-spike-trump-rejects-034903535.html?.tsrc=rss",
-          "published": "Mon, 28 Sep 2026 20:49:14 +0000"
+          "title": "S&P 500, Dow, Nasdaq Drop Under Pressure From Elevated Yields As Investors Shrug Off Trump’s Iran Sanction Relief — NVDA, BA, AMD, NVTS, CBRS In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-dow-nasdaq-drop-under-pressure-from-elevated-yields/cZMjBLyRBXW?.tsrc=rss",
+          "published": "Mon, 28 Sep 2026 23:07:58 +0000"
         },
         {
-          "title": "AI Can't Save the Stock Market and the S&P 500 Is Paying the Price",
-          "link": "https://finance.yahoo.com/m/a0e5a077-d681-3f42-b3ff-2dafe265c478/ai-can%27t-save-the-stock.html?.tsrc=rss",
-          "published": "Mon, 28 Sep 2026 20:01:44 +0000"
+          "title": "Update: Wall Street Dips as US-Iran Standoff Keeps Traders Anxious",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/wall-street-dips-us-iran-211514161.html?.tsrc=rss",
+          "published": "Mon, 28 Sep 2026 21:15:14 +0000"
         },
         {
-          "title": "Update: US Equity Indexes Fall as Iran Settlement Talks Lose Momentum",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-fall-iran-193437834.html?.tsrc=rss",
-          "published": "Mon, 28 Sep 2026 19:34:37 +0000"
+          "title": "VirTra, Inc. (VTSI) Suffers a Larger Drop Than the General Market: Key Insights",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/virtra-inc-vtsi-suffers-larger-211505562.html?.tsrc=rss",
+          "published": "Mon, 28 Sep 2026 21:15:05 +0000"
         },
         {
-          "title": "Where Will the S&P 500 Be in 30 Years? History Offers a Clear Answer for Investors.",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/where-p-500-30-years-192000270.html?.tsrc=rss",
-          "published": "Mon, 28 Sep 2026 19:20:00 +0000"
+          "title": "Crescent Energy (CRGY) Falls More Steeply Than Broader Market: What Investors Need to Know",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/crescent-energy-crgy-falls-more-211504846.html?.tsrc=rss",
+          "published": "Mon, 28 Sep 2026 21:15:04 +0000"
         },
         {
-          "title": "It’s an All-Around Bad Day for the Stock Market",
-          "link": "https://finance.yahoo.com/m/a9c8648c-0686-3f2b-83dd-7f96b4ba0fa0/it%E2%80%99s-an-all-around-bad-day.html?.tsrc=rss",
-          "published": "Mon, 28 Sep 2026 18:53:15 +0000"
+          "title": "Why PagSeguro Digital Ltd. (PAGS) Dipped More Than Broader Market Today",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/why-pagseguro-digital-ltd-pags-211504926.html?.tsrc=rss",
+          "published": "Mon, 28 Sep 2026 21:15:04 +0000"
         },
         {
-          "title": "3 Reasons to Avoid BILL and 1 Stock to Buy Instead",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-avoid-bill-1-183036391.html?.tsrc=rss",
-          "published": "Mon, 28 Sep 2026 18:30:36 +0000"
+          "title": "Kinsale Capital Group, Inc. (KNSL) Suffers a Larger Drop Than the General Market: Key Insights",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/kinsale-capital-group-inc-knsl-211504472.html?.tsrc=rss",
+          "published": "Mon, 28 Sep 2026 21:15:04 +0000"
         },
         {
-          "title": "Stock Market Today: Dow Ends Lower But Nvidia Pops On This; Leisure Play Tests Entry, MongoDB Dives",
-          "link": "https://finance.yahoo.com/m/6b34a52f-8642-3ca8-8589-c9e25040f485/stock-market-today%3A-dow-ends.html?.tsrc=rss",
-          "published": "Mon, 28 Sep 2026 20:34:25 +0000"
+          "title": "Superior Group (SGC) Declines More Than Market: Some Information for Investors",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/superior-group-sgc-declines-more-211504939.html?.tsrc=rss",
+          "published": "Mon, 28 Sep 2026 21:15:04 +0000"
         },
         {
-          "title": "Trump-Iran Tensions Trigger Fresh Wall Street Selloff",
-          "link": "https://finance.yahoo.com/markets/articles/trump-iran-tensions-trigger-fresh-202442782.html?.tsrc=rss",
-          "published": "Mon, 28 Sep 2026 20:24:42 +0000"
+          "title": "Here's Why D.R. Horton (DHI) Fell More Than Broader Market",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/heres-why-d-r-horton-211503553.html?.tsrc=rss",
+          "published": "Mon, 28 Sep 2026 21:15:03 +0000"
         }
       ]
     },
@@ -214,19 +214,9 @@
           "published": "Mon, 28 Sep 2026 09:30:29 GMT"
         },
         {
-          "title": "AI, Financial Markets, and the Economy",
-          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPQ2JyS25xb0Q1UERlcjM4WE45elRkVGtZVFhDV3YtRWpEcWJoLVVkakMtVnBWWHNBbVM5Z2dncTN5azVhaWxUQzczNVhwMGtnbGdkbDA4RURtRUNPY3lacU1rdXJhVzZUZ3FvVENnQklOVnd2MURtNjB6bUdkUGp0bjQ5dzNfaTR6?oc=5",
-          "published": "Mon, 28 Sep 2026 16:37:40 GMT"
-        },
-        {
-          "title": "UK Markets Brief: Help to Buy’s Comeback, Airtel Money to IPO, and a Key Speech for John Healey",
-          "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPc3UwdlFRZVMzeXJPLXBiQUcxZTJuYnVIcllHakhSUU1wWndTVzdPblAwRzlVSzBIcVVuenhuN1BxRHhkYzRzRTMtTUI1NDNMa0Rrdno2bTdzQUF5d1dyQml0YmVTR05UcDgwZFduZnpmRHJaU1E0emFub3A5MXdlcDFDd1VMYmZ4NHhFUDV6QWh2emFxWGxwNlE2RWZ1M1dqU3VZaHgzdVZTQ2xvNmp1UVl0TTZYLW1heTZjMTluZThMaGNlbTJQag?oc=5",
-          "published": "Mon, 28 Sep 2026 13:18:52 GMT"
-        },
-        {
-          "title": "Wall St Week Ahead Jobs report, inflation data to test US rate path, economic strength",
-          "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOMVdISllUQW1vOGc5UzVfeWVGbVloWmh0U3A3X0N2LU9TQnBfQ0RhU0JfbEZVQlA3MUJhOVBacWg4QkJrdTVQaE50RkpsaGJqOEhWZDU5WDNQTVp0dWtzc3J6ZVlFR3VnZmNnLTlwbEpWZW9yMXh2NThFQnpyd3lNX3JZUUZfQ05vTndubkpBaVgzY2d4b05DOEJUSGZ6RGNuWVlDcU4ybm9IVUQwbWtMUU5Ic2pEdDQ3?oc=5",
-          "published": "Fri, 25 Sep 2026 10:06:00 GMT"
+          "title": "Why Meta’s Muse may support the AI bull market",
+          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPMGpnMG1WMVBVUFNYVEFVT29hWVRsU1J2Q0F1eDREeTRCdkFESktNS0tVWDNhZXhZbWFlLXRHdEFVc1M2Q0RBbTBNUUk0Z1ZNUDRYYWE3ZzlxMjIyTjAzeG1UZmdZZFlEaGhUaUJkQ3NxRklDSkhxVHlaUEh1dTFRWDF2aXBBZm1jWDRRLQ?oc=5",
+          "published": "Mon, 28 Sep 2026 13:53:09 GMT"
         },
         {
           "title": "Erdoğan bids to contain fallout from Turkey’s $18bn stock market scandal",
@@ -234,9 +224,19 @@
           "published": "Mon, 28 Sep 2026 20:57:06 GMT"
         },
         {
+          "title": "UK Markets Brief: Help to Buy’s Comeback, Airtel Money to IPO, and a Key Speech for John Healey",
+          "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPc3UwdlFRZVMzeXJPLXBiQUcxZTJuYnVIcllHakhSUU1wWndTVzdPblAwRzlVSzBIcVVuenhuN1BxRHhkYzRzRTMtTUI1NDNMa0Rrdno2bTdzQUF5d1dyQml0YmVTR05UcDgwZFduZnpmRHJaU1E0emFub3A5MXdlcDFDd1VMYmZ4NHhFUDV6QWh2emFxWGxwNlE2RWZ1M1dqU3VZaHgzdVZTQ2xvNmp1UVl0TTZYLW1heTZjMTluZThMaGNlbTJQag?oc=5",
+          "published": "Mon, 28 Sep 2026 13:18:52 GMT"
+        },
+        {
           "title": "What to Expect in Markets This Week: Latest US Inflation, Jobs Data; Micron, CarMax Report",
           "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOUFFrR2lJSXVYME5xcS15M2wzWl9UZUxHSzFSRGc5OXFXSUc0cENNOTUyc0x4NzJhMzJOSzBaMkhFYjh2X2lkNzdtZmNfSHh5Y203SmNhdEt5bnNFUGVNRy1KM0tPbTZFWEdXZElxOVJSbTBMN1FiVG54V2h6eGhWQjAwWlVMRkphRmNxWGRDYmZsYjVtUFp2dG1pM0RZSDBWNFhIX1FKZnZNY1ZIck1NUHhQbjAyb0YyX19OZzgzY1ZaUQ?oc=5",
           "published": "Sun, 27 Sep 2026 09:00:00 GMT"
+        },
+        {
+          "title": "U.S. stocks slip after the Fed raises interest rates, hints more hikes may be on the way",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPQ0o4SEFnLXVuc0pFakhWQXNrNVdZOFBqTmZsR3dlMlFFZEluX2VWbEJPOGJkRkZ6a2tfaHZySVdpaVhYZk1aeGZFdjM2UExoOGMxc1BDbkcwUVFMaElEXzBUb2ItX1hmRVkxWjhHanJyV3ppMGJFcjhNY3BVYlZMNFVCemRaSW94Z1hBZy0yNmd3R29KMEppZThtNmxWaERxa3hfZzZ4WU5BV3AzN19xSTY0OEZwQmwzdGVSWC1SNNIBxAFBVV95cUxNQ3ZKZVFHbHpRSEo2cGs4RjlfMG1UdURsamh2Y3ExeEVkZzdmaGQ3OElrd0FpclpvUGQ1MFlKSHZ2VGFOc1hVN3ZmSVc4aGhIY3hvVm5UUlY0emc2bFNyU3ZGU0RFckhMekh6WE5FeklHLU9uUGZNOVZCQWJPdnctcTNJTmpTOGp0Q3ZVUjEzSWROc0V6VE1lY2hLLWNJWUlwTkEwQkJ1SVVtRlZrYlg5QUxoZEZFOFFzMXgwbkNPNzgzdlRa?oc=5",
+          "published": "Wed, 16 Sep 2026 07:00:00 GMT"
         },
         {
           "title": "Stocks Struggle Against Inflation and Rate Risks: Stock Market Today",
@@ -244,9 +244,9 @@
           "published": "Thu, 24 Sep 2026 20:12:15 GMT"
         },
         {
-          "title": "U.S. stocks slip after the Fed raises interest rates, hints more hikes may be on the way",
-          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPQ0o4SEFnLXVuc0pFakhWQXNrNVdZOFBqTmZsR3dlMlFFZEluX2VWbEJPOGJkRkZ6a2tfaHZySVdpaVhYZk1aeGZFdjM2UExoOGMxc1BDbkcwUVFMaElEXzBUb2ItX1hmRVkxWjhHanJyV3ppMGJFcjhNY3BVYlZMNFVCemRaSW94Z1hBZy0yNmd3R29KMEppZThtNmxWaERxa3hfZzZ4WU5BV3AzN19xSTY0OEZwQmwzdGVSWC1SNNIBxAFBVV95cUxNQ3ZKZVFHbHpRSEo2cGs4RjlfMG1UdURsamh2Y3ExeEVkZzdmaGQ3OElrd0FpclpvUGQ1MFlKSHZ2VGFOc1hVN3ZmSVc4aGhIY3hvVm5UUlY0emc2bFNyU3ZGU0RFckhMekh6WE5FeklHLU9uUGZNOVZCQWJPdnctcTNJTmpTOGp0Q3ZVUjEzSWROc0V6VE1lY2hLLWNJWUlwTkEwQkJ1SVVtRlZrYlg5QUxoZEZFOFFzMXgwbkNPNzgzdlRa?oc=5",
-          "published": "Wed, 16 Sep 2026 07:00:00 GMT"
+          "title": "Not a red flag: The market-economy disconnect",
+          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPM2pBUWlzOUZSaHh2UVRkTkNkSWJ3OG4wMzg0ZXJaUU93dUNBaXR0TlVzN0NtSVlBX1pQOXI2N18tQkN2dEJjeVNreE54UUQycTdoMlBsNm9MaDVLM3ZOQklNZG9fb3hXRmFGXzhKNkZhR2xNZkF0SzBaOTVWUzdlM3Y0OVpEcERzYTRzcjYyUGVmdG50NkVCeTk5M2Q?oc=5",
+          "published": "Fri, 10 Jul 2026 07:00:00 GMT"
         }
       ]
     },
@@ -274,9 +274,9 @@
           "published": "Thu, 06 Aug 2026 07:00:00 GMT"
         },
         {
-          "title": "Dólar hoy, dólar blue hoy: a cuánto cerró este viernes 28 de agosto",
-          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQTW52Tm1JOVp5QlA5MWhXUVZ5RG1OcEJ4cVhqWV85cThQcTI4TVFyUlNNbF93b0g4TThnblJjRGdPTnByNUp2YV9EdGh1SmItSW1WcTZfSWtuel9LSmxUWGNISE9FcjVYcEVFOWI5RUdGWmdOYUNFencxMGRJdGc5TF9ra19YNFFJVnFfVnZXYWw4MlNjcmRsQ282SHpkS3pULUt3N3lkeWhEb3NKcE8xdUtCQkpFYmlfQ2lsalgxbUVWUdIBxwFBVV95cUxNa3I1Yy1weTdkbUpLRGVTdlBERHUwTlMxa2s3VHZCdndVMXFMRVhxUVFDV1dPbkVpMHhfcm1ZNnR4bFNjYW5BbS1EVXFyY2VRMldheC1LR0NjOHhlNThjSERMb3dMNWNpMWhad2hzYUtWTk1vbjJwRVBBdktXMHJKUmxVemRPcnhGS1BfRU9zQTY3czNESVhmUDU3ZjYtcmhfUHRrNjRVY2I3a21tSS1YZTloNnJlTVRuUUktX0tobDF2Nk15R3Vz?oc=5",
-          "published": "Fri, 28 Aug 2026 07:00:00 GMT"
+          "title": "Dólar hoy, dólar blue hoy: a cuánto cerró este viernes 7 de agosto",
+          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQMHEzYkdGdVREOW5fMkgwZnFDeHZnYWZxNGZlNUNCVmF6OGlGSXl0TWtubjJfX19HV29vN2JDd0FzVnRxa2lXU05tOG5yVEwyQzc0U2tlZzJ0dncxU3FyclZLVmJtelZiUzhPOUwxWldhT05LdzBUTjlSVjZEb3JyUF9Ja3c2SlNpTU5IU3RFMDFpZ01IV1V0Yk5kSWkzR2VXYXp0NFF0U2ZYUGljQV9VRzF4YmZtQUxhMzdMS0xTaF_SAcYBQVVfeXFMT1FPMzNJVEZQVDZwbUJfSkwyRVRXYWZGUGstaDlPS3FwRWRSaWpKU0VRTnpqc2dhQ2RQSnhXNlVsVWlCR3NMT3NCbkN4MHdxSzJxa1YwMThzZlJKOW03aW9QZHhSeXdMN0xndlR0YnE3SUlJamRvWl9NMGxkZTJlNmg3OHl1X3VRMXBvSjFfV2FfY0pTVzlJa1J2ZVhaMVBrZGVxQTc2SVE3ZTNLWFEwRnJneGlwdXBTMlphbzRHd25NcGVzREtR?oc=5",
+          "published": "Fri, 07 Aug 2026 19:06:23 GMT"
         },
         {
           "title": "Riesgo país, acciones y bonos: así operó el mercado HOY, jueves 2 de julio",
@@ -289,13 +289,13 @@
           "published": "Wed, 05 Aug 2026 07:00:00 GMT"
         },
         {
-          "title": "Así cerró el dólar este martes 1 de septiembre en los bancos argentinos",
-          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPLUJRdnFCeGUxeUoxeTN0Z0NEdmw0ZWhCcURGNHpXWGF3aHloazkwdm5jemdYVHJWcFJmb0tETDJMRWl3ZkRRd2doUnJSWDhRQ1dlRjhJY0dDZ3JtdGx6R3l1RjRPXzVaVjZWY2gwN1dodlJwUjM2ZHhFRGlQZ0VlTXRMMl9uNWRwMEtxc21USm5XV053TDZJZnVtcnl3RDUzOVd2SDFzaUJIWGIybHRFbHpBTHhoSGlUMVh2dDhwYkpEdW5rb2w0R2l2aFl3N0ZR0gHWAUFVX3lxTE5SMFNZZ2RTcWhrU09mRG04TzJabEVQWlhUQk5ESUR2ZHlNOTJFa2JJeXc2cEZpaGlfZ25fZnpKNXloMTh3U3hLUDhLSnloR3Ayd0V6M280LS1Vd1pYNzdTSWRUaUR6UG1FRldoTGFlWHVPUndtRkxJczNJbFJhQWpnNl9EaUpmakJ5WnRTQVdib1c4M0pEeHlKUkRlQVJnbDEwc3V2SGs0dVdINXhRRTAxbFdCc2ZING1UQkhEQnp5aERQWXdXTEZGUkZkUllnclFkSUw2X1E?oc=5",
-          "published": "Tue, 01 Sep 2026 07:00:00 GMT"
+          "title": "Dólar: el mercado no ve una suba a $1.800 para este año, pero no lo descarta para las elecciones de 2027",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQWXV1bkhYQTdqNk5qRmRqbEk4eWdkYVpwc2VfOENFZS1kX1R3VWlqMnREaGpsd1NKUXd3VkpVdXBzUDY2dGowSjYtNk0xN1g4clA1aHQyQ2Jta0t3cmthREVFY2pBd2wxeVRqTmZEUGFmeExhTjVwYmduMXU5aDZJeENGNElRQWxILUFuTWFXNXU4SzcyYV9XNHpIbmoydk5nQ3phNS1KM1IyZTF5b2hyZ203YkN4c09fU0I3Tk9USFB2Qm9s0gHKAUFVX3lxTFAzeDFpNFJUY0V3RHNqUHdaeF84QzVNaXVoaC1RN242WlhaYXdYSkFzX2NaeFdCa2xhWHVMalVkRmFXd3lHZEx5dV93QzByS1hzLUZpaEZEbHRQQlNzdXpNNTd1MFdmd09NRk9qcDVncG9RVl9Ha3RWYV9WNU1mNkdxRkdoOGNib3draEYzNG9vQXNrM21ZbFJMVU5DNnVYWDM5d0tuWWVTY29YQ0x2N0I2RHhqd3NhMlVWVXllZDBoQW9BeElUTWJxUmc?oc=5",
+          "published": "Mon, 27 Jul 2026 07:00:00 GMT"
         }
       ]
     }
   },
-  "updated_at": "2026-09-28 21:04",
-  "updated_date": "2026-09-28"
+  "updated_at": "2026-09-29 01:24",
+  "updated_date": "2026-09-29"
 }
