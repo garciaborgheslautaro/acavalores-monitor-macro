@@ -49,7 +49,7 @@
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7830.0,
+      "price": 7833.25,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-05"
@@ -58,7 +58,7 @@
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 31339.5,
+      "price": 31343.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-05"
@@ -67,7 +67,7 @@
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 51598.0,
+      "price": 51631.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-05"
@@ -76,7 +76,7 @@
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4167.60009765625,
+      "price": 4160.60009765625,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-05"
@@ -85,7 +85,7 @@
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 89.30000305175781,
+      "price": 89.5199966430664,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-05"
@@ -94,7 +94,7 @@
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 100.31999969482422,
+      "price": 100.5,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-05"
@@ -103,7 +103,7 @@
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 102.12699890136719,
+      "price": 102.10399627685547,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-05"
@@ -112,19 +112,19 @@
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1223344802856445,
-      "prev": 1.124985933303833,
-      "change_pct": -0.23568765970270844,
-      "date": "2026-10-05"
+      "price": 1.1222084760665894,
+      "prev": 1.1254544258117676,
+      "change_pct": -0.2884123666613141,
+      "date": "2026-10-06"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 4.994699954986572,
-      "prev": 5.222599983215332,
-      "change_pct": -4.36372743386813,
-      "date": "2026-10-05"
+      "price": 4.998799800872803,
+      "prev": 5.223100185394287,
+      "change_pct": -4.294391770403158,
+      "date": "2026-10-06"
     },
     {
       "symbol": "^TNX",
@@ -155,23 +155,38 @@
     }
   ],
   "fear_greed": {
-    "value": 70,
+    "value": 73,
     "label": "Greed",
-    "timestamp": "1791158400"
+    "timestamp": "1791244800"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Nasdaq closes at a record high: Why the breakout today is 'important'",
-          "link": "https://finance.yahoo.com/video/nasdaq-closes-record-high-why-202703707.html?.tsrc=rss",
-          "published": "Mon, 05 Oct 2026 20:27:03 +0000"
+          "title": "Review & Preview: Artificial Highs?",
+          "link": "https://finance.yahoo.com/m/e58c053f-e869-304f-a891-acec3e7826f5/review-%26-preview%3A-artificial.html?.tsrc=rss",
+          "published": "Mon, 05 Oct 2026 23:55:00 +0000"
+        },
+        {
+          "title": "Dow Jones Futures: Nasdaq Hits Record Highs; TSMC, Nvidia, Elon Musk-Led SpaceX, Tesla Rally",
+          "link": "https://finance.yahoo.com/m/9c90b53b-8f8f-31da-a2bd-40e22a1f7b08/dow-jones-futures%3A-nasdaq.html?.tsrc=rss",
+          "published": "Mon, 05 Oct 2026 22:35:32 +0000"
+        },
+        {
+          "title": "Nasdaq 100 Hits Record Highs As Investors Shrug Off Pressure From Soaring Yields — NVDA, SPCX, CRML, TSLA, QCOM In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/nasdaq-100-hits-record-highs-as-investors-shrug-off-pressure-from-soaring-yields-nvda-spcx-crml-tsla-qcom-in-focus/cZDqO2yRBjp?.tsrc=rss",
+          "published": "Mon, 05 Oct 2026 22:09:32 +0000"
         },
         {
           "title": "Stock Market Today, Oct. 5: Tech Momentum Lifts Nasdaq as Treasury Yields Surge",
           "link": "https://www.fool.com/coverage/stock-market-today/2026/10/05/stock-market-today-oct-5-tech-momentum-lifts-nasdaq-as-treasury-yields-surge/?.tsrc=rss",
           "published": "Mon, 05 Oct 2026 21:33:29 +0000"
+        },
+        {
+          "title": "S&P 500 Closes In on Record High as Tech Rallies",
+          "link": "https://finance.yahoo.com/video/p-500-closes-record-high-212842891.html?.tsrc=rss",
+          "published": "Mon, 05 Oct 2026 21:28:42 +0000"
         },
         {
           "title": "L.B. Foster (FSTR): Buy, Sell, or Hold Post Q2 Earnings?",
@@ -184,24 +199,9 @@
           "published": "Mon, 05 Oct 2026 21:17:05 +0000"
         },
         {
-          "title": "Dow Jones Futures: Nasdaq Hits Record Highs; TSMC, Nvidia, Elon Musk-Led SpaceX, Tesla Rally",
-          "link": "https://finance.yahoo.com/m/9c90b53b-8f8f-31da-a2bd-40e22a1f7b08/dow-jones-futures%3A-nasdaq.html?.tsrc=rss",
-          "published": "Mon, 05 Oct 2026 21:11:00 +0000"
-        },
-        {
-          "title": "Update: Nasdaq Composite Hits All-Time High While Treasury Yields Touch Highest in Two Decades",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-composite-hits-time-high-205144332.html?.tsrc=rss",
-          "published": "Mon, 05 Oct 2026 20:51:44 +0000"
-        },
-        {
-          "title": "Stock Market Today: Dow Gains, Nasdaq Hits New High; Shopify, Brazil Plays Offer Entries",
-          "link": "https://finance.yahoo.com/m/b052bf47-576e-3ce4-8529-4e950340dfb3/stock-market-today%3A-dow.html?.tsrc=rss",
-          "published": "Mon, 05 Oct 2026 20:48:35 +0000"
-        },
-        {
-          "title": "Retiring With Half Your Wealth in One Stock? One Bad Quarter Can Reset Your Retirement Date. These 3 ETFs Spread the Risk",
-          "link": "https://247wallst.com/investing/etf/2026/10/05/retiring-with-half-your-wealth-in-one-stock-one-bad-quarter-can-reset-your-retirement-date-these-3-etfs-spread-the-risk/?.tsrc=rss",
-          "published": "Mon, 05 Oct 2026 20:33:27 +0000"
+          "title": "Doximity (DOCS) Surpasses Market Returns: Some Facts Worth Knowing",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/doximity-docs-surpasses-market-returns-211507866.html?.tsrc=rss",
+          "published": "Mon, 05 Oct 2026 21:15:07 +0000"
         }
       ]
     },
@@ -224,6 +224,11 @@
           "published": "Thu, 01 Oct 2026 17:28:17 GMT"
         },
         {
+          "title": "Five reasons India's stock market is sinking even when its economy is growing",
+          "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPM0ZDd1FQdFVyX19mUVYtQW1tbThtdjlRMVhKNGoxbk1qSTJiWVR4bGoxMldodWQ5WFI1RWx1anZ6eTJtalZCYWNkeHpCOEoxcWJRMV8zMEVCR3JwSVh6VzMwQkltS2h1NklwTU85ZW8taU91UktUdjl3Yll5M3FkQ2FB?oc=5",
+          "published": "Mon, 05 Oct 2026 23:13:16 GMT"
+        },
+        {
           "title": "Broadening Rally in Stocks Hits an Economic Roadblock",
           "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOb1pRQjhsN0k3MUdOZXVhWDdPTEptY1hlUWNmTkJrdmRoalN5UjZWS01jUWUwUDF5TG00bHQ2SWw0a1NQbnpaM0xkRmNYekNZMzlBY2FONWE4akY1bllxVXNBWFQycFhMejdhMTdoNkJ5ejlGeElhOEExelZ4TVJlTjREOGo2dTZHZmtPQmNCcHBsT2JwQzRIZ053dDdYM2lsQ2lrUg?oc=5",
           "published": "Mon, 05 Oct 2026 12:07:46 GMT"
@@ -231,7 +236,7 @@
         {
           "title": "3 Stocks to Sell and 3 Stocks to Buy for October",
           "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQQnFqZEZQdE9jSDhDcVVUVWRhZzd5eWVzQ01XZEtRcWJ4bV8yUmRfVmJsQ1dKaUZSUGg1U1lueG50ZS1VcmFUZUdOdjRGNHMzR19raXhSRmZZNkJLR1pwaTl6eWNQb2tZeHRkV1lxOW1SQlhPbWs1NnVzQ25GYllRR2FhdGxKWDF2OFFsdlIxTi12cmdw?oc=5",
-          "published": "Mon, 05 Oct 2026 18:33:01 GMT"
+          "published": "Mon, 05 Oct 2026 22:26:54 GMT"
         },
         {
           "title": "The jobs market is still fine",
@@ -239,14 +244,9 @@
           "published": "Mon, 05 Oct 2026 05:30:02 GMT"
         },
         {
-          "title": "U.S. stocks rise as Nasdaq hits record on buyout deals",
-          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1YQk5kUkdaOU80RUtEd21SVkRsM0pfdTBMU25EbnoyUEF5VXFoeWI3N0FOT3RTcE03WmJxR1hJSFZKczhsd1RicVV3WFctWlZQeHh0c0VoQ1V1bURuRkE1dkFBb2xoZFdqSGhDZjI5LVlucEVMaURZYW1JRQ?oc=5",
-          "published": "Mon, 05 Oct 2026 21:30:31 GMT"
-        },
-        {
-          "title": "Indian Economy Is Growing Fast. Why Aren't Stock Market Returns Keeping Up?",
-          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQQUJtb0NqSkp5blAxWVdXTmpWWUNCb0k4dG55U290NWs5RVZXVkNqTXMtbE54X2oxNmZfLVcydk5vSUVhaTkxZFJQTkNMTlE4ZVJTWGdaMGVEZnVReFlZZU1QSF9QdzdqTFg5aGZWRnNXXzc4eU9uZ3lENk0teEF3YjlINTRlQi1qUE14Y0c5X1hZazR2ZVY4MTFOMjZiV0hGbFpiRkYxYnAyaGJLYTRQTVBNZ0ZWNVHSAb8BQVVfeXFMTXpmZXpqRmFOVmxEY3ZBY1pCU3dfYnNzVndyRC1NUkpPeWFHM0hNVDY3UXBLNmItZGJQR0pDSHJ2czl1c3FhWEVON2hCNE9EcFdaeU5MbTl4bHhGOVIxdFdibzVfb2d6NXF5dEhiak1tb2RlNnppMnc5TEJ5aVpvZ3ZYTFZ1WmZIVGNpeWx4SW4zOUxDb1ZrUjNrakdxeWlBYjFjTlN0QW11UFJYU0lscTdzM2FidUxRN3dETV83NmM?oc=5",
-          "published": "Mon, 05 Oct 2026 03:22:41 GMT"
+          "title": "Why the stock market and economy may seem out of sync",
+          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9vcWg0QXpqWk91X05BclFWbHdfOXotd2YzRlBpS0lSeFN4ZGJwSDhvRE5uWkliU095bnYyMy11cEktM3U1SGZXd24wdlRoajBrTDVOR01wUGNDMElqbFVheEJjUko2MTk5Vlpad3hYQWVzRk90QkRuSUpUOFZUQdIBgwFBVV95cUxOU0NUczI0QXNNbXlrWTlINlBJTkVGZHFtQi1tS05ocmVsWlVzcWFNRjhic01aVWxSdWRCRU1ISTU0WnVrX1E4RGRZWG0tWHcxa3BqSnhLSXNhSzlNb2k1Z3g1V3Y4SkRoUUVmMUsyTTNZTmZIVWpHYzJsM3FYVUpGaWtzVQ?oc=5",
+          "published": "Fri, 10 Jul 2026 07:00:00 GMT"
         }
       ]
     },
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-10-05 21:49",
-  "updated_date": "2026-10-05"
+  "updated_at": "2026-10-06 02:01",
+  "updated_date": "2026-10-06"
 }
