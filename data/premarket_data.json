@@ -40,91 +40,91 @@
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 15.069999694824219,
+      "price": 15.079999923706055,
       "prev": 15.010000228881836,
-      "change_pct": 0.39972994688523367,
+      "change_pct": 0.46635372256375607,
       "date": "2026-10-07"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7852.75,
+      "price": 7849.5,
       "prev": 7874.0,
-      "change_pct": -0.2698755397510795,
+      "change_pct": -0.31115062230124463,
       "date": "2026-10-07"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 31395.75,
+      "price": 31409.25,
       "prev": 31483.25,
-      "change_pct": -0.2779255635933393,
+      "change_pct": -0.23504561949608127,
       "date": "2026-10-07"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 51439.0,
+      "price": 51373.0,
       "prev": 51816.0,
-      "change_pct": -0.727574494364675,
+      "change_pct": -0.854948278524008,
       "date": "2026-10-07"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4133.7001953125,
+      "price": 4148.0,
       "prev": 4187.10009765625,
-      "change_pct": -1.2753433426069958,
+      "change_pct": -0.9338228545846438,
       "date": "2026-10-07"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 89.05999755859375,
+      "price": 89.4000015258789,
       "prev": 89.44000244140625,
-      "change_pct": -0.42487127956134396,
+      "change_pct": -0.04472374154232506,
       "date": "2026-10-07"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 101.04000091552734,
+      "price": 101.54000091552734,
       "prev": 100.58000183105469,
-      "change_pct": 0.45734646659215783,
+      "change_pct": 0.9544631805487308,
       "date": "2026-10-07"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 102.28600311279297,
+      "price": 102.23300170898438,
       "prev": 101.83000183105469,
-      "change_pct": 0.4478064161236383,
+      "change_pct": 0.39575750828159784,
       "date": "2026-10-07"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1199462413787842,
-      "prev": 1.1217050552368164,
-      "change_pct": -0.15679824654627258,
-      "date": "2026-10-07"
+      "price": 1.1203227043151855,
+      "prev": 1.1253530979156494,
+      "change_pct": -0.4470057984272701,
+      "date": "2026-10-08"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.010499954223633,
-      "prev": 4.996699810028076,
-      "change_pct": 0.27618517662118863,
-      "date": "2026-10-07"
+      "price": 5.021599769592285,
+      "prev": 4.981400012969971,
+      "change_pct": 0.806997159787352,
+      "date": "2026-10-08"
     },
     {
       "symbol": "^TNX",
@@ -148,60 +148,60 @@
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 87.81999969482422,
+      "price": NaN,
       "prev": 89.69000244140625,
-      "change_pct": -2.0849623098223113,
+      "change_pct": NaN,
       "date": "2026-10-07"
     }
   ],
   "fear_greed": {
-    "value": 71,
+    "value": 64,
     "label": "Greed",
-    "timestamp": "1791331200"
+    "timestamp": "1791417600"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Trump accounts may spark kids' interest in investing: Michael Dell",
-          "link": "https://finance.yahoo.com/video/trump-accounts-may-spark-kids-184849675.html?.tsrc=rss",
-          "published": "Wed, 07 Oct 2026 18:48:49 +0000"
+          "title": "Review & Preview: Close but No Cigar",
+          "link": "https://finance.yahoo.com/m/142282e6-22d3-3331-8a18-36d07990e713/review-%26-preview%3A-close-but.html?.tsrc=rss",
+          "published": "Wed, 07 Oct 2026 23:55:00 +0000"
         },
         {
-          "title": "How major US stock indexes fared Wednesday 10/7/2026",
-          "link": "https://finance.yahoo.com/markets/world-indices/articles/major-us-stock-indexes-fared-201722535.html?.tsrc=rss",
-          "published": "Wed, 07 Oct 2026 20:17:22 +0000"
+          "title": "2 High-Yield Stocks to Buy in October (Hint: Bristol Myers Squibb Is One)",
+          "link": "https://www.fool.com/investing/2026/10/07/2-high-yield-stocks-to-buy-in-october-hint-bristol/?.tsrc=rss",
+          "published": "Wed, 07 Oct 2026 23:35:00 +0000"
         },
         {
-          "title": "Bond Yields Kept Climbing And Fed Minutes Showed Another Rate Hike This Year. Stocks Dropped.",
-          "link": "https://www.ibtimes.com/bond-yields-kept-climbing-fed-minutes-showed-another-rate-hike-this-year-stocks-dropped-3808354?.tsrc=rss",
-          "published": "Wed, 07 Oct 2026 20:12:05 +0000"
+          "title": "S&P 500 And Nasdaq 100 Slip From Record Highs Amid Pressure From Soaring Treasury Yields — SPCX, AMD, NVDA, MRVL In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-and-nasdaq-100-slip-from-record-highs-amid-pressure-from-soaring-treasury-yields-spcx-amd-nvda-mrvl-in-focus/cZDvp0iRBZ9?.tsrc=rss",
+          "published": "Wed, 07 Oct 2026 22:50:51 +0000"
         },
         {
-          "title": "Update: US Equity Indexes Fall After Strong Treasury Auction, Tightening Lean in Fed's September Minutes",
-          "link": "https://finance.yahoo.com/economy/policy/articles/us-equity-indexes-fall-strong-195348550.html?.tsrc=rss",
-          "published": "Wed, 07 Oct 2026 19:53:48 +0000"
+          "title": "The S&P 500 Just Reached a New Record. Here’s What History Says About Buying Stocks Now.",
+          "link": "https://www.fool.com/investing/2026/10/07/the-s-and-p-500-just-reached-a-new-record-here-s-what-history-says-about-buying-stocks-now/?.tsrc=rss",
+          "published": "Wed, 07 Oct 2026 22:30:02 +0000"
         },
         {
-          "title": "Strong 10-Year Auction Doesn't Do Much for Stocks",
-          "link": "https://finance.yahoo.com/m/af21e6cf-7145-355e-9818-2802b46a007c/strong-10-year-auction.html?.tsrc=rss",
-          "published": "Wed, 07 Oct 2026 18:23:37 +0000"
+          "title": "We Are Witnessing the Stock Market Do Something for Only the 3rd Time in 156 Years, and History Is Clear About What Comes Next",
+          "link": "https://www.fool.com/investing/2026/10/07/we-are-witnessing-the-stock-market-do-something-fo/?.tsrc=rss",
+          "published": "Wed, 07 Oct 2026 21:50:00 +0000"
         },
         {
-          "title": "Nasdaq and S&P Hold Weekly Gains as Small Caps and Dow Slip Midweek",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-p-hold-weekly-gains-181400139.html?.tsrc=rss",
-          "published": "Wed, 07 Oct 2026 18:14:00 +0000"
+          "title": "Stock Market Today, Oct. 7: Itaú Unibanco Falls on Profit-Taking After Brazil Election Rally",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/10/07/stock-market-today-oct-7-itau-unibanco-falls-on-profit-taking-after-brazil-election-rally/?.tsrc=rss",
+          "published": "Wed, 07 Oct 2026 21:35:01 +0000"
         },
         {
-          "title": "3 Stocks With 100%+ Projected Q3 Earnings Growth to Buy Before Results",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/3-stocks-100-projected-q3-180000523.html?.tsrc=rss",
-          "published": "Wed, 07 Oct 2026 18:00:00 +0000"
+          "title": "SolarEdge Technologies (SEDG) Falls More Steeply Than Broader Market: What Investors Need to Know",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/solaredge-technologies-sedg-falls-more-211507558.html?.tsrc=rss",
+          "published": "Wed, 07 Oct 2026 21:15:07 +0000"
         },
         {
-          "title": "Update: US Equity Indexes Fall, Treasury Yields Mixed Ahead of Fed Minutes",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-fall-treasury-175755567.html?.tsrc=rss",
-          "published": "Wed, 07 Oct 2026 17:57:55 +0000"
+          "title": "Why Paccar (PCAR) Dipped More Than Broader Market Today",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/why-paccar-pcar-dipped-more-211507781.html?.tsrc=rss",
+          "published": "Wed, 07 Oct 2026 21:15:07 +0000"
         }
       ]
     },
@@ -214,14 +214,14 @@
           "published": "Mon, 05 Oct 2026 23:13:11 GMT"
         },
         {
-          "title": "Why Markets Are Buoyant — and Under Pressure",
-          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQaTNzYmxtcC01Z3o2NURvb1hMT1lteDJlWFV6VEl0UGtVdXNWZ3RVTmgzMDBwOWdMOGJWOWF0UWpCZktUSDZuQzk3cDRUSmg5R25TVldnOHUwcmtCQ0lEclB3cUZOQzhSbm5PN3ZfLWNCUG5RN2d6RWM3cVMxZmoyWGdTOUYtdnJI?oc=5",
-          "published": "Wed, 07 Oct 2026 15:01:06 GMT"
-        },
-        {
           "title": "S&P 500 record, ICE's economic chill, Webull's China ties and more in Morning Squawk",
           "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPNURwQkE3T3REaEkyQ0hwLVRadEthUkhfdkd5ZXV4YlJwbmFRTUV4QUo2VVh5d3RuZlR6dTd5YmFRZUlXeGdpUzNRaDNOd1VBeHphTXA0QkNtMTdPUkVkd3hraDh4ZVluN1FEMGktUHM0Zno5cUR6ckwyZkJmcnRQWFhHWkNPWDU0Mnpz0gGQAUFVX3lxTE5EQ0ZYRUg0VGRsZFJzRjFQZHVjS2JzY2RuWWlYYUdyWHptN3NURHA3Ym5oSVhYV0syLXZwRDRobnBmMHhUWDZNS2tQcUpJQWczd2Vjd0RKUlRqS011WGNGZ0lFUm1EeHc3QURxblBaUkhFZDlWMVk1S182RUowMWRrdlZfN2pDUkw2bUY5SXNlLQ?oc=5",
           "published": "Wed, 07 Oct 2026 12:50:22 GMT"
+        },
+        {
+          "title": "US stock market hits all-time high as investors continue to bet on AI",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPWGVpQWRLR19SM1hhdGdPN2RwTXl0LWhrVU5TRUpvc0ltbEhjazZObHpMRGx0NVBydTZldHlTYTNCV0RKUUY2R1YwUEFqWXdTNkxtS0FJbUkwLXh4NGRpeUhmZlNNVU52TzM0OW1vUFRpZUJmLVFCSU1ySlpLVHBPWGRyT2FLWENwNXg5cEN2c2JRVFJRMDF3akJuUVVENHpHczhzX3B0dm_SAa4BQVVfeXFMUHZJa1dVeDE2cGhpZXlYUGRGbjZzbWdZMjl0VzdWSmZFbzFKYjVvWmd3b0pZVEdEU3J5ckpyQ0ZDQTR3ODJybFB0S2VjMmg4QlpqWmFQNW9Pc0t5eDF0NlNFMkl6UDdGbUV4aDhNVm1Rd3B1cEhBNFpLMWx2VE1nZlVUejRZVjFkV3gtbFRrV1ZoUjZNSmxYcjdmZHZ5VGZyWFYyeWdvWFJBem5mTjl3?oc=5",
+          "published": "Wed, 07 Oct 2026 06:34:37 GMT"
         },
         {
           "title": "Stock Market Today: S&P 500, Dow, Nasdaq Futures Fall as 30-Year Treasury Yield Hits 2002 High; Iran Mocks US Economy — STZ, PENG, LEVI in Focus (UPDATED)",
@@ -229,14 +229,14 @@
           "published": "Wed, 07 Oct 2026 12:36:45 GMT"
         },
         {
+          "title": "Why Markets Are Buoyant — and Under Pressure",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQaTNzYmxtcC01Z3o2NURvb1hMT1lteDJlWFV6VEl0UGtVdXNWZ3RVTmgzMDBwOWdMOGJWOWF0UWpCZktUSDZuQzk3cDRUSmg5R25TVldnOHUwcmtCQ0lEclB3cUZOQzhSbm5PN3ZfLWNCUG5RN2d6RWM3cVMxZmoyWGdTOUYtdnJI?oc=5",
+          "published": "Wed, 07 Oct 2026 15:01:06 GMT"
+        },
+        {
           "title": "Israel’s economy defies 3 years of war as stocks surge and shekel strengthens",
           "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9vb2JQY19iekNBU2RJbFBrVDNzX2tmdHpyUnIzZ3ZnTl9FejhiSURlaThmdTkyNEk0amxaYVpRRmd6OWcxOGNNLTJBVW12RV9wM09nT3VMU0xUQmZ6c21EcVJ6bw?oc=5",
           "published": "Wed, 07 Oct 2026 16:22:17 GMT"
-        },
-        {
-          "title": "Investors Worried About Inflation, Interest Rates, or the Economy, Should Consider Warren Buffett's Approach to Investing",
-          "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPWWd4UDR1Yzl5bDBxSHRnM21EMTB3WTNaR1FyMWU0NU1VQVVsVlo4dkhBNFlzcVNVWDByaE5aQTkybXBBbTNZQ293ejdYNmp2a0xTZEViQmJKQWZWSkppX0RjaDJyOXBtY0VIUG95enh4S2pWZUVtUTRXLTlxVnVVcFFDa1lBWVF0U2xIS2h1TzVIMmdWX2lMY2FHSWNRZjRseWJlUEhld1Fic0h6Zk5oLUJZM2F3eFM3SFdlTHJhVkNtZWZQdDA2QWFZUVc1WExEWDExRUpzSEkxaE1yek1tRVdfcVExVkVPZTVQcGRIa2NVLUE?oc=5",
-          "published": "Tue, 06 Oct 2026 15:55:00 GMT"
         },
         {
           "title": "The hidden warning beneath record stock market highs",
@@ -244,9 +244,9 @@
           "published": "Mon, 05 Oct 2026 22:13:31 GMT"
         },
         {
-          "title": "Three years of war, and Israel’s markets are up 130%",
-          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE42bVFxWjIwQWcxempRNzkxVFJDVGVTSGZxQ2pENzhYa1lQZ1V3MXRZa1F2ZTJ6MDJWdFFSWVdSaDl2UVR2eEphdVpyb205MU94azNaY2hPV0RQc09aZkxlRS1HSENlS1E?oc=5",
-          "published": "Wed, 07 Oct 2026 11:49:00 GMT"
+          "title": "Investors Worried About Inflation, Interest Rates, or the Economy, Should Consider Warren Buffett's Approach to Investing",
+          "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPWWd4UDR1Yzl5bDBxSHRnM21EMTB3WTNaR1FyMWU0NU1VQVVsVlo4dkhBNFlzcVNVWDByaE5aQTkybXBBbTNZQ293ejdYNmp2a0xTZEViQmJKQWZWSkppX0RjaDJyOXBtY0VIUG95enh4S2pWZUVtUTRXLTlxVnVVcFFDa1lBWVF0U2xIS2h1TzVIMmdWX2lMY2FHSWNRZjRseWJlUEhld1Fic0h6Zk5oLUJZM2F3eFM3SFdlTHJhVkNtZWZQdDA2QWFZUVc1WExEWDExRUpzSEkxaE1yek1tRVdfcVExVkVPZTVQcGRIa2NVLUE?oc=5",
+          "published": "Tue, 06 Oct 2026 15:55:00 GMT"
         }
       ]
     },
@@ -284,18 +284,18 @@
           "published": "Wed, 19 Aug 2026 07:00:00 GMT"
         },
         {
-          "title": "Así cerró el dólar este martes 1 de septiembre en los bancos argentinos",
-          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPLUJRdnFCeGUxeUoxeTN0Z0NEdmw0ZWhCcURGNHpXWGF3aHloazkwdm5jemdYVHJWcFJmb0tETDJMRWl3ZkRRd2doUnJSWDhRQ1dlRjhJY0dDZ3JtdGx6R3l1RjRPXzVaVjZWY2gwN1dodlJwUjM2ZHhFRGlQZ0VlTXRMMl9uNWRwMEtxc21USm5XV053TDZJZnVtcnl3RDUzOVd2SDFzaUJIWGIybHRFbHpBTHhoSGlUMVh2dDhwYkpEdW5rb2w0R2l2aFl3N0ZR?oc=5",
-          "published": "Tue, 01 Sep 2026 07:00:00 GMT"
-        },
-        {
           "title": "Dólar: el mercado advierte sobre el delicado equilibrio entre las tasas de interés y el tipo de cambio",
           "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxNQkY5d0pCbG9YQ3o5OW1yTXJndWxKSEsyVllQRE1taEtZS0dPWElnSHBFMzd4VUgxd0dUZEFMdEE3UDhNdTJGS3RDZ0hONmpsZ2FpS1hXTDZZS0Y2OHVuN0Ntejd2dkFRVF9jVFZTMm42YXU2QWN0QzJ3RjJ5RDNvYjdKdmMzQWtZRGR1N0ptVVoxMk5hVTE4Ny1xYmM5ZnZXdWkzb09VdmRlajN2czJzRjRZVTZzUjZRdjFQMlJkSHo4S2RLMGZFZDJVQnRFRTRCSHBSbExhSEF3Z2RUYkdmNW1zc1BEQlpOcHpheXJEV3ZwYlZGYzVfXzI5QkrSAYsCQVVfeXFMTUZxSlI3dGtlUkJLREthel9qM25aRm5VSERYdDgxWVRzTU0wekU0ZV9LVkFTcFVBdWppbFYyODN2ZVVEaE5zOXVLaVRrLUNDNlBBYUpVMnJCMC1QY0VkeG1xOERNYlN1YjdISzB6aExLS3ljRjdKQlFmd1Q3cHlUQlJJTnk0V1AxdUJiOUdNd3BnOTJ1UUJMaDJ4clNXMG1ya3ZINUtISFczTGJ2WWNlZmhzSmZlOGJfVGEzWDA4X0JmREpTMVdtOXM2MVBSeDh1N2lLeWE3NVN0RXhLamFCamkzdVkyV2R1aDRTWkctejNybUFERXV5TmpKekdKVEVlUEVCS09LM29vMXEw?oc=5",
           "published": "Tue, 25 Aug 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Así cerró el dólar este viernes 4 de septiembre en los bancos argentinos",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPSGdrMWFqQlBXRjNFOHlqaEV6XzJMdDB1M0IydVBmV2lIQWZBM2NwMEN0b0d1bHlBQzBSdWdVSXJrYTkxX3hvdGJEbjBlVF8tZEJIam9zSVRHa01jeGZlRTZXUzVJUS1kbW1IakhoZmk5enhsZ1k5cUg3VEwzeW02MTI4RGdMbVJYWjVRNjh5Wm9fZ25mSEFoLTVJMnc1emFTNmJNMDR2TE5kTE5VNGFUbm1Ddw?oc=5",
+          "published": "Fri, 04 Sep 2026 07:00:00 GMT"
         }
       ]
     }
   },
-  "updated_at": "2026-10-07 20:25",
-  "updated_date": "2026-10-07"
+  "updated_at": "2026-10-08 01:28",
+  "updated_date": "2026-10-08"
 }
