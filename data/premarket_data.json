@@ -49,81 +49,81 @@
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7853.0,
+      "price": 7859.0,
       "prev": 7858.0,
-      "change_pct": -0.06362942224484602,
+      "change_pct": 0.012725884448969204,
       "date": "2026-10-13"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 30768.25,
+      "price": 30828.0,
       "prev": 30898.25,
-      "change_pct": -0.4207358021894444,
+      "change_pct": -0.2273591546446805,
       "date": "2026-10-13"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 51927.0,
+      "price": 51910.0,
       "prev": 52110.0,
-      "change_pct": -0.3511801957397812,
+      "change_pct": -0.38380349261178276,
       "date": "2026-10-13"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4180.5,
+      "price": 4182.7001953125,
       "prev": 4190.60009765625,
-      "change_pct": -0.24101793110487585,
+      "change_pct": -0.1885148226901516,
       "date": "2026-10-13"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 95.05999755859375,
+      "price": 94.95999908447266,
       "prev": 93.73999786376953,
-      "change_pct": 1.4081499092228995,
+      "change_pct": 1.3014734889114552,
       "date": "2026-10-13"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 106.69999694824219,
+      "price": 106.61000061035156,
       "prev": 106.6500015258789,
-      "change_pct": 0.04687803248755672,
+      "change_pct": -0.03750671819506484,
       "date": "2026-10-13"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 102.1969985961914,
+      "price": 102.16200256347656,
       "prev": 102.58000183105469,
-      "change_pct": -0.373370274933386,
+      "change_pct": -0.4074861182655794,
       "date": "2026-10-13"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1200717687606812,
-      "prev": 1.1204732656478882,
-      "change_pct": -0.03583279490161461,
-      "date": "2026-10-13"
+      "price": 1.1206992864608765,
+      "prev": 1.1160216331481934,
+      "change_pct": 0.41913643730076094,
+      "date": "2026-10-14"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.0258002281188965,
-      "prev": 4.985899925231934,
-      "change_pct": 0.8002628108326264,
+      "price": 4.985000133514404,
+      "prev": null,
+      "change_pct": null,
       "date": "2026-10-13"
     },
     {
@@ -148,60 +148,60 @@
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 88.66999816894531,
+      "price": NaN,
       "prev": 89.19999694824219,
-      "change_pct": -0.5941690554142103,
+      "change_pct": NaN,
       "date": "2026-10-13"
     }
   ],
   "fear_greed": {
-    "value": 57,
+    "value": 62,
     "label": "Greed",
-    "timestamp": "1791849600"
+    "timestamp": "1791936000"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "How major US stock indexes fared Tuesday 10/13/2026",
-          "link": "https://finance.yahoo.com/markets/world-indices/articles/major-us-stock-indexes-fared-202026407.html?.tsrc=rss",
-          "published": "Tue, 13 Oct 2026 20:20:26 +0000"
+          "title": "Down 12.5% in 2 Months, Is the Sell-Off in Realty Income a Buying Opportunity for Income Investors?",
+          "link": "https://www.fool.com/investing/2026/10/13/down-125-in-2-months-is-the-sell-off-in-realty-inc/?.tsrc=rss",
+          "published": "Wed, 14 Oct 2026 00:20:00 +0000"
         },
         {
-          "title": "Stock Market Today: Nasdaq-100 Trims Losses; Cheesecake Factory Breaks Out (Live Coverage)",
-          "link": "https://finance.yahoo.com/m/53f0b0da-d3c5-3ed1-b95b-353bb359f22f/stock-market-today%3A.html?.tsrc=rss",
-          "published": "Tue, 13 Oct 2026 19:50:36 +0000"
+          "title": "How Much Could You Lose In T-Mobile Stock?",
+          "link": "https://www.trefis.com/articles/618472/how-much-could-you-lose-in-t-mobile-stock/2026-10-13?.tsrc=rss",
+          "published": "Tue, 13 Oct 2026 23:56:48 +0000"
         },
         {
-          "title": "Update: US Equity Indexes Mixed Following Mega-Cap Banking Results, Declines in Technology",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-mixed-following-194712943.html?.tsrc=rss",
-          "published": "Tue, 13 Oct 2026 19:47:12 +0000"
+          "title": "S&P 500 Ends Flat, While Nasdaq Drops As Memory Chipmakers Sell Off — BAC, GME, SPCX, ARM, QCOM In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-ends-flat-while-nasdaq-drops-as-memory-chipmakers-sell-off-bac-gme-spcx-arm-qcom-in-focus/cZxBUZgRBYr?.tsrc=rss",
+          "published": "Tue, 13 Oct 2026 23:37:15 +0000"
         },
         {
-          "title": "Bull Market Just Completed Year 4. Will It Finish Year 5? Here's What History Says.",
-          "link": "https://www.fool.com/investing/2026/10/13/bull-market-complete-year-4-finish-history/?.tsrc=rss",
-          "published": "Tue, 13 Oct 2026 18:50:00 +0000"
+          "title": "These 3 International Dividend ETFs Outyield SCHD and Are Beating the S&P 500 Over the Past Year",
+          "link": "https://247wallst.com/investing/etf/2026/10/13/these-3-international-dividend-etfs-outyield-schd-and-are-beating-the-sp-500-over-the-past-year/?.tsrc=rss",
+          "published": "Tue, 13 Oct 2026 22:03:09 +0000"
         },
         {
-          "title": "Chipmakers' Decline Outweigh Fed Official's Remarks Against Hiking Rates More Than Once. Stocks Edged Down.",
-          "link": "https://www.ibtimes.com/chipmakers-decline-outweigh-fed-officials-remarks-against-hiking-rates-more-once-stocks-edged-3808552?.tsrc=rss",
-          "published": "Tue, 13 Oct 2026 20:20:38 +0000"
+          "title": "Was There Any Sign Coherent Stock Would Run?",
+          "link": "https://www.trefis.com/articles/618460/was-there-any-sign-coherent-stock-would-run/2026-10-13?.tsrc=rss",
+          "published": "Wed, 14 Oct 2026 00:19:38 +0000"
         },
         {
-          "title": "Service Properties Trust Third Quarter 2026 Conference Call Scheduled for Thursday, November 5th",
-          "link": "https://finance.yahoo.com/real-estate/articles/properties-trust-third-quarter-2026-201500093.html?.tsrc=rss",
-          "published": "Tue, 13 Oct 2026 20:15:00 +0000"
+          "title": "Can This Number Push Avis Budget Stock Higher?",
+          "link": "https://www.trefis.com/articles/618465/can-this-number-push-avis-budget-stock-higher/2026-10-13?.tsrc=rss",
+          "published": "Wed, 14 Oct 2026 00:09:33 +0000"
         },
         {
-          "title": "Better Buy: Fidelity Health Care ETF (FHLC) or iShares Biotechnology ETF (IBB)?",
-          "link": "https://www.fool.com/coverage/etfs/2026/10/13/better-buy-fidelity-health-care-etf-fhlc-or-ishares-biotechnology-etf-ibb/?.tsrc=rss",
-          "published": "Tue, 13 Oct 2026 20:13:37 +0000"
+          "title": "Should You Sell Your Fair Isaac Stock Now?",
+          "link": "https://www.trefis.com/articles/618468/should-you-sell-your-fair-isaac-stock-now/2026-10-13?.tsrc=rss",
+          "published": "Wed, 14 Oct 2026 00:03:20 +0000"
         },
         {
-          "title": "How Much Downside Is Left In SOUN Stock?",
-          "link": "https://www.trefis.com/articles/618471/how-much-downside-is-left-in-soun-stock/2026-10-13?.tsrc=rss",
-          "published": "Tue, 13 Oct 2026 20:08:04 +0000"
+          "title": "Why FB Financial Stock Tumbled on Tuesday",
+          "link": "https://www.fool.com/investing/2026/10/13/why-fb-financial-stock-tumbled-on-tuesday/?.tsrc=rss",
+          "published": "Tue, 13 Oct 2026 23:56:54 +0000"
         }
       ]
     },
@@ -209,34 +209,29 @@
       "label": "Economía Global",
       "items": [
         {
-          "title": "History Says a Stock Market Correction Is Coming Eventually. Here's the Good News for Investors.",
-          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQeDFtSnVDbnRGbUhVME9CeE9mVnR3Q0hWajRKbVhDUzMwLUVlVEFpY0R4RmFub3dQTWt4WnozLXRXMGZOMGJmcFhBblFJbTJMdXBMek1HLTZYTThhSUxvMlI0ZmR0SjFRSDJvMS1TcmVqX2hQWU1VZ3M1YUdDSHVncnVNanU3cFlqVUx1eFYxeU5MY3lfTnVCdElxZ1JMdHlqV1VN?oc=5",
-          "published": "Tue, 13 Oct 2026 13:05:00 GMT"
-        },
-        {
-          "title": "Is the US economy as narrow as its stock market?",
-          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPRFh5Ml9xYkpLZXdjV1FaMnBzUDFUc0tSbElJczVCLVc5aDBXU0hYcUhteHBPdUpGTVlldXZpaUd3YXFIZ2k2OFdKckJMRVhBRlR1VnJvemgzR1V4RnJ5SVEwX2dkTVA1UHRhZ2YwaTRmaVdpNXhpaUp1OWFHSHRING1pZ2g?oc=5",
-          "published": "Mon, 12 Oct 2026 05:31:25 GMT"
-        },
-        {
-          "title": "The stock market isn’t the economy — except when maybe it is?",
-          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxONHNucXBvRzB3TVZWNzktWWVuVGVWVENzaXl6cVh0Q1U4ZFBSTTZIR21oelExNVFKUklfWVNKY3Z3eVdCZU9YMHFTSDJxRUFOOGFsc25XQUpEUlE4X2NWRHBRQ3ZiSUdYOUhxMG1Sa3BDN0Fwdl9JXzFkak55ZTlicVpBYmk5OGllYUdBVkZXam9jZlpTYXFRYzlsVHhWT2RpVFo5dw?oc=5",
-          "published": "Fri, 09 Oct 2026 22:25:00 GMT"
-        },
-        {
           "title": "The stock market ≠ the economy ✋",
           "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1UZWtFRl9CNzZRblN1RDA0NFBDc1NRaHlVdjVISENMUFJrRWNMVVZ5aUpqd0xvcTc5Slh0cHFpTVFVa3pzWS1hTGtTOHptN1Bua3A5bjV6SF96el82Um1WalNrSlVXTU9naGdXTzNtUQ?oc=5",
           "published": "Sun, 11 Oct 2026 12:30:49 GMT"
         },
         {
-          "title": "COMMENTARY: AI may be rocket fuel for US stocks, less so for GDP",
-          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQWlJyck1aVU9nSC1wVDdMb2pNeVhfUVRtOFBUUXY1RmtiNGhIM0JGOTByY2VyLW5GeFpaLWVjZVpXeDRkRldaTDZjeDhseGJuNDZZVkdMUnQ1YU5aMmJqUWZZMHh0Z0kySV9fSzJBdmxsVHlNNVplNGt4YXcwN21XaGlJdk5uUE91NmdWWTRtSzlVWUtsdmZ4cGdRNE5MMHBnV0VhTVl4NklsSjdscE1WQklJMXRIYk0xQk9wblRB?oc=5",
-          "published": "Tue, 13 Oct 2026 13:02:47 GMT"
+          "title": "A golden age of corporate profits",
+          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBwNmRUa3o3SURRdWxobHlwN0NPLWNTT2t2eExHX1N2UGliTF9RY281QWpnSXBBUWxFRkFVeW16QjFveGRrQTdka3lLOFFILXNtdnROOXJvS29uMklZeUJpMnN5bUc?oc=5",
+          "published": "Tue, 13 Oct 2026 09:18:57 GMT"
         },
         {
-          "title": "Stock Market Today: Dow Jones, S&P 500 Futures Gain While Nasdaq 100 Falls as Scott Bessent Says Iran's E",
-          "link": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxQYm04Q1VfLWNuMGpHTHN0NUpxbzA4cHBneW50MGpMSUFtZHNEQ0Q2anNDdlg0dzRMbnR2d0hNWnlscGJmUXpXbWVPX0xGRlhKZ1Fjd01rSkVSWko4Vm1taGoyUmdnOVZqSF9zcTVoVkpvRjRoNGc5aC0zOXB1VHBSY1BtdEJwdUtWSlBBamRnZV9hTzR4cUMzTWFDR2Z2dGVWVzZtT3ludVlZSk1OT0VMNnoyMGJjZWRYYy1ncjBjWEdVZENrMzlXZmVyRHVGbUd2elMyTVNKcFlnX1hfS0xNaHBWak5JU0FPNVp1Z2pYdllaamhfZHk2S3pMZllCcDBHVlE3bEV4cW9uajRNZDRFNnE3WWZBamJKaG5sRGM4ZHhmaGpPQUdaMQ?oc=5",
-          "published": "Tue, 13 Oct 2026 09:55:18 GMT"
+          "title": "The Fed has a new warning for Wall Street and the stock market",
+          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPTUtyY3JvNTRicDM3QVA3WVAyb3dZNnpDODI3aVJSekVTbUlKU2VPQ0tGbmFNcFhkMDA5R0cwTW9OcVdhVDNlX1ZjcFN5cFF5ckFnMHNwemRyMzhLYzJ5TEtrTVJPWC1ZRFFsLTQ4VzNkWnV2VWdtWnpMemN4YWpVeFI4V0hyd1NPSkpsMlNPN2NsYUtHTlhJZE13?oc=5",
+          "published": "Tue, 13 Oct 2026 17:07:00 GMT"
+        },
+        {
+          "title": "Is the US economy as narrow as its stock market?",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPRFh5Ml9xYkpLZXdjV1FaMnBzUDFUc0tSbElJczVCLVc5aDBXU0hYcUhteHBPdUpGTVlldXZpaUd3YXFIZ2k2OFdKckJMRVhBRlR1VnJvemgzR1V4RnJ5SVEwX2dkTVA1UHRhZ2YwaTRmaVdpNXhpaUp1OWFHSHRING1pZ2g?oc=5",
+          "published": "Mon, 12 Oct 2026 05:30:05 GMT"
+        },
+        {
+          "title": "What November’s US Elections Will Mean for Markets",
+          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQbEwxZndTUVlmWUtadmcyd0tEemYwLWNiNEpoR19JWlRTRDBoZV9QYm9URWlBa0V1QzllZFFvdU1vWWtjem5yRGlwUkpOUWNlSVIxOWt4V3RIQzhRYVN0a2J6RGpUdC11WUxES2hmRUpBaW44aUxLSW5PUXl0V0F4VjBYSjhKWVNaSE1FZTl0WTUtM3Fq?oc=5",
+          "published": "Mon, 12 Oct 2026 09:17:59 GMT"
         },
         {
           "title": "Monthly Macro Monitor: The Stock Market Is The Economy",
@@ -244,9 +239,14 @@
           "published": "Mon, 12 Oct 2026 08:07:00 GMT"
         },
         {
-          "title": "Growth vs. crisis: Markets weigh a higher-rate reality",
-          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOUDZBRnhKVWRGU2NCZ1d5M3pEOVlBcWZiMmlpLS1idEZFei1ydnZHbEpDdmRZMjlLZkRYNG5UbFozbzU5N29mNmdxaUJjN3FBZXMtWERvWExqeWFBVkFscDA4WWp3VThWLVJnZWNwY3k0NmRSSmF5anJyOUhxWmZUYWRuMXpXMUx6N0FNYlpVQjdVYWozc1JvNm9PV2FBVjQ?oc=5",
-          "published": "Mon, 12 Oct 2026 12:54:16 GMT"
+          "title": "India's GDP is booming, but stock market is crashing: What's going wrong?",
+          "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNU3MxcG80SEdZWXFldldzQVF2SFN6dW13VEQ5d3p2SmkwcDdSUE1sY0xnUlhpT2d5Sk14UURiQ2VBdzVCSVZfUXlLaWJkNWh3RGpBbi1NdzNBUk5wY1k2c1ZwUU9NMVJTTkZXX1lkWHR0TWNscm94ZUtlY1FZcnNpeUpJVXJCUUlsTWJ6eEU0ejduT0xUR1M1b3FNZ1JOZmZWUVRzVWJkRkFJWkM1NGFDVFMyZjdvYkVsZU92QU5pX2JXNVBiOS12enJiSHRvcGZsejduUXBuR1hTdWM0Y3BQY0tiRDVWZzl1WlE?oc=5",
+          "published": "Thu, 08 Oct 2026 10:49:00 GMT"
+        },
+        {
+          "title": "History Says a Stock Market Correction Is Coming Eventually. Here's the Good News for Investors.",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQeDFtSnVDbnRGbUhVME9CeE9mVnR3Q0hWajRKbVhDUzMwLUVlVEFpY0R4RmFub3dQTWt4WnozLXRXMGZOMGJmcFhBblFJbTJMdXBMek1HLTZYTThhSUxvMlI0ZmR0SjFRSDJvMS1TcmVqX2hQWU1VZ3M1YUdDSHVncnVNanU3cFlqVUx1eFYxeU5MY3lfTnVCdElxZ1JMdHlqV1VN?oc=5",
+          "published": "Tue, 13 Oct 2026 13:05:00 GMT"
         }
       ]
     },
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-10-13 20:34",
-  "updated_date": "2026-10-13"
+  "updated_at": "2026-10-14 00:47",
+  "updated_date": "2026-10-14"
 }
