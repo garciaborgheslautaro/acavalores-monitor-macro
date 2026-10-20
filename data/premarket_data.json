@@ -40,16 +40,16 @@
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 18.40999984741211,
+      "price": 18.440000534057617,
       "prev": 19.989999771118164,
-      "change_pct": -7.903951684826235,
+      "change_pct": -7.753873210644094,
       "date": "2026-10-19"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7738.75,
+      "price": 7739.25,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-19"
@@ -58,7 +58,7 @@
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 29742.5,
+      "price": 29675.25,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-19"
@@ -67,7 +67,7 @@
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52200.0,
+      "price": 52278.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-19"
@@ -76,7 +76,7 @@
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4159.2001953125,
+      "price": 4156.89990234375,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-19"
@@ -85,7 +85,7 @@
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 98.44999694824219,
+      "price": 98.41999816894531,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-19"
@@ -94,7 +94,7 @@
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 109.4000015258789,
+      "price": 109.41000366210938,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-19"
@@ -103,7 +103,7 @@
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 101.98500061035156,
+      "price": 101.92500305175781,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-19"
@@ -112,18 +112,18 @@
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1214534044265747,
-      "prev": 1.1213151216506958,
-      "change_pct": 0.012332195759149239,
-      "date": "2026-10-19"
+      "price": 1.1220825910568237,
+      "prev": 1.1225486993789673,
+      "change_pct": -0.0415223252587101,
+      "date": "2026-10-20"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.0366997718811035,
-      "prev": 5.09660005569458,
-      "change_pct": -1.1752988886492717,
+      "price": 5.0630998611450195,
+      "prev": null,
+      "change_pct": null,
       "date": "2026-10-19"
     },
     {
@@ -148,60 +148,60 @@
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 86.97000122070312,
+      "price": NaN,
       "prev": 88.0,
-      "change_pct": -1.1704531582919036,
+      "change_pct": NaN,
       "date": "2026-10-19"
     }
   ],
   "fear_greed": {
-    "value": 59,
+    "value": 55,
     "label": "Greed",
-    "timestamp": "1792368000"
+    "timestamp": "1792454400"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Four Reasons Wall Street Has Eyes On This S&P 500 Stock",
-          "link": "https://finance.yahoo.com/m/f9a483bf-cc64-3176-a1e8-4c6c52399185/four-reasons-wall-street-has.html?.tsrc=rss",
-          "published": "Mon, 19 Oct 2026 20:02:10 +0000"
+          "title": "Nasdaq 100 Sees Best Day In Nearly A Month As AI Rout Cools — AMZN, BE, CRWV, AAPL, PLTR In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/nasdaq-100-sees-best-day-in-nearly-a-month-as-ai-rout-cools-amzn-be-crwv-aapl-pltr-in-focus/cZxo2SbRBu5?.tsrc=rss",
+          "published": "Mon, 19 Oct 2026 23:00:23 +0000"
         },
         {
-          "title": "Update: Technology, Consumer Discretionary Lift US Equity Indexes While Treasury Yields Climb",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/technology-consumer-discretionary-lift-us-195156040.html?.tsrc=rss",
-          "published": "Mon, 19 Oct 2026 19:51:56 +0000"
+          "title": "Nasdaq Stocks Could Crash 30% If This Happens, Experts Warn",
+          "link": "https://beincrypto.com/nasdaq-stocks-crash-warning-ai-spending/?.tsrc=rss",
+          "published": "Mon, 19 Oct 2026 23:00:00 +0000"
         },
         {
-          "title": "Applied Industrial (AIT): Buy, Sell, or Hold Post Q2 Earnings?",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/applied-industrial-ait-buy-sell-180855459.html?.tsrc=rss",
-          "published": "Mon, 19 Oct 2026 18:08:55 +0000"
+          "title": "Worried About the Stock Market? This High-Yielding ETF Can Provide Stability and Generate Passive Income for Decades",
+          "link": "https://www.fool.com/investing/2026/10/19/worried-about-the-stock-market-this-high-yielding-etf-can-provide-stability-and-generate-passive-income-for-decades/?.tsrc=rss",
+          "published": "Mon, 19 Oct 2026 22:20:02 +0000"
         },
         {
-          "title": "What Just Happened To Marvell Stock?",
-          "link": "https://www.trefis.com/articles/619152/what-just-happened-to-marvell-stock/2026-10-19?.tsrc=rss",
-          "published": "Mon, 19 Oct 2026 18:06:20 +0000"
+          "title": "Nasdaq Jumps Past 1 Percent as VIX Swings While Dow Dips Below Its 50-Day Line",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-jumps-past-1-percent-221100911.html?.tsrc=rss",
+          "published": "Mon, 19 Oct 2026 22:11:00 +0000"
         },
         {
-          "title": "Lion Copper Corp. Commences Trading on NASDAQ Under Symbol \"LCU\" and Retains Renmark Financial Communications USA Inc.",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/lion-copper-corp-commences-trading-180200445.html?.tsrc=rss",
-          "published": "Mon, 19 Oct 2026 18:02:00 +0000"
+          "title": "Where Will VTI Be in 20 Years? Here's What History Suggests",
+          "link": "https://www.fool.com/investing/2026/10/19/where-history-says-vti-will-be-in-20-years/?.tsrc=rss",
+          "published": "Mon, 19 Oct 2026 21:43:00 +0000"
         },
         {
-          "title": "The AI Bull Market Has Gained 117% in Four Years. His $200,000 Stock Profit Won’t Cut Social Security but Could Make 85% of His Benefits Taxable",
-          "link": "https://247wallst.com/personal-finance/social-security/2026/10/19/the-ai-bull-market-has-gained-117-in-four-years-and-his-200000-stock-profit-wont-cut-social-security-but-could-make-85-of-his-benefits-taxable/?.tsrc=rss",
-          "published": "Mon, 19 Oct 2026 18:00:15 +0000"
+          "title": "Update: US Equity Indexes Close Mixed Amid Thin Trading Volumes as Consumer Discretionary, Technology Tops Sector Charts",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-close-mixed-213108305.html?.tsrc=rss",
+          "published": "Mon, 19 Oct 2026 21:31:08 +0000"
         },
         {
-          "title": "Update: Equities Rise Intraday as Busy Earnings Week Kicks Off",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/equities-rise-intraday-busy-earnings-173555913.html?.tsrc=rss",
-          "published": "Mon, 19 Oct 2026 17:35:55 +0000"
+          "title": "Did AI Data Partnerships Just Shift Lumen Stock Investment Narrative?",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/did-ai-data-partnerships-just-001655453.html?.tsrc=rss",
+          "published": "Tue, 20 Oct 2026 00:16:55 +0000"
         },
         {
-          "title": "2 High-Flying Dividend Stocks to Buy and Hold for a Decade",
-          "link": "https://www.fool.com/investing/2026/10/19/2-high-flying-dividend-stocks-to-buy-and-hold-for-a-decade/?.tsrc=rss",
-          "published": "Mon, 19 Oct 2026 17:35:01 +0000"
+          "title": "Stock Market Today, Oct. 19: IREN Rallies on AI Infrastructure Sentiment Rebound",
+          "link": "https://www.fool.com/coverage/stock-market-today/2026/10/19/stock-market-today-oct-19-iren-rallies-on-ai-infrastructure-sentiment-rebound/?.tsrc=rss",
+          "published": "Mon, 19 Oct 2026 22:05:13 +0000"
         }
       ]
     },
@@ -214,24 +214,9 @@
           "published": "Sun, 18 Oct 2026 23:00:01 GMT"
         },
         {
-          "title": "Why Canadian investors should worry about the Jekyll-and-Hyde U.S. economy",
-          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQeGszRWlza09PUHJ4ZDRaV0ZVU0lFX0VGZktJV25ESFlzanRTQWQzQUF1MU9teUR5RlptWERhUVViakRScVJiOTZwU0pNdG03bnMtbV85cnN0aE8xOVR0cFg0d3JFTWtTQkNtdDFpMkpCVFBJREJkZWQyWldDbXNvZkpYeFhTcUtNU0E?oc=5",
-          "published": "Mon, 19 Oct 2026 10:05:15 GMT"
-        },
-        {
-          "title": "Indonesian Stocks Plunge on Threat to Drop Market From Major Indexes",
-          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE80RVBxa1dIdzVrRHhvanBmT1hMMnlkU2phYUtlV09sM1RUNzEwWHRhYVhjMV95dEJBS3pUSlo1a09mMzk3emxuM2lWLXpfSFQxbFJQRVFGbmxZTl8wRWFtLW5NdEl0QkZva2xzc0JzSk92bFRVLXBCMjQ3aU1BZw?oc=5",
-          "published": "Fri, 16 Oct 2026 09:20:59 GMT"
-        },
-        {
           "title": "A small group of AI companies are creating a lopsided US economy",
           "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQRkZ2aU5Ub216UFRkTHRZVndfX1NSVUNicjBGYkt0QzlCcGE3MEFjeXd2VUs5TVQwMGg1NHZWalc4SUtBRlJzOWthUEM2Zm12YlJSTTk0b0QzV2Nocl9ndDdBLWV6aktlSXRsNFB0Vk1PSmVLd2VTNFoyWHR6VkdxeXFsVDh5WlVDaklz?oc=5",
           "published": "Sun, 18 Oct 2026 18:00:00 GMT"
-        },
-        {
-          "title": "GLOBAL MARKET CALL: Downgrading 'Go Global' To Market Weight",
-          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNSHBDWWRSOWlVNG93NWtaQTEzQlZPS3lNdm1uNl9qZ21BcUpuUjNVbGlyWEtrR2hBZXBkSWhJekQyN0E5ejlnNmtybzV3ZVNKNkc3VkY4M3BrbnpVTHVRSGtuTHRVdjFJcXZyRDBySXgwdFZHLUlwTklmcUJzc0lGMU9EMktDQlNvbGN3ZDBxVkluUHlFWDdv?oc=5",
-          "published": "Sun, 18 Oct 2026 15:22:50 GMT"
         },
         {
           "title": "Goldman Sachs says buy these 23 defensive stocks as the economy and bull market struggle",
@@ -239,14 +224,29 @@
           "published": "Mon, 19 Oct 2026 15:05:00 GMT"
         },
         {
+          "title": "Indonesia’s market is dysfunctional, not uninvestable",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOYWtydXZNWWItVzFWZGthX1pZd0NRTUEtWGp1SDVzbDJCMmpodE1teUtCS2kta3BOYzAxT29CSVJjWWdIUXdQNnMwcjFfSGx6ZmtxRHNJODQ4dFBGd0pqVERzdmRDSDd5YS0zSGhWTmpJeGs2dEE3dThPOG81eFJEa0pLOU8?oc=5",
+          "published": "Mon, 19 Oct 2026 12:55:32 GMT"
+        },
+        {
+          "title": "GLOBAL MARKET CALL: Downgrading 'Go Global' To Market Weight",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNSHBDWWRSOWlVNG93NWtaQTEzQlZPS3lNdm1uNl9qZ21BcUpuUjNVbGlyWEtrR2hBZXBkSWhJekQyN0E5ejlnNmtybzV3ZVNKNkc3VkY4M3BrbnpVTHVRSGtuTHRVdjFJcXZyRDBySXgwdFZHLUlwTklmcUJzc0lGMU9EMktDQlNvbGN3ZDBxVkluUHlFWDdv?oc=5",
+          "published": "Sun, 18 Oct 2026 15:22:50 GMT"
+        },
+        {
+          "title": "Why Canadian investors should worry about the Jekyll-and-Hyde U.S. economy",
+          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQeGszRWlza09PUHJ4ZDRaV0ZVU0lFX0VGZktJV25ESFlzanRTQWQzQUF1MU9teUR5RlptWERhUVViakRScVJiOTZwU0pNdG03bnMtbV85cnN0aE8xOVR0cFg0d3JFTWtTQkNtdDFpMkpCVFBJREJkZWQyWldDbXNvZkpYeFhTcUtNU0E?oc=5",
+          "published": "Mon, 19 Oct 2026 10:05:15 GMT"
+        },
+        {
           "title": "Wall Street drops after jump in US producer inflation; John Healey says UK banks are part of ‘jewel in the crown’ – as it happened",
           "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNb3pvQTdFTnhfWVd3TnZaNlhITGJGR0VnQ0tzbkV0U3lGNGloNWdwQW1rREVVVVA0MW8tSUV5VzBBZDE0eXBPaXczTWk2Z3hiWXFISzF3OHZkWFc1TDM0QWdqdl94Y1Y1MlQ3djlucjBiNU1QS0xNbEpGcW9DSWJiMVd4a2lVeTdTMFNUbVJkcWhZMjNjNjd2Y051UUVrWEI3SlFjUWNTeXRIRDJERTBVVnJ0WHRPWGM3Q2VOSWw1c21sMlhHT2c?oc=5",
           "published": "Thu, 15 Oct 2026 05:37:00 GMT"
         },
         {
-          "title": "Jamie Dimon Says U.S. Economy Is Solid, But Warns of Risks",
-          "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOWUw3UWJRRy1qT1d5a2FkN2JqRlFLRWttQzNsYTM1WXFmdUllWWNkOGRYMUUyNXlZaVZEcVNvU1ZpVlJMSm5sSVJvUUE5WUlCXzg4UDM0a3JsUEt6eUEwSkd0TnJOVGY1VzR4RXZ4XzQwek1LX2c4Nlk4WkgtQ1hraFR6amZFRmpuVjh3VnlMNF9mWUlPaTFaTF9jTE0xcTNwdGI0bUlRRzA5b245dC1GV01KSnZLZWg1VG9qSW1BYzZzMVNEWUdMUEZua3VVaDFkdmg2aGpPVV95RmRWbnV6cC1JMk16Tlk5bVQ5YjNqWHA?oc=5",
-          "published": "Tue, 13 Oct 2026 10:49:00 GMT"
+          "title": "Monopoly Round-Up: Goodbye AI Bubble, Hello Real Economy",
+          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9VVTdMZ3k5LWtYbGRJZEhveU41M0xlcmcyX191STExd2xkM0NWdXB1WlJTOEVqaVY5TFJ0di01bDdWQ3BvN1JJNS1LMWNIblI0bFlKN2VDWFZycjJScmhqWExfRm1ybFFrYmRVLWY5dkRPTVJOMFFZ?oc=5",
+          "published": "Mon, 19 Oct 2026 01:37:41 GMT"
         }
       ]
     },
@@ -296,6 +296,6 @@
       ]
     }
   },
-  "updated_at": "2026-10-19 20:23",
-  "updated_date": "2026-10-19"
+  "updated_at": "2026-10-20 00:52",
+  "updated_date": "2026-10-20"
 }
