@@ -4,126 +4,126 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7713.4599609375,
+      "price": 7712.56982421875,
       "prev": 7690.72998046875,
-      "change_pct": 0.29555036422387315,
+      "change_pct": 0.28397621299231807,
       "date": "2026-10-20"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 26443.771484375,
+      "price": 26424.81640625,
       "prev": 26430.890625,
-      "change_pct": 0.048734110241508366,
+      "change_pct": -0.022981513699937988,
       "date": "2026-10-20"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 52438.94921875,
+      "price": 52495.87890625,
       "prev": 51966.03125,
-      "change_pct": 0.910052119383275,
+      "change_pct": 1.0196038517950126,
       "date": "2026-10-20"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 17.360000610351562,
+      "price": 17.309999465942383,
       "prev": 18.440000534057617,
-      "change_pct": -5.856832388433814,
+      "change_pct": -6.127988261324546,
       "date": "2026-10-20"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7750.25,
+      "price": 7772.0,
       "prev": 7734.5,
-      "change_pct": 0.2036330725968065,
+      "change_pct": 0.4848406490400155,
       "date": "2026-10-20"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 29678.75,
+      "price": 29894.0,
       "prev": 29722.5,
-      "change_pct": -0.14719488602910252,
+      "change_pct": 0.5770039532340819,
       "date": "2026-10-20"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52635.0,
+      "price": 52705.0,
       "prev": 52182.0,
-      "change_pct": 0.8681154421064735,
+      "change_pct": 1.0022613161626615,
       "date": "2026-10-20"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4140.2998046875,
+      "price": 4136.5,
       "prev": 4160.10009765625,
-      "change_pct": -0.475957128529317,
+      "change_pct": -0.5672963895639437,
       "date": "2026-10-20"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 97.97000122070312,
+      "price": 98.4800033569336,
       "prev": 103.66000366210938,
-      "change_pct": -5.489101138712486,
+      "change_pct": -4.99710604107302,
       "date": "2026-10-20"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 109.01000213623047,
+      "price": 109.47000122070312,
       "prev": 109.55000305175781,
-      "change_pct": -0.4929264267315592,
+      "change_pct": -0.07302768491653074,
       "date": "2026-10-20"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 101.69999694824219,
+      "price": 101.77300262451172,
       "prev": 101.9800033569336,
-      "change_pct": -0.2745699151542229,
+      "change_pct": -0.20298168818191267,
       "date": "2026-10-20"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1241008043289185,
-      "prev": 1.1225486993789673,
-      "change_pct": 0.1382661572553467,
-      "date": "2026-10-20"
+      "price": 1.12296462059021,
+      "prev": 1.1215791702270508,
+      "change_pct": 0.12352675584004572,
+      "date": "2026-10-21"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.0630998611450195,
+      "price": 5.0370001792907715,
       "prev": null,
       "change_pct": null,
-      "date": "2026-10-19"
+      "date": "2026-10-20"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 5.120999813079834,
+      "price": 5.116999626159668,
       "prev": 5.136000156402588,
-      "change_pct": -0.29206275050545577,
+      "change_pct": -0.36994800748270373,
       "date": "2026-10-20"
     },
     {
@@ -139,60 +139,60 @@
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 87.1500015258789,
+      "price": NaN,
       "prev": 86.97000122070312,
-      "change_pct": 0.20696826796517553,
+      "change_pct": NaN,
       "date": "2026-10-20"
     }
   ],
   "fear_greed": {
-    "value": 55,
+    "value": 63,
     "label": "Greed",
-    "timestamp": "1792454400"
+    "timestamp": "1792540800"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Stock Market Today: Dow Jumps, Oil Falls On U.S.-Iran Hopes; GM Stock Flashes This Sell Signal (Live Coverage)",
-          "link": "https://finance.yahoo.com/m/f3498525-5b31-3702-9e4b-aa8f358f4086/stock-market-today%3A-dow.html?.tsrc=rss",
-          "published": "Tue, 20 Oct 2026 18:32:29 +0000"
+          "title": "Dow Jones Futures: AI Stocks Jump On SpaceX, Supermicro; Tesla, Meta On Deck",
+          "link": "https://finance.yahoo.com/m/40378091-9f13-35f6-a4eb-65961ef4434c/dow-jones-futures%3A-ai-stocks.html?.tsrc=rss",
+          "published": "Wed, 21 Oct 2026 00:06:16 +0000"
         },
         {
-          "title": "SpaceX Stock Turns Higher Ahead of Earnings",
-          "link": "https://finance.yahoo.com/m/7fdfdbfc-03e9-3238-a194-dd7300bea91a/spacex-stock-turns-higher.html?.tsrc=rss",
-          "published": "Tue, 20 Oct 2026 18:18:25 +0000"
+          "title": "S&P 500, Dow Gain As Earnings Season Sets In, While SpaceX Aids Nasdaq After-Hours — SPCX, BA, MMM, NFLX, QCOM In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-dow-gain-as-earnings-season-sets-in-while-space-x-aids-nasdaq-after-hours-spcx-ba-mmm-nflx-qcom-in-focus/cZxAawhRBHX?.tsrc=rss",
+          "published": "Tue, 20 Oct 2026 23:47:57 +0000"
         },
         {
-          "title": "Ed Yardeni spots a major shakeup in the S&P 500",
-          "link": "https://www.thestreet.com/investing/stocks/yardeni-sp500-mag-seven-rotation?.tsrc=rss",
-          "published": "Tue, 20 Oct 2026 18:18:10 +0000"
+          "title": "Update: US Equity Indexes Mixed as Weakness in Communications Services, Technology Restrains Nasdaq Composite",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-mixed-weakness-213459750.html?.tsrc=rss",
+          "published": "Tue, 20 Oct 2026 21:34:59 +0000"
         },
         {
-          "title": "Update: Strong Quarterly Results Help Push US Equity Indexes Higher While AI Trade Sentiment Remains Positive",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/strong-quarterly-results-help-push-180130224.html?.tsrc=rss",
-          "published": "Tue, 20 Oct 2026 18:01:30 +0000"
+          "title": "ATI (ATI) Stock Dips While Market Gains: Key Facts",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/ati-ati-stock-dips-while-211503408.html?.tsrc=rss",
+          "published": "Tue, 20 Oct 2026 21:15:03 +0000"
         },
         {
-          "title": "The Final Stretch: JPMorgan Says These 2 Stocks Are Among Its Top Picks for the Rest of 2026",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/final-stretch-jpmorgan-says-2-175800229.html?.tsrc=rss",
-          "published": "Tue, 20 Oct 2026 17:58:00 +0000"
+          "title": "Clearway Energy (CWEN) Exceeds Market Returns: Some Facts to Consider",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/clearway-energy-cwen-exceeds-market-211503117.html?.tsrc=rss",
+          "published": "Tue, 20 Oct 2026 21:15:03 +0000"
         },
         {
-          "title": "3 Reasons ADT is Risky and 1 Stock to Buy Instead",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-adt-risky-1-174150256.html?.tsrc=rss",
-          "published": "Tue, 20 Oct 2026 17:41:50 +0000"
+          "title": "Griffon (GFF) Surpasses Market Returns: Some Facts Worth Knowing",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/griffon-gff-surpasses-market-returns-211503712.html?.tsrc=rss",
+          "published": "Tue, 20 Oct 2026 21:15:03 +0000"
         },
         {
-          "title": "Update: Equities Rise Intraday Following Upbeat Earnings Reports",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/equities-rise-intraday-following-upbeat-173413330.html?.tsrc=rss",
-          "published": "Tue, 20 Oct 2026 17:34:13 +0000"
+          "title": "Ginkgo Bioworks Holdings, Inc. (DNA) Stock Falls Amid Market Uptick: What Investors Need to Know",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/ginkgo-bioworks-holdings-inc-dna-211503890.html?.tsrc=rss",
+          "published": "Tue, 20 Oct 2026 21:15:03 +0000"
         },
         {
-          "title": "3 Reasons YUMC is Risky and 1 Stock to Buy Instead",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-yumc-risky-1-173350387.html?.tsrc=rss",
-          "published": "Tue, 20 Oct 2026 17:33:50 +0000"
+          "title": "Akamai Technologies (AKAM) Surpasses Market Returns: Some Facts Worth Knowing",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/akamai-technologies-akam-surpasses-market-211502171.html?.tsrc=rss",
+          "published": "Tue, 20 Oct 2026 21:15:02 +0000"
         }
       ]
     },
@@ -210,9 +210,9 @@
           "published": "Mon, 19 Oct 2026 10:05:15 GMT"
         },
         {
-          "title": "The stock market isn’t the economy, but it’s influencing it like never before",
-          "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPODJwWU9zQ1oxc3pfUEZEOE1nWEhMb3FwS3dyV09FaGFWYkNVNWZ3a1ozZl9PYUxrYlRWUkxUNzZ3Mm5RT3RUR1hmcHBhNE9acWhQNlYtNDJJcTUwVjhVWTFpN2MyV3JFNWhEMEh4dURzREZaMFV3Y3RpMzYxVm1oVGJrYzNfcmxVSmhYbnZJSzEycFZySlV5VmZuLTVlNmI5YkN3WEVYRy1NLS1GM0laenFSdjlKemE0elNDTkVVVFZ3RzQwZHNMM0NINFUtMHc?oc=5",
-          "published": "Tue, 20 Oct 2026 10:00:00 GMT"
+          "title": "President Donald Trump Claims, \"We Don't Have Inflation, and Tariffs Don't Cause Inflation,\" but a New Report Strongly Disagrees",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPUHpvUFZUTkRFTnd4Z0pKYXhqTG5ZTnJUb1o1MXZhaXdFcFFoWW1rUXRFeUpRR1ZzOUFnN0RxQUdmU09SWlNoOG5VVXRxSENQc3FRcnpBZVBRVzJJRVJfWm1Fc0VMUVNVRzd2UDF3Q284MGFzaDIyUEZGejZvZVJHMDFadXBYMFRST1RSc0Z0V3hxTHEwSmxUaUNyWWFGNmU3?oc=5",
+          "published": "Tue, 20 Oct 2026 08:26:02 GMT"
         },
         {
           "title": "Goldman Sachs says buy these 23 defensive stocks as the economy and bull market struggle",
@@ -287,6 +287,6 @@
       ]
     }
   },
-  "updated_at": "2026-10-20 18:53",
-  "updated_date": "2026-10-20"
+  "updated_at": "2026-10-21 00:17",
+  "updated_date": "2026-10-21"
 }
