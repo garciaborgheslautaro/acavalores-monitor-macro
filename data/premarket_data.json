@@ -4,63 +4,63 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7737.4599609375,
+      "price": 7757.169921875,
       "prev": 7712.56982421875,
-      "change_pct": 0.32272170347931034,
+      "change_pct": 0.5782780405591699,
       "date": "2026-10-21"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 26623.77734375,
+      "price": 26702.857421875,
       "prev": 26424.8203125,
-      "change_pct": 0.7529172531624949,
+      "change_pct": 1.052181646220986,
       "date": "2026-10-21"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 52615.4609375,
+      "price": 52856.08984375,
       "prev": 52495.87890625,
-      "change_pct": 0.22779317870562013,
+      "change_pct": 0.6861699337261965,
       "date": "2026-10-21"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 16.959999084472656,
+      "price": 16.68000030517578,
       "prev": 17.309999465942383,
-      "change_pct": -2.021954894674354,
+      "change_pct": -3.6395099953996644,
       "date": "2026-10-21"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7796.0,
+      "price": 7772.75,
       "prev": 7755.25,
-      "change_pct": 0.5254505012733309,
+      "change_pct": 0.22565358950388448,
       "date": "2026-10-21"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 30011.75,
+      "price": 29846.75,
       "prev": 29675.25,
-      "change_pct": 1.1339415843168972,
+      "change_pct": 0.5779226796741392,
       "date": "2026-10-21"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52950.0,
+      "price": 52915.0,
       "prev": 52719.0,
-      "change_pct": 0.4381721959824731,
+      "change_pct": 0.37178246931846204,
       "date": "2026-10-21"
     },
     {
@@ -76,123 +76,123 @@
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 98.04000091552734,
+      "price": 97.97000122070312,
       "prev": 101.79000091552734,
-      "change_pct": -3.6840553750579286,
+      "change_pct": -3.7528241089164824,
       "date": "2026-10-21"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 109.7699966430664,
+      "price": 109.94999694824219,
       "prev": 108.79000091552734,
-      "change_pct": 0.9008141550619199,
+      "change_pct": 1.066270818046551,
       "date": "2026-10-21"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 101.7509994506836,
+      "price": 101.7030029296875,
       "prev": 101.7300033569336,
-      "change_pct": 0.02063903770486701,
+      "change_pct": -0.026541262513635304,
       "date": "2026-10-21"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1224603652954102,
-      "prev": 1.1215791702270508,
-      "change_pct": 0.07856735322402494,
-      "date": "2026-10-21"
+      "price": 1.1238480806350708,
+      "prev": 1.122674584388733,
+      "change_pct": 0.10452683820012089,
+      "date": "2026-10-22"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.035799980163574,
-      "prev": 5.0370001792907715,
-      "change_pct": -0.02382765702752582,
-      "date": "2026-10-21"
+      "price": 5.023600101470947,
+      "prev": 5.02269983291626,
+      "change_pct": 0.017923996747478133,
+      "date": "2026-10-22"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 5.125,
+      "price": 5.145999908447266,
       "prev": 5.117000102996826,
-      "change_pct": 0.1563395904269887,
+      "change_pct": 0.5667345098049814,
       "date": "2026-10-21"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 4.059999942779541,
+      "price": 4.063000202178955,
       "prev": 4.079999923706055,
-      "change_pct": -0.49019562011037376,
+      "change_pct": -0.4166598491418099,
       "date": "2026-10-21"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 87.54000091552734,
+      "price": NaN,
       "prev": 87.22000122070312,
-      "change_pct": 0.3668879733382318,
+      "change_pct": NaN,
       "date": "2026-10-21"
     }
   ],
   "fear_greed": {
-    "value": 63,
+    "value": 68,
     "label": "Greed",
-    "timestamp": "1792540800"
+    "timestamp": "1792627200"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Stock Market Today: Nasdaq Leads Dow With Meta Earnings Ahead; ExxonMobil Near New High (Live Coverage)",
-          "link": "https://finance.yahoo.com/m/3cb9e8ae-4da0-30bd-9cec-6a0531abd9df/stock-market-today%3A-nasdaq.html?.tsrc=rss",
-          "published": "Wed, 21 Oct 2026 18:36:17 +0000"
+          "title": "Dow Jones Futures Fall; Meta, Tesla Are Earnings Movers After SpaceX Leads Bullish Nasdaq Move",
+          "link": "https://finance.yahoo.com/m/2bd9a8b9-7491-307a-8f54-b091a90905b0/dow-jones-futures-fall%3B-meta%2C.html?.tsrc=rss",
+          "published": "Thu, 22 Oct 2026 00:06:37 +0000"
         },
         {
-          "title": "The S&P 500 Would Be Flat Without Tech Stocks",
-          "link": "https://finance.yahoo.com/m/44d68841-ae02-3390-88d4-f34b55a354bd/the-s%26p-500-would-be-flat.html?.tsrc=rss",
-          "published": "Wed, 21 Oct 2026 18:32:56 +0000"
+          "title": "S&P 500, Nasdaq Gain, Powered By Meta, Tesla Stock — SPCX, META, TSLA, SKYD, IBM In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-nasdaq-gain-powered-by-meta-tesla-stock-spcx-meta-tsla-skyd-ibm-in-focus/cZxM14eRBwR?.tsrc=rss",
+          "published": "Wed, 21 Oct 2026 23:15:19 +0000"
         },
         {
-          "title": "How Much Upside Is Left In Coca-Cola Stock After Its Run?",
-          "link": "https://www.trefis.com/articles/619692/how-much-upside-is-left-in-coca-cola-stock-after-its-run/2026-10-21?.tsrc=rss",
-          "published": "Wed, 21 Oct 2026 18:33:14 +0000"
+          "title": "BC-Select Stock Indices",
+          "link": "https://finance.yahoo.com/markets/world-indices/articles/bc-select-stock-indices-213013529.html?.tsrc=rss",
+          "published": "Wed, 21 Oct 2026 21:30:13 +0000"
         },
         {
-          "title": "UiPath (PATH): Buy, Sell, or Hold Post Q2 Earnings?",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/uipath-path-buy-sell-hold-182239424.html?.tsrc=rss",
-          "published": "Wed, 21 Oct 2026 18:22:39 +0000"
+          "title": "Think It's Too Risky to Invest in the Stock Market Right Now? History Says Waiting Is Even Riskier.",
+          "link": "https://www.fool.com/investing/2026/10/21/think-its-too-risky-to-invest-in-the-stock-market/?.tsrc=rss",
+          "published": "Wed, 21 Oct 2026 21:20:00 +0000"
         },
         {
-          "title": "Johnson & Johnson Raised Its Dividend Every Year. Why Did It Trail the S&P 500?",
-          "link": "https://247wallst.com/investing/2026/10/21/johnson-johnson-raised-its-dividend-every-year-why-did-it-trail-the-sp-500/?.tsrc=rss",
-          "published": "Wed, 21 Oct 2026 18:15:52 +0000"
+          "title": "MACOM, Semtech, FormFactor, Penguin Solutions, and Seagate stocks trade up, what you need to know",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/macom-semtech-formfactor-penguin-solutions-235839743.html?.tsrc=rss",
+          "published": "Wed, 21 Oct 2026 23:58:39 +0000"
         },
         {
-          "title": "3 Reasons to Sell INTU and 1 Stock to Buy Instead",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-sell-intu-1-181439394.html?.tsrc=rss",
-          "published": "Wed, 21 Oct 2026 18:14:39 +0000"
+          "title": "Western Digital, Nova, Amtech, Monolithic Power Systems, and Texas Instruments shares skyrocket, what you need to know",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/western-digital-nova-amtech-monolithic-235039681.html?.tsrc=rss",
+          "published": "Wed, 21 Oct 2026 23:50:39 +0000"
         },
         {
-          "title": "2 Reasons to Sell AGO and 1 Stock to Buy Instead",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/2-reasons-sell-ago-1-180639993.html?.tsrc=rss",
-          "published": "Wed, 21 Oct 2026 18:06:39 +0000"
+          "title": "Teradyne, Vishay Intertechnology, Allegro MicroSystems, Entegris, and AMD shares are soaring, what you need to know",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/teradyne-vishay-intertechnology-allegro-microsystems-231839928.html?.tsrc=rss",
+          "published": "Wed, 21 Oct 2026 23:18:39 +0000"
         },
         {
-          "title": "Six Flags Sinks 10%, United Parks & Resorts Drops 5%: Is the Goliath Accident Still Weighing on Theme Park Stocks?",
-          "link": "https://247wallst.com/investing/2026/10/21/six-flags-entertainment-sinks-10-united-parks-resorts-drops-5-is-the-goliath-accident-still-weighing-on-theme-parks/?.tsrc=rss",
-          "published": "Wed, 21 Oct 2026 18:05:13 +0000"
+          "title": "Vanguard Health Care ETF vs iShares U.S. Healthcare ETF",
+          "link": "https://www.fool.com/coverage/etfs/2026/10/21/vanguard-health-care-etf-vs-ishares-us-healthcare-etf/?.tsrc=rss",
+          "published": "Wed, 21 Oct 2026 22:50:02 +0000"
         }
       ]
     },
@@ -205,24 +205,24 @@
           "published": "Mon, 19 Oct 2026 10:05:15 GMT"
         },
         {
-          "title": "The stock market isn’t the economy, but it’s influencing it like never before",
-          "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPODJwWU9zQ1oxc3pfUEZEOE1nWEhMb3FwS3dyV09FaGFWYkNVNWZ3a1ozZl9PYUxrYlRWUkxUNzZ3Mm5RT3RUR1hmcHBhNE9acWhQNlYtNDJJcTUwVjhVWTFpN2MyV3JFNWhEMEh4dURzREZaMFV3Y3RpMzYxVm1oVGJrYzNfcmxVSmhYbnZJSzEycFZySlV5VmZuLTVlNmI5YkN3WEVYRy1NLS1GM0laenFSdjlKemE0elNDTkVVVFZ3RzQwZHNMM0NINFUtMHc?oc=5",
-          "published": "Tue, 20 Oct 2026 10:00:00 GMT"
-        },
-        {
           "title": "Indonesia’s market is dysfunctional, not uninvestable",
           "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOYWtydXZNWWItVzFWZGthX1pZd0NRTUEtWGp1SDVzbDJCMmpodE1teUtCS2kta3BOYzAxT29CSVJjWWdIUXdQNnMwcjFfSGx6ZmtxRHNJODQ4dFBGd0pqVERzdmRDSDd5YS0zSGhWTmpJeGs2dEE3dThPOG81eFJEa0pLOU8?oc=5",
           "published": "Mon, 19 Oct 2026 12:55:32 GMT"
         },
         {
-          "title": "India’s finance minister says market liquidity makes it easier for investors to exit",
-          "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBGWG1fbVpjWEttMmtlcUsyRC1ZbV80N3NLdWdxZzBuWmhTOXhpTXdPR20ydzZoLXUwNjVlWERKVTNfVnZ4N0pxRnBJTlpsU29qTE9jZElmcmlvY25NclRJZHhkbW5GRUhBR0FKRm9tLXRpY0cyRVVpUWxB0gF_QVVfeXFMTWlWMjV3V1J4ZTAxekdzazNZZ0taTXhoSTFaM2Q4REFZdENTV2VwWHFQaVVxREw4R053MmxEVVE2N0RnOHV3TWpBY0k1MlZvZ2NfaS0tTENDYmVmclBJd0JmT0twbUhRZnR1V1JrUHFoalJsOHFRbjgtVzJLV0o4RQ?oc=5",
-          "published": "Sun, 18 Oct 2026 23:00:01 GMT"
-        },
-        {
           "title": "Goldman Sachs says buy these 23 defensive stocks as the economy and bull market struggle",
           "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNZTkxY2UxQ1F2UE5NX1EwMV91Sy1ma1loNnRXVzdoZTQ5T3ZvWElVVml0QUFRSUZQRkxiMUtjUVAyOTRJaEw2bzFIX0JTYmVxWUpJMzFySVhobDVSOUNVcUdzS0R0RnBLcHNzV0xoMFVmeU5EdU53MUE3V2V6aXhVeUt2VXpCdlhudjRPYkpYOFVYdm1ELVlLR2ZPRV9JUQ?oc=5",
           "published": "Mon, 19 Oct 2026 15:05:00 GMT"
+        },
+        {
+          "title": "The stock market isn’t the economy, but it’s influencing it like never before",
+          "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPODJwWU9zQ1oxc3pfUEZEOE1nWEhMb3FwS3dyV09FaGFWYkNVNWZ3a1ozZl9PYUxrYlRWUkxUNzZ3Mm5RT3RUR1hmcHBhNE9acWhQNlYtNDJJcTUwVjhVWTFpN2MyV3JFNWhEMEh4dURzREZaMFV3Y3RpMzYxVm1oVGJrYzNfcmxVSmhYbnZJSzEycFZySlV5VmZuLTVlNmI5YkN3WEVYRy1NLS1GM0laenFSdjlKemE0elNDTkVVVFZ3RzQwZHNMM0NINFUtMHc?oc=5",
+          "published": "Tue, 20 Oct 2026 10:00:00 GMT"
+        },
+        {
+          "title": "India’s finance minister says market liquidity makes it easier for investors to exit",
+          "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBGWG1fbVpjWEttMmtlcUsyRC1ZbV80N3NLdWdxZzBuWmhTOXhpTXdPR20ydzZoLXUwNjVlWERKVTNfVnZ4N0pxRnBJTlpsU29qTE9jZElmcmlvY25NclRJZHhkbW5GRUhBR0FKRm9tLXRpY0cyRVVpUWxB0gF_QVVfeXFMTWlWMjV3V1J4ZTAxekdzazNZZ0taTXhoSTFaM2Q4REFZdENTV2VwWHFQaVVxREw4R053MmxEVVE2N0RnOHV3TWpBY0k1MlZvZ2NfaS0tTENDYmVmclBJd0JmT0twbUhRZnR1V1JrUHFoalJsOHFRbjgtVzJLV0o4RQ?oc=5",
+          "published": "Sun, 18 Oct 2026 23:00:01 GMT"
         },
         {
           "title": "Wall Street drops after jump in US producer inflation; John Healey says UK banks are part of ‘jewel in the crown’ – as it happened",
@@ -235,9 +235,9 @@
           "published": "Sun, 18 Oct 2026 15:22:50 GMT"
         },
         {
-          "title": "President Donald Trump Claims, \"We Don't Have Inflation, and Tariffs Don't Cause Inflation,\" but a New Report Strongly Disagrees",
-          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPUHpvUFZUTkRFTnd4Z0pKYXhqTG5ZTnJUb1o1MXZhaXdFcFFoWW1rUXRFeUpRR1ZzOUFnN0RxQUdmU09SWlNoOG5VVXRxSENQc3FRcnpBZVBRVzJJRVJfWm1Fc0VMUVNVRzd2UDF3Q284MGFzaDIyUEZGejZvZVJHMDFadXBYMFRST1RSc0Z0V3hxTHEwSmxUaUNyWWFGNmU3?oc=5",
-          "published": "Tue, 20 Oct 2026 08:26:02 GMT"
+          "title": "Inside India newsletter: India’s economic growth is smashing forecasts, but its biggest stocks aren't feeling the love",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPMmMtMC1ZYXZVbWQ3OFdmVFpod1RlV2JxRzBEZ2hlZmM5NmV4NVZTVUtmbFJvZnRTc2lFVVNlNVIxcFd0SVktT0pvUGJnbjBodU1Xb3dJSlp4a1JNS3otSHIwTVpwWVZmNDl4Q3U2Yk1LNkZMS1dubDZqZ0c2MVcyc3V5RUFSY1ZR0gGOAUFVX3lxTE14amIzRGJYTjFlNWtTTjhkWElGLTVVQ3ZpWVFlX3lGSHotbEVDRkUwWmVjeGJCZ0pOTmxvRkZENEVKWGhnbVJEalcwSDlmQnE5SDV0b194REp1Q3lkMHJGdU5HZlVXdHhJS3R5Zm11ZGtVSDBCV1ZBdmxWb1NxRnJwWTFQMV9Hd3NTZ1NJN1E?oc=5",
+          "published": "Wed, 02 Sep 2026 07:00:00 GMT"
         }
       ]
     },
@@ -287,6 +287,6 @@
       ]
     }
   },
-  "updated_at": "2026-10-21 19:06",
-  "updated_date": "2026-10-21"
+  "updated_at": "2026-10-22 00:21",
+  "updated_date": "2026-10-22"
 }
