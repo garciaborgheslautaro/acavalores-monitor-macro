@@ -31,16 +31,16 @@
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 18.5,
+      "price": 18.389999389648438,
       "prev": 19.450000762939453,
-      "change_pct": -4.884322497043855,
+      "change_pct": -5.449878312142642,
       "date": "2026-10-26"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7713.25,
+      "price": 7728.5,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-26"
@@ -49,7 +49,7 @@
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 29442.25,
+      "price": 29559.75,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-26"
@@ -58,7 +58,7 @@
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52532.0,
+      "price": 52572.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-26"
@@ -67,7 +67,7 @@
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4026.0,
+      "price": 4024.10009765625,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-26"
@@ -76,7 +76,7 @@
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 101.61000061035156,
+      "price": 101.11000061035156,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-26"
@@ -85,7 +85,7 @@
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 110.4800033569336,
+      "price": 110.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-26"
@@ -94,7 +94,7 @@
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 102.00599670410156,
+      "price": 102.03700256347656,
       "prev": null,
       "change_pct": null,
       "date": "2026-10-26"
@@ -103,19 +103,19 @@
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.117817997932434,
-      "prev": 1.1221455335617065,
-      "change_pct": -0.3856483405977475,
-      "date": "2026-10-26"
+      "price": 1.1169440746307373,
+      "prev": 1.1217553615570068,
+      "change_pct": -0.42890696948320534,
+      "date": "2026-10-27"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.405799865722656,
-      "prev": 5.049900054931641,
-      "change_pct": 7.047660486734789,
-      "date": "2026-10-26"
+      "price": 5.371600151062012,
+      "prev": 4.96019983291626,
+      "change_pct": 8.294027095756675,
+      "date": "2026-10-27"
     },
     {
       "symbol": "^TNX",
@@ -139,60 +139,60 @@
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 82.7699966430664,
+      "price": NaN,
       "prev": 87.08000183105469,
-      "change_pct": -4.949477603767386,
+      "change_pct": NaN,
       "date": "2026-10-26"
     }
   ],
   "fear_greed": {
-    "value": 50,
+    "value": 48,
     "label": "Neutral",
-    "timestamp": "1792972800"
+    "timestamp": "1793059200"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "How major US stock indexes fared Monday 10/26/2026",
-          "link": "https://finance.yahoo.com/markets/world-indices/articles/major-us-stock-indexes-fared-201302392.html?.tsrc=rss",
-          "published": "Mon, 26 Oct 2026 20:13:02 +0000"
+          "title": "80% of S&P 500 stocks are in correction territory. These 3 are still buys",
+          "link": "https://www.thestreet.com/video/80-of-sp-500-stocks-are-in-correction-territory-these-3-are-still-buy?.tsrc=rss",
+          "published": "Mon, 26 Oct 2026 23:29:26 +0000"
         },
         {
-          "title": "Nasdaq Announces Mid-Month Open Short Interest Positions in Nasdaq Stocks as of Settlement Date October 15, 2026",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-announces-mid-month-open-200500872.html?.tsrc=rss",
-          "published": "Mon, 26 Oct 2026 20:05:00 +0000"
+          "title": "2 Reasons investors love Paymentus (PAY)",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/2-reasons-investors-love-paymentus-224647823.html?.tsrc=rss",
+          "published": "Mon, 26 Oct 2026 22:46:47 +0000"
         },
         {
-          "title": "AI Bubble Bursts in China, Wiping $480 Billion: Is America Next?",
-          "link": "https://beincrypto.com/china-ai-bubble-burst-us-warning/?.tsrc=rss",
-          "published": "Mon, 26 Oct 2026 19:56:30 +0000"
+          "title": "S&P 500, Nasdaq, Dow Begin Week Higher As Anthropic IPO Filing Rekindles AI Enthusiasm — MSFT, AAPL, CART, VZ In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-nasdaq-dow-begin-week-higher-as-anthropic-ipo-filing-rekindles-ai-enthusiasm-msft-aapl-cart-vz-in-focus/cZU3LuaRBz7?.tsrc=rss",
+          "published": "Mon, 26 Oct 2026 22:35:16 +0000"
         },
         {
-          "title": "Stock Market Today: Dow Up As Anthropic Filing Boosts Tech; Lingerie Play Flirts With Buy Point (Live Coverage)",
-          "link": "https://finance.yahoo.com/m/d7847db0-e9ef-3aa4-a4a6-f002895df0d3/stock-market-today%3A-dow-up-as.html?.tsrc=rss",
-          "published": "Mon, 26 Oct 2026 19:22:06 +0000"
+          "title": "Vanguard's Growth ETF Usually Beats the Market After a Lagging Year. I'd Own It, but Not for a 2027 Rebound.",
+          "link": "https://www.fool.com/investing/2026/10/26/vanguard-s-growth-etf-usually-beats-the-market-after-a-lagging-year-i-d-own-it-but-not-for-a-2027-rebound/?.tsrc=rss",
+          "published": "Mon, 26 Oct 2026 21:51:02 +0000"
         },
         {
-          "title": "Williams-Sonoma Finds Reasons To Celebrate In Rattled Market",
-          "link": "https://finance.yahoo.com/m/92e53a32-0323-35b7-99d5-0b0a8d977700/williams-sonoma-finds-reasons.html?.tsrc=rss",
-          "published": "Mon, 26 Oct 2026 20:00:20 +0000"
+          "title": "Don't Miss This Week's 5 Most Important Earnings Charts",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/dont-miss-weeks-5-most-214800268.html?.tsrc=rss",
+          "published": "Mon, 26 Oct 2026 21:48:00 +0000"
         },
         {
-          "title": "Several Natural Gas Stocks Near Buy Points Amid Europe Supply Crunch",
-          "link": "https://finance.yahoo.com/m/0d8fc55c-20c4-37c7-836f-bb1402043c08/several-natural-gas-stocks.html?.tsrc=rss",
-          "published": "Mon, 26 Oct 2026 19:57:05 +0000"
+          "title": "U.S. stock futures rise as Anthropic IPO buzz boosts tech; Fed, earnings on tap",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/u-stock-futures-rise-anthropic-004024680.html?.tsrc=rss",
+          "published": "Tue, 27 Oct 2026 00:40:24 +0000"
         },
         {
-          "title": "Update: Anthropic's IPO Filing Boosts Tech Risk Sentiment, Lifts US Equity Indexes",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/anthropic-apos-ipo-filing-boosts-195547218.html?.tsrc=rss",
-          "published": "Mon, 26 Oct 2026 19:55:47 +0000"
+          "title": "Review & Preview: On Your Marks",
+          "link": "https://finance.yahoo.com/m/ccfd8b60-4bf1-3f4e-a4b5-4297fcd1c323/review-%26-preview%3A-on-your.html?.tsrc=rss",
+          "published": "Mon, 26 Oct 2026 23:55:00 +0000"
         },
         {
-          "title": "2 financials stocks with promising prospects and 1 facing headwinds",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/2-financials-stocks-promising-prospects-195047351.html?.tsrc=rss",
-          "published": "Mon, 26 Oct 2026 19:50:47 +0000"
+          "title": "Truist Financial (TFC): buy, sell, or hold post Q3 earnings?",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/truist-financial-tfc-buy-sell-232647766.html?.tsrc=rss",
+          "published": "Mon, 26 Oct 2026 23:26:47 +0000"
         }
       ]
     },
@@ -205,11 +205,6 @@
           "published": "Mon, 26 Oct 2026 11:00:15 GMT"
         },
         {
-          "title": "Lula’s surprise victory triggers worst rout in decades for Brazilian markets",
-          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQclRjV0ZBdGp1cGRkYzk0bWN2SXVyakx5OXlmSnJoTGpXV3p6WWNESks5R0pXN0lGUHJUVEdYQ0h1eEdaQmpTZUdXSm9OQ2lMRWxPcUVZeEJJbFk1SlBpNFhKeG9oNjl2aC02RDdOU2Vxd2ZQNXZobUdETzhOR053NVVkOXI?oc=5",
-          "published": "Mon, 26 Oct 2026 11:41:31 GMT"
-        },
-        {
           "title": "Stock Market Investors Just Got Bad News About President Trump's Economy. History Says This Could Happen Next.",
           "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPUmNVY1ZrMFg3cnZEN1kxTHRkRzdkMWtvdUhjTTZ5aE9aaTgwNFVNNVc2R2ZKaFFaUjZfYWRzZjJoREFoR2ZNckp5cFh4eTFlUl9zU2lXeDhEMlAtcjdad1N0YW9RRVhyQUl5MjljdmZ1WHhrV3U5LXl3SEFRSTVqMzJxYTNtaElJMjV1RWcyR25FSEtPR1UxenlEUzA?oc=5",
           "published": "Sat, 24 Oct 2026 09:08:01 GMT"
@@ -218,11 +213,6 @@
           "title": "Why economic health no longer dictates stock-market returns",
           "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPSmdRa3dCZW9HRGI2b2JEQmxqRm5CcGxrZUxHUWpmMDZueW45NUVGM21QYzU0d0dWa0ZTX1RxbnNuajZHWDRpeDZqWWU4SWxRX1FJUXRhRzNLZVY0Z1N0Mks3NDlqZ2w2eFpOdkVuY1g0ZmplTjFOWFFXM1Frc3J1WXQwMFdlak9SYWJYZjZpMWFFa0V6ejlKU3VkQjdPWlNRRUU0Yw?oc=5",
           "published": "Sun, 25 Oct 2026 12:00:00 GMT"
-        },
-        {
-          "title": "Anthropic files for stock market listing, revealing soaring sales and a long list of risks",
-          "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPTFBzbE1iSFdoYlFXdERjQjltM3J0Mk9NNlJRaExqbnFDV28zUXo5NFZ1YWZCZENsMHo0dVZXVld6bjFval92RmxJcDhBeXhsM2FUYjU0Wl9zMnNYZ1NabDhEMTREWk1ueWVPdHo0SS1EeWhRWmp4eHZPVlBvZ1RUZ2xaMlE1OW1RTjBycHRQeVpZanpqODlRZXYxdWJmc2FvV2Q0XzllTFZmeFVYZE1ndGJuNG5FcG1iNWpHVHkwVkJ5YjQ5RGw0UEJDUUExNzUyU29Yd3Nxa2xyUjdkbk1xaDN0VXJBbnN1ZWxyY2lvdw?oc=5",
-          "published": "Mon, 26 Oct 2026 18:10:07 GMT"
         },
         {
           "title": "AI panic and market volatility: Are the stock market’s big gains unsustainable?",
@@ -235,9 +225,19 @@
           "published": "Sun, 25 Oct 2026 01:08:00 GMT"
         },
         {
+          "title": "Anthropic files for stock market listing, revealing soaring sales and a long list of risks",
+          "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPTFBzbE1iSFdoYlFXdERjQjltM3J0Mk9NNlJRaExqbnFDV28zUXo5NFZ1YWZCZENsMHo0dVZXVld6bjFval92RmxJcDhBeXhsM2FUYjU0Wl9zMnNYZ1NabDhEMTREWk1ueWVPdHo0SS1EeWhRWmp4eHZPVlBvZ1RUZ2xaMlE1OW1RTjBycHRQeVpZanpqODlRZXYxdWJmc2FvV2Q0XzllTFZmeFVYZE1ndGJuNG5FcG1iNWpHVHkwVkJ5YjQ5RGw0UEJDUUExNzUyU29Yd3Nxa2xyUjdkbk1xaDN0VXJBbnN1ZWxyY2lvdw?oc=5",
+          "published": "Mon, 26 Oct 2026 18:10:07 GMT"
+        },
+        {
           "title": "Stock Market Investors Just Got Bad News About President Trump's Economy. History Says This Could Happen Next.",
           "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNNmJPS0lqcGZGeG5xcFFranJCWkFrR1liczJkZTdvTlZIdWJ1elVJUUdHNlRJWUZJMnJzeVBNY3QzWk1KNjJraXJYQWkwOXUwX2o2Sm5KVWxscTNIbno2Ujh0eTViZzgtZWhWb3VtUUhST21RVmRWRDdKWl9QR2hDN2ZrclBzRVp0cjYxR0lXWHZnUUsxUFU2TTVtT3RlWGxkdjI5bUFNZGNVbmJpYnc?oc=5",
           "published": "Sat, 24 Oct 2026 09:48:00 GMT"
+        },
+        {
+          "title": "Why Peter Schiff says a stock market crash could happen before 2026 midterm elections",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQZ0Ftajh0VEZWbXpMV2ZCNmZCSHU4QXNNMWJkX1RLTmFLalM3X3g4OUNSQXU1LWY3YzV3WHpFQnFCS2J1dU53TDh0Nk9lLTRGT3pGdi1tYU5oaC1BSE9UTVFaa3NDOVNtUE5uQTZHd3ktVkZkckdveGkyMEdNSkJ1b1U1eG10ak8zc0ZscmZtR2doUHp3RmZZ?oc=5",
+          "published": "Sat, 24 Oct 2026 13:30:00 GMT"
         }
       ]
     },
@@ -245,19 +245,19 @@
       "label": "Argentina",
       "items": [
         {
-          "title": "Efecto Brasil: las acciones argentinas se desploman hasta 11% en Wall Street y suben el dólar y el riesgo país",
-          "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxORkJaNFJOZ1ZqbW5KclFsR1g0U0VpcktzdWdJcDZHaDVjbUtPUE5kc2ZFOGhyalM1VzVzT0lNTWp5V1piWjk0Sm1MdTFxeFhadzRVZEhWQXpmUzFZUHBoSTZwOTdNQWU1bk1JXzh5Q1BsdHh3OHdyNVR3d2dzWGJSMDQ4alY4QU94dHo2eV9TUTFVQm5zVVUxYVV4bXowb0F3dWVIclM1cllQQndqbXdSd0xCVTZFNnJjRXgxdFp4Q2wxeThBV0JIZ3ZIQ2ZzWHFSLUJvVHVYVE5fRUJaNmdwWHhPb0tZNGts0gGDAkFVX3lxTE00ZlRJcWFJM2hadlFQRFRyRWFsbkFCdU92RG1UYkN1c0tvbUdXaVh2d3M3YUhiVGRPMkF3LUN6Y2otWVV5MEs4dUtaeDJDT0xoVFNxcFZxZTZHeHpkSmk1Y2p2T2hSU3NVYjNFWGw0WmMxTUYya0JPdWxFQV94WWpDbE1vbTN0d18zdWJEYmNJVXJSRTZzdUVmM0FKX0FIWmxIa0ZEekVtcHBveU54anNFQzRxZHJsLUpLQmRPbG85TFZfMkFPajhaeV9mcnFKUElZaW1HUlQwUEtMWG1pQTBueU9pRGkwVkwzOEpwaE5aSmxpclpNQ3pxR0IxQ1pXME80Umc?oc=5",
-          "published": "Mon, 26 Oct 2026 15:15:00 GMT"
+          "title": "Dólar, riesgo país y acciones: uno por uno, cuáles fueron los efectos del ballotage de Brasil en el mercado financiero argentino",
+          "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQNlQ3Y0dRS2NVand5SEpTaDlvaVBTbm1zQ09FLWJBazF6cW41eWRIOC1EVFF3WmQwVzdob05yQzdQdWg4eGYwSWNQTUtDSmZ4MGtobTJqM2NIMUNJVlBud29BbUQ1c29nRG14elluVHdxckZpQzBfSlJqLXZYaURDd29PVk1ocUNTNGxSU2swbnNLMjJOYlJLUTc2N3pjV1VkN09FOXdZTi16cG9yOGw1UV9NMEF0eTF2c2RFTHdpanlEUkctbHVDdHJMVmhqdjN5ZDZnQUhnbjlZWmxMaUpBdkVvVlJGbUxhOGtONk1FblRlTms0a1NQRGItVkJFeFXSAZoCQVVfeXFMT3BQNWtFSlZtRElHemVZanZGWHdOQnc0Nm5EVjZnY0x3Q2NJOGJJSnYtcnJRR2c1Z1M2QmhrU0RaOV9MdTBIUkhEQkxNQmZWVGY3RE93YVhNRXVBc0RKbU04eUpFcDZuV2pKNDI2OGNybFJLTGM3Y2RYVFNMMy1BUTBlbDJUbXNTMzNtazcwd01GYkJLMVRKMGR1eER1cGFkZmltZC1FX2xwY2Z6TGlldFU1OWtnU3lVRUlGWndETzc1Y1VJZ1JzSG5rNmJWMXRwVjVDNWJmT3MtNWo3MXlONzhHWEVhQ0s5dC1VUXJqOEJFTzZQTFpWejB3QzdCcW41T3RNajcySUZzVmN6M2FjajJaNkhWOTIyZlJB?oc=5",
+          "published": "Mon, 26 Oct 2026 22:09:00 GMT"
+        },
+        {
+          "title": "Dólar, riesgo país y acciones: efectos del ballotage de Brasil en el mercado financiero argentino",
+          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQM1NKc0RYejBQdEZsbk9kaFFGU2dBS3NHOUlrR0U4RXdYQ1hYbmxWUU1zSk5vUVh5cTdfTE5oaEl5MHZxX0R0bWJmU2tWeU42c0VPLU8xTks5TVROWkNBTzByRWNuUTgteXVTMzNFeTR0Vkh5elM1WjRRdlExbWo5OGRkdlMtNk9nZktWTkRGTlJnVmpqd0o0MkljMFlMZjdyYnVkOV8tVGQ4RnZWTl9fU0tldXNfdmdXMzY2UGdzRk1jYnRPeWdRazNKaw?oc=5",
+          "published": "Mon, 26 Oct 2026 21:09:23 GMT"
         },
         {
           "title": "Qué puede pasar con el dólar y la Bolsa tras el triunfo de Lula en Brasil",
           "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQbG1idFBhcHppNjhHSHR6Qm15ZE9oUTBoelJUT2RLVXNBOW1faUF1RlBDZ1pPMGdnOXJhYlh5djZINEdfTFB1MkxxWHNuRHlhUDF1d0Z0RWMxSU5uWnVjdnRrYkVWVlk0OHBqaTFyb2pVTUpfYXoyVmgzemhCc285TDBHbkJOSE1DWGxDM2lLbFpIekZQUDdKaXZaUTlmSXhLSGRBR2E3blFUTVZmTHZJRy1HZ2g1c05SbEHSAb8BQVVfeXFMUDV4YUFsb1hBaTlfZ1dBWUxiX1FHQnVLcmNQVGlnNnVZcURBQTRpVTNTYng1MU5PU2tacmhnQlRWNnRMb0NuSktReFBSQUJCc1dSXzRsX2RXX2pUMExIaHZ6dGo3VEM1Nm00WC0zcVVUNTQtOWFMSWI4MXk1UENoM1Y3VjdaS1A0MjYya01pT1hSTzVBZlV6MXlUT29FM3lYSmgzTlRKdGVsal9FWXNMNnk5cTJpM3JqVlpFWkVTZDQ?oc=5",
           "published": "Mon, 26 Oct 2026 00:20:00 GMT"
-        },
-        {
-          "title": "“Lo que el dólar calla, los bonos gritan”: el mercado mira con más cautela la economía de cara a 2027 y sube el riesgo país",
-          "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQRW9mejFsYjZlSmRlS0twMmxJcDQ4eVcwdkRocW1TTGVLNEYyZHdQSVc4Z0hEQVNRbExOU3FiYkVvSE1kRS0ySjZpLXVSb0pGSVI0S1NvcjZ1Z1R1YUp6WHdSMm9jRjBhYms4MlhtUndmenJrVks2enRIcnA3bWtwOFRLSkdNRWtiWVp2cGpvR2tZdlQ5aDVCZFNuZC1Sc0tmNkVvakw5WndYQ0RRMXlxYWVqSWJMTEtteWs4T3l4SDBtSGdodVgtenFTS3p4MlMwbDFQQ0xWOFE5OW1XRUZReUhMdw?oc=5",
-          "published": "Mon, 17 Aug 2026 07:00:00 GMT"
         },
         {
           "title": "Para cuándo el mercado prevé una suba del dólar en Argentina",
@@ -287,6 +287,6 @@
       ]
     }
   },
-  "updated_at": "2026-10-26 20:18",
-  "updated_date": "2026-10-26"
+  "updated_at": "2026-10-27 01:05",
+  "updated_date": "2026-10-27"
 }
