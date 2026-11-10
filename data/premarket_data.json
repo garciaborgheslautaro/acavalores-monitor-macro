@@ -4,145 +4,145 @@
       "symbol": "^GSPC",
       "name": "S&P 500",
       "type": "index",
-      "price": 7549.93994140625,
-      "prev": 7376.85986328125,
-      "change_pct": 2.3462568265193187,
-      "date": "2026-11-09"
+      "price": 7520.93017578125,
+      "prev": 7549.93994140625,
+      "change_pct": -0.3842383628232763,
+      "date": "2026-11-10"
     },
     {
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 25253.138671875,
-      "prev": 24579.4296875,
-      "change_pct": 2.7409463642584773,
-      "date": "2026-11-09"
+      "price": 25065.875,
+      "prev": 25253.140625,
+      "change_pct": -0.7415538042607324,
+      "date": "2026-11-10"
     },
     {
       "symbol": "^DJI",
       "name": "Dow Jones",
       "type": "index",
-      "price": 52389.75,
-      "prev": 51285.73046875,
-      "change_pct": 2.1526836434994596,
-      "date": "2026-11-09"
+      "price": 52231.890625,
+      "prev": 52389.75,
+      "change_pct": -0.30131729011877323,
+      "date": "2026-11-10"
     },
     {
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 19.920000076293945,
-      "prev": 25.639999389648438,
-      "change_pct": -22.308890208725245,
-      "date": "2026-11-09"
+      "price": 19.549999237060547,
+      "prev": 19.920000076293945,
+      "change_pct": -1.8574339247805665,
+      "date": "2026-11-10"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7569.75,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-09"
+      "price": 7548.25,
+      "prev": 7574.25,
+      "change_pct": -0.34326831039376837,
+      "date": "2026-11-10"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 27876.5,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-09"
+      "price": 27849.0,
+      "prev": 28014.5,
+      "change_pct": -0.590765496439344,
+      "date": "2026-11-10"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52627.0,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-09"
+      "price": 52343.0,
+      "prev": 52498.0,
+      "change_pct": -0.29524934283210785,
+      "date": "2026-11-10"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4120.10009765625,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-09"
+      "price": 4038.39990234375,
+      "prev": 4114.5,
+      "change_pct": -1.8495588201786366,
+      "date": "2026-11-10"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 85.58000183105469,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-09"
+      "price": 86.36000061035156,
+      "prev": 86.8499984741211,
+      "change_pct": -0.56418868437348,
+      "date": "2026-11-10"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 91.37999725341797,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-09"
+      "price": 91.94000244140625,
+      "prev": 92.56999969482422,
+      "change_pct": -0.6805630933292455,
+      "date": "2026-11-10"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 101.6719970703125,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-09"
+      "price": 102.26200103759766,
+      "prev": 101.6500015258789,
+      "change_pct": 0.6020654230516091,
+      "date": "2026-11-10"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1225864887237549,
+      "price": 1.1165698766708374,
       "prev": 1.1147277355194092,
-      "change_pct": 0.704993062784421,
+      "change_pct": 0.16525480552162577,
       "date": "2026-11-10"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.508500099182129,
+      "price": 5.5843000411987305,
       "prev": 5.503399848937988,
-      "change_pct": 0.0926745354532951,
+      "change_pct": 1.4700038972518743,
       "date": "2026-11-10"
     },
     {
       "symbol": "^TNX",
       "name": "10yr Treasury",
       "type": "bond",
-      "price": 4.863999843597412,
-      "prev": 4.859000205993652,
-      "change_pct": 0.10289436904309317,
-      "date": "2026-11-09"
+      "price": 4.9830002784729,
+      "prev": 4.863999843597412,
+      "change_pct": 2.4465550719976097,
+      "date": "2026-11-10"
     },
     {
       "symbol": "^IRX",
       "name": "3m Treasury",
       "type": "bond",
-      "price": 4.034999847412109,
-      "prev": 4.0,
-      "change_pct": 0.8749961853027344,
-      "date": "2026-11-09"
+      "price": 4.115000247955322,
+      "prev": 4.034999847412109,
+      "change_pct": 1.982661798476201,
+      "date": "2026-11-10"
     },
     {
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 75.30999755859375,
-      "prev": 73.66999816894531,
-      "change_pct": 2.226142840247496,
-      "date": "2026-11-09"
+      "price": 73.69999694824219,
+      "prev": 75.30999755859375,
+      "change_pct": -2.137831181177409,
+      "date": "2026-11-10"
     }
   ],
   "fear_greed": {
@@ -155,44 +155,44 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "The Stock Market Just Had Its Best Day Since April. Here’s What History Says a 62-Year-Old Retiree With $1,300,000 in Cash Should Do Now",
-          "link": "https://247wallst.com/investing/2026/11/09/the-stock-market-just-had-its-best-day-since-april-heres-what-history-says-a-62-year-old-retiree-with-1300000-in-cash-should-do-now/?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 03:32:36 +0000"
+          "title": "Chip stocks' slide nears $5 trillion as Nvidia hits most extreme selling level since 2019",
+          "link": "https://finance.yahoo.com/markets/article/chip-stocks-slide-nears-5-trillion-as-nvidia-hits-most-extreme-selling-level-since-2019-191532559.html?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 19:15:32 +0000"
         },
         {
-          "title": "Morgan Stanley issues strong opinion on S&P 500",
-          "link": "https://www.thestreet.com/investing/morgan-stanley-issues-strong-opinion-on-sp-500?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 03:17:00 +0000"
+          "title": "Nasdaq Announces End-of-Month Open Short Interest Positions in Nasdaq Stocks as of Settlement Date October 30, 2026",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-announces-end-month-open-210500456.html?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 21:05:00 +0000"
         },
         {
-          "title": "The Dow Just Jumped 1,100 Points. Here’s What Warren Buffett’s 2008 Rule Says to a 66-Year-Old Retiree Who Almost Moved $600,000 to Cash on Friday",
-          "link": "https://247wallst.com/investing/2026/11/09/the-dow-just-jumped-1100-points-heres-what-warren-buffetts-2008-rule-says-to-a-66-year-old-retiree-who-almost-moved-600000-to-cash-on-friday/?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 02:41:18 +0000"
+          "title": "Update: US Equity Indexes Decline as Fed Policy Tightening Bets Jump After Inflation Beats Forecast",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-decline-fed-205304759.html?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 20:53:04 +0000"
         },
         {
-          "title": "Tech leads Asian stock rally as traders track Wall St rebound",
-          "link": "https://finance.yahoo.com/markets/world-indices/articles/tech-leads-asian-stock-rally-023930562.html?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 02:39:30 +0000"
+          "title": "3 Ways to Protect Your Portfolio After the S&P 500's Worst Day Since April 2025",
+          "link": "https://www.fool.com/investing/2026/11/10/ways-protect-portfolio-after-sp-500-bad-day/?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 19:50:00 +0000"
         },
         {
-          "title": "He Watches the Nasdaq Plunge 5.5% at 63. Claiming Social Security to Avoid Selling Stocks Could Lock In a Smaller Check for Life",
-          "link": "https://247wallst.com/personal-finance/social-security/2026/11/09/he-watches-the-nasdaq-plunge-5-5-at-63-claiming-social-security-to-avoid-selling-stocks-could-lock-in-a-smaller-check-for-life/?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 02:07:23 +0000"
+          "title": "Buy the Dip: 5 Stocks Insiders Are Loading Up On After the Recent Market Sell-Off",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/buy-dip-5-stocks-insiders-191927761.html?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 19:19:27 +0000"
         },
         {
-          "title": "Review & Preview: Dip Buyers Unite",
-          "link": "https://finance.yahoo.com/m/7e3b2b5c-9d1b-3605-b9e3-670584095571/review-%26-preview%3A-dip-buyers.html?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 00:55:00 +0000"
+          "title": "The Stock Market Is Shaky Right Now. Here's Why I'm Not Worried.",
+          "link": "https://www.fool.com/investing/2026/11/10/the-stock-market-is-shaky-right-now-heres-why-im-n/?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 19:05:00 +0000"
         },
         {
-          "title": "U.S. stock futures steady after tech-led rebound; CPI in focus",
-          "link": "https://finance.yahoo.com/news/u-stock-futures-steady-tech-004342905.html?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 00:43:42 +0000"
+          "title": "KVH Industries Stock Dips Post Q3 Earnings Despite Revenue, LEO Growth",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/kvh-industries-stock-dips-post-185600744.html?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 18:56:00 +0000"
         },
         {
-          "title": "Nvidia is about 6% of the S&P 500. If Jensen Huang is ousted, there’s no clear successor — could chaos hit portfolios?",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/nvidia-6-p-500-jensen-230000817.html?.tsrc=rss",
-          "published": "Mon, 09 Nov 2026 23:00:00 +0000"
+          "title": "Inflation Came in Hotter Than Expected and a New Rate Hike is All But Given. Stocks Fell.",
+          "link": "https://www.ibtimes.com/stocks-fall-inflation-anthropic-ipo-valuation-3809628?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 21:03:57 +0000"
         }
       ]
     },
@@ -200,9 +200,24 @@
       "label": "Economía Global",
       "items": [
         {
-          "title": "The AI Boom's Two Engines",
-          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBNMUtuR0JoRnh3SldHOW45Wmt4elVFMlFPUTl2dW9WdVBhcUNHS3N1enRUeVR6aHBvdzROVFZCbHZ4a1ZsR3l6UkotZ1Blc3ZweWltZFFncFV3UkFNZ3NLMFdkRUN5UjBUaTVSNU1tcXRhM1NkVk1pbXFmTQ?oc=5",
-          "published": "Mon, 09 Nov 2026 18:48:24 GMT"
+          "title": "Weekly market wrap",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPeVcxcmtaeVJRVm9kQ2VyWmVQNG9GNDZzWkJpT01xTUFJbVhYdGF6dG1qZndCb2hFaHhCM0I5NFk2RGxhY1drcWRHVnhyNzc0RWJvTU50S0dnWENrRk1UYVQ4S25xVHBtYzJsU1dabkhWeVBCckxzTHRpS3M2dklsOF84LTJRV1RJLVFRVUdGbHh2SE5CbFVPQVpROGtRa2M?oc=5",
+          "published": "Fri, 06 Nov 2026 08:00:00 GMT"
+        },
+        {
+          "title": "The stock market is doing some of the Fed's dirty work",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxObTE4c0F3SndrSllQOTFmbTJmWExvbVBVX2VaYnh0VkN0aUdwYnVDMGJzbzlMWTJpY1Bia3hMRW4xT1lZaDJaSy1xZ0xzaWktSmttVFAtaVQzUlZrZzJEdFJiYW94QnFTbElxSklMUzBLdlJVMExiX0pEVU10QlFjRkExTFRfWFoteGVQMm1fb3hwMTRQWHFaVnRnVFFOWVVBN1FBYTZ3Z0dfck1FR0Mw?oc=5",
+          "published": "Tue, 10 Nov 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Stocks fall after a discouraging update on inflation",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYjJqclZKNVhHZ3NTcndVeVBXY2VTblZ3QTE4NzBoNEVlRENaN3g3WkZpY2ktVXpuZTRJd1JSOHgtTXFEYVh5aHlXVXlKRWJWR0RBRnZPel9sVlVPaHZaZHJCVXFfam9vdGRDdFE0OHZpZ1VMQzlSN21ZUWhIci1oQU4xSVJJNGo2ZWpVMFZzWkl4dGFUNTZObk53cGlDSTRWdGxr?oc=5",
+          "published": "Tue, 10 Nov 2026 19:12:14 GMT"
+        },
+        {
+          "title": "Nvidia CEO’s affair with an alleged Chinese spy could be a problem for the economy",
+          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPc3lyMzJwdnl2WkRzbnM2UjAwT3ZSTUZDQTgzbzBiNnJnZWVaRXloREtmSl85dGhjRUZnd2lvUlpkWTFja3BoMHZwbDJIZXl0MWdkdnpwRGlwUHpkMUZ1Vzd4NnpKMWdrN29yczBZa19MSk41Y1lFZTJIT2NfSlVtQTUtMmROZFFqRm9BcFN3QVdpbEtWN29qM3hPOUVUTWI5QkdBQUdRSEhsZnM2NlJjRVZn?oc=5",
+          "published": "Tue, 10 Nov 2026 18:00:00 GMT"
         },
         {
           "title": "What a slower AI buildout may mean for markets",
@@ -210,34 +225,19 @@
           "published": "Mon, 09 Nov 2026 15:20:47 GMT"
         },
         {
-          "title": "The stock-market rally keeps spreading beyond Big Tech. October inflation data could put it to the test.",
-          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPbElzUEl3dVVBaVlmTFVuX2kzRlJIVlNWZThFdXR5VmlGSGJhRnV5U0tfUmlHQy1nRkstNjdldDcwY0czb0ZVb0dnaGV4b2g0dlV5YkdWRnlCOGloQU5aVmhFdnlXM2JUTU8wbGwySFI3bzk3bU00WC02S2FxR3BoU2szZDhwM2owaGVacFZtN3p5cDh2aG9GUVNRUmxRVk9NandhbHdnMlQzWElORVl0bTZuRG1aZGJzb1NXM2hTNVdVczdiOF9SM3QxUnRGR2xXb3B5bGY2Nklra182elE?oc=5",
-          "published": "Mon, 09 Nov 2026 21:24:00 GMT"
+          "title": "The AI Boom's Two Engines",
+          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBNMUtuR0JoRnh3SldHOW45Wmt4elVFMlFPUTl2dW9WdVBhcUNHS3N1enRUeVR6aHBvdzROVFZCbHZ4a1ZsR3l6UkotZ1Blc3ZweWltZFFncFV3UkFNZ3NLMFdkRUN5UjBUaTVSNU1tcXRhM1NkVk1pbXFmTQ?oc=5",
+          "published": "Mon, 09 Nov 2026 18:48:24 GMT"
         },
         {
-          "title": "Weekly market wrap",
-          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPeVcxcmtaeVJRVm9kQ2VyWmVQNG9GNDZzWkJpT01xTUFJbVhYdGF6dG1qZndCb2hFaHhCM0I5NFk2RGxhY1drcWRHVnhyNzc0RWJvTU50S0dnWENrRk1UYVQ4S25xVHBtYzJsU1dabkhWeVBCckxzTHRpS3M2dklsOF84LTJRV1RJLVFRVUdGbHh2SE5CbFVPQVpROGtRa2M?oc=5",
-          "published": "Fri, 06 Nov 2026 08:00:00 GMT"
+          "title": "The stock market rally that’s making some people rich and everyone else miserable | CNN Business",
+          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4wTnVnQTZObVBiRWNaVmMwNHFDandIeHBjbDRnc182d2VPcnVOeHp5alN2LVBGSjFZTkE5RmpLXzRMcDVlU0MwbGRBYnd6SWptRGtZYkNPYjNjWnlab1ZwUUFLT0c2dE1UUVBIaA?oc=5",
+          "published": "Mon, 29 Jun 2026 07:00:00 GMT"
         },
         {
-          "title": "Stocks will tumble much further as AI investment will slow next year then fall in 2028 and drag GDP down too, economist predicts",
-          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOYTNjLTFBYjRjelNlUjFGRWJVQ3lsRjV4cFh6b2VMT1JORENTNHp4bFZLMUtXcndkVTE2WnJsX1ZWZGgtc1FFeVN1SEFKcjZJN1AyZjhCZl9OT015VVRsaHlnbW9pU2F0bXJ2T1NZVy1CWnRfSVNBZUQ5MUNEeVd0STJSdTE2b1pHZ09ONkxMY18?oc=5",
-          "published": "Sun, 08 Nov 2026 18:22:23 GMT"
-        },
-        {
-          "title": "Asian stock markets climb after earlier tech rout",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOOExPbUF0LU5VaFFCYVpvLVFpaFdIclBKUXJtYk9LQXM2ODZyUmMzU1QwNE10MHA3bU5uSTJSQ2VDQ1E0MEo2SmJxd0hJcjFseHRmYWdTbjhkMnU2OTVneHlpbExSbjgyR2F6MDJ4WTNxUWpjZW9OU1l4UWlOYmFrUk5wRTZVMlEwMG9zS1p4UGdPYjJZV09pSNIBngFBVV95cUxORlBpVTZtXzJuQXB2UlpsSlhNbEJlLXF1TjFxbVJlVl9KbUhpN0JCS0JvWTN0bkJsb2lVVGtiMjgzNkZQaW1sOFYxamN3NXFDZHFVQXgxdGZXdUhid2p0elBlcldGNko5ejluSU1DWFZpWEUxREozTUVsdS0xZGdkY3FpUVNIWWVXbkE2NkFqS01VSnFYQzhhM3ZtNzE3Zw?oc=5",
-          "published": "Mon, 09 Nov 2026 10:16:56 GMT"
-        },
-        {
-          "title": "The vanity economy is taking over America’s downtowns",
-          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9WMEliN1FvWmNmeUhnbU15ZWVOQlhZSGRTd191amZXcldETWVjaVF4QjdzWlR2T25Ud0tyUHBMblBmdUljUHM4RzlHeDdhaVp4aklJaWxpVjc2QVIzalU3M2ZxRV9VLVJJZTJvazhQN2ZMV3pZTFNv?oc=5",
-          "published": "Sun, 08 Nov 2026 11:30:15 GMT"
-        },
-        {
-          "title": "Why the stock market and economy may seem out of sync",
-          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9vcWg0QXpqWk91X05BclFWbHdfOXotd2YzRlBpS0lSeFN4ZGJwSDhvRE5uWkliU095bnYyMy11cEktM3U1SGZXd24wdlRoajBrTDVOR01wUGNDMElqbFVheEJjUko2MTk5Vlpad3hYQWVzRk90QkRuSUpUOFZUQdIBgwFBVV95cUxOU0NUczI0QXNNbXlrWTlINlBJTkVGZHFtQi1tS05ocmVsWlVzcWFNRjhic01aVWxSdWRCRU1ISTU0WnVrX1E4RGRZWG0tWHcxa3BqSnhLSXNhSzlNb2k1Z3g1V3Y4SkRoUUVmMUsyTTNZTmZIVWpHYzJsM3FYVUpGaWtzVQ?oc=5",
-          "published": "Fri, 10 Jul 2026 07:00:00 GMT"
+          "title": "Will the housing market crash due to the affordability crisis?",
+          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOZlRndE5BblFlbTZLeTNIQi1OeDB0M0FYQ3pvMGtwcXEzVFo2ejdQMGllOHZGRjJUUUZnZ3VqX3hxZHV0LTN5YzBoc1VkLUJWdFc2VGFua0dPbXFjVGZ1SzF4UTdrQ2puVFpacFZiWEFyemw3MkZvMU01dmtmUHMzU0VNejUydTZidzFYU1BSMFlkNjlZNmMxcFRnMzZNOVM1Mi0wRVM3T0RLMFhDaWZrV0dOeUtFc1Z2aFR0ZEo3TEZKejdTTVBvcnJILUxNcktQUEJF?oc=5",
+          "published": "Tue, 10 Nov 2026 16:34:59 GMT"
         }
       ]
     },
@@ -245,9 +245,9 @@
       "label": "Argentina",
       "items": [
         {
-          "title": "Dólar hoy, dólar blue hoy: a cuánto cerró este lunes 9 de noviembre",
-          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNQUNvak5UcXFaTktSc3Ytb3FBazFtRkJTMkE5REd0d1dtT2hscE5FYWpwYl9yNVU2ckZhSFEyQVpPZ2ZDUVEtNDBHMDNQN3hjNlFCQW4tZWNLajRQS1d0RnR4M25RZnhqZnYtSHVySHhlM1JON0h3dnAxQ3FrRU9JTlc3VG5tSFB1bHR0QkpTblZ6b216ZGlLb3YwbUxOREwxc0tsNXI0U1NoNnFySGpsQmFKeDJLQ0lPS3JQeGYyelQ2QdIBxwFBVV95cUxNVElsZ0xGSTlTcmlEdlJnNGdFckRsRW9NQzJZNG03MC0yVUMzVFJ4c1k3SzlOTzZQMjlSaEV3UXcwMkN3NGdMT3d3UV9ueGR1YTkzY3J3MEhWZlQxLXRaQU5wdXBlTXAzOE1hOFdLU0Fid1Y4UHNacEgtR25YVzdhTldxRVNwNHByZDgxMWJMSjZISjJUYmNMRGZGQ0Y2RVU4U1dPcXVUZXoxNFZnUlFyMkpfb09adDYtODFFYVZodmtIZ0VCRWE4?oc=5",
-          "published": "Mon, 09 Nov 2026 19:09:40 GMT"
+          "title": "Dólar hoy, dólar blue hoy: a cuánto cotiza este lunes 9 de noviembre",
+          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPLTR0V1RPeEhIR0FXbkQ0NUZkaEZ3U0xXZUNLNWQtRDQ4cWlkZDExS1UxX3BSRlgzNlpveHhZSG1jUjgySUktWUdidXc3amVlNTh1U0pVMDkwRDloNXh0Nk5MYmZGdm01b1ZGd1JJQnpkcUVyZXNuamJjcTFtdHIyUGlkczJTMXJfeEVhVUpDejNHSG1FUDBaWktsTFhhcnVDVElyV2E0VVZqUXJSLVhDd2NxYmlIcGd1WDdzZ1B2N3lOTWPSAcgBQVVfeXFMUHVrVTdmYWNTdjdsdHVUbjFNU0VpMzlBYUd5SU01Wm9XRGJmLXYwNlJTSzdBSTBOZnVETEFTX2RabzdsU0FfSFM0WnBUV2ZVYWR1M09yTnB6am9ibEJuRTkyaWJ5aGU4LWxoZkkxSHdEWEwtN1BIU2pUZ3J3NVRGT2xkeDgxTXZYQkVUa1gyRXljbDI5U2hZLTJnQ3ZRSWFpOUJSb3prVHVVRmlWQ3Ayejd6a1NnQ1AwZnB3TmNpd1l5Z2Z5eEY3SDA?oc=5",
+          "published": "Mon, 09 Nov 2026 10:12:46 GMT"
         },
         {
           "title": "El dólar rumbo a $2000: proyecciones del mercado y análisis de expertos",
@@ -255,19 +255,9 @@
           "published": "Sat, 07 Nov 2026 20:32:28 GMT"
         },
         {
-          "title": "Dólar hoy, dólar blue hoy: a cuánto cotiza este lunes 9 de noviembre",
-          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPLTR0V1RPeEhIR0FXbkQ0NUZkaEZ3U0xXZUNLNWQtRDQ4cWlkZDExS1UxX3BSRlgzNlpveHhZSG1jUjgySUktWUdidXc3amVlNTh1U0pVMDkwRDloNXh0Nk5MYmZGdm01b1ZGd1JJQnpkcUVyZXNuamJjcTFtdHIyUGlkczJTMXJfeEVhVUpDejNHSG1FUDBaWktsTFhhcnVDVElyV2E0VVZqUXJSLVhDd2NxYmlIcGd1WDdzZ1B2N3lOTWPSAcgBQVVfeXFMUHVrVTdmYWNTdjdsdHVUbjFNU0VpMzlBYUd5SU01Wm9XRGJmLXYwNlJTSzdBSTBOZnVETEFTX2RabzdsU0FfSFM0WnBUV2ZVYWR1M09yTnB6am9ibEJuRTkyaWJ5aGU4LWxoZkkxSHdEWEwtN1BIU2pUZ3J3NVRGT2xkeDgxTXZYQkVUa1gyRXljbDI5U2hZLTJnQ3ZRSWFpOUJSb3prVHVVRmlWQ3Ayejd6a1NnQ1AwZnB3TmNpd1l5Z2Z5eEY3SDA?oc=5",
-          "published": "Mon, 09 Nov 2026 10:12:46 GMT"
-        },
-        {
           "title": "Dólar, comercio y mercado: el impacto en la Argentina de las elecciones en Brasil",
           "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQajEyRFNXbU1pVnc3M2V3NTVDaXJPQlpnS0lHM1FSN2RnVHdtMTVsLUJfcEFMZnRWdTZmTldvWGZmazNTRWdBa1ZDcWRfUUZicVFjSlRFN1JGTlNDbk02b1dJOGZQamtucnpyM1NDZnpyWE9GVG5LRVVXYWdzZ1AxbVEzejhWTzlMOVZ4R0tDbGhVS1BLT21RWUp5NmJfUkM3ZHFZZTFFaGUzbFdUODQ5VTlkRVNZMktjMENHQUplUFJmUlYzQTE2VXBMSGdvMkREX3k3NkhCONIB6wFBVV95cUxOaVJHQTB5eUlWQU5BN0R0WU0wWmlKclluMzNTNmtlN25IMy1YVElBWXF0WFE4UXhud0Zjal9WOUVMN3lBVW1qXzBwell5SUpxMXI2bzdGb05kUUFkQ3NCazU4UmlGaXBxY1duM2ltTF9xU0xGNmk1VUpxTFcwdGdtMTZkNEFlZ0RtT1F3b2tMR3VFT1NzZ0pvOU5JWV9TYUlzeG9tdV9lV1lQVDdaYmE3MmNIZmcyaUFIQnRja1VROW1NaV8yTjVEdHBzeXAybzJZWTc3RHFkNmlBd29BUmJOR3A2aDZQTUJUcTlB?oc=5",
           "published": "Sun, 04 Oct 2026 07:00:00 GMT"
-        },
-        {
-          "title": "Para cuándo el mercado prevé una suba del dólar en Argentina",
-          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPakJGNXAtOHZSTF9sZ0kwT1VtenhRczVwd3g3a1ZOcDJWOEJseHU4TXVKUmZEbW1TXzYwV04zbjZxeG1XUS1iMzRPaDFsYVdYVmFlOFJteG9HX0tpd1dXbWNqQVM3d1BQRmFCYllabk9vNGpaWjdUQ05nLWNhOEFDS0NCMUFtSmJkWC11NTUwUkRtNGdneDdEdzVZMW81UllfVXU5dHZ4TkzSAa4BQVVfeXFMTXVyVUJ1cFlRTzVzLXhsQjU5anpyRHJoYkpta1QwQlZJbEtPRVg0S1lwNVY4NEI2a1VDQzV3RDVwamFSbGVzZ29IanhGYkFjV1NqblRBMmVUQkRPaEdTUXVfZk5wemh4cE5zQWZidXNOMW4wM1VSX3pKWmQ2aDA2YkZ5bnozT09UUFMxeU1RaDFKOFBQVVFPamwzUW5ON0hsOWw3Z0E3TmEzd19ZMzJ3?oc=5",
-          "published": "Mon, 12 Oct 2026 07:00:00 GMT"
         },
         {
           "title": "Dólar en Argentina: cuánto se espera que valga a fin de 2026",
@@ -280,13 +270,23 @@
           "published": "Thu, 01 Oct 2026 07:00:00 GMT"
         },
         {
+          "title": "Para cuándo el mercado prevé una suba del dólar en Argentina",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPakJGNXAtOHZSTF9sZ0kwT1VtenhRczVwd3g3a1ZOcDJWOEJseHU4TXVKUmZEbW1TXzYwV04zbjZxeG1XUS1iMzRPaDFsYVdYVmFlOFJteG9HX0tpd1dXbWNqQVM3d1BQRmFCYllabk9vNGpaWjdUQ05nLWNhOEFDS0NCMUFtSmJkWC11NTUwUkRtNGdneDdEdzVZMW81UllfVXU5dHZ4TkzSAa4BQVVfeXFMTXVyVUJ1cFlRTzVzLXhsQjU5anpyRHJoYkpta1QwQlZJbEtPRVg0S1lwNVY4NEI2a1VDQzV3RDVwamFSbGVzZ29IanhGYkFjV1NqblRBMmVUQkRPaEdTUXVfZk5wemh4cE5zQWZidXNOMW4wM1VSX3pKWmQ2aDA2YkZ5bnozT09UUFMxeU1RaDFKOFBQVVFPamwzUW5ON0hsOWw3Z0E3TmEzd19ZMzJ3?oc=5",
+          "published": "Mon, 12 Oct 2026 07:00:00 GMT"
+        },
+        {
           "title": "Dólar hoy, 19 de agosto 2026: cierre y cotizaciones en el mercado cambiario argentino",
           "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOcWtSZ2R1MHNiQVI2aXBTRjFmQUlyVEVyWW5VYWNPVHY1c1RLeXg5M0RELVp1cWRHeUcwZU4wVUVBaVktcmkxcmdvc01TMGpvcGZvblZEc0xfdUNGVXo0RkExWm16VVBUbDA5TGpRZGU2aG5Vd1JFR0NMN3dnZTFja1V3b0VQTXBjOXZtN2h1UEJPRWJVMkZ2Q1lzdGNnYnRkNm9zdHBaMUV4R2VqLVZ3YUpHOG15X0txaVdtdTZGSWJTNGx2Zm5HMHZJQTdwY1huYVVLUVZWS1ZRWTFCWXRyZmxn0gHqAUFVX3lxTE5JNDg4NVE1WXhSM1RsdWRsU2VOdzhBcTZxek5NZzhqLWVzNWZscWo3WVFEdnIyVE12dzBDVmFISWJpRWdycF9GYm5YYjZsVDI2cGdHQ3dUamo3SmNQS05WbW9KVlpOQlBzNjJvbG5NczBSU2lfbnpYMVNDS0ZfbDBTTTNDUUhTdklXRmhJYzJXSFJGWW94VlpraGdqRElUb0FidmZxWVhEeGs5M3ZzVlpWSS1tYzI4enlFa2pwUC1GbWc2a2pkbTNPazVha3JKNVpPLURNaE9WVHltdUNSWG9qWXJZS19MQ1I1dw?oc=5",
           "published": "Wed, 19 Aug 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Dólar a $1500: Bausili justificó la intervención del Tesoro en el mercado cambiario",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQNXhYTG1jenZYQmVoSVA3a24taHgxNTkwZTllVC02bjJHVHdyci1PNzNQRHYtU2pHdXQyWUNZRU80RlNOTE9jYU9GdWxCZzZsUXpLcWhsN1M5QjRRUmJNbjlKaktIb1YzdmRjamdmSm5tN1dDOXdfSGNocmVDUzhmLWdTRVF4ZGlTbVZPYUFFNTF4NFRfUGJTLTVOOTdLUkZ5VkFDVC12REg5WGxzQnlLZFlLUjFoTHBHTXEycEJGLWxaQjZuV1ppaFNyRGdxQQ?oc=5",
+          "published": "Fri, 07 Aug 2026 07:00:00 GMT"
         }
       ]
     }
   },
-  "updated_at": "2026-11-10 03:55",
+  "updated_at": "2026-11-10 21:11",
   "updated_date": "2026-11-10"
 }
