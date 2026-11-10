@@ -40,7 +40,7 @@
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7575.5,
+      "price": 7569.75,
       "prev": null,
       "change_pct": null,
       "date": "2026-11-09"
@@ -49,7 +49,7 @@
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 28020.0,
+      "price": 27876.5,
       "prev": null,
       "change_pct": null,
       "date": "2026-11-09"
@@ -58,7 +58,7 @@
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52513.0,
+      "price": 52627.0,
       "prev": null,
       "change_pct": null,
       "date": "2026-11-09"
@@ -67,7 +67,7 @@
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4149.5,
+      "price": 4120.10009765625,
       "prev": null,
       "change_pct": null,
       "date": "2026-11-09"
@@ -76,7 +76,7 @@
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 86.44000244140625,
+      "price": 85.58000183105469,
       "prev": null,
       "change_pct": null,
       "date": "2026-11-09"
@@ -85,7 +85,7 @@
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 92.33000183105469,
+      "price": 91.37999725341797,
       "prev": null,
       "change_pct": null,
       "date": "2026-11-09"
@@ -94,7 +94,7 @@
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 101.67900085449219,
+      "price": 101.6719970703125,
       "prev": null,
       "change_pct": null,
       "date": "2026-11-09"
@@ -103,19 +103,19 @@
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1224603652954102,
-      "prev": 1.1228259801864624,
-      "change_pct": -0.03256202630718699,
-      "date": "2026-11-09"
+      "price": 1.1225864887237549,
+      "prev": 1.1147277355194092,
+      "change_pct": 0.704993062784421,
+      "date": "2026-11-10"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
       "price": 5.508500099182129,
-      "prev": 5.503499984741211,
-      "change_pct": 0.09085335613302609,
-      "date": "2026-11-09"
+      "prev": 5.503399848937988,
+      "change_pct": 0.0926745354532951,
+      "date": "2026-11-10"
     },
     {
       "symbol": "^TNX",
@@ -146,53 +146,53 @@
     }
   ],
   "fear_greed": {
-    "value": 29,
+    "value": 32,
     "label": "Fear",
-    "timestamp": "1794182400"
+    "timestamp": "1794268800"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
+          "title": "The Stock Market Just Had Its Best Day Since April. Here’s What History Says a 62-Year-Old Retiree With $1,300,000 in Cash Should Do Now",
+          "link": "https://247wallst.com/investing/2026/11/09/the-stock-market-just-had-its-best-day-since-april-heres-what-history-says-a-62-year-old-retiree-with-1300000-in-cash-should-do-now/?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 03:32:36 +0000"
+        },
+        {
+          "title": "Morgan Stanley issues strong opinion on S&P 500",
+          "link": "https://www.thestreet.com/investing/morgan-stanley-issues-strong-opinion-on-sp-500?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 03:17:00 +0000"
+        },
+        {
+          "title": "The Dow Just Jumped 1,100 Points. Here’s What Warren Buffett’s 2008 Rule Says to a 66-Year-Old Retiree Who Almost Moved $600,000 to Cash on Friday",
+          "link": "https://247wallst.com/investing/2026/11/09/the-dow-just-jumped-1100-points-heres-what-warren-buffetts-2008-rule-says-to-a-66-year-old-retiree-who-almost-moved-600000-to-cash-on-friday/?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 02:41:18 +0000"
+        },
+        {
+          "title": "Tech leads Asian stock rally as traders track Wall St rebound",
+          "link": "https://finance.yahoo.com/markets/world-indices/articles/tech-leads-asian-stock-rally-023930562.html?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 02:39:30 +0000"
+        },
+        {
+          "title": "He Watches the Nasdaq Plunge 5.5% at 63. Claiming Social Security to Avoid Selling Stocks Could Lock In a Smaller Check for Life",
+          "link": "https://247wallst.com/personal-finance/social-security/2026/11/09/he-watches-the-nasdaq-plunge-5-5-at-63-claiming-social-security-to-avoid-selling-stocks-could-lock-in-a-smaller-check-for-life/?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 02:07:23 +0000"
+        },
+        {
+          "title": "Review & Preview: Dip Buyers Unite",
+          "link": "https://finance.yahoo.com/m/7e3b2b5c-9d1b-3605-b9e3-670584095571/review-%26-preview%3A-dip-buyers.html?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 00:55:00 +0000"
+        },
+        {
+          "title": "U.S. stock futures steady after tech-led rebound; CPI in focus",
+          "link": "https://finance.yahoo.com/news/u-stock-futures-steady-tech-004342905.html?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 00:43:42 +0000"
+        },
+        {
           "title": "Nvidia is about 6% of the S&P 500. If Jensen Huang is ousted, there’s no clear successor — could chaos hit portfolios?",
           "link": "https://finance.yahoo.com/markets/stocks/articles/nvidia-6-p-500-jensen-230000817.html?.tsrc=rss",
           "published": "Mon, 09 Nov 2026 23:00:00 +0000"
-        },
-        {
-          "title": "Stock Market Today, Nov. 9: Markets Rally as Semiconductor Gains Lift Nasdaq",
-          "link": "https://www.fool.com/coverage/stock-market-today/2026/11/09/stock-market-today-nov-9-markets-rally-as-semiconductor-gains-lift-nasdaq/?.tsrc=rss",
-          "published": "Mon, 09 Nov 2026 22:23:39 +0000"
-        },
-        {
-          "title": "Dollar General (DG) Increases Yet Falls Behind Market: What Investors Need to Know",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/dollar-general-dg-increases-yet-221501917.html?.tsrc=rss",
-          "published": "Mon, 09 Nov 2026 22:15:01 +0000"
-        },
-        {
-          "title": "Symbotic Inc. (SYM) Outperforms Broader Market: What You Need to Know",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/symbotic-inc-sym-outperforms-broader-220002197.html?.tsrc=rss",
-          "published": "Mon, 09 Nov 2026 22:00:02 +0000"
-        },
-        {
-          "title": "Ross Stores (ROST) Rises Higher Than Market: Key Facts",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/ross-stores-rost-rises-higher-220002521.html?.tsrc=rss",
-          "published": "Mon, 09 Nov 2026 22:00:02 +0000"
-        },
-        {
-          "title": "Signet (SIG) Ascends But Remains Behind Market: Some Facts to Note",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/signet-sig-ascends-remains-behind-220001999.html?.tsrc=rss",
-          "published": "Mon, 09 Nov 2026 22:00:01 +0000"
-        },
-        {
-          "title": "Why Nvidia Stock Was Down Today",
-          "link": "https://www.fool.com/investing/2026/11/09/why-nvidia-stock-was-down-today/?.tsrc=rss",
-          "published": "Mon, 09 Nov 2026 23:30:02 +0000"
-        },
-        {
-          "title": "Why Micron Technology Stock Gained On Monday",
-          "link": "https://www.fool.com/investing/2026/11/09/why-micron-technology-stock-gained-on-monday/?.tsrc=rss",
-          "published": "Mon, 09 Nov 2026 23:07:02 +0000"
         }
       ]
     },
@@ -200,14 +200,9 @@
       "label": "Economía Global",
       "items": [
         {
-          "title": "The Midterms Rattled AI Stocks. Here’s What to Watch in the Broader Economy.",
-          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPYmFpVS01Q3l5T29kbVQ3aDFZcjhnRmNaano4c1hXdHJTYnB3bFJXakY2V2w3U044VmhSd29JaWV6ZUUxbVFEUGV0Z3dHaXo4TVJpZXBCYnVXLU5jZGxzc0dhNkxFZUVyWFZQVk55R0RFdl9adjItMUkyMG9TVG9IQkV2Tk5YN2hadk1qcFJ3dDFicXlMMlhzSGVDV3JuM0gzQXRJeQ?oc=5",
-          "published": "Fri, 06 Nov 2026 19:11:54 GMT"
-        },
-        {
           "title": "The AI Boom's Two Engines",
           "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBNMUtuR0JoRnh3SldHOW45Wmt4elVFMlFPUTl2dW9WdVBhcUNHS3N1enRUeVR6aHBvdzROVFZCbHZ4a1ZsR3l6UkotZ1Blc3ZweWltZFFncFV3UkFNZ3NLMFdkRUN5UjBUaTVSNU1tcXRhM1NkVk1pbXFmTQ?oc=5",
-          "published": "Mon, 09 Nov 2026 21:14:03 GMT"
+          "published": "Mon, 09 Nov 2026 18:48:24 GMT"
         },
         {
           "title": "What a slower AI buildout may mean for markets",
@@ -225,19 +220,24 @@
           "published": "Fri, 06 Nov 2026 08:00:00 GMT"
         },
         {
+          "title": "Stocks will tumble much further as AI investment will slow next year then fall in 2028 and drag GDP down too, economist predicts",
+          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOYTNjLTFBYjRjelNlUjFGRWJVQ3lsRjV4cFh6b2VMT1JORENTNHp4bFZLMUtXcndkVTE2WnJsX1ZWZGgtc1FFeVN1SEFKcjZJN1AyZjhCZl9OT015VVRsaHlnbW9pU2F0bXJ2T1NZVy1CWnRfSVNBZUQ5MUNEeVd0STJSdTE2b1pHZ09ONkxMY18?oc=5",
+          "published": "Sun, 08 Nov 2026 18:22:23 GMT"
+        },
+        {
           "title": "Asian stock markets climb after earlier tech rout",
           "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOOExPbUF0LU5VaFFCYVpvLVFpaFdIclBKUXJtYk9LQXM2ODZyUmMzU1QwNE10MHA3bU5uSTJSQ2VDQ1E0MEo2SmJxd0hJcjFseHRmYWdTbjhkMnU2OTVneHlpbExSbjgyR2F6MDJ4WTNxUWpjZW9OU1l4UWlOYmFrUk5wRTZVMlEwMG9zS1p4UGdPYjJZV09pSNIBngFBVV95cUxORlBpVTZtXzJuQXB2UlpsSlhNbEJlLXF1TjFxbVJlVl9KbUhpN0JCS0JvWTN0bkJsb2lVVGtiMjgzNkZQaW1sOFYxamN3NXFDZHFVQXgxdGZXdUhid2p0elBlcldGNko5ejluSU1DWFZpWEUxREozTUVsdS0xZGdkY3FpUVNIWWVXbkE2NkFqS01VSnFYQzhhM3ZtNzE3Zw?oc=5",
           "published": "Mon, 09 Nov 2026 10:16:56 GMT"
         },
         {
-          "title": "El-Erian: AI-Powered Economy Can’t Afford a Sudden Stop",
-          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPR3JPVUxxa2IxRFp0ZVRHWDl3dEdPOERjV1E5TkNfMTZ4MXpGUUgyQVc4X19oRlRmN3RJWUtwVHFUeUh6dFE2Q0hYM2F3ZVR0R0l1TGRyZkpFY3IxdEFQNUJITTBuOHZQRms5Q0pWTC01dGFxc3pkTzUyN2dMNGctVFZsVVFnTk1hWVU4RXRyd3VDZWpmbUs4?oc=5",
-          "published": "Mon, 09 Nov 2026 17:34:45 GMT"
-        },
-        {
           "title": "The vanity economy is taking over America’s downtowns",
           "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9WMEliN1FvWmNmeUhnbU15ZWVOQlhZSGRTd191amZXcldETWVjaVF4QjdzWlR2T25Ud0tyUHBMblBmdUljUHM4RzlHeDdhaVp4aklJaWxpVjc2QVIzalU3M2ZxRV9VLVJJZTJvazhQN2ZMV3pZTFNv?oc=5",
           "published": "Sun, 08 Nov 2026 11:30:15 GMT"
+        },
+        {
+          "title": "Why the stock market and economy may seem out of sync",
+          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9vcWg0QXpqWk91X05BclFWbHdfOXotd2YzRlBpS0lSeFN4ZGJwSDhvRE5uWkliU095bnYyMy11cEktM3U1SGZXd24wdlRoajBrTDVOR01wUGNDMElqbFVheEJjUko2MTk5Vlpad3hYQWVzRk90QkRuSUpUOFZUQdIBgwFBVV95cUxOU0NUczI0QXNNbXlrWTlINlBJTkVGZHFtQi1tS05ocmVsWlVzcWFNRjhic01aVWxSdWRCRU1ISTU0WnVrX1E4RGRZWG0tWHcxa3BqSnhLSXNhSzlNb2k1Z3g1V3Y4SkRoUUVmMUsyTTNZTmZIVWpHYzJsM3FYVUpGaWtzVQ?oc=5",
+          "published": "Fri, 10 Jul 2026 07:00:00 GMT"
         }
       ]
     },
@@ -265,6 +265,11 @@
           "published": "Sun, 04 Oct 2026 07:00:00 GMT"
         },
         {
+          "title": "Para cuándo el mercado prevé una suba del dólar en Argentina",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPakJGNXAtOHZSTF9sZ0kwT1VtenhRczVwd3g3a1ZOcDJWOEJseHU4TXVKUmZEbW1TXzYwV04zbjZxeG1XUS1iMzRPaDFsYVdYVmFlOFJteG9HX0tpd1dXbWNqQVM3d1BQRmFCYllabk9vNGpaWjdUQ05nLWNhOEFDS0NCMUFtSmJkWC11NTUwUkRtNGdneDdEdzVZMW81UllfVXU5dHZ4TkzSAa4BQVVfeXFMTXVyVUJ1cFlRTzVzLXhsQjU5anpyRHJoYkpta1QwQlZJbEtPRVg0S1lwNVY4NEI2a1VDQzV3RDVwamFSbGVzZ29IanhGYkFjV1NqblRBMmVUQkRPaEdTUXVfZk5wemh4cE5zQWZidXNOMW4wM1VSX3pKWmQ2aDA2YkZ5bnozT09UUFMxeU1RaDFKOFBQVVFPamwzUW5ON0hsOWw3Z0E3TmEzd19ZMzJ3?oc=5",
+          "published": "Mon, 12 Oct 2026 07:00:00 GMT"
+        },
+        {
           "title": "Dólar en Argentina: cuánto se espera que valga a fin de 2026",
           "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxObzByWnhCcmdXSUFuTmdLeTkyYWRucjRVS3NKaHVBUzQ0QmRNdkVOazVuX3BSOE5GTjhvZ0ZvYW5oYW1oZnotYnJfMTQ3T0hqeE4tdkppX2J2T2V2ODJDcWpTbnhtVmVDRThNNndpcW42Um1sN1REbzhuTDFhOUQzQS0wU0pqc2dZT2ZVN29UNF9JdGhLNnRkNmJkNXFsQkltSlVIVlhTUmhFd1Z0eExtN2l5bHc5bS1nWF9qXzBPUWJJdDdzQ2FrNWVlQ0xXUG9jRUY1VlJzQl9jWXpxdTJTYUxaNUFvajZaUUlSd05TVjNuZlIxdTlNVVZfYlRCM280MFE?oc=5",
           "published": "Mon, 07 Sep 2026 07:00:00 GMT"
@@ -278,15 +283,10 @@
           "title": "Dólar hoy, 19 de agosto 2026: cierre y cotizaciones en el mercado cambiario argentino",
           "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOcWtSZ2R1MHNiQVI2aXBTRjFmQUlyVEVyWW5VYWNPVHY1c1RLeXg5M0RELVp1cWRHeUcwZU4wVUVBaVktcmkxcmdvc01TMGpvcGZvblZEc0xfdUNGVXo0RkExWm16VVBUbDA5TGpRZGU2aG5Vd1JFR0NMN3dnZTFja1V3b0VQTXBjOXZtN2h1UEJPRWJVMkZ2Q1lzdGNnYnRkNm9zdHBaMUV4R2VqLVZ3YUpHOG15X0txaVdtdTZGSWJTNGx2Zm5HMHZJQTdwY1huYVVLUVZWS1ZRWTFCWXRyZmxn0gHqAUFVX3lxTE5JNDg4NVE1WXhSM1RsdWRsU2VOdzhBcTZxek5NZzhqLWVzNWZscWo3WVFEdnIyVE12dzBDVmFISWJpRWdycF9GYm5YYjZsVDI2cGdHQ3dUamo3SmNQS05WbW9KVlpOQlBzNjJvbG5NczBSU2lfbnpYMVNDS0ZfbDBTTTNDUUhTdklXRmhJYzJXSFJGWW94VlpraGdqRElUb0FidmZxWVhEeGs5M3ZzVlpWSS1tYzI4enlFa2pwUC1GbWc2a2pkbTNPazVha3JKNVpPLURNaE9WVHltdUNSWG9qWXJZS19MQ1I1dw?oc=5",
           "published": "Wed, 19 Aug 2026 07:00:00 GMT"
-        },
-        {
-          "title": "Para cuándo el mercado prevé una suba del dólar en Argentina",
-          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPakJGNXAtOHZSTF9sZ0kwT1VtenhRczVwd3g3a1ZOcDJWOEJseHU4TXVKUmZEbW1TXzYwV04zbjZxeG1XUS1iMzRPaDFsYVdYVmFlOFJteG9HX0tpd1dXbWNqQVM3d1BQRmFCYllabk9vNGpaWjdUQ05nLWNhOEFDS0NCMUFtSmJkWC11NTUwUkRtNGdneDdEdzVZMW81UllfVXU5dHZ4TkzSAa4BQVVfeXFMTXVyVUJ1cFlRTzVzLXhsQjU5anpyRHJoYkpta1QwQlZJbEtPRVg0S1lwNVY4NEI2a1VDQzV3RDVwamFSbGVzZ29IanhGYkFjV1NqblRBMmVUQkRPaEdTUXVfZk5wemh4cE5zQWZidXNOMW4wM1VSX3pKWmQ2aDA2YkZ5bnozT09UUFMxeU1RaDFKOFBQVVFPamwzUW5ON0hsOWw3Z0E3TmEzd19ZMzJ3?oc=5",
-          "published": "Mon, 12 Oct 2026 07:00:00 GMT"
         }
       ]
     }
   },
-  "updated_at": "2026-11-09 23:42",
-  "updated_date": "2026-11-09"
+  "updated_at": "2026-11-10 03:55",
+  "updated_date": "2026-11-10"
 }
