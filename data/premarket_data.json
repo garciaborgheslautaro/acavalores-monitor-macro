@@ -31,91 +31,91 @@
       "symbol": "^VIX",
       "name": "VIX",
       "type": "index",
-      "price": 19.549999237060547,
+      "price": 19.459999084472656,
       "prev": 19.920000076293945,
-      "change_pct": -1.8574339247805665,
+      "change_pct": -2.3092419179692634,
       "date": "2026-11-10"
     },
     {
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7548.25,
+      "price": 7570.75,
       "prev": 7574.25,
-      "change_pct": -0.34326831039376837,
+      "change_pct": -0.04620919562993035,
       "date": "2026-11-10"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 27849.0,
+      "price": 28053.25,
       "prev": 28014.5,
-      "change_pct": -0.590765496439344,
+      "change_pct": 0.13832122650770137,
       "date": "2026-11-10"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52343.0,
+      "price": 52412.0,
       "prev": 52498.0,
-      "change_pct": -0.29524934283210785,
+      "change_pct": -0.16381576441007278,
       "date": "2026-11-10"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 4038.39990234375,
+      "price": 4044.39990234375,
       "prev": 4114.5,
-      "change_pct": -1.8495588201786366,
+      "change_pct": -1.7037330819358365,
       "date": "2026-11-10"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 86.36000061035156,
+      "price": 86.29000091552734,
       "prev": 86.8499984741211,
-      "change_pct": -0.56418868437348,
+      "change_pct": -0.6447870678554057,
       "date": "2026-11-10"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 91.94000244140625,
+      "price": 91.98999786376953,
       "prev": 92.56999969482422,
-      "change_pct": -0.6805630933292455,
+      "change_pct": -0.6265548589897172,
       "date": "2026-11-10"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 102.26200103759766,
+      "price": 102.26599884033203,
       "prev": 101.6500015258789,
-      "change_pct": 0.6020654230516091,
+      "change_pct": 0.6059983327165019,
       "date": "2026-11-10"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1165698766708374,
-      "prev": 1.1147277355194092,
-      "change_pct": 0.16525480552162577,
-      "date": "2026-11-10"
+      "price": 1.1169440746307373,
+      "prev": 1.122246265411377,
+      "change_pct": -0.47246232347193845,
+      "date": "2026-11-11"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.5843000411987305,
-      "prev": 5.503399848937988,
-      "change_pct": 1.4700038972518743,
-      "date": "2026-11-10"
+      "price": 5.582900047302246,
+      "prev": 5.508600234985352,
+      "change_pct": 1.3487965934614987,
+      "date": "2026-11-11"
     },
     {
       "symbol": "^TNX",
@@ -139,60 +139,60 @@
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 73.69999694824219,
+      "price": 73.70999908447266,
       "prev": 75.30999755859375,
-      "change_pct": -2.137831181177409,
+      "change_pct": -2.1245498950869575,
       "date": "2026-11-10"
     }
   ],
   "fear_greed": {
-    "value": 32,
+    "value": 29,
     "label": "Fear",
-    "timestamp": "1794268800"
+    "timestamp": "1794355200"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Chip stocks' slide nears $5 trillion as Nvidia hits most extreme selling level since 2019",
-          "link": "https://finance.yahoo.com/markets/article/chip-stocks-slide-nears-5-trillion-as-nvidia-hits-most-extreme-selling-level-since-2019-191532559.html?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 19:15:32 +0000"
+          "title": "Meet the 1 Stock I'd Buy With $500, Even If the Market Fell 5% Tomorrow",
+          "link": "https://www.fool.com/investing/2026/11/10/meet-the-1-stock-id-buy-with-500-even-if-the-marke/?.tsrc=rss",
+          "published": "Wed, 11 Nov 2026 01:25:00 +0000"
         },
         {
-          "title": "Nasdaq Announces End-of-Month Open Short Interest Positions in Nasdaq Stocks as of Settlement Date October 30, 2026",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-announces-end-month-open-210500456.html?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 21:05:00 +0000"
+          "title": "U.S. stock futures tick higher after Wall St slips on hot CPI, Nvidia losses",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/u-stock-futures-tick-higher-011241932.html?.tsrc=rss",
+          "published": "Wed, 11 Nov 2026 01:12:41 +0000"
         },
         {
-          "title": "Update: US Equity Indexes Decline as Fed Policy Tightening Bets Jump After Inflation Beats Forecast",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-decline-fed-205304759.html?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 20:53:04 +0000"
+          "title": "Review & Preview: Hot Inflation",
+          "link": "https://finance.yahoo.com/m/8065cdd2-0a3a-34ae-a497-8419a7ed9c28/review-%26-preview%3A-hot.html?.tsrc=rss",
+          "published": "Wed, 11 Nov 2026 00:55:00 +0000"
         },
         {
-          "title": "3 Ways to Protect Your Portfolio After the S&P 500's Worst Day Since April 2025",
-          "link": "https://www.fool.com/investing/2026/11/10/ways-protect-portfolio-after-sp-500-bad-day/?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 19:50:00 +0000"
+          "title": "Bluerock Acquisition Corp. II Announces the Separate Trading of its Class A Ordinary Shares and Warrants, Commencing on or about November 16, 2026",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/bluerock-acquisition-corp-ii-announces-223500191.html?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 22:35:00 +0000"
         },
         {
-          "title": "Buy the Dip: 5 Stocks Insiders Are Loading Up On After the Recent Market Sell-Off",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/buy-dip-5-stocks-insiders-191927761.html?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 19:19:27 +0000"
+          "title": "Why Morgan Stanley Downgraded PDD Holdings (PDD)",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/why-morgan-stanley-downgraded-pdd-223358866.html?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 22:33:58 +0000"
         },
         {
-          "title": "The Stock Market Is Shaky Right Now. Here's Why I'm Not Worried.",
-          "link": "https://www.fool.com/investing/2026/11/10/the-stock-market-is-shaky-right-now-heres-why-im-n/?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 19:05:00 +0000"
+          "title": "BC-Select Stock Indices",
+          "link": "https://finance.yahoo.com/markets/world-indices/articles/bc-select-stock-indices-223013691.html?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 22:30:13 +0000"
         },
         {
-          "title": "KVH Industries Stock Dips Post Q3 Earnings Despite Revenue, LEO Growth",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/kvh-industries-stock-dips-post-185600744.html?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 18:56:00 +0000"
+          "title": "Only 2 Novembers Since 1950 Have Started Worse for the S&P 500 Than This One. Here's What Followed the Other Weak Starts.",
+          "link": "https://www.fool.com/investing/2026/11/10/only-2-novembers-since-1950-have-started-worse-for-the-s-and-p-500-than-this-one-here-s-what-followed-the-other-weak-starts/?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 22:27:01 +0000"
         },
         {
-          "title": "Inflation Came in Hotter Than Expected and a New Rate Hike is All But Given. Stocks Fell.",
-          "link": "https://www.ibtimes.com/stocks-fall-inflation-anthropic-ipo-valuation-3809628?.tsrc=rss",
-          "published": "Tue, 10 Nov 2026 21:03:57 +0000"
+          "title": "The Stock Market Just Got Bad News on Inflation.",
+          "link": "https://www.fool.com/investing/2026/11/10/the-stock-market-just-got-bad-news-on-inflation/?.tsrc=rss",
+          "published": "Tue, 10 Nov 2026 22:25:02 +0000"
         }
       ]
     },
@@ -200,19 +200,29 @@
       "label": "Economía Global",
       "items": [
         {
+          "title": "Anthropic targets $1.4 trillion valuation in massive stock market debut",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQOHZhYmNhZWVrNnlsNWpENXJtejAzaWpFY1U3UlRhNmp4cnllMXFYZ2dHcUhWOTJCcllWWDh3ejBreF96eElzTU52N2otWGpRRGJEV3hMVEtob2JuVWZvam1OR1cyYXlpeTMyOVNTaHBHLWJTN0Y1TlExUjVsNHdaT0V5WVNVeVY3YXdpT2dPS2JXZ2dZaDlReGVIeFdWUU51VDVQX05FZk1FTjdCdVBBX3RvSkdsd9IBuwFBVV95cUxPOFgxdTRMYy1YWWtuWkMwdnRMNl9LRW0wNGhsSXZEUzdWbTNJU0lScHhkXzVJSVpSTFpSdllYWk1SMENQUlc4ek1VOTBlLVFDcW1JaUdXaC1yWlZ4UkZkZmdzWGdrR19wMy1rRFE2U0JMdFpOWTJ1ZVdsdkpJUldqM0JYcTdGSXB5OE5GY2J2SmFRWXdCY0F2aXFOOXFSNWJVUW5la0VfcG1YQUpsQUkyTU9yT3hDUTY2cjRZ?oc=5",
+          "published": "Tue, 10 Nov 2026 17:38:44 GMT"
+        },
+        {
+          "title": "The AI Boom's Two Engines",
+          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBNMUtuR0JoRnh3SldHOW45Wmt4elVFMlFPUTl2dW9WdVBhcUNHS3N1enRUeVR6aHBvdzROVFZCbHZ4a1ZsR3l6UkotZ1Blc3ZweWltZFFncFV3UkFNZ3NLMFdkRUN5UjBUaTVSNU1tcXRhM1NkVk1pbXFmTQ?oc=5",
+          "published": "Mon, 09 Nov 2026 18:48:24 GMT"
+        },
+        {
           "title": "Weekly market wrap",
           "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPeVcxcmtaeVJRVm9kQ2VyWmVQNG9GNDZzWkJpT01xTUFJbVhYdGF6dG1qZndCb2hFaHhCM0I5NFk2RGxhY1drcWRHVnhyNzc0RWJvTU50S0dnWENrRk1UYVQ4S25xVHBtYzJsU1dabkhWeVBCckxzTHRpS3M2dklsOF84LTJRV1RJLVFRVUdGbHh2SE5CbFVPQVpROGtRa2M?oc=5",
           "published": "Fri, 06 Nov 2026 08:00:00 GMT"
         },
         {
+          "title": "Stocks slip following a discouraging update on inflation",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYjJqclZKNVhHZ3NTcndVeVBXY2VTblZ3QTE4NzBoNEVlRENaN3g3WkZpY2ktVXpuZTRJd1JSOHgtTXFEYVh5aHlXVXlKRWJWR0RBRnZPel9sVlVPaHZaZHJCVXFfam9vdGRDdFE0OHZpZ1VMQzlSN21ZUWhIci1oQU4xSVJJNGo2ZWpVMFZzWkl4dGFUNTZObk53cGlDSTRWdGxr?oc=5",
+          "published": "Tue, 10 Nov 2026 21:12:14 GMT"
+        },
+        {
           "title": "The stock market is doing some of the Fed's dirty work",
           "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxObTE4c0F3SndrSllQOTFmbTJmWExvbVBVX2VaYnh0VkN0aUdwYnVDMGJzbzlMWTJpY1Bia3hMRW4xT1lZaDJaSy1xZ0xzaWktSmttVFAtaVQzUlZrZzJEdFJiYW94QnFTbElxSklMUzBLdlJVMExiX0pEVU10QlFjRkExTFRfWFoteGVQMm1fb3hwMTRQWHFaVnRnVFFOWVVBN1FBYTZ3Z0dfck1FR0Mw?oc=5",
           "published": "Tue, 10 Nov 2026 08:00:00 GMT"
-        },
-        {
-          "title": "Stocks fall after a discouraging update on inflation",
-          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYjJqclZKNVhHZ3NTcndVeVBXY2VTblZ3QTE4NzBoNEVlRENaN3g3WkZpY2ktVXpuZTRJd1JSOHgtTXFEYVh5aHlXVXlKRWJWR0RBRnZPel9sVlVPaHZaZHJCVXFfam9vdGRDdFE0OHZpZ1VMQzlSN21ZUWhIci1oQU4xSVJJNGo2ZWpVMFZzWkl4dGFUNTZObk53cGlDSTRWdGxr?oc=5",
-          "published": "Tue, 10 Nov 2026 19:12:14 GMT"
         },
         {
           "title": "Nvidia CEO’s affair with an alleged Chinese spy could be a problem for the economy",
@@ -225,19 +235,9 @@
           "published": "Mon, 09 Nov 2026 15:20:47 GMT"
         },
         {
-          "title": "The AI Boom's Two Engines",
-          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBNMUtuR0JoRnh3SldHOW45Wmt4elVFMlFPUTl2dW9WdVBhcUNHS3N1enRUeVR6aHBvdzROVFZCbHZ4a1ZsR3l6UkotZ1Blc3ZweWltZFFncFV3UkFNZ3NLMFdkRUN5UjBUaTVSNU1tcXRhM1NkVk1pbXFmTQ?oc=5",
-          "published": "Mon, 09 Nov 2026 18:48:24 GMT"
-        },
-        {
           "title": "The stock market rally that’s making some people rich and everyone else miserable | CNN Business",
           "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4wTnVnQTZObVBiRWNaVmMwNHFDandIeHBjbDRnc182d2VPcnVOeHp5alN2LVBGSjFZTkE5RmpLXzRMcDVlU0MwbGRBYnd6SWptRGtZYkNPYjNjWnlab1ZwUUFLT0c2dE1UUVBIaA?oc=5",
           "published": "Mon, 29 Jun 2026 07:00:00 GMT"
-        },
-        {
-          "title": "Will the housing market crash due to the affordability crisis?",
-          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOZlRndE5BblFlbTZLeTNIQi1OeDB0M0FYQ3pvMGtwcXEzVFo2ejdQMGllOHZGRjJUUUZnZ3VqX3hxZHV0LTN5YzBoc1VkLUJWdFc2VGFua0dPbXFjVGZ1SzF4UTdrQ2puVFpacFZiWEFyemw3MkZvMU01dmtmUHMzU0VNejUydTZidzFYU1BSMFlkNjlZNmMxcFRnMzZNOVM1Mi0wRVM3T0RLMFhDaWZrV0dOeUtFc1Z2aFR0ZEo3TEZKejdTTVBvcnJILUxNcktQUEJF?oc=5",
-          "published": "Tue, 10 Nov 2026 16:34:59 GMT"
         }
       ]
     },
@@ -270,14 +270,14 @@
           "published": "Thu, 01 Oct 2026 07:00:00 GMT"
         },
         {
-          "title": "Para cuándo el mercado prevé una suba del dólar en Argentina",
-          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPakJGNXAtOHZSTF9sZ0kwT1VtenhRczVwd3g3a1ZOcDJWOEJseHU4TXVKUmZEbW1TXzYwV04zbjZxeG1XUS1iMzRPaDFsYVdYVmFlOFJteG9HX0tpd1dXbWNqQVM3d1BQRmFCYllabk9vNGpaWjdUQ05nLWNhOEFDS0NCMUFtSmJkWC11NTUwUkRtNGdneDdEdzVZMW81UllfVXU5dHZ4TkzSAa4BQVVfeXFMTXVyVUJ1cFlRTzVzLXhsQjU5anpyRHJoYkpta1QwQlZJbEtPRVg0S1lwNVY4NEI2a1VDQzV3RDVwamFSbGVzZ29IanhGYkFjV1NqblRBMmVUQkRPaEdTUXVfZk5wemh4cE5zQWZidXNOMW4wM1VSX3pKWmQ2aDA2YkZ5bnozT09UUFMxeU1RaDFKOFBQVVFPamwzUW5ON0hsOWw3Z0E3TmEzd19ZMzJ3?oc=5",
-          "published": "Mon, 12 Oct 2026 07:00:00 GMT"
-        },
-        {
           "title": "Dólar hoy, 19 de agosto 2026: cierre y cotizaciones en el mercado cambiario argentino",
           "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOcWtSZ2R1MHNiQVI2aXBTRjFmQUlyVEVyWW5VYWNPVHY1c1RLeXg5M0RELVp1cWRHeUcwZU4wVUVBaVktcmkxcmdvc01TMGpvcGZvblZEc0xfdUNGVXo0RkExWm16VVBUbDA5TGpRZGU2aG5Vd1JFR0NMN3dnZTFja1V3b0VQTXBjOXZtN2h1UEJPRWJVMkZ2Q1lzdGNnYnRkNm9zdHBaMUV4R2VqLVZ3YUpHOG15X0txaVdtdTZGSWJTNGx2Zm5HMHZJQTdwY1huYVVLUVZWS1ZRWTFCWXRyZmxn0gHqAUFVX3lxTE5JNDg4NVE1WXhSM1RsdWRsU2VOdzhBcTZxek5NZzhqLWVzNWZscWo3WVFEdnIyVE12dzBDVmFISWJpRWdycF9GYm5YYjZsVDI2cGdHQ3dUamo3SmNQS05WbW9KVlpOQlBzNjJvbG5NczBSU2lfbnpYMVNDS0ZfbDBTTTNDUUhTdklXRmhJYzJXSFJGWW94VlpraGdqRElUb0FidmZxWVhEeGs5M3ZzVlpWSS1tYzI4enlFa2pwUC1GbWc2a2pkbTNPazVha3JKNVpPLURNaE9WVHltdUNSWG9qWXJZS19MQ1I1dw?oc=5",
           "published": "Wed, 19 Aug 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Para cuándo el mercado prevé una suba del dólar en Argentina",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPakJGNXAtOHZSTF9sZ0kwT1VtenhRczVwd3g3a1ZOcDJWOEJseHU4TXVKUmZEbW1TXzYwV04zbjZxeG1XUS1iMzRPaDFsYVdYVmFlOFJteG9HX0tpd1dXbWNqQVM3d1BQRmFCYllabk9vNGpaWjdUQ05nLWNhOEFDS0NCMUFtSmJkWC11NTUwUkRtNGdneDdEdzVZMW81UllfVXU5dHZ4TkzSAa4BQVVfeXFMTXVyVUJ1cFlRTzVzLXhsQjU5anpyRHJoYkpta1QwQlZJbEtPRVg0S1lwNVY4NEI2a1VDQzV3RDVwamFSbGVzZ29IanhGYkFjV1NqblRBMmVUQkRPaEdTUXVfZk5wemh4cE5zQWZidXNOMW4wM1VSX3pKWmQ2aDA2YkZ5bnozT09UUFMxeU1RaDFKOFBQVVFPamwzUW5ON0hsOWw3Z0E3TmEzd19ZMzJ3?oc=5",
+          "published": "Mon, 12 Oct 2026 07:00:00 GMT"
         },
         {
           "title": "Dólar a $1500: Bausili justificó la intervención del Tesoro en el mercado cambiario",
@@ -287,6 +287,6 @@
       ]
     }
   },
-  "updated_at": "2026-11-10 21:11",
-  "updated_date": "2026-11-10"
+  "updated_at": "2026-11-11 01:39",
+  "updated_date": "2026-11-11"
 }
