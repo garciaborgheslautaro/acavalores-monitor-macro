@@ -40,82 +40,82 @@
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7644.25,
+      "price": 7619.75,
       "prev": 7544.25,
-      "change_pct": 1.325512807767505,
+      "change_pct": 1.0007621698644662,
       "date": "2026-11-11"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 28460.0,
+      "price": 28323.75,
       "prev": 27835.25,
-      "change_pct": 2.2444562200806533,
+      "change_pct": 1.7549689692027197,
       "date": "2026-11-11"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52606.0,
+      "price": 52634.0,
       "prev": 52315.0,
-      "change_pct": 0.5562458185988722,
+      "change_pct": 0.6097677530345025,
       "date": "2026-11-11"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 3991.199951171875,
+      "price": 3991.699951171875,
       "prev": 4030.199951171875,
-      "change_pct": -0.9676939226963128,
+      "change_pct": -0.9552875903540524,
       "date": "2026-11-11"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 86.37999725341797,
+      "price": 85.97000122070312,
       "prev": 86.04000091552734,
-      "change_pct": 0.39516077902466296,
+      "change_pct": -0.0813571525794651,
       "date": "2026-11-11"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 92.55000305175781,
+      "price": 92.16000366210938,
       "prev": 91.48999786376953,
-      "change_pct": 1.1586022655357917,
+      "change_pct": 0.7323268269581731,
       "date": "2026-11-11"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 102.92400360107422,
+      "price": 102.93399810791016,
       "prev": 102.2300033569336,
-      "change_pct": 0.6788616075043448,
+      "change_pct": 0.6886380982680611,
       "date": "2026-11-11"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1092623472213745,
-      "prev": 1.122246265411377,
-      "change_pct": -1.1569580216195225,
-      "date": "2026-11-11"
+      "price": 1.107051968574524,
+      "prev": 1.1168941259384155,
+      "change_pct": -0.8812077291231353,
+      "date": "2026-11-12"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.582200050354004,
-      "prev": 5.508600234985352,
-      "change_pct": 1.3360892464335463,
-      "date": "2026-11-11"
+      "price": 5.582900047302246,
+      "prev": 5.582699775695801,
+      "change_pct": 0.0035873612139630346,
+      "date": "2026-11-12"
     },
     {
       "symbol": "^TNX",
@@ -146,53 +146,53 @@
     }
   ],
   "fear_greed": {
-    "value": 29,
+    "value": 28,
     "label": "Fear",
-    "timestamp": "1794355200"
+    "timestamp": "1794441600"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Stock Market Today: Major Indexes Pare Earlier Gains But Finish Trading Day Solidly Higher",
-          "link": "https://finance.yahoo.com/m/2199baae-3d36-344b-b4d8-76ff24b7f5e9/stock-market-today%3A-major.html?.tsrc=rss",
-          "published": "Wed, 11 Nov 2026 21:37:56 +0000"
+          "title": "Nasdaq 100 Futures Drop As Reports Relating To Jensen Huang’s Ousting Outweigh CoreWeave’s Strong Outlook —  NVDA, TSLA, SNDK, CAPR, CRWV In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/nasdaq-100-futures-drop-as-reports-relating-to-jensen-huang-s-ousting/cNGzQslR997?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 00:22:06 +0000"
         },
         {
-          "title": "FIS to Present at Upcoming Conference",
-          "link": "https://finance.yahoo.com/technology/articles/fis-present-upcoming-conference-213000800.html?.tsrc=rss",
-          "published": "Wed, 11 Nov 2026 21:30:00 +0000"
+          "title": "Nasdaq Sell-Off: 2 Stocks to Buy on the Dip and Hold for 5 Years",
+          "link": "https://www.fool.com/investing/2026/11/11/nasdaq-sell-off-2-stocks-to-buy-on-the-dip-and-hold-for-5-years/?.tsrc=rss",
+          "published": "Wed, 11 Nov 2026 23:26:02 +0000"
         },
         {
-          "title": "How major US stock indexes fared Wednesday 11/11/2026",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/major-us-stock-indexes-fared-211834867.html?.tsrc=rss",
-          "published": "Wed, 11 Nov 2026 21:18:34 +0000"
+          "title": "Why Azenta Stock Crushed it on Wednesday",
+          "link": "https://www.fool.com/investing/2026/11/11/why-azenta-stock-crushed-it-on-wednesday/?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 01:43:19 +0000"
         },
         {
-          "title": "History Says 1 Month Has Been the S&P 500's Most Reliable Since 1950. It's Only Weeks Away.",
-          "link": "https://www.fool.com/investing/2026/11/11/history-says-1-month-has-been-the-s-and-p-500-s-most-reliable-since-1950-it-s-only-weeks-away/?.tsrc=rss",
-          "published": "Wed, 11 Nov 2026 21:01:01 +0000"
+          "title": "These 5 Dividend Aristocrats® Have Raised Payouts for Decades",
+          "link": "https://www.fool.com/investing/2026/11/11/these-5-dividend-aristocrats-have-raised-payouts-f/?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 01:35:00 +0000"
         },
         {
-          "title": "Don’t buy Nvidia yet: 4 stocks to buy instead",
-          "link": "https://www.thestreet.com/video/dont-buy-nvidia-yet-4-stock-to-buy-instead?.tsrc=rss",
-          "published": "Wed, 11 Nov 2026 20:45:12 +0000"
+          "title": "What Happened To NuScale Power Stock Over The Past Year?",
+          "link": "https://www.trefis.com/stock/smr/articles/624304/what-happened-to-nuscale-power-stock-over-the-past-year/2026-11-11?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 01:18:43 +0000"
         },
         {
-          "title": "How Much Downside Is Left In DraftKings Stock?",
-          "link": "https://www.trefis.com/stock/dkng/articles/624234/how-much-downside-is-left-in-draftkings-stock/2026-11-11?.tsrc=rss",
-          "published": "Wed, 11 Nov 2026 21:28:25 +0000"
+          "title": "Wall St futures fall as Nvidia slides on report of possible CEO ouster",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/wall-st-futures-fall-nvidia-011540333.html?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 01:15:40 +0000"
         },
         {
-          "title": "Tech bounce lifts global stocks as dollar gains",
-          "link": "https://finance.yahoo.com/markets/world-indices/articles/asian-stocks-fluctuate-us-rate-024154790.html?.tsrc=rss",
-          "published": "Wed, 11 Nov 2026 21:11:53 +0000"
+          "title": "How Much Could You Lose In Credo Stock?",
+          "link": "https://www.trefis.com/stock/crdo/articles/624229/how-much-could-you-lose-in-credo-stock/2026-11-11?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 01:12:25 +0000"
         },
         {
-          "title": "How Many Stocks Have Matched Parker Hannifin's Winning Streak?",
-          "link": "https://www.trefis.com/stock/ph/articles/624397/how-many-stocks-have-matched-parker-hannifins-winning-streak/2026-11-11?.tsrc=rss",
-          "published": "Wed, 11 Nov 2026 21:10:06 +0000"
+          "title": "What Is The One Risk Every Avis Budget Investor Should Know?",
+          "link": "https://www.trefis.com/stock/car/articles/624306/what-is-the-one-risk-every-avis-budget-investor-should-know/2026-11-11?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 01:06:22 +0000"
         }
       ]
     },
@@ -205,14 +205,14 @@
           "published": "Wed, 11 Nov 2026 08:00:00 GMT"
         },
         {
+          "title": "The Global Economy Looks Vulnerable to an AI Bust",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPMkVOS3F3Vmp4MDZYa3ZWSHhTUUFILXNnNVFsVjFDczF3ZVNrN3pOMXByM0I5U0htYTlsRnpjQnZlZk1wYnNCLTRHeTFPbWUyTUlJanRPZDFwRXR4elJFcjVZdHAzcTRmbmxWQXFkazNUdVhzNzY4NVJrb2djNXBSdVpFTV9hN2U5cnJQLTN0SQ?oc=5",
+          "published": "Wed, 11 Nov 2026 22:15:00 GMT"
+        },
+        {
           "title": "A.I. and Market Whiplash",
           "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1LN2lBVk9ialg4T2dCYXJvcGVHeXItRWJCZ2xqMDAzU1otdnM0OXdkNGNyYUY3T2RiZG9xMkFQNnAydHNUeGdrdDY4ckl5LXNCVVQxN3MzS0E0OG1ISEZwRHZKQnF1eTlUemxRLU1saXd1TlZkVnFYR3FFVUliUQ?oc=5",
           "published": "Wed, 11 Nov 2026 20:48:08 GMT"
-        },
-        {
-          "title": "The Global Economy Looks Vulnerable to an AI Bust",
-          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPMkVOS3F3Vmp4MDZYa3ZWSHhTUUFILXNnNVFsVjFDczF3ZVNrN3pOMXByM0I5U0htYTlsRnpjQnZlZk1wYnNCLTRHeTFPbWUyTUlJanRPZDFwRXR4elJFcjVZdHAzcTRmbmxWQXFkazNUdVhzNzY4NVJrb2djNXBSdVpFTV9hN2U5cnJQLTN0SQ?oc=5",
-          "published": "Wed, 11 Nov 2026 15:59:00 GMT"
         },
         {
           "title": "The AI Boom's Two Engines",
@@ -225,19 +225,19 @@
           "published": "Tue, 10 Nov 2026 14:44:34 GMT"
         },
         {
-          "title": "Trump’s peaceful mood doesn’t fully explain why energy prices are plunging",
-          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5GODFZUEVzUkNEYmh3WjQ3VVFiNGZ4TWlFY2JKVzMtUzBaTy0waDJVUU9sLV82MnlMVjBTWnhzZW1VM3FoR2JJTVFVVU1QQzZVYnB4dmpJdmxZUlhzYnJlcmc4T0RXb2xfTjRR?oc=5",
-          "published": "Wed, 11 Nov 2026 10:00:15 GMT"
-        },
-        {
           "title": "What a slower AI buildout may mean for markets",
           "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPLXNyR2VOeGdrTjQ4bDVwN2FEaS1UdTZaN1c0WmM0NG83LUliYWo2OU9XRUxwbzJKY0FZcHJFQWdBVjZXQV96d2VQM2o0elJfdTlNZUlLUEFZQUlSZ1RiTFg1dy1UZlNNdDhySVk3ZnV3Q1hyLVFCSk9aOXZNQWFGQWVEbnlrbzlVZjRNU2VrT3A5Zw?oc=5",
           "published": "Mon, 09 Nov 2026 15:20:47 GMT"
         },
         {
-          "title": "Indian shares rise on foreign flow optimism; financials, autos lead",
-          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQWGIzT1Bsa3NLR1VMamE3ZXpZblhwbFVuV0I1Q1UxZDhGQW9RR3E5NmpQVVBiMW1ibUhkYXRoN1ZESUlRZVIteU9OX2FfcUlyZEJiU1lFcllZQm5jaWx1Wkh2WGhqMjRWYUc5NjJBY252UERLVU5HTEFmb1pwNHlXYXVUN3Z5dE4xVkVRbXJnMkZTTGpDNldBMS1PTlBRVFpPVjhOUEE5eEFsQkE0bHVjU2FJN0NSdw?oc=5",
-          "published": "Wed, 11 Nov 2026 02:25:00 GMT"
+          "title": "Rebounding AI stocks lift Wall Street",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQa0N4bVdYM2ZDdGN0dTh6WG9DQ2Foa3Z1LTZnR2swY0pMUWlrdHdvcG9rcUNwZ0NtX0ZDZzNVNjJTOUZMV0kyU3ZNVHdaa2ZBVUtPdE1sQ1dmM0kwc0dxZXNFc1F1RjczdkFaSE5rSTFkTVAxSkRtd1liQmJyamVmdDlUcmVaQ3JjVzJFN0hOdw?oc=5",
+          "published": "Wed, 11 Nov 2026 16:34:25 GMT"
+        },
+        {
+          "title": "Anthropic targets $1.4 trillion valuation in massive stock market debut",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQOHZhYmNhZWVrNnlsNWpENXJtejAzaWpFY1U3UlRhNmp4cnllMXFYZ2dHcUhWOTJCcllWWDh3ejBreF96eElzTU52N2otWGpRRGJEV3hMVEtob2JuVWZvam1OR1cyYXlpeTMyOVNTaHBHLWJTN0Y1TlExUjVsNHdaT0V5WVNVeVY3YXdpT2dPS2JXZ2dZaDlReGVIeFdWUU51VDVQX05FZk1FTjdCdVBBX3RvSkdsd9IBuwFBVV95cUxPOFgxdTRMYy1YWWtuWkMwdnRMNl9LRW0wNGhsSXZEUzdWbTNJU0lScHhkXzVJSVpSTFpSdllYWk1SMENQUlc4ek1VOTBlLVFDcW1JaUdXaC1yWlZ4UkZkZmdzWGdrR19wMy1rRFE2U0JMdFpOWTJ1ZVdsdkpJUldqM0JYcTdGSXB5OE5GY2J2SmFRWXdCY0F2aXFOOXFSNWJVUW5la0VfcG1YQUpsQUkyTU9yT3hDUTY2cjRZ?oc=5",
+          "published": "Tue, 10 Nov 2026 17:38:44 GMT"
         }
       ]
     },
@@ -245,14 +245,14 @@
       "label": "Argentina",
       "items": [
         {
+          "title": "Dólar hoy, dólar blue hoy: a cuánto cerró este lunes 9 de noviembre",
+          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNQUNvak5UcXFaTktSc3Ytb3FBazFtRkJTMkE5REd0d1dtT2hscE5FYWpwYl9yNVU2ckZhSFEyQVpPZ2ZDUVEtNDBHMDNQN3hjNlFCQW4tZWNLajRQS1d0RnR4M25RZnhqZnYtSHVySHhlM1JON0h3dnAxQ3FrRU9JTlc3VG5tSFB1bHR0QkpTblZ6b216ZGlLb3YwbUxOREwxc0tsNXI0U1NoNnFySGpsQmFKeDJLQ0lPS3JQeGYyelQ2QdIBxwFBVV95cUxNVElsZ0xGSTlTcmlEdlJnNGdFckRsRW9NQzJZNG03MC0yVUMzVFJ4c1k3SzlOTzZQMjlSaEV3UXcwMkN3NGdMT3d3UV9ueGR1YTkzY3J3MEhWZlQxLXRaQU5wdXBlTXAzOE1hOFdLU0Fid1Y4UHNacEgtR25YVzdhTldxRVNwNHByZDgxMWJMSjZISjJUYmNMRGZGQ0Y2RVU4U1dPcXVUZXoxNFZnUlFyMkpfb09adDYtODFFYVZodmtIZ0VCRWE4?oc=5",
+          "published": "Wed, 11 Nov 2026 10:11:47 GMT"
+        },
+        {
           "title": "Dólar hoy, dólar blue hoy: a cuánto cotiza este lunes 9 de noviembre",
           "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPLTR0V1RPeEhIR0FXbkQ0NUZkaEZ3U0xXZUNLNWQtRDQ4cWlkZDExS1UxX3BSRlgzNlpveHhZSG1jUjgySUktWUdidXc3amVlNTh1U0pVMDkwRDloNXh0Nk5MYmZGdm01b1ZGd1JJQnpkcUVyZXNuamJjcTFtdHIyUGlkczJTMXJfeEVhVUpDejNHSG1FUDBaWktsTFhhcnVDVElyV2E0VVZqUXJSLVhDd2NxYmlIcGd1WDdzZ1B2N3lOTWPSAcgBQVVfeXFMUHVrVTdmYWNTdjdsdHVUbjFNU0VpMzlBYUd5SU01Wm9XRGJmLXYwNlJTSzdBSTBOZnVETEFTX2RabzdsU0FfSFM0WnBUV2ZVYWR1M09yTnB6am9ibEJuRTkyaWJ5aGU4LWxoZkkxSHdEWEwtN1BIU2pUZ3J3NVRGT2xkeDgxTXZYQkVUa1gyRXljbDI5U2hZLTJnQ3ZRSWFpOUJSb3prVHVVRmlWQ3Ayejd6a1NnQ1AwZnB3TmNpd1l5Z2Z5eEY3SDA?oc=5",
           "published": "Mon, 09 Nov 2026 10:12:46 GMT"
-        },
-        {
-          "title": "Dólar, comercio y mercado: el impacto en la Argentina de las elecciones en Brasil",
-          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQajEyRFNXbU1pVnc3M2V3NTVDaXJPQlpnS0lHM1FSN2RnVHdtMTVsLUJfcEFMZnRWdTZmTldvWGZmazNTRWdBa1ZDcWRfUUZicVFjSlRFN1JGTlNDbk02b1dJOGZQamtucnpyM1NDZnpyWE9GVG5LRVVXYWdzZ1AxbVEzejhWTzlMOVZ4R0tDbGhVS1BLT21RWUp5NmJfUkM3ZHFZZTFFaGUzbFdUODQ5VTlkRVNZMktjMENHQUplUFJmUlYzQTE2VXBMSGdvMkREX3k3NkhCONIB6wFBVV95cUxOaVJHQTB5eUlWQU5BN0R0WU0wWmlKclluMzNTNmtlN25IMy1YVElBWXF0WFE4UXhud0Zjal9WOUVMN3lBVW1qXzBwell5SUpxMXI2bzdGb05kUUFkQ3NCazU4UmlGaXBxY1duM2ltTF9xU0xGNmk1VUpxTFcwdGdtMTZkNEFlZ0RtT1F3b2tMR3VFT1NzZ0pvOU5JWV9TYUlzeG9tdV9lV1lQVDdaYmE3MmNIZmcyaUFIQnRja1VROW1NaV8yTjVEdHBzeXAybzJZWTc3RHFkNmlBd29BUmJOR3A2aDZQTUJUcTlB?oc=5",
-          "published": "Sun, 04 Oct 2026 07:00:00 GMT"
         },
         {
           "title": "Dólar en octubre: el mercado anticipa mayor presión y empieza a mirar las elecciones de 2027",
@@ -287,6 +287,6 @@
       ]
     }
   },
-  "updated_at": "2026-11-11 21:44",
-  "updated_date": "2026-11-11"
+  "updated_at": "2026-11-12 02:39",
+  "updated_date": "2026-11-12"
 }
