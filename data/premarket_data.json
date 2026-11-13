@@ -40,82 +40,82 @@
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7623.75,
+      "price": 7644.0,
       "prev": 7640.5,
-      "change_pct": -0.2192264904129311,
+      "change_pct": 0.04580852038479157,
       "date": "2026-11-12"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 28438.75,
+      "price": 28565.25,
       "prev": 28473.25,
-      "change_pct": -0.12116635789732469,
+      "change_pct": 0.32311028772619915,
       "date": "2026-11-12"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 52422.0,
+      "price": 52508.0,
       "prev": 52578.0,
-      "change_pct": -0.29670204267944766,
+      "change_pct": -0.13313553197154704,
       "date": "2026-11-12"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 3877.800048828125,
+      "price": 3915.10009765625,
       "prev": 4000.5,
-      "change_pct": -3.0671153898731407,
+      "change_pct": -2.1347307172540932,
       "date": "2026-11-12"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 88.73999786376953,
+      "price": 88.12999725341797,
       "prev": 86.52999877929688,
-      "change_pct": 2.5540264828958015,
+      "change_pct": 1.8490679494888755,
       "date": "2026-11-12"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 95.86000061035156,
+      "price": 95.19000244140625,
       "prev": 92.76000213623047,
-      "change_pct": 3.341956018466161,
+      "change_pct": 2.619663916789265,
       "date": "2026-11-12"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 103.1969985961914,
+      "price": 103.15299987792969,
       "prev": 102.91000366210938,
-      "change_pct": 0.2788795295589912,
+      "change_pct": 0.23612497053071405,
       "date": "2026-11-12"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.1057054996490479,
-      "prev": 1.1168941259384155,
-      "change_pct": -1.0017624794979543,
-      "date": "2026-11-12"
+      "price": 1.1063170433044434,
+      "prev": 1.1095207929611206,
+      "change_pct": -0.2887507541095276,
+      "date": "2026-11-13"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.640500068664551,
-      "prev": 5.582699775695801,
-      "change_pct": 1.0353466116946268,
-      "date": "2026-11-12"
+      "price": 5.6417999267578125,
+      "prev": 5.582099914550781,
+      "change_pct": 1.0694902119435747,
+      "date": "2026-11-13"
     },
     {
       "symbol": "^TNX",
@@ -139,60 +139,60 @@
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": 72.62000274658203,
+      "price": NaN,
       "prev": 73.87000274658203,
-      "change_pct": -1.6921618431344074,
+      "change_pct": NaN,
       "date": "2026-11-12"
     }
   ],
   "fear_greed": {
-    "value": 28,
-    "label": "Fear",
-    "timestamp": "1794441600"
+    "value": 20,
+    "label": "Extreme Fear",
+    "timestamp": "1794528000"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "How major US stock indexes fared Thursday 11/12/2026",
-          "link": "https://finance.yahoo.com/markets/world-indices/articles/major-us-stock-indexes-fared-211731317.html?.tsrc=rss",
-          "published": "Thu, 12 Nov 2026 21:17:31 +0000"
+          "title": "S&P 500, Dow, Nasdaq Futures Recover After Markets End Lower On Jensen Huang’s Exit, Oil Price Pressure  —  CRWV, CBRS, NVDA, TSLA In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-dow-nasdaq-futures-recover-after-markets-end-lower-on-jensen-huang-s-exit-oil-price-pressure-crwv-cbrs-nvda-tsla-in-focus/cNbbkHFR9OI?.tsrc=rss",
+          "published": "Fri, 13 Nov 2026 00:19:00 +0000"
         },
         {
-          "title": "Martin Marietta Declares Quarterly Cash Dividend",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/martin-marietta-declares-quarterly-cash-211300096.html?.tsrc=rss",
-          "published": "Thu, 12 Nov 2026 21:13:00 +0000"
+          "title": "Bank of America’s Matthew O’Neill Is Positive on Block (XYZ) for Early 2027. One Question Remains",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/bank-america-matthew-o-neill-231307777.html?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 23:13:07 +0000"
         },
         {
-          "title": "Wix (WIX) Beat Revenue Estimates But Here’s What Bank of America’s Michael McGovern Is Worried About",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/wix-wix-beat-revenue-estimates-205756436.html?.tsrc=rss",
-          "published": "Thu, 12 Nov 2026 20:57:56 +0000"
+          "title": "RBC’s Paul Treiber Held Firm on Shopify (SHOP) After a Slight Miss. Here’s the AI Pitch",
+          "link": "https://finance.yahoo.com/technology/ai/articles/rbc-paul-treiber-held-firm-231241818.html?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 23:12:41 +0000"
         },
         {
-          "title": "5 Stocks Analysts Are Downgrading Right Now",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/5-stocks-analysts-downgrading-now-205623990.html?.tsrc=rss",
-          "published": "Thu, 12 Nov 2026 20:56:23 +0000"
+          "title": "Rosenblatt’s Kevin Cassidy Upgraded Monolithic Power Systems (MPWR). Here’s the Quarter That Won Him Over",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/rosenblatt-kevin-cassidy-upgraded-monolithic-231218374.html?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 23:12:18 +0000"
         },
         {
-          "title": "Markets whiplashed as Huang quits Nvidia",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/asian-stocks-extend-gains-traders-025559054.html?.tsrc=rss",
-          "published": "Thu, 12 Nov 2026 21:36:42 +0000"
+          "title": "Piper Sandler’s James Fish Calls Arista Networks (ANET) a Top Pick. Here’s What He Sees Ahead",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/piper-sandler-james-fish-calls-231155445.html?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 23:11:55 +0000"
         },
         {
-          "title": "How Much Downside Is Left In Caterpillar Stock?",
-          "link": "https://www.trefis.com/stock/cat/articles/624527/how-much-downside-is-left-in-caterpillar-stock/2026-11-12?.tsrc=rss",
-          "published": "Thu, 12 Nov 2026 21:29:57 +0000"
+          "title": "Bernstein’s Mark Li Raised His Taiwan Semiconductor Manufacturing (TSM) Target to $600. Here’s What Changed",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/bernstein-mark-li-raised-taiwan-231139059.html?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 23:11:39 +0000"
         },
         {
-          "title": "Is NextEra Energy Stock A Real Bargain?",
-          "link": "https://www.trefis.com/stock/nee/articles/624543/is-nextera-energy-stock-a-real-bargain/2026-11-12?.tsrc=rss",
-          "published": "Thu, 12 Nov 2026 21:08:51 +0000"
+          "title": "5 Best Growth Stocks for the Next 5 Years",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/5-best-growth-stocks-next-231119066.html?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 23:11:19 +0000"
         },
         {
-          "title": "Update: US Equity Indexes Fall as Nvidia CEO Jensen Huang Resigns, Crude Oil Jumps",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-fall-nvidia-210433353.html?.tsrc=rss",
-          "published": "Thu, 12 Nov 2026 21:04:33 +0000"
+          "title": "Tiny Stocks Can Produce Big Returns",
+          "link": "https://finance.yahoo.com/m/5d717aea-a1b1-34ff-b88f-e4d2cda080a2/tiny-stocks-can-produce-big.html?.tsrc=rss",
+          "published": "Thu, 12 Nov 2026 23:10:00 +0000"
         }
       ]
     },
@@ -205,9 +205,9 @@
           "published": "Wed, 11 Nov 2026 08:00:00 GMT"
         },
         {
-          "title": "The AI Boom's Two Engines",
-          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBNMUtuR0JoRnh3SldHOW45Wmt4elVFMlFPUTl2dW9WdVBhcUNHS3N1enRUeVR6aHBvdzROVFZCbHZ4a1ZsR3l6UkotZ1Blc3ZweWltZFFncFV3UkFNZ3NLMFdkRUN5UjBUaTVSNU1tcXRhM1NkVk1pbXFmTQ?oc=5",
-          "published": "Mon, 09 Nov 2026 18:48:24 GMT"
+          "title": "Wall Street shakes with swings for Nvidia, oil prices but recovers most of its early losses",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOaUZvOVVRUkZUa0lYLXJYc2ppd1gyaWlXbkRWN2ZKajVpVVlUWjE3WmlkY01VUGVFQ3VxZnlPTVVEVTE1el85TkdXWlpWbFZVRGRSUDRYMnpnY1dDQW9hNzl6LXJWVlhwa0dIV3N1UlRsYXlFaVNVdGpaRC11c3Y2Z3djX3VvWEMwMV8zV3dGWi1iUnJnMW5rSkd1UHh1S3BiRHZHVU5SU0xza2pWUGYtbVppRQ?oc=5",
+          "published": "Thu, 12 Nov 2026 20:10:35 GMT"
         },
         {
           "title": "A.I. and Market Whiplash",
@@ -215,29 +215,29 @@
           "published": "Thu, 12 Nov 2026 05:30:00 GMT"
         },
         {
-          "title": "Yahoo Finance Invest: The Space Economy",
-          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNVDhhTUV1LU5UVERoNHJmSG8yZ2tEcnF1emx5VUpTdVFVTWlTOGVyeVRDejdHUXhTQk5PejlqaDNVcmw4U2VKb1BZbDFLQkpmUWtiWWF5ZWVPVTFpWUxadl9rYjllblpZQTJYdnpmQ0NCTlZaaVh6THNGaTBuMEdaR09iZVBaNzNUMWwyMDJB?oc=5",
-          "published": "Thu, 12 Nov 2026 18:12:22 GMT"
-        },
-        {
           "title": "Where to find the anti-AI trade",
           "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNTTh6Um93cnVTaEZhQVlrTnVVQUotT0tNVEJtUUpmZ3NwQ2RjNkN5d1lra1AwejJDaG5uWG5oR05HWUdfNklsMjByczRSQVVIRFBuak4zWm5IU3c3YW11LXkzRWdnMTVDT1NkZDRSSmJpN1RsanNsR3gteldiQWEza1J4ZjV6YVVRMjlkQXN5Z1Rvblox?oc=5",
           "published": "Thu, 12 Nov 2026 10:38:28 GMT"
         },
         {
-          "title": "Wall Street erases its early loss after absorbing big swings for Nvidia’s stock and oil prices",
-          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOaUZvOVVRUkZUa0lYLXJYc2ppd1gyaWlXbkRWN2ZKajVpVVlUWjE3WmlkY01VUGVFQ3VxZnlPTVVEVTE1el85TkdXWlpWbFZVRGRSUDRYMnpnY1dDQW9hNzl6LXJWVlhwa0dIV3N1UlRsYXlFaVNVdGpaRC11c3Y2Z3djX3VvWEMwMV8zV3dGWi1iUnJnMW5rSkd1UHh1S3BiRHZHVU5SU0xza2pWUGYtbVppRQ?oc=5",
-          "published": "Thu, 12 Nov 2026 20:10:35 GMT"
-        },
-        {
-          "title": "In Taiwan, AI-related stocks send investors into a frenzy",
-          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQM2xMdmZYOHF1QzViaWZzRjlnTHdtWVAyQ1F1UVlJN0xDZmZGWVZTZ3ZtUXdLWFZvMU9fVFNfdW9YV2RIV00wS2hPYUdia3ZNQkpGOTU1WWQtTzlYTU9vUUNNWGtvMVBCSFBBYjBUeHRsNGJtLWVrRjlWUm5xSXhVWDdlX25scXhFWjNiNnJDRDhXVGJuSHN2Y2IxUkxNb01tdnlVYWFqeVZtVDZMUXZHOTJrYnJTVmlpQ0xmcVhaLXQyZDA?oc=5",
-          "published": "Thu, 12 Nov 2026 19:30:05 GMT"
-        },
-        {
           "title": "Weekly market wrap",
           "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPeVcxcmtaeVJRVm9kQ2VyWmVQNG9GNDZzWkJpT01xTUFJbVhYdGF6dG1qZndCb2hFaHhCM0I5NFk2RGxhY1drcWRHVnhyNzc0RWJvTU50S0dnWENrRk1UYVQ4S25xVHBtYzJsU1dabkhWeVBCckxzTHRpS3M2dklsOF84LTJRV1RJLVFRVUdGbHh2SE5CbFVPQVpROGtRa2M?oc=5",
           "published": "Fri, 06 Nov 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Stock market has a 'worrisome' focus on Anthropic IPO, Ariel Investments' Mellody Hobson says",
+          "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPWUV4bFVxeVp5WDlQVVM4dTZqNVVDbDhSUTQ2YS1LMzBZQkhTemxaRndvSngxU3FueXg0TTNBOFRTU3hoNUdnakdhanMxUnpsODl3MnFwZkY4VzVNLXhEclNzX25OZS1STm1MZDVJMXdNcm02SkNWeXJkaE1NZnFmQUNVa3ZvTEF3dTlRbGRyU3ZaeFVrSFNEUnhfS0t3WnhJWWljSk1wT2d3YzZpRzh0M2ZYR3k4ODc2YVZseEFOQmRhNW5aN1FPd0xxWlMzeEtVZ0dXNlNFOFdxeGR3dU1r?oc=5",
+          "published": "Thu, 12 Nov 2026 20:47:15 GMT"
+        },
+        {
+          "title": "US stock markets close midweek higher",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPeGNybTFRMkRKd0dWX3l2dDM3Ml9rTTl5eTlMM2dCVGFTWVR2d3htMUJQd0hUNkQ4cy1UbE1LSkJUMzRoOWVfTGMzUnVBSXVwTS0zMDhlLUk5ZjZZTUQ1U1MwX2Q3b3RFbmNzcEhKckZSdmNvWXpsZ3dZMGpKbHRoQjlwSmM?oc=5",
+          "published": "Wed, 11 Nov 2026 22:37:35 GMT"
+        },
+        {
+          "title": "Artificial intelligence and European firms: the cost of market-based financing",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOOUlDdGhQRXkwY2FZLW5WSjNnM2dGb0NRLUZ2cldkdFVCOUJNUWFtdWN1cWszT2NjR3pvbl8yQi0zNXRLMW82akZHZVo5M1FlXzFQNTJJZ3NVMk1DdU94ZHVLZFU3dXg0SXNXYi1rVXZLOFBPRTZnQWFMREVkbXN1ZGFPNWxyM2hlUXR5Y2xBQ0pHS1BUc3R0VjdhUURwVm5neXpkLThR?oc=5",
+          "published": "Thu, 12 Nov 2026 09:03:48 GMT"
         }
       ]
     },
@@ -287,6 +287,6 @@
       ]
     }
   },
-  "updated_at": "2026-11-12 21:43",
-  "updated_date": "2026-11-12"
+  "updated_at": "2026-11-13 02:19",
+  "updated_date": "2026-11-13"
 }
