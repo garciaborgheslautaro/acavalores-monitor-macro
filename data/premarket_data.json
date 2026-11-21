@@ -103,18 +103,18 @@
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.0974539518356323,
+      "price": 1.0969723463058472,
       "prev": 1.0972011089324951,
-      "change_pct": 0.02304435359012776,
+      "change_pct": -0.02084965324821083,
       "date": "2026-11-20"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.948800086975098,
+      "price": 5.933499813079834,
       "prev": 5.881700038909912,
-      "change_pct": 1.1408274414079365,
+      "change_pct": 0.8806939120874007,
       "date": "2026-11-20"
     },
     {
@@ -148,51 +148,51 @@
   "fear_greed": {
     "value": 12,
     "label": "Extreme Fear",
-    "timestamp": "1795132800"
+    "timestamp": "1795219200"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "Does Friday's AI sell-off point to a bigger financial crisis? Dan Niles weighs in",
-          "link": "https://finance.yahoo.com/video/does-fridays-ai-sell-off-point-to-a-bigger-financial-crisis-dan-niles-weighs-in-214730628.html?.tsrc=rss",
-          "published": "Fri, 20 Nov 2026 21:47:30 +0000"
+          "title": "Stocks enter correction territory, driven by deepening tech rout",
+          "link": "https://www.cbsnews.com/news/stocks-enter-correction-territory-ai-fears/?.tsrc=rss",
+          "published": "Sat, 21 Nov 2026 02:25:00 +0000"
         },
         {
-          "title": "Nasdaq turns negative: Why Anthropic & other tech stocks are getting crushed",
-          "link": "https://finance.yahoo.com/video/nasdaq-turns-negative-why-anthropic--other-tech-stocks-are-getting-crushed-213846825.html?.tsrc=rss",
-          "published": "Fri, 20 Nov 2026 21:38:46 +0000"
+          "title": "Nasdaq 100 Ends Worst Week Since 2020, S&P 500 In Correction Territory As AI Rout Sours Sentiment —   ANT, NVDA, TTWO, ZS, CRWD In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/nasdaq-100-ends-worst-week-since-2020-s-and-p-500-in-correction-territory-as-ai-rout-sours-sentiment-ant-nvda-ttwo-zs-crwd-in-focus/cNbm3xQR91W?.tsrc=rss",
+          "published": "Sat, 21 Nov 2026 01:30:25 +0000"
         },
         {
-          "title": "Stock Market Today: Nasdaq Tanks 5% With AI Trade Thrashed; Nvidia, Anthropic Dive",
-          "link": "https://finance.yahoo.com/m/4b546235-124e-3fa4-b951-41a067ff7bf2/stock-market-today%3A-nasdaq.html?.tsrc=rss",
-          "published": "Fri, 20 Nov 2026 21:55:21 +0000"
+          "title": "Nasdaq approaches concerning milestone ahead of Thanksgiving Holiday",
+          "link": "https://www.thestreet.com/latest-news/nasdaq-approaches-concerning-milestone-ahead-of-thanksgiving-holiday?.tsrc=rss",
+          "published": "Sat, 21 Nov 2026 01:26:05 +0000"
         },
         {
-          "title": "Dodging The Heartache In Heartflow",
-          "link": "https://finance.yahoo.com/m/128bc4cc-ac8b-37c0-9159-4ecf70e05b1e/dodging-the-heartache-in.html?.tsrc=rss",
-          "published": "Fri, 20 Nov 2026 21:44:08 +0000"
+          "title": "Report: Goldman Sachs Predicts the S&P 500 Will Gain 26% in 12 Months",
+          "link": "https://www.fool.com/investing/2026/11/20/report-goldman-sachs-predicts-the-s-and-p-500-will-gain-26-in-12-months/?.tsrc=rss",
+          "published": "Sat, 21 Nov 2026 01:04:50 +0000"
         },
         {
-          "title": "Update: S&P 500, Dow Sink Into Correction Territory as Investors Seek Treasury Cover Amid Plunging Big-Tech",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/p-500-dow-sink-correction-214248905.html?.tsrc=rss",
-          "published": "Fri, 20 Nov 2026 21:42:48 +0000"
+          "title": "6 reasons stocks are falling, and what you should do about it",
+          "link": "https://www.cbsnews.com/news/why-stocks-are-falling-ai-fears/?.tsrc=rss",
+          "published": "Sat, 21 Nov 2026 01:04:05 +0000"
         },
         {
-          "title": "From Nvidia To Amazon, Tech Giants Face Stunning Reversal As Nasdaq Erases 2026 Gains",
-          "link": "https://www.ibtimes.com/us-stocks-ai-selloff-nasdaq-market-decline-3810038?.tsrc=rss",
-          "published": "Fri, 20 Nov 2026 21:34:47 +0000"
+          "title": "Review & Preview: Hype Halted",
+          "link": "https://finance.yahoo.com/m/7f9bf2d2-c34f-310e-9971-12201d455bb0/review-%26-preview%3A-hype-halted.html?.tsrc=rss",
+          "published": "Sat, 21 Nov 2026 00:55:00 +0000"
         },
         {
-          "title": "How major US stock indexes fared Friday 11/20/2026",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/major-us-stock-indexes-fared-213016263.html?.tsrc=rss",
-          "published": "Fri, 20 Nov 2026 21:30:16 +0000"
+          "title": "Has AI's honeymoon ended on Wall Street?",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/ais-honeymoon-ended-wall-street-004604807.html?.tsrc=rss",
+          "published": "Sat, 21 Nov 2026 00:46:04 +0000"
         },
         {
-          "title": "US Equity Indexes Slump as Clouds Hovering Over Chipmakers, Hawkish Fed Outweigh Anthropic's Nasdaq Debut This Week",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-slump-clouds-212255820.html?.tsrc=rss",
-          "published": "Fri, 20 Nov 2026 21:22:55 +0000"
+          "title": "The S&P 500 Has More Than Tripled in 10 Years, Even After Its Latest Pullback. Here’s What $1,000 in VOO Could Have Become.",
+          "link": "https://www.fool.com/investing/2026/11/20/s-and-p-500-tripled-10-years-even-after-latest-pullback-what-usd1-000-in-voo-could-have-become/?.tsrc=rss",
+          "published": "Sat, 21 Nov 2026 00:43:33 +0000"
         }
       ]
     },
@@ -200,44 +200,44 @@
       "label": "Economía Global",
       "items": [
         {
+          "title": "Korea’s Coming Economic Renaissance",
+          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOVjhFM1hfdzN0UnlEZFVBY2pCZ09ybnlzMEVEZDlqY1VFcHRXRnF4ZkZSRWtMcWo2M0REeUFUUkpGeTFPVzFoWW04MG95WWthRk43TFhZbjlTQjFpMkN1ZE9GbmtTa3poMXl6OTJpWXEtUUVGVm01WGxXbF9hZEViNjg1MklsVWxKR3ZENDRCa2k?oc=5",
+          "published": "Tue, 17 Nov 2026 21:28:41 GMT"
+        },
+        {
           "title": "Boom or Bubble? Understanding AI and the U.S. Economy",
           "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPSHdwemMwTHVoTXF6OGM3d21tZ0Yzc1g3dXl6VkcwN2kyeHNsMWxKVXFaTUpfQ1k1QTNfMkhhRVhxVkNTMi1tTVpZS1ZNTjJUZHpZUjU1bzJjSzY0UGFjd1F6dVNTdThCcHBZS0dQNGcwSk1vcVk3Q1hnVmtsLUlIc2tDZXR6ejQ?oc=5",
           "published": "Thu, 19 Nov 2026 19:52:21 GMT"
         },
         {
-          "title": "The Economy Is Low Key Crashing Right Now",
-          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1NVDBTZzhoUERWWDFoU0doUXZaS3V2c3doNHRRNzhMUlN6TE16VG1yY3NSRnkzejQzdEVhS1puT01fQ1lNUl9FTjlEdTh6OGNmcFlNUVdUZmdZTW0tYlVtUlRQQW1mUmRqcnJKdEw1a0NVcTBrZUtlelNoTV9LYU0?oc=5",
-          "published": "Fri, 20 Nov 2026 18:29:25 GMT"
+          "title": "Markets are sending troubling signals about the state of the economy",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPYXQ3dVZ6S2V3MHVsMjk5Z1QxNkQ2VEhyNUtUUDVaSkVETTZNTEhFUnhiRTN0blNqb0VaLUZHZngyOUJuMVktVG81TU1nZkptRVBZSzdPT3BuSWNjdXZTaThOXzZpNERUTGNXMlMzVjFrbzdhRkNoNl94dE9xUVZnTXdEbUJHS0RNemFsOFo0emt0MF9Qd1plcDFUU0F6bmlRNTY1a3ozTWJfbm8xcFhiLQ?oc=5",
+          "published": "Thu, 19 Nov 2026 21:57:00 GMT"
         },
         {
-          "title": "6 reasons stocks are falling, and what you should do about it",
-          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5vQ0QxcUZmN2EzM2oyLTlDX2lUeUVoazlHb2dDa3FlRlJueDJhMm5UV0pENHhuTXlBY29PU3d0RGFGcTVIaDB0TTI2eTk5Nkd4dDB4d0JDUDhNWXQzREtMcmloaHpURDlVdWZsM0FB?oc=5",
-          "published": "Fri, 20 Nov 2026 16:27:00 GMT"
+          "title": "Nifty: Five reasons India's markets are sinking even when its economy is growing",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE13eUZFdTFjQUFKSmQ5OVpacTRkRmhOOFFwSU5WTUkwdG13ZGZiLUk4T3BvYUlXZi05YWRldWFQRzlaZ24xTWhCdnhLWW53bHlJYUh6aGl5UjVHUjg?oc=5",
+          "published": "Mon, 05 Oct 2026 07:00:00 GMT"
         },
         {
-          "title": "The ripple effects of AI wealth",
-          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE16d3JiSXF2MXAwV1E5NmNMdWl4Nm9rMHRVWjVzNERwMjNOS0syNnA4dlZNLU5YQW1uUF9KdUVxMEpLMDdFVHVUUDkwR2hIVGtna0tncmJhRjFXb2NjdnVrRW5Fcjk5NC1iaXVxMkZCb1VBQXM?oc=5",
-          "published": "Fri, 20 Nov 2026 16:57:14 GMT"
+          "title": "Is the US economy as narrow as its stock market?",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPRFh5Ml9xYkpLZXdjV1FaMnBzUDFUc0tSbElJczVCLVc5aDBXU0hYcUhteHBPdUpGTVlldXZpaUd3YXFIZ2k2OFdKckJMRVhBRlR1VnJvemgzR1V4RnJ5SVEwX2dkTVA1UHRhZ2YwaTRmaVdpNXhpaUp1OWFHSHRING1pZ2g?oc=5",
+          "published": "Sun, 11 Oct 2026 07:00:00 GMT"
         },
         {
-          "title": "Anthropic shares slide as AI sell-off hits global markets - as it happened",
-          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNREIxUXl0d3liV2xuQ1VqNmJBNGVCNnc5YkN2aWNRbzJuVTdkYWJ5bXJQcFJuYVVxVXg5Ymg4ZGhfUEw1SUpjOGlnWjlDblR2Tm9PTVJoNDBrYjhqbVZFanV1ME01ZFpKTkZ1X25qUDB5RFZoRE5fX3ZnTHJGcjZvYnBNaTRqbkplVndabWlMV1lPUnZJdU5pY25uTFNiRlJDeW5Na09kVHJ0V2VOM05kcjNZN0Fab1ViUWlFZTBR?oc=5",
-          "published": "Fri, 20 Nov 2026 07:32:00 GMT"
+          "title": "The Powerful Yet Fragile Force Propping Up Stocks and the Economy",
+          "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1iVFo0X183d0hLTDdCZU9jamhyTFIxY3RIWmZYNWVfQlQ2TkVPbXRuMS1rM2hEUWtrOU8xRjBQWlV1MHMtRWFqWWVlSXIzOEtnRE9ua3l1NEpSaFFRcGZndTkwU2xUU2pLZ19ISjJ0alE5Mk50enlNZHYyb1c?oc=5",
+          "published": "Fri, 02 Oct 2026 07:00:00 GMT"
         },
         {
-          "title": "Asia’s stock markets dive as Anthropic debut fails to allay AI bubble fears",
-          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQOTlLRHZDNTRIaV9TZFlkd3VqNHZUTHZ2OVI1N01jdlM1ZnF2RWdFT25RV2dKN0l5THVNQndQTzhrVlpRUmNrRjh4MloxWHo5OXRwTzBJQy1vLVRDUU5yMFpEblRycUYyZnI3MFJEaHBrU1Awa3JTdDlha2tYd0FlbU5FOVI2SW5Nb3hISDg2R0d5RTVXTHctZmhWcEdjU2ptVzdPMUVtLW8yR1l2YjV3UV9GcXBZdGxaR3FF0gHAAUFVX3lxTE9qaEdWMGtKak9xeE5PSTJIeklFdG11ZmIySmR4UHFMV3pENnRvSnp5LVozRThVaE52SDA2Q1VnXzBrYUFjXzFFZmJmLVBFTkxudDFXQ2MxVTNiRlNHTWxabEw3NXRLMlN0VWY5U3I3YXhRZ0tUU2FRdGR0MGxTSW4tMlY1QXVTX0xoYnFRVERZaUY4U0d5RWQyZW9ITlNDY0xOanllVFhpTEgtSmVQa3JHTDNpQWNidGVQUjVJcWxKVg?oc=5",
-          "published": "Fri, 20 Nov 2026 04:55:11 GMT"
+          "title": "So … is the stock market the economy now? : The Indicator from Planet Money",
+          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNQjJFYXl6WGIwWnFQUmVwS1BOQmRYZ1FPVTBtMVFqc3lWMHBZeGRham9neU92cEN5OEVXdTA1eGZWNkpKUFhDcTdjLWtRTUJnQ21WVEJ0bnMzaWROYVNPNm1wcHNfc3RzMnRPYkNUS3p3RFRSaUgxZnZaZlYxajN6dDlTUHkxU09Cd2Qw?oc=5",
+          "published": "Wed, 11 Nov 2026 08:00:00 GMT"
         },
         {
-          "title": "The ripple effects of AI wealth",
-          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOc3lmUzVESkNNWDFmVk1jdEVGUDhLZUlKemRMRTRxODhUSXFOVTdJR0JKZTdIR3NiWFl0bzY5VGU5VHU1enNSczhoalQ3QURud1VfNWRXOFA2NUcydXFkaXlMTkhEZHkwNDJSZnpYYzMwamJGLTlNZVFtWHFEYksyNV9Rd3o0ZmpDMnc?oc=5",
-          "published": "Fri, 20 Nov 2026 16:55:08 GMT"
-        },
-        {
-          "title": "The Rich Are Keeping The U.S. Economy Afloat - Until Tech Valuations Deflate (SP500)",
-          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdmx0QWctREZzRjN3NUZ0MVRaOHJJX0ZTYnFMUnl4Mnk5NldaWTN6a2ZOWnFJMk43b1VDTTJPd2p5RnZWYmI2R3ZYcjVobmhERzJQTHJfclYwMHQzRDdpV2preTY2Y0ZoYjh5SHFOb2RRWnNDNW04aFlMMkN6TmctUGxmcXhoMDE2dEJBVFNDT2FIX1BSd0xNaE43T1BrVHg1QjVnV2RHSXRHa3ZIT0w5VmJUWQ?oc=5",
-          "published": "Fri, 20 Nov 2026 21:00:22 GMT"
+          "title": "Wall St Week Ahead 'Black Friday' brings consumer spending into focus for AI-rocked market",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPVTIxbElDQVJDWHlhZ1FpYkZUYnVoNGxvNGZFU3BKTXpoR1Bfck1icUV2OHdGVW5aSEp6ak15Um5GSGgzbFF3ZEdZS2JudHJsZVZ5VnJMSDVnMVdBOTZKRUtJX1ZXQmotWjhqeHFuSV83U01LLUtWcHB5dEZHSEFza0tlSVc2ZlBKclJyWV9NS1pSaWJoRHN0c19SWlBpV2F0aFA5YVZRQ1oxeGxkTDNJZG5UeThHRTR1WUl5U2djSQ?oc=5",
+          "published": "Fri, 20 Nov 2026 21:33:16 GMT"
         }
       ]
     },
@@ -245,48 +245,48 @@
       "label": "Argentina",
       "items": [
         {
-          "title": "Dólar hoy y dólar blue hoy: cotizaciones del 16 de noviembre",
-          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPb0k2MUljckZEdExBckhaQ2ZsR2lGMHVqaUFlZUJaQlFid3p4Q0kzY3FBQ0RMbjB4Ukp2a3JaRlpSMXhTOTVLcVZ0dWpQM3djNUdBUXhOdFVNRnRUZWRURXA2QzYwWFYyZ1FwdTMwemE1WXkzV0pjTnRabmdFYkNmbHQ3ZHFyLW9xQVY3aW0tNTY1T1lZRnAtUGNWQzE1enly?oc=5",
-          "published": "Mon, 16 Nov 2026 20:33:04 GMT"
+          "title": "El dólar blue sube $ 115 en una semana y vuelve al centro de la escena cambiaria",
+          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPejRad3k1UXJJZjBBeUx5N0dZUnI3WFZEaGVtbDhQTG5OWVlYcDg5Rk16b0paWEx6Z2F4QXYzYnhWbS1rMk55T1ZaczNoSWFSUko0V2oxZ1N3djZpNzhBV2ZmaWFBX3EwcFFHdTBjZVB5anUtQzQ3ZWJ3WHI0a2tfejhvb3J3MUFJdFBYQ2w3dGJJMmpGeWxuTm9NWUN6a2ZSQkZWcWJ1T1JPb0lIMGltV3JlUHQyZ21WWmc?oc=5",
+          "published": "Fri, 20 Nov 2026 20:33:29 GMT"
         },
         {
-          "title": "El dólar, la inflación y el PBI: qué espera el mercado para la economía argentina",
-          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQZXBDeDM4WUQ3UVFCTWR4eV9BcXlKalRieWNqaDlFZkt6MTZtd2Jka0ZZN2xKYVRRZmJBNVhUYkZnMVRTWVV6OGh0ZDg4Z05zMFdNSzFZUkNQdWdScENFbUVQN1ZZcVA4dUtOTzhzOUpNOVBlSXRzOVRjRUZ0cHVIbkZrYm9OUGNJRUhnWEFhMHpWYXR3dWVibFlaR0pVdTJPOEJmbE9rdkFjbXQ1VnRUT1NtQQ?oc=5",
-          "published": "Fri, 06 Nov 2026 08:00:00 GMT"
+          "title": "Siete señales generan incertidumbre en el mercado argentino: dólar y riesgo país en alza",
+          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPRUNVZm0zMkIyV3c0WDdFZWp0MFVyUnlqa2ZnNU1PM3VrX2FRSENDRDB0S1pyNFRRb2pPMm55N2YxeWFOVDN2cU9IR3BYbTFFMU1kT01TcDVXVlN6TmpPWVBmam93U25Ldk5UM3NYb2xMWXBwTGc3NmJZNFpweUR5Z1R3aWRoOEludnk5NXZmcFRpSUhCdXJBbHBMWVJmR0hEWmlaQ0ViZ2VJQTdNN05Yc3hmNU9rQmhpUi1jbFl2Q1I?oc=5",
+          "published": "Fri, 20 Nov 2026 23:11:31 GMT"
         },
         {
-          "title": "El dólar se mantuvo estable, pero el riesgo país volvió a subir: por qué el mercado se mueve a dos velocidades",
-          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNSVlNZW5LZ0Q0UVR1U0hjQ2hDRGVqbVF5ckE4N1lsenJ4RFlOa3VGYU8wSHFqVUhjUUZ6bm5zdHptaWRGUFJKRmo5eTM3VFdVc083YjNEMXctYnZPUUFZQmpFWlZZM2IzWFhKTmN4VVYyOFhVWjYxWWY1RnF4ZFlkcm55UFlBQVQ2SG5XNVlEbjJ4WElhNEJUd0dKS1RfV3VXbG1XUEpuei1lQzlUbEh1eA?oc=5",
-          "published": "Fri, 16 Oct 2026 07:00:00 GMT"
+          "title": "El riesgo país superó los 1.000 puntos y el Banco Nación ajustó el dólar oficial a $1.590",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNVVVPejAtbFpzd2otRkxfVTJhdlZ3ZFZ3ZFRqdHVrd3JoYTJaT3hTejRIS3p1SzQxd2UzaUF5NWh4VFlBNVRvejZIcFlLUlhLQktPQm9kZG8wMEQ2N3dFYjg0LVg0VFJDUEs2eEtzU0VmeGkxQThjWUZtc0ZCdXJVTXNtdUJJUWZ5ZzhGRkUxYWNfcGRHX1hCdVQ0aDNmMFB3LVNaMERhQWJtUjZ2SkowU0RTeGdERS10VmRLeVgzdw?oc=5",
+          "published": "Fri, 20 Nov 2026 15:07:00 GMT"
         },
         {
-          "title": "El dólar volvió a trepar en Brasil, contagió al mercado argentino y el riesgo país se despegó de los 800 puntos",
-          "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNbFEtaVVyODc0bjdQR1V5Yko3dlR4MWxpcGJQOWVndm1NTkc0dnJGaTNmajFENFBsVlNJNmRpa0dMeS16clFWbm5DOEx5T1AzaWN0b2NIQk9oLU9NeGhwN3pPY2x1VU82eVIzd3JkTlJha2ZWR0tvQjMwVzNvckpKd3ZOR3I3M0NwSGVBa0VRNXdnaDVpNUU2TDRYelk2cVRqN0VmbTBtWGpHbE1yMmc5Zlg4aVN4WDI3aFRGWkNBY2R6b2hsdnZ3Z3hoUlB4SlZIdGJqb2JqallwMy1lZDkxNkRScExXY2NRNG9B0gGGAkFVX3lxTE94RUtYSGVORjhnRXhTVVd2WXdlR0gwYk01VlZxZFhFb2NKbUUxVm9qTlF3UENPeFNVNVZrMzZWZWo5eVo1dnhBSy1HclZvQ3M4cm9naFh4a1hLamc3cmowSFdvcW9KUFJKSVNTSkRtUUhJQVBZVjJmWlNRQS1Ba3FieUhrN1dqX192bmo0elg1YzdKVXhiaGxlYXpmSWljRTNTMEd6d0NkMUY4aDQ0RmdiSWRLZGNZaDExWWYwTzQ3d2stRTVUa1lrN3h6cHlpVlVHX3FqelJNRURGcWxGamhIaVZMQnlMWkVwU2gtcUJ5SW11VmljQ0FLQ0pnRVdzM2JvSnl6SlE?oc=5",
-          "published": "Tue, 03 Nov 2026 08:00:00 GMT"
+          "title": "Dólar flotante vs. pisado: impacto de la devaluación del real en la 经济",
+          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNNnNQNGpKYk1ibEVWSW1maE9iejlTRmthTTU2Y2ZvdTlEUmVDd0ZkN3IxR1lSdDR2aGEtSXZtMEJiNkdNWGt2dEVoRjF2alF1LWFmRUQ2Uk51NHpfN2lTT0dCQ3dMTkRUMFo3aExrM2pnMXlURHluOUxCMFRicU93VW5idmdpcndNdVh3T1JpaVVuRFhLdUVZbmFGb2E3SEpfUXR2NXdETmFtejFwNVFlT1dUNE9vc1RnUlE?oc=5",
+          "published": "Thu, 19 Nov 2026 20:33:09 GMT"
         },
         {
-          "title": "La incertidumbre financiera y el feriado bancario alimentan las dudas sobre qué pasará con el dólar",
-          "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNdzZtZzQzNWZlSUhDVjV1Q2hLM3VKcUR6VjBXMVZwNHBjNzh3UEpBMHl2bEN1c2ZWVmxQYzF4T0lYWXNpOGMwTHJuX2t1dzFBOTd2aVZxU0ZQN1BNVlozYlNNSm1iOGZDcXQ3QXRnZXBXYlBDNjBEbmlYUF9FSm85MkljOTlUT0ZMUS12TjJMc3Y1a1J1TlAzMTRVSHFsVVUzeWJPZVBlY0VvOXZRYUpBWGJnODI0WHpadVRMRjB0OXlnSjd3WVQ1VzdmU1V3WUloSlg0cncwWHZIQ2NR?oc=5",
-          "published": "Fri, 06 Nov 2026 08:00:00 GMT"
+          "title": "Defender un dólar a $1.500 o priorizar tasas bajas que impulsen la actividad: la pulseada de Economía que mira de cerca el mercado",
+          "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPOElkaDlxMDBzZHNtb1VtclVwZFd3b2hacHF0bHhCUXg0aFFwR2dxV2FXT1d4eFF6YV90MHpsSl9pZnpBaG9Oa25MemNLMWdvZDJoaVNLZW4xUXUwYldjRWtXMDN6VGVUdHlmRlJxZjdHMjVmSC1SSkMzRzdicFMycl9UN29laEN0OTNEc05senlGNkhKR3VBY25oaEdsWnZLRGJfWjB1ZlNRa0psYnlodHZnX2dQY2ViMnY3VXJKUTVwQkgzVWRGSHBfZi1ua0QzbW1XZldDQkU1eDhhdWFXUXNzanFBYXJWa1dKb0dvZ0RDa1RZYTlTSnJhUFJsdEJUemfSAZwCQVVfeXFMT0pwTlJNXzJjR053Qi16MWx6LThGM3UzcU9GTnFDczRoblJtanJlN3F5Y2FvY0d1NnBCQnVxOGk3ZEhlbDZwMmdxLUJVRzhFdmRUa3RtN3VzZ1ROT0RwOFFRQmJPcnBzdXEycmRJQVBMZW1tdjdyRElESGtpZ0tnWjlUY290c244dmlzODhEZnVQc1dHMVViVUh1c2lDLURlRWVGc2pTOEc4UThFM2pjQ3V4NWJ2QzFPM0NGR2s1MENYVlNuUE9YNHVMY1owOVZnUklEejVzejBfU29vbGVHdXc0cFRCZGcwQmRTYjE5cmk1dWpzeGxDRVY1c2c3TmtaQU1BVHNvR1pvcjIzQnh3RE5QLU1tNUVFTU5uU2k?oc=5",
+          "published": "Tue, 11 Aug 2026 07:00:00 GMT"
         },
         {
-          "title": "A cuánto abre el dólar este lunes 16 de noviembre",
-          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNTTdJSUpzN3BPVmtqUGExUUZBVUNCQW9RQS1sdF9qR2NEeFZaWHlNa2pRV3VVc0xvU0dBSFlkMVlpOUM4QmxmMjd1QWlqN3RIVWNHNnQyZ3k0WEloSG5Xd0RuUHdsNFM4N2hicnNfWHUwODU0YURVU1ZuWE5mNTJlWFE1UG16SzlWbmVKTU8zbUFuQXc?oc=5",
-          "published": "Mon, 16 Nov 2026 03:02:37 GMT"
+          "title": "Dólar hoy, 19 de agosto 2026: cierre y cotizaciones en el mercado cambiario argentino",
+          "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOcWtSZ2R1MHNiQVI2aXBTRjFmQUlyVEVyWW5VYWNPVHY1c1RLeXg5M0RELVp1cWRHeUcwZU4wVUVBaVktcmkxcmdvc01TMGpvcGZvblZEc0xfdUNGVXo0RkExWm16VVBUbDA5TGpRZGU2aG5Vd1JFR0NMN3dnZTFja1V3b0VQTXBjOXZtN2h1UEJPRWJVMkZ2Q1lzdGNnYnRkNm9zdHBaMUV4R2VqLVZ3YUpHOG15X0txaVdtdTZGSWJTNGx2Zm5HMHZJQTdwY1huYVVLUVZWS1ZRWTFCWXRyZmxn0gHqAUFVX3lxTE5JNDg4NVE1WXhSM1RsdWRsU2VOdzhBcTZxek5NZzhqLWVzNWZscWo3WVFEdnIyVE12dzBDVmFISWJpRWdycF9GYm5YYjZsVDI2cGdHQ3dUamo3SmNQS05WbW9KVlpOQlBzNjJvbG5NczBSU2lfbnpYMVNDS0ZfbDBTTTNDUUhTdklXRmhJYzJXSFJGWW94VlpraGdqRElUb0FidmZxWVhEeGs5M3ZzVlpWSS1tYzI4enlFa2pwUC1GbWc2a2pkbTNPazVha3JKNVpPLURNaE9WVHltdUNSWG9qWXJZS19MQ1I1dw?oc=5",
+          "published": "Wed, 19 Aug 2026 07:00:00 GMT"
         },
         {
-          "title": "“Lo que el dólar calla, los bonos gritan”: el mercado mira con más cautela la economía de cara a 2027 y sube el riesgo país",
-          "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQRW9mejFsYjZlSmRlS0twMmxJcDQ4eVcwdkRocW1TTGVLNEYyZHdQSVc4Z0hEQVNRbExOU3FiYkVvSE1kRS0ySjZpLXVSb0pGSVI0S1NvcjZ1Z1R1YUp6WHdSMm9jRjBhYms4MlhtUndmenJrVks2enRIcnA3bWtwOFRLSkdNRWtiWVp2cGpvR2tZdlQ5aDVCZFNuZC1Sc0tmNkVvakw5WndYQ0RRMXlxYWVqSWJMTEtteWs4T3l4SDBtSGdodVgtenFTS3p4MlMwbDFQQ0xWOFE5OW1XRUZReUhMdw?oc=5",
-          "published": "Mon, 17 Aug 2026 07:00:00 GMT"
+          "title": "En RDEco analizaron si el dólar necesita subir para reactivar la economía argentina",
+          "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQRjdwbzQyUThfQ0FsQ0NiSzdmUnFTOEVYbV9tMmttMHZFYmplcGsyRWw4bHJUdnFmRzNDR2ZqZVlUeG1VajJWb2xBa3RNYkQxLXhpRjVHZ1g0Q1FuQzJ6TU9oUkdNUS04UGxwd2dZTHJVMWJabmo1WVBRYU9HUmJiVG4yOFl4NGwteUl5LWg3WnlFVk8yT2Q2Tjlnak5VMDBNMDZHX1p2b0ZrMWFiX052ZlZ2c0FEWHJtMnp0cTZsMFBhVDVFNDRpZWNCWXZPd0J4RDdqaml3ckk1dVFOZm1MdHdWYw?oc=5",
+          "published": "Tue, 01 Sep 2026 07:00:00 GMT"
         },
         {
-          "title": "Dólar en noviembre: cuánto podría subir y qué preocupa al mercado para fin de año",
-          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQajRTOHpVYUdjZkxGVDIzRlJSZWQ5ODd1MkZpMm1JcmJwZ095MDl1VGdwVVotRk9WY0pya2lPT2ZKSlNubnRkYUhCMGFfLW9rU2xpNlUzalpnVVh4MV81TWZneDNuVEpMZHViVTZMUng0SHNJNmhCUnVKMXQwTjF5RWwyRDFTVHUxai04N1NsTzVra0M0ZTZiaExLUnNfN29wY3RJSUt4WFM3RVJObXpCVEltcUl4UnNQRzhDaVpfZFPSAcYBQVVfeXFMTmVhUk1VVmJzNWhmdjRzbzVfVmUwR1NhN1NOdzQyYXI4WE9jVlZtamRnVHZIeWRqRDhLNnpjQ1h5ZFQwc3Q4UHZoM01lRzB6bG9oLUdVQlVtQzdjNXNidVhXSFRTYVd3ZXVWVzZwMzJuUXVYQXJkYzRVVGhhdjdUQkRKVHhoYkRYQnpLUjh1WmVHV0JsYkF5Q2tpMWFGTFVoYXNkRHFRYzRGQzBQVDFlR041aWZSUUVVLVFDd1hnejllWGkzSzRB?oc=5",
-          "published": "Sun, 01 Nov 2026 07:00:00 GMT"
+          "title": "Dólar a $1500: Bausili justificó la intervención del Tesoro en el mercado cambiario",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQNXhYTG1jenZYQmVoSVA3a24taHgxNTkwZTllVC02bjJHVHdyci1PNzNQRHYtU2pHdXQyWUNZRU80RlNOTE9jYU9GdWxCZzZsUXpLcWhsN1M5QjRRUmJNbjlKaktIb1YzdmRjamdmSm5tN1dDOXdfSGNocmVDUzhmLWdTRVF4ZGlTbVZPYUFFNTF4NFRfUGJTLTVOOTdLUkZ5VkFDVC12REg5WGxzQnlLZFlLUjFoTHBHTXEycEJGLWxaQjZuV1ppaFNyRGdxQQ?oc=5",
+          "published": "Fri, 07 Aug 2026 07:00:00 GMT"
         }
       ]
     }
   },
-  "updated_at": "2026-11-20 22:15",
-  "updated_date": "2026-11-20"
+  "updated_at": "2026-11-21 03:06",
+  "updated_date": "2026-11-21"
 }
