@@ -13,9 +13,9 @@
       "symbol": "^IXIC",
       "name": "NASDAQ",
       "type": "index",
-      "price": 24089.55859375,
+      "price": 24089.560546875,
       "prev": 22617.73046875,
-      "change_pct": 6.50740854407813,
+      "change_pct": 6.507417179449406,
       "date": "2026-11-23"
     },
     {
@@ -40,72 +40,72 @@
       "symbol": "ES=F",
       "name": "S&P 500 Fut",
       "type": "future",
-      "price": 7263.75,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-23"
+      "price": 7276.0,
+      "prev": 7254.5,
+      "change_pct": 0.296367771727893,
+      "date": "2026-11-24"
     },
     {
       "symbol": "NQ=F",
       "name": "NASDAQ Fut",
       "type": "future",
-      "price": 26813.25,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-23"
+      "price": 26891.25,
+      "prev": 26808.0,
+      "change_pct": 0.31054162936436885,
+      "date": "2026-11-24"
     },
     {
       "symbol": "YM=F",
       "name": "Dow Jones Fut",
       "type": "future",
-      "price": 49734.0,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-23"
+      "price": 49808.0,
+      "prev": 49677.0,
+      "change_pct": 0.2637035247700143,
+      "date": "2026-11-24"
     },
     {
       "symbol": "GC=F",
       "name": "Oro",
       "type": "commodity",
-      "price": 3654.5,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-23"
+      "price": 3634.199951171875,
+      "prev": 3651.39990234375,
+      "change_pct": -0.47105087451075256,
+      "date": "2026-11-24"
     },
     {
       "symbol": "CL=F",
       "name": "Petróleo WTI",
       "type": "commodity",
-      "price": 79.94000244140625,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-23"
+      "price": 79.58000183105469,
+      "prev": 80.16999816894531,
+      "change_pct": -0.7359315845901644,
+      "date": "2026-11-24"
     },
     {
       "symbol": "BZ=F",
       "name": "Brent",
       "type": "commodity",
-      "price": 86.41000366210938,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-23"
+      "price": 86.16999816894531,
+      "prev": 89.37000274658203,
+      "change_pct": -3.58062490689484,
+      "date": "2026-11-24"
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "DXY (Dólar)",
       "type": "forex",
-      "price": 104.21900177001953,
-      "prev": null,
-      "change_pct": null,
-      "date": "2026-11-23"
+      "price": 104.28900146484375,
+      "prev": 104.31999969482422,
+      "change_pct": -0.02971456103446165,
+      "date": "2026-11-24"
     },
     {
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.0917030572891235,
+      "price": 1.0913456678390503,
       "prev": 1.097152829170227,
-      "change_pct": -0.4967194848529133,
+      "change_pct": -0.529293748034054,
       "date": "2026-11-24"
     },
     {
@@ -139,9 +139,9 @@
       "symbol": "ARGT",
       "name": "ARGT ETF",
       "type": "ar",
-      "price": NaN,
+      "price": 67.36000061035156,
       "prev": 64.55999755859375,
-      "change_pct": NaN,
+      "change_pct": 4.337055696472988,
       "date": "2026-11-23"
     }
   ],
@@ -155,44 +155,44 @@
       "label": "Mercados EE.UU.",
       "items": [
         {
-          "title": "If a Stock Market Crash Is Coming, Warren Buffett Says This Is the Best Move Investors Should Make",
-          "link": "https://www.fool.com/investing/2026/11/23/if-a-stock-market-crash-is-coming-warren-buffett-says-this-is-the-best-move-investors-should-make/?.tsrc=rss",
-          "published": "Tue, 24 Nov 2026 01:20:02 +0000"
+          "title": "Can Agnico Eagle Stock Bounce Off $151 Again?",
+          "link": "https://www.trefis.com/stock/aem/articles/627858/can-agnico-eagle-stock-bounce-off-151-again/2026-11-23?.tsrc=rss",
+          "published": "Tue, 24 Nov 2026 05:06:42 +0000"
         },
         {
-          "title": "Nasdaq gains 6.5% after Huang reinstated as Nvidia CEO",
-          "link": "https://www.cbsnews.com/news/us-stock-futures-rebound-tech-rout/?.tsrc=rss",
-          "published": "Tue, 24 Nov 2026 01:12:57 +0000"
+          "title": "The Dates That Matter Most For Verizon Shareholders",
+          "link": "https://www.trefis.com/stock/vz/articles/627590/the-dates-that-matter-most-for-verizon-shareholders/2026-11-23?.tsrc=rss",
+          "published": "Tue, 24 Nov 2026 05:06:42 +0000"
         },
         {
-          "title": "U.S. stock futures steady after Nvidia-led Wall Street rally",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/u-stock-futures-steady-nvidia-004836470.html?.tsrc=rss",
-          "published": "Tue, 24 Nov 2026 00:48:36 +0000"
+          "title": "Nvidia shares soar more than 30% after Huang reinstated as CEO",
+          "link": "https://www.cnn.com/2026/11/23/markets/us-stocks-rebound-intl?.tsrc=rss",
+          "published": "Tue, 24 Nov 2026 04:23:57 +0000"
         },
         {
-          "title": "The Nasdaq Just Had Its Best Day Since April 2025. Anthropic Stock Fell Anyway.",
-          "link": "https://www.fool.com/investing/2026/11/23/the-nasdaq-just-had-its-best-day-since-april-2025-anthropic-stock-fell-anyway/?.tsrc=rss",
-          "published": "Tue, 24 Nov 2026 00:42:02 +0000"
+          "title": "Asian stocks rally as Taiwan leads with 9% rebound in AI trade",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/asian-stocks-rally-taiwan-leads-040100960.html?.tsrc=rss",
+          "published": "Tue, 24 Nov 2026 04:01:00 +0000"
         },
         {
-          "title": "SharkNinja Stock to Join the S&P 500 as AES Leaves",
-          "link": "https://finance.yahoo.com/m/e7ad2b58-935d-3b0f-93a0-2e01ee4531b5/sharkninja-stock-to-join-the.html?.tsrc=rss",
-          "published": "Tue, 24 Nov 2026 00:04:00 +0000"
+          "title": "He correctly said the S&P 500 would fall to 7100; Now, Morgan Stanley's Mike Wilson has another gutsy forecast",
+          "link": "https://www.thestreet.com/investing/he-correctly-said-the-s-now-morgan-stanleys-mike-wilson-has-another-gutsy-forecast?.tsrc=rss",
+          "published": "Tue, 24 Nov 2026 03:03:00 +0000"
         },
         {
-          "title": "A Memo To Cummins' Power Systems Team About Delayed Shipments",
-          "link": "https://www.trefis.com/stock/cmi/articles/627683/a-memo-to-cummins-power-systems-team-about-delayed-shipments/2026-11-23?.tsrc=rss",
-          "published": "Tue, 24 Nov 2026 00:40:06 +0000"
+          "title": "Nasdaq, Dow, S&P 500 Futures Gain As Jensen Huang’s Return To Nvidia Sparks $3T Market Rally: SOXS, IBRX, HPE, TSM In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/stock-market-today-nasdaq-dow-futures-rise-jensen-huang-returns-nvidia/cNbrsSNR9jM?.tsrc=rss",
+          "published": "Tue, 24 Nov 2026 02:13:43 +0000"
         },
         {
-          "title": "Nvidia’s stock was falling. Here's why one investor is buying more",
-          "link": "https://www.thestreet.com/investing/stocks/nvidias-stock-was-falling-heres-why-one-investor-is-buying-more?.tsrc=rss",
-          "published": "Tue, 24 Nov 2026 00:35:19 +0000"
+          "title": "Dow, Nasdaq and Bitcoin Jump on Huang's Return, but Why Did Bitcoin Reverse?",
+          "link": "https://beincrypto.com/bitcoin-reversal-huang-return-nasdaq/?.tsrc=rss",
+          "published": "Tue, 24 Nov 2026 02:00:00 +0000"
         },
         {
-          "title": "Is Lockheed Martin Stock Ready For A Delayed Jet Contract?",
-          "link": "https://www.trefis.com/stock/lmt/articles/627680/is-lockheed-martin-stock-ready-for-a-delayed-jet-contract/2026-11-23?.tsrc=rss",
-          "published": "Tue, 24 Nov 2026 00:29:38 +0000"
+          "title": "Nvidia’s Asian Suppliers Rally as Jensen Huang Returns as CEO: SK Hynix Jumps 8%, SoftBank Shares Rise in Tokyo",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/nvidia-asian-suppliers-rally-jensen-012213841.html?.tsrc=rss",
+          "published": "Tue, 24 Nov 2026 01:22:13 +0000"
         }
       ]
     },
@@ -205,9 +205,9 @@
           "published": "Mon, 23 Nov 2026 09:21:03 GMT"
         },
         {
-          "title": "President Donald Trump's Economy and the AI-Driven Stock Market Are in Trouble, Thanks to a Newly Identified Source of Inflation",
-          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPaFpvTWlhQ3lXU3BpQ1RNSUpvMzhKRDBwVDVTV2RsbnVucVJLRE9IMUZtbkVsOFpyQ3N1by1kcFNzTTBkcTl6M29BeUNyQkZYc3dZeXh0N0ttTElZcDIwYUJJcmpfSEJpYVJXa09PTDhFT3Q4WFVvYkd2SXF4ZFpXc2NXMThNVVExZnR2UEZrWDR3VEFXbGU5VHc3VEtUZEVj?oc=5",
-          "published": "Sat, 21 Nov 2026 09:26:02 GMT"
+          "title": "The Stock Market Sounds an Alarm as Investors Get Bad News About President Donald Trump's Economy",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxORHRRWGxWaHJPRXdvQktCSmhHM0lDVHg2SmdBZktmNVVKQ01CS0E4LWdfZVM5bDN5eWgzaXh0bXBrQmd4OFRkOTF5YUZUU2FCcUdoamxudVFCaDlTc3NhN0I5aHlsR1UxRmhpVGE5eFNZSDNXakdyaFdrMHdQVmFLSjAzV1JvYkxzdEhBOWU0N2szb3RFY2E0UVRMek94bHhJX3lr?oc=5",
+          "published": "Sun, 22 Nov 2026 09:21:02 GMT"
         },
         {
           "title": "Trump’s Latest Move Is a “Modern-Day Watergate”",
@@ -215,9 +215,19 @@
           "published": "Mon, 23 Nov 2026 19:40:00 GMT"
         },
         {
-          "title": "The Stock Market Sounds an Alarm as Investors Get Bad News About President Donald Trump's Economy",
-          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNa3c2UGxsSXZyT2pDUDh0TWR5TTdCbmx5YWRGTG90d2NqekV1anJSVlJiN3dUMGM4YnNJNURNZ3Z0Y3FvY2ZrR2ROYjdIWk93T2MyVkZEV1V5UVJvTjZpOEZkdkdzU2lvY1cxa3FrRkVQb0ZnOGpPc2NHZjFYQXFxeXVwbjZGQUlKVFpLYmQ0X0JDUnVvYnhLczVnY29KcnZWUWc?oc=5",
-          "published": "Sun, 22 Nov 2026 09:41:02 GMT"
+          "title": "President Donald Trump's Economy and the AI-Driven Stock Market Are in Trouble, Thanks to a Newly Identified Source of Inflation",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPaFpvTWlhQ3lXU3BpQ1RNSUpvMzhKRDBwVDVTV2RsbnVucVJLRE9IMUZtbkVsOFpyQ3N1by1kcFNzTTBkcTl6M29BeUNyQkZYc3dZeXh0N0ttTElZcDIwYUJJcmpfSEJpYVJXa09PTDhFT3Q4WFVvYkd2SXF4ZFpXc2NXMThNVVExZnR2UEZrWDR3VEFXbGU5VHc3VEtUZEVj?oc=5",
+          "published": "Sat, 21 Nov 2026 09:26:02 GMT"
+        },
+        {
+          "title": "How much more air can come out of the AI trade?",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNd1B3MFpHSFJDWUxxYU5xd3JUU3FBaVFUVEc2a290UEVlaXVNWDlMSUFCNXlqWUtKekMzc1NEZEtPODJvOHJ6anhFdnpYLXlpd3RHLWc0TGcwOThYbmJSb0t2M2V2bTNyNXkza0ZrM0sxOTQwbUxUMUFKVlB2Z2hpaUd3MEZSckFISXdWTWJnRnpMYXpEeFU1Q20wQm9tNWM1VFZ4bjZsOGM?oc=5",
+          "published": "Sun, 22 Nov 2026 19:44:21 GMT"
+        },
+        {
+          "title": "South Korea vows to stabilise stock market after KOSPI drops 5%",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNaEZfamtocksxRTF4eDNSZGR5ZDFiLVR5MWdvai1qUTgxSmxMQ0lNdDFXRlBxaXJ3N0dQVWZWN3FKb3RNUjZwRXVnZnlaOTZERDJqTHFhTDU1ZlA0NHYwWmE0RWlJRmV0UGZwQkJfZWN1LXFDS29QNWh6cjJ4ZlVXMWFMM0p3OHI3RXlCSVZVUEVvejFhZDFR?oc=5",
+          "published": "Mon, 23 Nov 2026 03:17:00 GMT"
         },
         {
           "title": "The AI boom had a really bad week — and it's raising loud alarms",
@@ -228,16 +238,6 @@
           "title": "Today reveals the nature of U.S. stock market and economy, George Gammon notes",
           "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQUU5SM0ZKbXEzdnRyNzhGM2ltZjVHa2J1M1JFZzI0YU83cWF6eldmNFhLd0lkY3BjX0RxTnB6d1lNNUJfOUd4UF9lZzFZUDhEOWQ0WjJWakJhVl9MSzN0Rl94ZVdIZjRDMkZSNXhZRzVuRGhNclU2WEx0THBOdkR0YTcwQ0U3RGlo?oc=5",
           "published": "Mon, 23 Nov 2026 17:55:19 GMT"
-        },
-        {
-          "title": "Korea ready to deploy market stabilization fund if conditions warrant: finance minister",
-          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOemNCWlJLdnc2TUFObXZsTWJMSmhPYVNldFdMN09JcVdyd0l4WW85MUppaEx0aEw3b0FxMGcyZGJpUjhja3k3NXowd2wtOFRFbkgtbFFjXzlQRXN5ZVpfQmJkR1Y3Z2w2QmR2RElkZE1XZ29wTno4dmxaZ1REX1dKaUFtbE5MWkpZQ1VIRU1mckNlWU5YUzQ3UW1qWGc2WVNVM3RNQTZ3RGl4VkVpLXNSUkVDMDlXajhsN1pMbzBQTDhqQTBVcjdFbTh2Wmo2Z1RrZXdqbnJR0gHbAUFVX3lxTE9DcEZhdG1ZSzMtb0VBM1d3MTNsM2dzZmlLNGJaS3pVODJQUTJUNnRkS0dMeXUwajUtM1diYU5TOGZITU1CNDZIbkdZc1pjOTBCQXJmTFJSd2ZpTlQyYkpaMlUyNFhYS1FXaHdpWVdLT25yZG5VYTZpV0JENnlTSWd0cnBITGtySHBjRmhPYkZsYTFibFN3dG9tZ0traTVhUUJTMy1ETVdLSnZnRDc2WFgtWWJzdGlUU0xXQTVpTGctSGlsVHpZcVRDaHpXSWYyVzRvWVlPOG41NEQySQ?oc=5",
-          "published": "Mon, 23 Nov 2026 06:17:07 GMT"
-        },
-        {
-          "title": "FSC announces measures after stock market losses",
-          "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9NUm05S1hkSUh4QkFHZ1BCQUROY0Fpa0tWVkxWMHNXVGw4aFpKdVFidWZkYXBWcGdrOU03cEFEU2ZDSmxiaU4xcEZVU0V1Qm1MZF9MTzZMejIzazRrTng2MndiNGVBN09hY0JyNTU0UGhsZ1JDU2p0TQ?oc=5",
-          "published": "Sat, 21 Nov 2026 16:00:00 GMT"
         }
       ]
     },
@@ -287,6 +287,6 @@
       ]
     }
   },
-  "updated_at": "2026-11-24 02:09",
+  "updated_at": "2026-11-24 05:51",
   "updated_date": "2026-11-24"
 }
