@@ -103,18 +103,18 @@
       "symbol": "EURUSD=X",
       "name": "EUR/USD",
       "type": "forex",
-      "price": 1.0938525199890137,
+      "price": 1.0972130298614502,
       "prev": 1.097008466720581,
-      "change_pct": -0.2876866339055552,
+      "change_pct": 0.018647362082871224,
       "date": "2026-11-27"
     },
     {
       "symbol": "USDBRL=X",
       "name": "USD/BRL",
       "type": "forex",
-      "price": 5.558199882507324,
+      "price": 5.650300025939941,
       "prev": 5.821899890899658,
-      "change_pct": -4.529449377934673,
+      "change_pct": -2.947489104509481,
       "date": "2026-11-27"
     },
     {
@@ -146,18 +146,38 @@
     }
   ],
   "fear_greed": {
-    "value": 12,
+    "value": 10,
     "label": "Extreme Fear",
-    "timestamp": "1795737600"
+    "timestamp": "1795824000"
   },
   "news": {
     "mercados_us": {
       "label": "Mercados EE.UU.",
       "items": [
         {
+          "title": "The Federal Reserve sends a troubling signal to S&P 500 investors",
+          "link": "https://www.thestreet.com/investing/stocks/the-federal-reserve-sends-a-troubling-signal-to-sp-500-investors?.tsrc=rss",
+          "published": "Sat, 28 Nov 2026 02:37:00 +0000"
+        },
+        {
+          "title": "S&P 500, Nasdaq End Best Week In Over A Year As AI Optimism Makes Comeback — VZ, ANT, ADBE, TSLA In Focus",
+          "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-nasdaq-end-best-week-in-over-a-year-as-ai-optimism-makes-comeback/cNb6EtcR9VK?.tsrc=rss",
+          "published": "Fri, 27 Nov 2026 21:29:46 +0000"
+        },
+        {
+          "title": "Take This Quick Test to See How Much You Could Lose if the Stock Market Returns to 'Normal'",
+          "link": "https://www.barchart.com/story/news/9037341/take-this-quick-test-to-see-how-much-you-could-lose-if-the-stock-market-returns-to-normal?.tsrc=rss",
+          "published": "Fri, 27 Nov 2026 21:09:47 +0000"
+        },
+        {
           "title": "Dow Jones Futures: Stock Market Makes Bullish Move, Tesla Leads 7 New Buys; Nvidia's Jensen Huang Heads To Capitol Hill",
           "link": "https://finance.yahoo.com/m/5b917298-e5b5-3d87-b1fa-f7cad345af64/dow-jones-futures%3A-stock.html?.tsrc=rss",
           "published": "Fri, 27 Nov 2026 19:54:29 +0000"
+        },
+        {
+          "title": "Stocks Settle Sharply Higher as Chipmakers and AI Stocks Rebound",
+          "link": "https://www.barchart.com/story/news/9036669/stocks-settle-sharply-higher-as-chipmakers-and-ai-stocks-rebound?.tsrc=rss",
+          "published": "Fri, 27 Nov 2026 19:33:28 +0000"
         },
         {
           "title": "Update: Equities Climb as Dow Posts Biggest Weekly Jump Since October 2022",
@@ -170,29 +190,9 @@
           "published": "Fri, 27 Nov 2026 18:49:21 +0000"
         },
         {
-          "title": "How major US stock indexes fared Friday 11/27/2026",
-          "link": "https://finance.yahoo.com/markets/world-indices/articles/major-us-stock-indexes-fared-184551517.html?.tsrc=rss",
-          "published": "Fri, 27 Nov 2026 18:45:51 +0000"
-        },
-        {
-          "title": "Trump’s AI Gambit Fuels Wild Thanksgiving Week on Wall Street",
-          "link": "https://finance.yahoo.com/technology/ai/articles/trump-ai-gambit-fuels-wild-184336528.html?.tsrc=rss",
-          "published": "Fri, 27 Nov 2026 18:43:36 +0000"
-        },
-        {
-          "title": "S&P 500 Posts Year's Largest Weekly Gain Led by Materials, Technology",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/p-500-posts-apos-largest-183955223.html?.tsrc=rss",
-          "published": "Fri, 27 Nov 2026 18:39:55 +0000"
-        },
-        {
-          "title": "US Equity Indexes Rise as Jensen Huang's Return to Nvidia Guardrails AI Trade While Investors Slice Growth Exposure This Week",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-rise-jensen-183902792.html?.tsrc=rss",
-          "published": "Fri, 27 Nov 2026 18:39:02 +0000"
-        },
-        {
-          "title": "Nasdaq Leads Market Rebound as Treasury Yields Hit 5.29% at the Long End",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-leads-market-rebound-treasury-195242969.html?.tsrc=rss",
-          "published": "Fri, 27 Nov 2026 19:52:42 +0000"
+          "title": "Nvidia Stock Has Swung 5% or More in a Single Day 5 Times in November. Here's How Big a Position I Think Makes Sense.",
+          "link": "https://www.fool.com/investing/2026/11/27/nvidia-stock-has-swung-5-or-more-in-a-single-day-5-times-in-november-here-s-how-big-a-position-i-think-makes-sense/?.tsrc=rss",
+          "published": "Sat, 28 Nov 2026 03:13:02 +0000"
         }
       ]
     },
@@ -200,9 +200,9 @@
       "label": "Economía Global",
       "items": [
         {
-          "title": "Young Americans are counting on stocks to build wealth. One economist says there's a catch that could kill this plan.",
-          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPQUxtWXlMQkNrbEthWkpUeTQwWkxGRk15b2c5S1RRZGQxVkVvM3VYbnVmNVJObUh6amJEUUJqQk9jTk1hUlYtNTJuNVc1cG1DdUpnT25zc3hRWVlndjVTc3JzWktjcVZEQTkwR2p4dkVWNXAwR0l3Vy1VUzdSU3VtSkFnZW9ZQXpnZE56bEdSZF9WcnVsSExxRk1Mblh6Vk9kdzRuZ3lldlZPVjlCdmRaczJGMG1Hb1dsMzdCR1ZjSQ?oc=5",
-          "published": "Fri, 27 Nov 2026 06:25:00 GMT"
+          "title": "Nvidia is crucial to the economy. An AI wipeout could unleash unexpected consequences",
+          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE52c3JDajhQZ1R2d0RKejhxZDhrZ0QyXzBvWDVNSHFaMzFiV2dGZGZKbjdvZHNUZ3N2U3RGOVV3NHg2bm1CZUpkaEgwUkI4cHlhNmMwa3VDV0liSVluaVZZMnNpbnFRQTNaenc?oc=5",
+          "published": "Wed, 25 Nov 2026 10:00:15 GMT"
         },
         {
           "title": "Why are investors freaking out even as the U.S. economy surges?",
@@ -210,34 +210,34 @@
           "published": "Wed, 25 Nov 2026 19:45:38 GMT"
         },
         {
-          "title": "Europe joins global stock market rally as AI trade rebounds - as it happened",
-          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNTVJ6em5seEtrb1dnM2RzUzlmTmFWVDRjUC03b2V0bjh4c05jZzMxRVlNektCM0xfZ2k0UEFzWjl6bHpTWmxvc0hsQWYyTlhpQVFUbmpzMmZQby1TUFNSRUw0dFQxN19SQ0YwUi1yaVZPYW0ybnNLN25JbW9OejI0SU05NUVqSXJCcTc4b2Vzbk1hcHc3bldFSXF3aEsxbzc1M2Q0RmFwclVVOHd2allNY1dDRU1KMl9rQmhpeFZSTFJ3cWZteHlualkxX3FpcWdjSUxkLWhFbmhsMlQ2MEE?oc=5",
-          "published": "Fri, 27 Nov 2026 07:47:00 GMT"
-        },
-        {
-          "title": "The stock market is stuck | Expert Opinion",
-          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNWGpwT1Z5aVBMdUpmMU8tVVQ5eEQ1U1VfZVZyY090UVNDV01yZlRKUjhIU0xHRTRmUDBZS2NmQmVuUlFJaHlDUGUxWkczWTJGeDNfVENta0dtSWdQZmlsOHdrMWswOHJsUGp1NWUwSEFtTXk1MjJQWk9LZEN1S2hnUzVJZ3ZpMWpXVUxmYXFzbFpQX3RaN3Zqb3lFVXdiSkxPOWdteQ?oc=5",
-          "published": "Fri, 27 Nov 2026 12:01:00 GMT"
-        },
-        {
-          "title": "Worse Than the Dot-Com Crash: What an AI Bust Could Mean for the Economy",
-          "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPblNwWDM3MlF0WmxWbGJCZFR5RDN1R29oOUdmRkFURTZqdTQ5VnpnVUU1bTNWRi0yMGJ6NFRkcnJmb1Mzc2FiZTd2YlJkeXBYQ1RlNDZZNG1GaWFOa3Z1MWJ0c085TDExQTd2VmVZd28zX3FPRllMa29GS2h4ZFdjSmcyemx2Vm1BNE5IbXBBVDY4TldqQTl1bUw5TFVnaERQVjZUX19zV2JnQzFm?oc=5",
-          "published": "Wed, 25 Nov 2026 02:03:23 GMT"
-        },
-        {
-          "title": "President Trump Just Hit Stock Market Investors With Bad News at a Bad Time",
-          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPWnRGakQ1eUZ0VExDNTRFOVN5Mm01NHZPTENfQTc2em0yRlg5R1kyOVV4cE94dFVlbHFuelc4VW5mVFVZX2lTdzdlWG50cEVXdUZFVDF3eHlqUmdObDllZFBjMTZsVmlTa2dPRzVjTEpxamtUb2lyMHdsZXAwYkZlVXBoUHFINF9naFdKNmxTV2lXZWhiYURRQ3RBYw?oc=5",
-          "published": "Thu, 26 Nov 2026 10:32:02 GMT"
-        },
-        {
           "title": "2027 economic and market outlook",
           "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNazk1SWlkR0kxVUJrdThCMmhUVi12eXJ4ZS1haHNtbmdMelRQN3RwQkd4RlRlaVhxOEhjcUtYMVdMZU5KeEFiMFlPVVVCaUtJdVlXS2N2NGVMSEFxSml5djNGbnlXQVMwVnBZV3lDMmRuZDcyVUxRQ1F2VkVHZGFGX18xNDI3clQ2N011ZjlaOEs?oc=5",
           "published": "Wed, 25 Nov 2026 15:33:47 GMT"
         },
         {
-          "title": "Asian stock markets rise after earlier tech rout",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQdGVRWWVjMXZERWVTSkhGRDFoSTFXVE1NeGY4cVdYSmQ0MkQwUFNnSXU2enI2ckEzREZrTmFVWFhMVVNKbnhuc3dQSjB1X3JTN2dNeWNwNGhFcDJmWUYzSnAzeUQyWHlBU21sY1VWWHl6a2RuRWRwdmZ1Y1NtSFpkcGs0RHR0T1RuUVJZREtCMm44RWNra3FyNtIBngFBVV95cUxNZUR4RVgzSXFQeEp5WktydzV5NjF4eU1XblVwdVRnUEh6MEZ5a1hvZmI1QmVuM0VaQkd2dVpQRGhIZ09IeEp4ZTl2WHpfNVIybjJ5X1Z2SElYUzl3UndYNkYyME5rNHoxeUt5Tmd2QVJud3FDb3p5Vk1MRnJRc3l3bkZ0eng3ZzUtVVZuSlVmNUdZMzVGWDZEYmlYWVFaUQ?oc=5",
-          "published": "Fri, 27 Nov 2026 03:46:18 GMT"
+          "title": "Analysis | Trump’s Nvidia gambit shows the stock market is the economy",
+          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOdkp6YllFbGVuUS04S1E1aWdta2paXzVJTE00amRvblR0dGVFVHZwVTBUVXRpZEFSMVpYNnc0bmM3YUFKZG9vX3NRdWFaTGVRblktZ1gtRk1CY25Ea2ZwV2RCS0pnMXpiTnk0OGxHRDd4eExYZC1sZlZhZ0V4ajE1LUdGWWlzUzh0X3RoZHZR?oc=5",
+          "published": "Wed, 25 Nov 2026 04:53:37 GMT"
+        },
+        {
+          "title": "President Donald Trump's Economy and the AI-Driven Stock Market Are in Trouble, Thanks to a Newly Identified Source of Inflation",
+          "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOSmo2Q1RkQVhOVkxfV3FiUHBPOFg5SHhDbk4tVkEydXcxZm9sZ3VHdWJudU1pbTloYk82LWNBVUozU3R3WmM3TlBoUmtfRUZRa0tUN3BzT3NyZGxoWDFrLTJYUU1ZamF1YWRmb250TWYyX1FxTnltdnF3dmoyeGdXSFpnMk5YYzVJWlBLQ1ZnWDROc1FfZDBtdENRUjN5bDAtMGVUWXJ5bFc0OE5RdDBvREVuQ0pZcDJDVVpSelpWUTBnU051R1Z3Mk93MXJEV2s?oc=5",
+          "published": "Sat, 21 Nov 2026 09:06:02 GMT"
+        },
+        {
+          "title": "So … is the stock market the economy now? : The Indicator from Planet Money",
+          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNQjJFYXl6WGIwWnFQUmVwS1BOQmRYZ1FPVTBtMVFqc3lWMHBZeGRham9neU92cEN5OEVXdTA1eGZWNkpKUFhDcTdjLWtRTUJnQ21WVEJ0bnMzaWROYVNPNm1wcHNfc3RzMnRPYkNUS3p3RFRSaUgxZnZaZlYxajN6dDlTUHkxU09Cd2Qw?oc=5",
+          "published": "Wed, 11 Nov 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Nifty: Five reasons India's markets are sinking even when its economy is growing",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE13eUZFdTFjQUFKSmQ5OVpacTRkRmhOOFFwSU5WTUkwdG13ZGZiLUk4T3BvYUlXZi05YWRldWFQRzlaZ24xTWhCdnhLWW53bHlJYUh6aGl5UjVHUjg?oc=5",
+          "published": "Mon, 05 Oct 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Wall St Week Ahead Volatile stock market confronts jobs data, rate view as next tests",
+          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPQWRTQ0tlUW54X0tjS2R6bWdzblVkUnZ5VnBCa2NjWkd5Q2xIWUh0MUFWVW4weVlRTTBpbDhFWTFsbmYwc2NqOERDdGxTZmpHTzdHRVk2b2o5U0RZYm1WMXZhaEJMRXFrQmxKaUViQXNNdE1XZ3RTT05VbmxqX3BYOXNONGFkMVFTU1VLVVRjTzdfUTloYnhJaVpsWS1YMV9FVGlmeUdYRmk0clkzM3FhQjZuUnRfYXdZRnVHdTE2Smo1V2M?oc=5",
+          "published": "Fri, 27 Nov 2026 11:02:00 GMT"
         }
       ]
     },
@@ -287,6 +287,6 @@
       ]
     }
   },
-  "updated_at": "2026-11-27 23:12",
-  "updated_date": "2026-11-27"
+  "updated_at": "2026-11-28 03:40",
+  "updated_date": "2026-11-28"
 }
